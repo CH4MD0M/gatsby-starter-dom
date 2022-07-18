@@ -1,0 +1,90 @@
+@import "../../style/variables.scss";
+
+.navbar {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}
+.nav-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.toggle-btn {
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.toggle-btn:hover {
+  color: var(--clr-primary-3);
+}
+.nav-links {
+  display: none;
+}
+.nav-icons {
+  display: none;
+}
+
+.linkedin-icon {
+  color: #0a66c2;
+}
+.instagram-icon {
+  color: #e4405f;
+}
+.github-icon {
+  color: #181717;
+}
+@media screen and (min-width: 800px) {
+  .toggle-btn {
+    display: none;
+  }
+  .nav-center {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 2rem;
+    align-items: center;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  .page-link {
+    margin-right: 1rem;
+  }
+  .page-link {
+    color: var(--clr-black);
+    font-weight: 500;
+    letter-spacing: var(--spacing);
+    font-size: 1rem;
+    transition: var(--transition);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+  }
+  .page-link:hover {
+    background: var(--clr-primary-5);
+    color: var(--clr-primary-10);
+  }
+  .nav-icons {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-icons .social-icon {
+    font-size: 1.5rem;
+    transition: var(--transition);
+    margin-left: 0.5rem;
+  }
+  .nav-icons .social-icon:hover {
+    color: var(--clr-grey-1);
+    transform: translateY(-5px);
+  }
+}

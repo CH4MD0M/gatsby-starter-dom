@@ -1,0 +1,33 @@
+.footer {
+  width: 100%;
+  height: 7rem;
+  text-align: center;
+  background: #ecf0f2;
+  display: grid;
+  place-items: center;
+}
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.footer-icons a {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+}
+.footer-icons li {
+  transition: var(--transition);
+}
+.footer-icons li:hover {
+  transform: translateY(-10%);
+}
+.footer p {
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #aaa;
+}
+.footer p > a {
+  color: var(--clr-black);
+}
