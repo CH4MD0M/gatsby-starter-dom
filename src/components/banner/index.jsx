@@ -8,8 +8,6 @@ import "./style.scss";
 const Banner = () => {
   return (
     <Wrapper>
-      <About />
-      {/* <Recent /> */}
       <BannerCategories />
     </Wrapper>
   );
@@ -18,10 +16,10 @@ const Banner = () => {
 export default Banner;
 
 const Wrapper = styled.aside`
+  margin-left: 2rem;
+  position: -webkit-sticky;
   position: sticky;
-  top: 3rem;
-  display: grid;
-  grid-template-columns: 200px;
-  justify-content: center;
-  row-gap: 1rem;
+  top: 20%;
+  min-height: 200px;
+  height: 25vh;
 `;

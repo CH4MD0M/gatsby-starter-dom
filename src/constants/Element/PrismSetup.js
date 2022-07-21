@@ -49,7 +49,7 @@ const Pre = styled.pre`
     position: absolute;
     top: 0;
     right: 5%;
-    color: rgb(156, 220, 254);
+    color: var(--clr-green-light);
     font-size: 1rem;
     font-weight: 700;
     transform: translateY(-100%);
@@ -57,7 +57,7 @@ const Pre = styled.pre`
     padding: 0.05rem 0.85rem 0;
     border-top-left-radius: var(--radius);
     border-top-right-radius: var(--radius);
-    background: #1e1e1e;
+    background: var(--clr-primary-5);
   }
 `;
 const Container = styled.article`

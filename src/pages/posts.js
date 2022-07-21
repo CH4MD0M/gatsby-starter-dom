@@ -3,6 +3,7 @@ import Layout from "../layout";
 import Hero from "../components/Hero";
 import { graphql, useStaticQuery } from "gatsby";
 import Posts from "../components/Posts";
+import styled from "styled-components";
 const PostsPage = () => {
   const data = useStaticQuery(query);
   const {
@@ -16,6 +17,8 @@ const PostsPage = () => {
   );
 };
 
+const Wrapper = styled.div``;
+
 export default PostsPage;
 
 export const query = graphql`
@@ -27,7 +30,7 @@ export const query = graphql`
           title
           author
           category
-          date(formatString: "MMMM, Do YYYY")
+          date(formatString: "MMMM DD, YYYY")
           slug
           image {
             childImageSharp {

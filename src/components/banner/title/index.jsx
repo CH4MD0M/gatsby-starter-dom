@@ -17,10 +17,10 @@ export const Wrapper = styled.div`
   text-align: center;
   margin-bottom: 1.25rem;
   h4 {
-    color: var(--clr-grey-3);
+    color: var(--clr-primary-7);
     text-transform: uppercase;
     font-weight: 500;
-    background: var(--clr-white);
+    background: var(--clr-primary-1);
     display: inline-block;
     margin-bottom: 0;
     padding: 0 0.6rem;

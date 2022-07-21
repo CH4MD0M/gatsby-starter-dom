@@ -45,17 +45,16 @@ const Blockquote = ({ children, display }) => {
 const Wrapper = styled.blockquote`
   .container {
     padding: 2rem 1.5rem;
-    background: var(--clr-grey-10);
+    background: hsl(204, 87%, 94%);
     border-radius: var(--radius);
-    color: var(--clr-grey-1);
-    border-left: 3px solid var(--clr-grey-5);
+    color: hsl(204, 94%, 87%);
+    border-left: 3px solid hsl(204, 62%, 45%);
     position: relative;
     margin: 2rem 0;
   }
   @media (min-width: 1170px) {
     .container {
-      margin-left: -2rem;
-      margin-right: -2rem;
+      margin: 0 2rem;
     }
   }
   .icon {
@@ -70,11 +69,11 @@ const Wrapper = styled.blockquote`
     border: 6px solid var(--clr-white);
   }
   .info {
-    background: var(--clr-primary-10);
-    color: var(--clr-primary-1);
-    border-color: var(--clr-primary-5);
+    background: hsl(204, 87%, 94%);
+    color: hsl(204, 91%, 17%);
+    border-color: hsl(204, 62%, 45%);
     .icon {
-      color: var(--clr-primary-5);
+      color: hsl(204, 62%, 45%);
     }
   }
   .warning {
@@ -93,14 +92,15 @@ const Wrapper = styled.blockquote`
       align-items: center;
     }
     font-style: italic;
-    color: var(--clr-grey-5);
+    color: var(--clr-primary-5);
     line-height: 1.8;
     word-spacing: 3px;
     font-size: 1.2rem;
     margin: 2rem 0;
+
     .quote-icon {
       font-size: 4rem;
-      color: var(--clr-primary-5);
+      color: hsl(204, 62%, 45%);
     }
   }
 `;

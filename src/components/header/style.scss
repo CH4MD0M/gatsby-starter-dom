@@ -20,12 +20,12 @@
   font-size: 2rem;
   background: transparent;
   border-color: transparent;
-  color: var(--clr-primary-5);
+  color: var(--clr-primary-8);
   cursor: pointer;
   transition: var(--transition);
 }
 .toggle-btn:hover {
-  color: var(--clr-primary-3);
+  color: var(--clr-primary-6);
 }
 .nav-links {
   display: none;
@@ -61,18 +61,18 @@
     margin-right: 1rem;
   }
   .page-link {
-    color: var(--clr-black);
+    color: var(--clr-primary-8);
     font-weight: 500;
     letter-spacing: var(--spacing);
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: var(--transition);
     cursor: pointer;
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
   }
   .page-link:hover {
-    background: var(--clr-primary-5);
-    color: var(--clr-primary-10);
+    background: hsl(204, 62%, 45%);
+    color: var(--clr-primary-8);
   }
   .nav-icons {
     display: flex;
@@ -84,7 +84,7 @@
     margin-left: 0.5rem;
   }
   .nav-icons .social-icon:hover {
-    color: var(--clr-grey-1);
+    color: var(--clr-primary-1);
     transform: translateY(-5px);
   }
 }

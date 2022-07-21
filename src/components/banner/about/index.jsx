@@ -16,7 +16,10 @@ const About = () => {
         alt="author"
         className="img"
       />
-      <p>기억보단 기록을 남기는 프론트엔드 개발자입니다.</p>
+      <p>
+        기억보단 기록을 남기는
+        <br /> 프론트엔드 개발자입니다.
+      </p>
     </Wrapper>
   );
 };

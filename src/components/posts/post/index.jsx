@@ -1,37 +1,44 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FaRegClock } from "react-icons/fa";
-import { IoMdArrowRoundForward } from "react-icons/io";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Post = ({ excerpt, frontmatter }) => {
-  const { title, image, slug, date, category } = frontmatter;
+  const { title, image, slug, date, category, author } = frontmatter;
 
   return (
     <Wrapper>
-      <GatsbyImage image={getImage(image)} alt={title} className="img" />
-      <div className="info">
-        <span className="category">{category}</span>
-        <h3>{title}</h3>
-        <div className="underline"></div>
-        <p>{excerpt}</p>
-        <Link to={`/posts/${slug}`} className="link">
-          Continue Reading <IoMdArrowRoundForward />
-        </Link>
-        <footer>
-          <span className="date">
-            <FaRegClock className="icon" />
-            {date}
-          </span>
-        </footer>
-      </div>
+      <Link to={`/posts/${slug}`} className="post-container">
+        <GatsbyImage image={getImage(image)} alt={title} className="img" />
+        <div className="info">
+          <span className="category">{category}</span>
+          <h3>{title}</h3>
+          <p>{excerpt}</p>
+
+          <footer>
+            <span className="date">
+              <FaRegClock className="icon" />
+              {date}
+            </span>
+          </footer>
+        </div>
+      </Link>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.article`
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  .post-container {
+    background-color: var(--clr-primary-2);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: var(--transition);
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
   .info {
     text-align: center;
   }
@@ -43,61 +50,37 @@ const Wrapper = styled.article`
   .category {
     display: inline-block;
     margin-bottom: 1rem;
-    background: var(--clr-grey-10);
+    background: var(--clr-primary-8);
     padding: 0.25rem 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
-    border-radius: var(--radius);
+    border-radius: 0.4rem;
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: var(--clr-primary-5);
   }
   h3 {
+    color: var(--clr-white);
     font-weight: 400;
     margin-bottom: 1rem;
     text-transform: initial;
   }
-  .underline {
-    width: 5rem;
-    height: 1px;
-    background: var(--clr-grey-9);
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
+
   p {
-    color: var(--clr-grey-5);
+    color: var(--clr-primary-6);
     line-height: 1.8;
   }
-  .link {
-    text-transform: uppercase;
-    letter-spacing: var(--spacing);
-    font-weight: 700;
-    color: var(--clr-primary-5);
-    padding-bottom: 0.1rem;
-    display: flex;
-    align-items: center;
-    svg {
-      margin-left: 0.25rem;
-      font-size: 1.2rem;
-    }
-  }
-  .link:hover {
-    border-color: var(--clr-primary-8);
-    color: var(--clr-primary-8);
-  }
+
   footer {
-    margin-top: 2rem;
+    margin-top: 3.5rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--clr-grey-9);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--clr-grey-5);
+    border-top: 1px solid var(--clr-primary-6);
+    color: var(--clr-primary-6);
 
     & .date {
       display: flex;
       align-items: center;
       & .icon {
-        color: var(--clr-primary-5);
+        color: var(--clr-primary-8);
         margin-right: 0.5rem;
       }
     }
@@ -114,9 +97,11 @@ const Wrapper = styled.article`
   }
   @media (min-width: 992px) {
     & {
-      display: grid;
-      grid-template-columns: 30rem 1fr;
-      column-gap: 1.5rem;
+      .post-container {
+        display: grid;
+        grid-template-columns: 30rem 1fr;
+        column-gap: 1.5rem;
+      }
       .info {
         text-align: left;
       }

@@ -48,14 +48,9 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         category
-        date(formatString: "MMMM Do, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         slug
         title
-        embeddedImages {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
         image {
           childImageSharp {
             gatsbyImageData
@@ -68,11 +63,16 @@ export const query = graphql`
 `;
 
 const Wrapper = styled.section`
-  width: 85vw;
-  max-width: 1100px;
+  width: 92vw;
+  max-width: var(--max-width);
   margin: 0 auto;
   margin-bottom: 4rem;
 
+  & > article:nth-child(1) {
+    background-color: var(--clr-primary-2);
+    padding: 6rem 2.3rem 0 2.3rem;
+    border-radius: 1rem;
+  }
   .post-info {
     margin: 2rem 0 4rem 0;
     text-align: center;
@@ -87,17 +87,32 @@ const Wrapper = styled.section`
     h2 {
       margin: 1.25rem 0;
       font-weight: 400;
+      color: var(--clr-white);
     }
     p {
-      color: var(--clr-grey-5);
+      color: var(--clr-primary-6);
     }
     .underline {
       width: 5rem;
       height: 1px;
-      background: var(--clr-grey-9);
+      background: var(--clr-primary-8);
       margin: 0 auto;
       margin-bottom: 1rem;
     }
+  }
+  ul {
+    list-style-type: circle;
+    padding: 0 2rem;
+    color: var(--clr-primary-6);
+  }
+  p {
+    line-height: 1.7;
+  }
+  em {
+    background-color: var(--clr-orange-light);
+    padding: 0.1rem 0.3rem;
+    border-radius: 2px;
+    color: var(--clr-primary-2);
   }
   @media (min-width: 992px) {
     & {
@@ -112,8 +127,8 @@ const Wrapper = styled.section`
   @media (min-width: 1170px) {
     & {
       display: grid;
-      grid-template-columns: 1fr 200px;
-      column-gap: 4rem;
+      grid-template-columns: 1fr 250px;
+      column-gap: 1rem;
     }
   }
 `;
