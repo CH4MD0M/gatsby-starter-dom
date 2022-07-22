@@ -5,16 +5,18 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Post = ({ excerpt, frontmatter }) => {
-  const { title, image, slug, date, category, author } = frontmatter;
+  const { title, thumbnail, slug, date, category, author } = frontmatter;
 
   return (
     <Wrapper>
       <Link to={`/posts/${slug}`} className="post-container">
-        <GatsbyImage image={getImage(image)} alt={title} className="img" />
+        <GatsbyImage image={getImage(thumbnail)} alt={title} className="img" />
         <div className="info">
-          <span className="category">{category}</span>
-          <h3>{title}</h3>
-          <p>{excerpt}</p>
+          <header>
+            <span className="category">{category}</span>
+            <h3>{title}</h3>
+            <p>{excerpt}</p>
+          </header>
 
           <footer>
             <span className="date">
@@ -41,6 +43,9 @@ const Wrapper = styled.article`
   }
   .info {
     text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    grid-gap: 1rem;
   }
   .img {
     margin-bottom: 1rem;
@@ -57,29 +62,31 @@ const Wrapper = styled.article`
     border-radius: 0.4rem;
     letter-spacing: var(--spacing);
     color: var(--clr-primary-5);
+    font-size: 0.875rem;
   }
   h3 {
     color: var(--clr-white);
-    font-weight: 400;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
     text-transform: initial;
   }
 
   p {
     color: var(--clr-primary-6);
-    line-height: 1.8;
+    line-height: 1.5;
+    font-size: 0.875rem;
   }
 
   footer {
-    margin-top: 3.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--clr-primary-6);
     color: var(--clr-primary-6);
 
-    & .date {
+    .date {
       display: flex;
       align-items: center;
-      & .icon {
+      .icon {
         color: var(--clr-primary-8);
         margin-right: 0.5rem;
       }

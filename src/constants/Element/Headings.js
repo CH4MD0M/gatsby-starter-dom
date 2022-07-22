@@ -14,8 +14,9 @@ const HeadingOne = styled.div`
   color: var(--clr-primary-8);
 
   .underline {
-    width: 70%;
-    height: 3px;
+    width: 40%;
+    height: 4px;
+    border-radius: 4px;
     background: var(--clr-primary-4);
   }
 `;
@@ -31,11 +32,9 @@ const myH2 = ({ children }) => {
 const HeadingTwo = styled.div`
   margin-top: 3rem;
   color: var(--clr-primary-7);
-
-  .underline {
-    width: 7.5rem;
-    height: 3px;
-    background: var(--clr-primary-3);
+  h2 {
+    border-left: 4px solid var(--clr-primary-4);
+    padding-left: 1rem;
   }
 `;
 

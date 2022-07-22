@@ -1,6 +1,6 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/github";
+import theme from "prism-react-renderer/themes/dracula";
 import styled from "styled-components";
 
 const PrismWrapper = (props) => {
@@ -35,9 +35,9 @@ const PrismWrapper = (props) => {
 };
 
 const Pre = styled.pre`
-  background: #1e1e1e;
   padding: 1rem 1.5rem;
-  border-radius: var(--radius);
+  box-shadow: var(--dark-shadow);
+  border-radius: 7px;
   margin: 3rem 0;
   font-size: 0.9rem;
   font-family: "Courier New", Courier, monospace;
@@ -48,15 +48,14 @@ const Pre = styled.pre`
   .code-tab {
     position: absolute;
     top: 0;
-    right: 5%;
+    left: 2%;
     color: var(--clr-green-light);
     font-size: 1rem;
     font-weight: 700;
     transform: translateY(-100%);
     text-transform: uppercase;
     padding: 0.05rem 0.85rem 0;
-    border-top-left-radius: var(--radius);
-    border-top-right-radius: var(--radius);
+    border-radius: 6px 6px 0 0;
     background: var(--clr-primary-5);
   }
 `;

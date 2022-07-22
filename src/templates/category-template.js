@@ -38,7 +38,7 @@ export const query = graphql`
           category
           slug
           date(formatString: "MMMM Do, YYYY")
-          image {
+          thumbnail {
             childImageSharp {
               gatsbyImageData
             }

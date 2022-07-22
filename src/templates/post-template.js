@@ -10,29 +10,30 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 const PostTemplate = ({ data }) => {
   const {
     mdx: {
-      frontmatter: { title, category, image, date, embeddedImages },
+      frontmatter: { title, author, category, thumbnail, date },
       body,
     },
   } = data;
   return (
     <Layout>
-      <Hero />
       <Wrapper>
         {/* info */}
         <article>
-          <GatsbyImage
-            image={getImage(image)}
-            alt={title}
-            className="main-img"
-          />
-
           <div className="post-info">
             <span>{category}</span>
             <h2>{title}</h2>
             <p>{date}</p>
             <div className="underline" />
           </div>
-          <MDXRenderer embeddedImages={embeddedImages}>{body}</MDXRenderer>
+
+          <div className="post-contents">
+            <GatsbyImage
+              image={getImage(thumbnail)}
+              alt={title}
+              className="main-img"
+            />
+            <MDXRenderer>{body}</MDXRenderer>
+          </div>
         </article>
         {/* banner */}
         <article>
@@ -48,10 +49,11 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         category
+        author
         date(formatString: "MMMM DD, YYYY")
         slug
         title
-        image {
+        thumbnail {
           childImageSharp {
             gatsbyImageData
           }
@@ -65,17 +67,11 @@ export const query = graphql`
 const Wrapper = styled.section`
   width: 92vw;
   max-width: var(--max-width);
-  margin: 0 auto;
-  margin-bottom: 4rem;
+  margin: 14rem auto 4rem auto;
 
-  & > article:nth-child(1) {
-    background-color: var(--clr-primary-2);
-    padding: 6rem 2.3rem 0 2.3rem;
-    border-radius: 1rem;
-  }
   .post-info {
     margin: 2rem 0 4rem 0;
-    text-align: center;
+    text-align: left;
     span {
       background: var(--clr-primary-5);
       color: var(--clr-white);
@@ -86,20 +82,27 @@ const Wrapper = styled.section`
     }
     h2 {
       margin: 1.25rem 0;
-      font-weight: 400;
+      font-weight: 700;
+      font-size: 4rem;
       color: var(--clr-white);
     }
     p {
       color: var(--clr-primary-6);
     }
     .underline {
-      width: 5rem;
+      width: 10rem;
       height: 1px;
       background: var(--clr-primary-8);
-      margin: 0 auto;
       margin-bottom: 1rem;
     }
   }
+
+  .post-contents {
+    background-color: var(--clr-primary-2);
+    padding: 2rem 2.3rem;
+    border-radius: 1rem;
+  }
+
   ul {
     list-style-type: circle;
     padding: 0 2rem;
@@ -107,6 +110,7 @@ const Wrapper = styled.section`
   }
   p {
     line-height: 1.7;
+    font-size: 1.1rem;
   }
   em {
     background-color: var(--clr-orange-light);
