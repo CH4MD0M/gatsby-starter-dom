@@ -1,28 +1,41 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../layout";
 import Hero from "../components/Hero";
-import { graphql, useStaticQuery } from "gatsby";
 import Posts from "../components/Posts";
-import styled from "styled-components";
+import Head from "../components/head";
+
 const PostsPage = () => {
   const data = useStaticQuery(query);
+  const { countOfInitialPost } = data.site.siteMetadata.configs;
+
   const {
     allMdx: { nodes: posts },
   } = data;
   return (
     <Layout>
+      <Head title="Posts" />
       <Hero />
-      <Posts posts={posts} title="all posts" />
+      <Posts
+        posts={posts}
+        countOfInitialPost={countOfInitialPost}
+        title="all posts"
+      />
     </Layout>
   );
 };
-
-const Wrapper = styled.div``;
 
 export default PostsPage;
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        configs {
+          countOfInitialPost
+        }
+      }
+    }
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         excerpt
