@@ -1,7 +1,15 @@
-const metaConfig = require("./gatsby-meta-config");
-
 module.exports = {
-  siteMetadata: metaConfig,
+  siteMetadata: {
+    siteUrl: `https://ch4md0m.github.io`,
+    title: `Ch4mD0m's blog`,
+    description: `기술 블로그`,
+    author: `Kihoon`,
+    social: {
+      email: "d0m__@naver.com",
+      github: "https://github.com/CH4MD0M/",
+      instagram: `k1h00n_`,
+    },
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

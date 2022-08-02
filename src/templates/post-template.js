@@ -6,16 +6,25 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Banner from "../components/Banner";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import SEO from "../components/Seo";
+import { Helmet } from "react-helmet";
 
-const PostTemplate = ({ data }) => {
+const PostTemplate = ({ data, location }) => {
+  const { siteUrl, description } = data.site.siteMetadata;
+
   const {
     mdx: {
       frontmatter: { title, author, category, thumbnail, date },
       body,
+      excerpt,
     },
   } = data;
   return (
     <Layout>
+      <SEO title={title} description={description || excerpt} />
+      <Helmet>
+        <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
+      </Helmet>
       <Wrapper>
         {/* info */}
         <article>
@@ -36,8 +45,15 @@ const PostTemplate = ({ data }) => {
 };
 
 export const query = graphql`
-  query GetSinglePost($slug: String) {
+  query ($slug: String) {
+    site {
+      siteMetadata {
+        siteUrl
+        description
+      }
+    }
     mdx(frontmatter: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 150)
       frontmatter {
         category
         author
@@ -142,7 +158,7 @@ const Wrapper = styled.section`
     color: rgb(125, 107, 113);
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 1300px) {
     & {
       width: 50vw;
     }

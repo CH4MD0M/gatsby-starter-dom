@@ -3,7 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../layout";
 import Hero from "../components/Hero";
 import Posts from "../components/Posts";
-import Head from "../components/head";
+import SEO from "../components/Seo";
+import { Helmet } from "react-helmet";
 
 const PostsPage = () => {
   const data = useStaticQuery(query);
@@ -13,7 +14,10 @@ const PostsPage = () => {
   } = data;
   return (
     <Layout>
-      <Head title="Posts" />
+      <SEO title="Posts" />
+      <Helmet>
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+      </Helmet>
       <Hero />
       <Posts posts={posts} title="all posts" />
     </Layout>
@@ -24,6 +28,18 @@ export default PostsPage;
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        author
+        social {
+          email
+          github
+          instagram
+        }
+      }
+    }
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         excerpt
