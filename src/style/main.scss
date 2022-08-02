@@ -21,6 +21,7 @@ body {
 
 ul {
   list-style-type: none;
+  font-size: 1rem;
 }
 
 a,
@@ -39,45 +40,20 @@ h4 {
   margin-bottom: 0.75rem;
 }
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 1.55rem;
 }
 h3 {
   font-size: 1.25rem;
 }
-h4 {
-  font-size: 0.875rem;
-}
 
 p {
-  margin: 1.5rem 0;
+  line-height: 1.7rem;
+  font-size: 1rem;
+  margin: 1rem 0;
   color: var(--clr-primary-7);
-}
-
-@media screen and (min-width: 800px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.7rem;
-  }
-  h3 {
-    font-size: 1rem;
-  }
-  h4 {
-    font-size: 0.8rem;
-  }
-  body {
-    font-size: 1rem;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    line-height: 1;
-  }
 }
 
 /*  Global Classes */
@@ -145,57 +121,13 @@ main {
   margin-top: -5rem;
 }
 
-.code {
-  background: #1e1e1e;
-  color: hsl(204, 62%, 45%);
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius);
-  margin: 2rem 0;
-  font-size: 1.2rem;
-  overflow-x: scroll;
-  position: relative;
-}
-.code pre {
-  font-family: "Courier New", Courier, monospace;
-}
-.code .token-line {
-  line-height: 1.5;
-}
-
-.nice-text {
-  background: var(--clr-primary-8);
-  padding: 2rem 1.5rem;
-  color: var(--clr-primary-1);
-  border-radius: var(--radius);
-  border-left: 3px solid hsl(204, 62%, 45%);
-  color: var(--clr-black);
-  position: relative;
-}
-.nice-text h4,
-.nice-text p {
-  color: var(--clr-black);
-}
-.nice-text p {
-  margin-bottom: 0;
-}
 @media screen and (min-width: 992px) {
   .nice-text {
     margin-left: -2rem;
     margin-right: -2rem;
   }
 }
-.nice-text-icon {
-  position: absolute;
-  top: 0;
-  left: -3px;
-  background: var(--clr-white);
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 6px solid var(--clr-white);
-  color: hsl(204, 62%, 45%);
-}
+
 .mdx-page {
   width: 90vw;
   max-width: var(--fixed-width);
@@ -209,9 +141,4 @@ main {
   border-radius: 50px;
   height: 20rem;
   object-fit: cover;
-}
-
-.first-inline-img {
-  width: 20rem;
-  border-radius: 1rem;
 }

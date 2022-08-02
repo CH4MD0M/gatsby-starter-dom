@@ -11,13 +11,14 @@ const myH1 = ({ children }) => {
 };
 const HeadingOne = styled.div`
   margin-top: 4rem;
-  color: var(--clr-primary-8);
+  color: var(--clr-primary-2);
 
   .underline {
     width: 40%;
     height: 4px;
     border-radius: 4px;
     background: var(--clr-primary-4);
+    margin-top: -5px;
   }
 `;
 
@@ -30,8 +31,8 @@ const myH2 = ({ children }) => {
   );
 };
 const HeadingTwo = styled.div`
-  margin-top: 3rem;
-  color: var(--clr-primary-7);
+  margin-top: 4rem;
+  color: var(--clr-primary-2);
   h2 {
     border-left: 4px solid var(--clr-primary-4);
     padding-left: 1rem;
@@ -40,7 +41,13 @@ const HeadingTwo = styled.div`
 
 const myH3 = ({ children }) => {
   return (
-    <h3 style={{ margin: "2rem 0", color: "var(--clr-primary-8)" }}>
+    <h3
+      style={{
+        margin: "2rem 0",
+        color: "var(--clr-primary-2)",
+        fontSize: "1.2rem",
+      }}
+    >
       {children}
     </h3>
   );

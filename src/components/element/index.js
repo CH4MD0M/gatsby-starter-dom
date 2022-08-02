@@ -1,6 +1,6 @@
 import * as Headings from "./Headings";
-import Code from "./Code";
+import Codeblock from "./Codeblock";
 import Blockquote from "./Blockquote";
 import PrismSetup from "./PrismSetup";
 
-export { Headings, Code, Blockquote, PrismSetup };
+export { Headings, Codeblock, Blockquote, PrismSetup };

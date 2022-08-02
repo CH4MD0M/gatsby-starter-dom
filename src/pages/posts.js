@@ -7,7 +7,6 @@ import Head from "../components/head";
 
 const PostsPage = () => {
   const data = useStaticQuery(query);
-  const { countOfInitialPost } = data.site.siteMetadata.configs;
 
   const {
     allMdx: { nodes: posts },
@@ -16,11 +15,7 @@ const PostsPage = () => {
     <Layout>
       <Head title="Posts" />
       <Hero />
-      <Posts
-        posts={posts}
-        countOfInitialPost={countOfInitialPost}
-        title="all posts"
-      />
+      <Posts posts={posts} title="all posts" />
     </Layout>
   );
 };
@@ -29,13 +24,6 @@ export default PostsPage;
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        configs {
-          countOfInitialPost
-        }
-      }
-    }
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         excerpt

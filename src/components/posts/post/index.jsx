@@ -35,7 +35,6 @@ const Wrapper = styled.article`
   .post-container {
     background-color: var(--clr-primary-2);
     border-radius: var(--radius);
-    padding: 1.5rem;
     transition: var(--transition);
     &:hover {
       transform: translateY(-10px);
@@ -43,12 +42,9 @@ const Wrapper = styled.article`
   }
   .info {
     text-align: center;
-    display: grid;
-    grid-template-rows: 1fr 50px;
-    grid-gap: 1rem;
   }
   .img {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     border-radius: var(--radius);
     height: 17rem;
   }
@@ -82,43 +78,61 @@ const Wrapper = styled.article`
     padding-top: 1rem;
     border-top: 1px solid var(--clr-primary-6);
     color: var(--clr-primary-6);
-
+  }
+  @media (min-width: 600px) {
+    .post-container {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .img {
+      height: 20rem;
+    }
+    header,
+    footer {
+      text-align: left;
+    }
+    header p {
+      width: 100%;
+    }
+  }
+  @media (min-width: 900px) {
+    .post-container {
+      padding: 2.5rem;
+    }
+    .img {
+      height: 25rem;
+    }
+    header p {
+      width: 85%;
+    }
+  }
+  @media (min-width: 1100px) {
+    .post-container {
+      display: grid;
+      grid-template-columns: 30rem 1fr;
+      column-gap: 1.5rem;
+      padding: 1.5rem;
+    }
+    .info {
+      display: grid;
+      grid-template-rows: 1fr 50px;
+      grid-gap: 1rem;
+    }
+    .img {
+      height: 100%;
+      max-height: 20rem;
+    }
+    .underline {
+      margin-left: 0;
+      margin-right: 0;
+    }
     .date {
       display: flex;
       align-items: center;
       .icon {
         color: var(--clr-primary-8);
         margin-right: 0.5rem;
-      }
-    }
-  }
-  @media (min-width: 600px) {
-    .img {
-      height: 20rem;
-    }
-  }
-  @media (min-width: 800px) {
-    .img {
-      height: 25rem;
-    }
-  }
-  @media (min-width: 992px) {
-    & {
-      .post-container {
-        display: grid;
-        grid-template-columns: 30rem 1fr;
-        column-gap: 1.5rem;
-      }
-      .info {
-        text-align: left;
-      }
-      .img {
-        height: 100%;
-        max-height: 20rem;
-      }
-      .underline {
-        margin-left: 0;
-        margin-right: 0;
       }
     }
   }

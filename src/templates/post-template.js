@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../layout";
-import Hero from "../components/Hero";
+// import Hero from "../components/Hero";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Banner from "../components/Banner";
@@ -27,17 +27,8 @@ const PostTemplate = ({ data }) => {
           </div>
 
           <div className="post-contents">
-            <GatsbyImage
-              image={getImage(thumbnail)}
-              alt={title}
-              className="main-img"
-            />
             <MDXRenderer>{body}</MDXRenderer>
           </div>
-        </article>
-        {/* banner */}
-        <article>
-          <Banner />
         </article>
       </Wrapper>
     </Layout>
@@ -69,6 +60,7 @@ const Wrapper = styled.section`
   max-width: var(--max-width);
   margin: 14rem auto 4rem auto;
 
+  /* info */
   .post-info {
     margin: 2rem 0 4rem 0;
     text-align: left;
@@ -97,42 +89,67 @@ const Wrapper = styled.section`
     }
   }
 
+  /* post contents */
   .post-contents {
-    background-color: var(--clr-primary-2);
+    background-color: var(--clr-primary-8);
     padding: 2rem 2.3rem;
     border-radius: 1rem;
+  }
+
+  table {
+    margin: 3rem auto;
+    font-size: 1rem;
+    border-collapse: collapse;
+  }
+  th {
+    background-color: var(--clr-primary-6);
+    padding: 0.5rem 1rem;
+    border: 0.5px solid var(--clr-primary-2);
+  }
+  td {
+    padding: 0.3rem 1.2rem;
+    border: 0.5px solid var(--clr-primary-2);
+  }
+  td:first-child {
+    text-align: center;
+  }
+  th:first-child,
+  td:first-child {
+    border-left: none;
+  }
+  th:last-child,
+  td:last-child {
+    border-right: none;
   }
 
   ul {
     list-style-type: circle;
     padding: 0 2rem;
-    color: var(--clr-primary-6);
+    color: var(--clr-primary-2);
   }
+
   p {
-    line-height: 1.7;
-    font-size: 1.1rem;
+    color: var(--clr-primary-2);
+    a {
+      color: rgb(32, 168, 234);
+    }
   }
+
   em {
     background-color: var(--clr-orange-light);
     padding: 0.1rem 0.3rem;
     border-radius: 2px;
-    color: var(--clr-primary-2);
+    color: rgb(125, 107, 113);
   }
+
   @media (min-width: 992px) {
     & {
-      width: 92vw;
+      width: 50vw;
     }
     .main-img {
       width: 75%;
       display: block;
       margin: 0 auto;
-    }
-  }
-  @media (min-width: 1170px) {
-    & {
-      display: grid;
-      grid-template-columns: 1fr 250px;
-      column-gap: 1rem;
     }
   }
 `;

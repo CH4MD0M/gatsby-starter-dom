@@ -22,7 +22,7 @@ const Wrapper = styled.blockquote`
     position: relative;
 
     p {
-      color: var(--clr-primary-7);
+      color: var(--clr-primary-2);
     }
   }
   @media (min-width: 1170px) {

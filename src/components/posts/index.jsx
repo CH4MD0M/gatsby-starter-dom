@@ -3,7 +3,7 @@ import Post from "./post";
 import Banner from "../banner";
 import "./style.scss";
 
-const Posts = ({ posts, title }) => {
+const Posts = ({ countOfInitialPost, posts, title }) => {
   return (
     <section className="posts">
       <h3 className="posts-title">{title}</h3>
