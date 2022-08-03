@@ -19,9 +19,12 @@ body {
   height: 100%;
 }
 
+ul,
+ol {
+  font-size: 1rem;
+}
 ul {
   list-style-type: none;
-  font-size: 1rem;
 }
 
 a,

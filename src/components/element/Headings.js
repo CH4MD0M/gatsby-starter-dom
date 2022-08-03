@@ -10,7 +10,7 @@ const myH1 = ({ children }) => {
   );
 };
 const HeadingOne = styled.div`
-  margin-top: 4rem;
+  margin: 4rem 0 2rem 0;
   color: var(--clr-primary-2);
 
   .underline {

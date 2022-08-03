@@ -138,8 +138,8 @@ const Wrapper = styled.section`
     border-right: none;
   }
 
-  ul {
-    list-style-type: circle;
+  ul,
+  ol {
     padding: 0 2rem;
     color: var(--clr-primary-2);
   }
