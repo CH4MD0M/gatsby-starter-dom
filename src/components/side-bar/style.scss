@@ -23,7 +23,7 @@
 .sidebar-links .page-link {
   font-size: 2rem;
   display: block;
-  color: var(--clr-primary-1);
+  color: var(--clr-primary-8);
   font-weight: 700;
 }
 .sidebar .categories {
@@ -53,11 +53,14 @@
   border: transparent;
   font-size: 3rem;
   cursor: pointer;
+  svg {
+    fill: var(--clr-primary-8);
+  }
 }
 
 /* error page */
 .error-page {
-  background: var(--clr-primary-10);
+  background: var(--clr-primary-8);
 }
 .error-page span {
   font-size: 10rem;

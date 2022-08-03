@@ -1,17 +1,18 @@
 import React from "react";
 import { FaLinkedin, FaInstagramSquare, FaGithubSquare } from "react-icons/fa";
-
+import { AiOutlineInstagram } from "react-icons/ai";
+import "./style.scss";
 const SocialLinks = ({ styleClass }) => {
   return (
     <ul className={styleClass}>
       <li>
         <a href="https://linkedin.com">
-          <FaLinkedin className="social-icon linkedin-icon"></FaLinkedin>
+          <AiOutlineInstagram></AiOutlineInstagram>
         </a>
       </li>
       <li>
         <a href="https://instagram.com">
-          <FaInstagramSquare className="social-icon instagram-icon"></FaInstagramSquare>
+          <AiOutlineInstagram className="social-icon instagram-icon"></AiOutlineInstagram>
         </a>
       </li>
       <li>

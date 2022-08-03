@@ -1,5 +1,5 @@
 import React from "react";
-import Links from "../../constants/Links";
+import Links from "../Links";
 import Categories from "../categories";
 import { IoMdClose } from "react-icons/io";
 import "./style.scss";
