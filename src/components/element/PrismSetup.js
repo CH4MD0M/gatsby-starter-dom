@@ -40,7 +40,8 @@ const Pre = styled.pre`
   border-radius: 7px;
   margin: 3rem 0;
   font-size: 0.9rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Fira Code", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono",
+    monospace;
   overflow-x: auto;
   .token-line {
     line-height: 1.5;
