@@ -1,18 +1,26 @@
-import { graphql } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
-import Hero from "../components/Hero";
-import SEO from "../components/Seo";
-import Layout from "../layout";
+import { graphql, useStaticQuery } from "gatsby";
 
-const IndexPage = ({ data }) => {
+import Layout from "../layout";
+import Hero from "../components/Hero";
+import Posts from "../components/Posts";
+import SEO from "../components/Seo";
+
+const IndexPage = () => {
+  const data = useStaticQuery(query);
+  const {
+    allMdx: { nodes: posts },
+  } = data;
+
   return (
     <Layout>
       <SEO title="Home" />
       <Helmet>
-        <link rel="canonical" href="" />
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
       </Helmet>
       <Hero />
+      <Posts posts={posts} title="all posts" />
     </Layout>
   );
 };
@@ -20,7 +28,7 @@ const IndexPage = ({ data }) => {
 export default IndexPage;
 
 const query = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -31,6 +39,24 @@ const query = graphql`
           github
           instagram
         }
+      }
+    }
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      nodes {
+        excerpt
+        frontmatter {
+          title
+          author
+          category
+          date(formatString: "MMMM DD, YYYY")
+          slug
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        id
       }
     }
   }
