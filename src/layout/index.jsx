@@ -2,8 +2,19 @@ import React, { useState } from "react";
 import Header from "../components/header";
 import Sidebar from "../components/side-bar";
 import Footer from "../components/footer";
+import { graphql, useStaticQuery } from "gatsby";
 
 const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -12,7 +23,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="page-container">
-        <Header toggle={toggle}></Header>
+        <Header title={data.site.siteMetadata.title} toggle={toggle}></Header>
         <Sidebar isOpen={isOpen} toggle={toggle} />
         <main>{children}</main>
       </div>

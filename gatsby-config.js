@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: `https://ch4md0m.github.io`,
-    title: `Ch4mD0m's blog`,
+    title: `Today ch4md0m swam`,
     description: `기술 블로그`,
     author: `Kihoon`,
     social: {
