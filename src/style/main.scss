@@ -126,13 +126,6 @@ main {
   margin-top: -5rem;
 }
 
-@media screen and (min-width: 992px) {
-  .nice-text {
-    margin-left: -2rem;
-    margin-right: -2rem;
-  }
-}
-
 .mdx-page {
   width: 90vw;
   max-width: var(--fixed-width);
@@ -146,4 +139,16 @@ main {
   border-radius: 50px;
   height: 20rem;
   object-fit: cover;
+}
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
 }

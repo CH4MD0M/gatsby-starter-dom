@@ -14,7 +14,7 @@ const Header = ({ title, toggle }) => {
         <div className="nav-title">
           <Link to="/">{title}</Link>
         </div>
-        <div className="nav-header">
+        <div>
           <button className="toggle-btn" onClick={toggle}>
             <FaBars />
           </button>

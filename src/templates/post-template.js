@@ -108,54 +108,55 @@ const Wrapper = styled.section`
     background-color: var(--clr-primary-8);
     padding: 2rem 2.3rem;
     border-radius: 1rem;
-  }
 
-  table {
-    margin: 3rem auto;
-    font-size: 1rem;
-    border-collapse: collapse;
-  }
-  th {
-    background-color: var(--clr-primary-6);
-    padding: 0.5rem 1rem;
-    border: 0.5px solid var(--clr-primary-2);
-  }
-  td {
-    padding: 0.3rem 1.2rem;
-    border: 0.5px solid var(--clr-primary-2);
-  }
-  td:first-child {
-    text-align: center;
-  }
-  th:first-child,
-  td:first-child {
-    border-left: none;
-  }
-  th:last-child,
-  td:last-child {
-    border-right: none;
-  }
+    table {
+      margin: 3rem auto;
+      font-size: 1rem;
+      border-collapse: collapse;
+    }
+    th {
+      background-color: var(--clr-primary-6);
+      padding: 0.5rem 1rem;
+      border: 0.5px solid var(--clr-primary-2);
+    }
+    td {
+      padding: 0.3rem 1.2rem;
+      border: 0.5px solid var(--clr-primary-2);
+    }
+    td:first-child {
+      text-align: center;
+    }
+    th:first-child,
+    td:first-child {
+      border-left: none;
+    }
+    th:last-child,
+    td:last-child {
+      border-right: none;
+    }
+    ul {
+      list-style-type: circle;
+    }
+    ul,
+    ol {
+      padding: 0 2rem;
+      color: var(--clr-primary-2);
+    }
 
-  ul,
-  ol {
-    padding: 0 2rem;
-    color: var(--clr-primary-2);
-  }
+    p {
+      color: var(--clr-primary-2);
+      a {
+        color: rgb(32, 168, 234);
+      }
+    }
 
-  p {
-    color: var(--clr-primary-2);
-    a {
-      color: rgb(32, 168, 234);
+    em {
+      background-color: var(--clr-orange-light);
+      padding: 0.1rem 0.3rem;
+      border-radius: 2px;
+      color: rgb(125, 107, 113);
     }
   }
-
-  em {
-    background-color: var(--clr-orange-light);
-    padding: 0.1rem 0.3rem;
-    border-radius: 2px;
-    color: rgb(125, 107, 113);
-  }
-
   @media (min-width: 1300px) {
     & {
       width: 50vw;
@@ -164,6 +165,33 @@ const Wrapper = styled.section`
       width: 75%;
       display: block;
       margin: 0 auto;
+    }
+  }
+  @media (max-width: 580px) {
+    & {
+      width: 100vw;
+      margin: 14rem 0 4rem 0;
+    }
+    .post-info {
+      margin: 2rem 0 2rem 1rem;
+    }
+    .post-contents {
+      padding: 0.2rem 0.6rem;
+      border-radius: 0;
+      table {
+        font-size: 0.6rem;
+      }
+      p {
+        font-size: 0.9rem;
+        margin: 0.4rem 0;
+      }
+
+      ul,
+      ol {
+        font-size: 0.8rem;
+        padding: 0 1rem;
+        margin: 1rem 0;
+      }
     }
   }
 `;
