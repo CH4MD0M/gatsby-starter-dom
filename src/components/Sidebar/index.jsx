@@ -1,21 +1,28 @@
 import React from "react";
 import Links from "../Links";
 import Categories from "../categories";
+
+// CSS
 import { IoMdClose } from "react-icons/io";
-import "./style.scss";
+import { Wrapper } from "./style";
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
-    <aside className={`sidebar ${isOpen ? "showSidebar" : ""}`}>
-      <button className="close-btn" onClick={toggle}>
+    <Wrapper isOpen={isOpen}>
+      <button
+        className="close-btn"
+        onClick={() => {
+          toggle();
+        }}
+      >
         <IoMdClose />
       </button>
-      <div className="sidebar-container">
+      <div>
         <Links styleClass="sidebar-links">
           <Categories />
         </Links>
       </div>
-    </aside>
+    </Wrapper>
   );
 };
 

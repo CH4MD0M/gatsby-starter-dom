@@ -1,27 +1,30 @@
 import React from "react";
-import { FaBars } from "react-icons/fa";
-
-import Links from "../Links";
-import SocialLinks from "../../components/SocialLinks";
-
-import "./style.scss";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "gatsby";
 
+import Links from "../Links";
+
+import { Wrapper, NavTitle, ToggleContainer } from "./style";
+import { FaBars } from "react-icons/fa";
+
 const Header = ({ title, toggle }) => {
+  const isMediumSize = useMediaQuery({ query: "(max-width: 768px" });
   return (
-    <nav className="navbar">
-      <div className="nav-center">
-        <div className="nav-title">
-          <Link to="/">{title}</Link>
-        </div>
-        <div>
+    <Wrapper>
+      <NavTitle>
+        <Link to="/">{title}</Link>
+      </NavTitle>
+
+      {isMediumSize ? (
+        <ToggleContainer>
           <button className="toggle-btn" onClick={toggle}>
             <FaBars />
           </button>
-        </div>
+        </ToggleContainer>
+      ) : (
         <Links styleClass="nav-links" />
-      </div>
-    </nav>
+      )}
+    </Wrapper>
   );
 };
 
