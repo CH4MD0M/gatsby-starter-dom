@@ -18,6 +18,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
+  }
+
   result.data.allMdx.nodes.forEach(({ frontmatter: { slug } }) => {
     createPage({
       path: `/posts/${slug}`,

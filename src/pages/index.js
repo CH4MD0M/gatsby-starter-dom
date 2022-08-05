@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../layout";
-import Hero from "../components/Hero";
 import Posts from "../components/Posts";
 import SEO from "../components/Seo";
 
@@ -19,7 +18,6 @@ const IndexPage = () => {
       <Helmet>
         <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
       </Helmet>
-      <Hero />
       <Posts posts={posts} title="all posts" />
     </Layout>
   );

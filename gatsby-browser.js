@@ -1,6 +1,5 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import "./src/style/main.scss";
 
 import {
   Blockquote,
