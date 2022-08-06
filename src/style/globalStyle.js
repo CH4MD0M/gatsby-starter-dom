@@ -37,7 +37,7 @@ html {
   }
 
   a {
-    color: ${(props) => props.theme.colors.primary4};
+    color: inherit;
     text-decoration: none;
     transition: .2s;
     :focus{

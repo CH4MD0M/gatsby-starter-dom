@@ -23,8 +23,8 @@ const logoAnimation = keyframes`
   80.1%,
   90%,
   100% {
-    color: #fff;
-    text-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3,
+    color: hsl(206, 33%, 96%);
+    text-shadow: 0 0 15px #2196f3, 0 0 25px #2196f3, 0 0 40px #2196f3,
       0 0 80px #2196f3, 0 0 160px #2196f3;
   }`;
 
@@ -36,7 +36,7 @@ const variables = {
     primary3: "hsl(209, 28%, 39%)",
     primary4: "hsl(210, 22%, 49%)",
     primary5: "hsl(210, 31%, 80%)",
-    black: "#0a0c10",
+    black: "	hsl(0, 0%, 19%)",
     white: "hsl(206, 33%, 96%)",
     darkWhite: "hsl(212, 33%, 89%)",
     darkGreen: "hsl(125, 67%, 35%)",
@@ -46,8 +46,7 @@ const variables = {
     lightOrange: "hsl(29, 74%, 92%)",
   },
   sizes: {
-    // bioWidth:"230px",
-    maxWidth: "1000px",
+    maxWidth: "1100px",
   },
   sideSpace: {
     small: "2rem",
@@ -62,8 +61,7 @@ const variables = {
   },
   effect: {
     radius: "10px",
-    lightShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
-    darkShadow: "0 5px 15px rgba(0, 0, 0, 0.2)",
+    shadow: "0 0 5px #333, 0 0 10px #111;",
   },
   text: {
     spacing: "0.2rem",
