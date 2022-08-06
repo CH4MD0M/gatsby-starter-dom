@@ -47,11 +47,23 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-image`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-breakpoints",
+      options: {
+        queries: {
+          l: "(max-width: 950px)",
+          md: "(max-width: 768px)",
+          sm: "(max-width: 500px)",
+
+          portrait: "(orientation: portrait)",
+        },
+      },
+    },
+    "gatsby-plugin-image",
+    "gatsby-plugin-styled-components",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
   ],
 };

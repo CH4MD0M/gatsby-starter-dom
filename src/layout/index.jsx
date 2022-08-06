@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Header from "../components/header";
@@ -13,6 +13,7 @@ import theme from "../style/theme";
 import GlobalStyle from "../style/globalStyle";
 
 const Layout = ({ children }) => {
+  const breakpoints = useBreakpoint();
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -28,15 +29,13 @@ const Layout = ({ children }) => {
     setIsOpen(!isOpen);
   };
 
-  const isMediumSize = useMediaQuery({ query: "(max-width: 768px" });
-
   return (
     <ThemeProvider theme={theme}>
       <Header title={data.site.siteMetadata.title} toggle={toggle} />
       <Wrapper>
         <main>{children}</main>
         <Sidebar isOpen={isOpen} toggle={toggle} />
-        {!isMediumSize && <Categories />}
+        {!breakpoints.md && <Categories />}
       </Wrapper>
       <Footer />
 
