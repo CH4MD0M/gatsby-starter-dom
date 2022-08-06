@@ -1,10 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  .nav-links {
     display: flex;
     align-items: center;
-  }
 
   .page-link {
     position: relative;

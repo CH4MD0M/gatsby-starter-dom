@@ -9,21 +9,21 @@ import { FaBars } from "react-icons/fa";
 
 const Header = ({ title, toggle }) => {
   const isMediumSize = useMediaQuery({ query: "(max-width: 768px" });
+  const isDesktopSize = useMediaQuery({ query: "(min-width: 768px" });
   return (
     <Wrapper>
       <NavTitle>
         <Link to="/">{title}</Link>
       </NavTitle>
 
-      {isMediumSize ? (
+      {isMediumSize && (
         <ToggleContainer>
           <button className="toggle-btn" onClick={toggle}>
             <FaBars />
           </button>
         </ToggleContainer>
-      ) : (
-        <Links styleClass="nav-links" />
       )}
+      {isDesktopSize && <Links styleClass="nav-links" />}
     </Wrapper>
   );
 };
