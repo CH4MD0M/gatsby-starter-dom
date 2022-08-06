@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Header from "../components/header";
 import Sidebar from "../components/Sidebar";
-import Categories from "../components/categories";
 import Footer from "../components/footer";
 
 // CSS
@@ -33,9 +32,8 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Header title={data.site.siteMetadata.title} toggle={toggle} />
       <Wrapper>
+        {breakpoints.sm && <Sidebar isOpen={isOpen} toggle={toggle} />}
         <main>{children}</main>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
-        {!breakpoints.md && <Categories />}
       </Wrapper>
       <Footer />
 
@@ -45,18 +43,14 @@ const Layout = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto;
   max-width: ${({ theme }) => theme.sizes.maxWidth};
-  margin: 5rem auto 0;
+  min-height: calc(100vh - 10rem - 130px);
+  margin: 10rem auto 0;
   padding: 0 ${({ theme }) => theme.sideSpace.large};
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.large}) {
     max-width: 760px;
-    margin-top: 1em;
-  }
-  @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
-    grid-template-columns: 1fr;
+    margin-top: 2rem;
   }
   @media screen and (max-width: ${({ theme }) => theme.responsive.small}) {
     padding: 0 ${({ theme }) => theme.sideSpace.small};

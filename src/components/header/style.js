@@ -8,6 +8,7 @@ export const Wrapper = styled.nav`
 
   padding: 20px ${(props) => props.theme.sideSpace.large} 0;
   max-width: ${(props) => props.theme.sizes.maxWidth};
+  max-height: 70px;
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
     max-width: 76rem;
@@ -18,7 +19,7 @@ export const Wrapper = styled.nav`
 `;
 
 export const NavTitle = styled.div`
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
   font-size: 3.5rem;
   font-weight: 500;
   letter-spacing: ${(props) => props.theme.text.spacing};
@@ -27,7 +28,8 @@ export const NavTitle = styled.div`
     color: inherit;
   }
   &:hover {
-    animation: ${(props) => props.theme.animation.logoAnimation} 2s infinite;
+    color: #fff;
+    animation: ${(props) => props.theme.animation.logoAnimation} 1.5s infinite;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {

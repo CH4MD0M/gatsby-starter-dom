@@ -16,35 +16,6 @@ export const Wrapper = styled.aside`
     props.isOpen ? "translateX(0)" : "translateX(100%);"};
   transition: 0.2s linear;
 
-  .page-link {
-    font-size: 2rem;
-    display: block;
-    color: ${(props) => props.theme.colors.white};
-    font-weight: 700;
-    transition: 0.2s linear;
-    &:hover {
-      color: ${(props) => props.theme.colors.primary5};
-    }
-  }
-  .categories {
-    margin: 1rem 0 3rem;
-  }
-  .category {
-    display: block;
-    margin: 1rem 0;
-    color: ${(props) => props.theme.colors.primary4};
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding-left: 1rem;
-    text-transform: capitalize;
-    cursor: pointer;
-    transition: 0.2s linear;
-    &:hover {
-      transform: translateY(-2px);
-      color: ${(props) => props.theme.colors.primary5};
-    }
-  }
-
   .close-btn {
     position: absolute;
     top: 1rem;
@@ -61,5 +32,20 @@ export const Wrapper = styled.aside`
       transform: scale(1.05);
       -webkit-transform: scale(1.05);
     }
+  }
+
+  // Post, About
+  .page-link {
+    font-size: 2.3rem;
+    display: block;
+    color: ${(props) => props.theme.colors.white};
+    font-weight: 700;
+    transition: 0.2s linear;
+    &:hover {
+      color: ${(props) => props.theme.colors.primary5};
+    }
+  }
+  .category {
+    padding-left: 0.5rem;
   }
 `;
