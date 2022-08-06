@@ -10,7 +10,6 @@ export const Wrapper = styled.footer`
   text-align: center;
 
   p {
-    margin-bottom: 0;
     font-size: 1.5rem;
   }
 `;
