@@ -1,8 +1,7 @@
 import React from "react";
-import Layout from "../layout";
-import Hero from "../components/Hero";
-import Posts from "../components/Posts";
 import { graphql } from "gatsby";
+import Posts from "../components/Posts";
+import Layout from "../layout";
 
 const CategoryTemplate = (props) => {
   const {
@@ -16,7 +15,6 @@ const CategoryTemplate = (props) => {
 
   return (
     <Layout>
-      <Hero />
       <Posts posts={posts} title={`${category}`} />
     </Layout>
   );

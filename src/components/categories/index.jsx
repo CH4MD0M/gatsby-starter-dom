@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { Link } from "gatsby";
+import { Wrapper } from "./style";
 
 const Categories = () => {
   const {
@@ -8,7 +9,8 @@ const Categories = () => {
   } = useStaticQuery(query);
 
   return (
-    <ul className="categories">
+    <Wrapper>
+      <h2>Categories</h2>
       {distinct.map((category, index) => {
         return (
           <li key={index}>
@@ -18,7 +20,7 @@ const Categories = () => {
           </li>
         );
       })}
-    </ul>
+    </Wrapper>
   );
 };
 
@@ -29,4 +31,5 @@ const query = graphql`
     }
   }
 `;
+
 export default Categories;
