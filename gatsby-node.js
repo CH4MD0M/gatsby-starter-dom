@@ -4,16 +4,17 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allMdx {
+      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
+          id
+          slug
           frontmatter {
+            date(formatString: "YYYY.MM.DD")
+            title
             slug
+            category
           }
         }
-      }
-      categories: allMdx {
-        totalCount
-        distinct(field: frontmatter___category)
       }
     }
   `);
@@ -23,21 +24,13 @@ exports.createPages = async ({ graphql, actions }) => {
     return;
   }
 
-  result.data.allMdx.nodes.forEach(({ frontmatter: { slug } }) => {
+  result.data.allMdx.nodes.forEach((node, index) => {
     createPage({
-      path: `/posts/${slug}`,
+      path: `${node.slug}`,
       component: path.resolve(`src/templates/post-template.js`),
       context: {
-        slug,
+        slug: node.slug,
       },
-    });
-  });
-
-  result.data.categories.distinct.forEach((category) => {
-    createPage({
-      path: `${category}`,
-      component: path.resolve(`src/templates/category-template.js`),
-      context: { category },
     });
   });
 };

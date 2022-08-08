@@ -1,35 +1,44 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { Link } from "gatsby";
-import { Wrapper } from "./style";
 
-const Categories = () => {
-  const {
-    allMdx: { distinct },
-  } = useStaticQuery(query);
+import { Wrapper, CategoriesWrapper, Active, Disabled } from "./style";
 
+const SelectedCategory = ({ category }) => {
+  const { name } = category;
+  return <Active>{name}</Active>;
+};
+
+const Category = ({ category, selectCategory }) => {
+  const { name, slug } = category;
+  return (
+    <Disabled
+      onClick={() => {
+        selectCategory(slug);
+      }}
+    >
+      {name}
+    </Disabled>
+  );
+};
+
+const Categories = ({ categories, category, selectCategory }) => {
   return (
     <Wrapper>
       <h2>Categories</h2>
-      {distinct.map((category, index) => {
-        return (
-          <li key={index}>
-            <Link to={`/${category}`} className="category">
-              {category}
-            </Link>
-          </li>
-        );
-      })}
+      <CategoriesWrapper>
+        {categories.map((item, index) => {
+          if (category === item.slug)
+            return <SelectedCategory key={index} category={item} />;
+          return (
+            <Category
+              category={item}
+              key={index}
+              selectCategory={selectCategory}
+            />
+          );
+        })}
+      </CategoriesWrapper>
     </Wrapper>
   );
 };
 
-const query = graphql`
-  {
-    allMdx {
-      distinct(field: frontmatter___category)
-    }
-  }
-`;
-
-export default Categories;
+export default React.memo(Categories);

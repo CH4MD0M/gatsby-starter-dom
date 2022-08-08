@@ -1,3 +1,4 @@
+const categoriesConfig = require("./categories-config");
 module.exports = {
   siteMetadata: {
     siteUrl: `https://ch4md0m.github.io`,
@@ -9,6 +10,7 @@ module.exports = {
       github: "https://github.com/CH4MD0M/",
       instagram: `k1h00n_`,
     },
+    categories: categoriesConfig,
   },
   plugins: [
     {
@@ -22,7 +24,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/src/content`,
       },
     },
     {

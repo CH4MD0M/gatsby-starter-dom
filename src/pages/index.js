@@ -1,32 +1,35 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { graphql, useStaticQuery } from "gatsby";
+import styled from "styled-components";
 
+import useCategory from "../hooks/useCategory";
 import Layout from "../layout";
 import SEO from "../components/Seo";
 import Categories from "../components/categories";
 import Posts from "../components/Posts";
 
-import styled from "styled-components";
-
 const IndexPage = () => {
-  const breakpoints = useBreakpoint();
-  const data = useStaticQuery(query);
+  const [category, selectCategory] = useCategory();
   const {
+    site: { siteMetadata },
     allMdx: { nodes: posts },
-  } = data;
+  } = useStaticQuery(query);
 
   return (
     <Layout>
       <SEO title="Home" />
       <Helmet>
-        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+        <link rel="canonical" href={siteMetadata.siteUrl} />
       </Helmet>
       <Wrapper>
-        {!breakpoints.sm && <Categories />}
+        <Categories
+          category={category}
+          categories={siteMetadata.categories}
+          selectCategory={selectCategory}
+        />
         <MainContet>
-          <Posts posts={posts} title="all posts" />
+          <Posts category={category} posts={posts} />
         </MainContet>
       </Wrapper>
     </Layout>
@@ -68,24 +71,22 @@ const query = graphql`
           github
           instagram
         }
+        categories {
+          name
+          slug
+        }
       }
     }
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
-        excerpt
+        id
+        slug
         frontmatter {
           title
-          author
           category
-          date(formatString: "MMMM DD, YYYY")
           slug
-          thumbnail {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
+          date(formatString: "MMMM DD, YYYY")
         }
-        id
       }
     }
   }
