@@ -16,7 +16,7 @@ const Header = ({ title, toggle }) => {
         <Link to="/">{title}</Link>
       </NavTitle>
 
-      {breakpoints.sm ? (
+      {breakpoints.md ? (
         <ToggleContainer>
           <button className="toggle-btn" onClick={toggle}>
             <FaBars />

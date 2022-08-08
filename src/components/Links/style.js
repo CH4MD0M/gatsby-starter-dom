@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  .sidebar-links{
+  font-family: "Cactron";
+  /* 사이드바 */
+  .sidebar-links {
     .page-link {
       font-size: 3rem;
+      margin: 3rem 0;
     }
-    ul{
+    ul {
       padding: 1.5rem 0.5rem 5rem;
     }
-    a{
-      font-size: 2rem;
-    }
   }
-  .nav-links{
+
+  /* 네비게이션바 */
+  .nav-links {
     display: flex;
     align-items: center;
 
@@ -20,14 +22,15 @@ export const Wrapper = styled.div`
       position: relative;
       padding: 1rem 2rem;
       margin-right: 1rem;
-      color:${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
       font-size: 2.4rem;
       font-weight: 500;
-      letter-spacing: ${(props) => props.theme.text.spacing}
+      letter-spacing: ${(props) => props.theme.text.spacing};
       cursor: pointer;
       border-radius: 3px;
       overflow: hidden;
       transition: 0.2s;
+
       span {
         position: absolute;
         display: block;
@@ -61,6 +64,10 @@ export const Wrapper = styled.div`
         }
       }
       &:hover {
+        background: #2196f3;
+        color: ${(props) => props.theme.colors.background};
+        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+        transition-delay: 0.55s;
         span:nth-child(1) {
           left: 100%;
           transition: 0.6s;
@@ -81,13 +88,6 @@ export const Wrapper = styled.div`
           transition-delay: 0.3s;
         }
       }
-  
-      &:hover {
-        background: #2196f3;
-        color: var(--clr-primary-2);
-        box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
-        transition-delay: 0.55s;
-      }
-  }
+    }
   }
 `;

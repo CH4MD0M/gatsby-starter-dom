@@ -1,6 +1,5 @@
 import React from "react";
 import Links from "../Links";
-import Categories from "../categories";
 
 // CSS
 import { IoMdClose } from "react-icons/io";
@@ -18,9 +17,7 @@ const Sidebar = ({ isOpen, toggle }) => {
         <IoMdClose />
       </button>
       <div>
-        <Links styleClass="sidebar-links">
-          <Categories />
-        </Links>
+        <Links styleClass="sidebar-links" />
       </div>
     </Wrapper>
   );

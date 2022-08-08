@@ -5,7 +5,6 @@ export const Wrapper = styled.nav`
   grid-template-columns: 1fr auto;
   align-items: center;
   margin: 2rem auto 4rem;
-
   padding: 20px ${(props) => props.theme.sideSpace.large} 0;
   max-width: ${(props) => props.theme.sizes.maxWidth};
   max-height: 70px;
@@ -19,17 +18,14 @@ export const Wrapper = styled.nav`
 `;
 
 export const NavTitle = styled.div`
-  /* font-family: "Nunito", sans-serif; */
-  font-size: 3.5rem;
-  font-weight: 500;
+  font-size: 4rem;
   letter-spacing: ${(props) => props.theme.text.spacing};
-  color: ${(props) => props.theme.colors.darkWhite};
+
+  color: #fff;
+  animation: ${(props) => props.theme.animation.logoAnimation} 1.5s infinite;
+
   a {
     color: inherit;
-  }
-  &:hover {
-    color: #fff;
-    animation: ${(props) => props.theme.animation.logoAnimation} 1.5s infinite;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
@@ -43,11 +39,12 @@ export const NavTitle = styled.div`
 
 export const ToggleContainer = styled.div`
   .toggle-btn {
-    font-size: 2.5rem;
     background: transparent;
     border-color: transparent;
+    font-size: 2.5rem;
     cursor: pointer;
     transition: 0.3s;
+
     &:hover {
       color: ${(props) => props.theme.colors.primary5};
     }

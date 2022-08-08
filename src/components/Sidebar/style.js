@@ -10,7 +10,7 @@ export const Wrapper = styled.aside`
   height: 100%;
   padding-left: 4rem;
   background: ${(props) => props.theme.colors.background};
-  z-index: 999;
+  z-index: 300;
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
   transform: ${(props) =>
     props.isOpen ? "translateX(0)" : "translateX(100%);"};
