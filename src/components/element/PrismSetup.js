@@ -39,7 +39,7 @@ const Pre = styled.pre`
   box-shadow: var(--dark-shadow);
   border-radius: 7px;
   margin: 3rem 0;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-family: "Fira Code", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono",
     monospace;
   overflow-x: auto;
@@ -50,14 +50,14 @@ const Pre = styled.pre`
     position: absolute;
     top: 0;
     left: 2%;
-    color: var(--clr-green-light);
-    font-size: 1rem;
+    color: ${(props) => props.theme.colors.lightGreen};
+    font-size: 1.2rem;
     font-weight: 700;
     transform: translateY(-100%);
     text-transform: uppercase;
     padding: 0.05rem 0.85rem 0;
     border-radius: 6px 6px 0 0;
-    background: var(--clr-primary-5);
+    background: ${(props) => props.theme.colors.primary5};
   }
 `;
 const Container = styled.article`

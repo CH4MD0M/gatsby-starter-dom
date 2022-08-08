@@ -11,23 +11,18 @@ const Blockquote = ({ children }) => {
 };
 
 const Wrapper = styled.blockquote`
-  margin: 4rem 0;
+  margin: 4rem 2rem;
+
   .container {
     padding: 1px 1.5rem;
+    color: ${(props) => props.theme.colors.primary1};
     background: rgba(188, 204, 220, 0.1);
-    border-radius: 10px;
-    border-radius: 0 7px 7px 0;
-    border-left: 7px solid var(--clr-primary-6);
-    box-shadow: var(--dark-shadow);
-    position: relative;
+    border-radius: 0 4px 4px 0;
+    border-left: 4px solid ${(props) => props.theme.colors.primary5};
+    box-shadow: ${(props) => props.theme.effect.shadow};
 
     p {
-      color: var(--clr-primary-2);
-    }
-  }
-  @media (min-width: 1170px) {
-    .container {
-      margin: 0 2rem;
+      color: ${(props) => props.theme.colors.primary2};
     }
   }
 `;
