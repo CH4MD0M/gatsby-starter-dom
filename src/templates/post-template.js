@@ -1,18 +1,34 @@
 import React from "react";
-import Layout from "../layout";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/Seo";
+import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Helmet } from "react-helmet";
+
+import Layout from "../layout";
+import {
+  Blockquote,
+  Codeblock,
+  Headings,
+  PrismSetup,
+} from "../components/element";
+
+const components = {
+  h1: Headings.myH1,
+  h2: Headings.myH2,
+  h3: Headings.myH3,
+  inlineCode: Codeblock,
+  blockquote: Blockquote,
+  pre: PrismSetup,
+};
 
 const PostTemplate = ({ data, location }) => {
   const { siteUrl, description } = data.site.siteMetadata;
 
   const {
     mdx: {
-      frontmatter: { title, author, category, thumbnail, date },
+      frontmatter: { title, category, date },
       body,
       excerpt,
     },
@@ -30,11 +46,12 @@ const PostTemplate = ({ data, location }) => {
             <span>{category}</span>
             <h2>{title}</h2>
             <p>{date}</p>
-            <div className="underline" />
           </div>
 
           <div className="post-contents">
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider components={components}>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
           </div>
         </article>
       </Wrapper>
@@ -50,62 +67,49 @@ export const query = graphql`
         description
       }
     }
-    mdx(frontmatter: { slug: { eq: $slug } }) {
-      excerpt(pruneLength: 150)
+    mdx(slug: { eq: $slug }) {
       frontmatter {
-        category
-        author
-        date(formatString: "MMMM DD, YYYY")
-        slug
         title
-        thumbnail {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
+        category
+        date(formatString: "MMMM DD, YYYY")
       }
+      excerpt(pruneLength: 150)
       body
     }
   }
 `;
 
 const Wrapper = styled.section`
-  width: 92vw;
-  max-width: var(--max-width);
+  max-width: 1000px;
   margin: 14rem auto 4rem auto;
+  background: ${(props) => props.theme.colors.primary2};
 
   /* info */
   .post-info {
-    margin: 2rem 0 4rem 0;
-    text-align: left;
+    padding: 4rem 0;
+    text-align: center;
     span {
-      background: var(--clr-primary-5);
-      color: var(--clr-white);
-      border-radius: var(--radius);
+      background: ${(props) => props.theme.colors.primary2};
+      color: ${(props) => props.theme.colors.white};
+      border-radius: 4px;
       padding: 0.25rem 0.5rem;
       text-transform: uppercase;
-      letter-spacing: var(--spacing);
+      letter-spacing: ${(props) => props.theme.text.spacing};
     }
     h2 {
       margin: 1.25rem 0;
       font-weight: 700;
       font-size: 4rem;
-      color: var(--clr-white);
+      color: ${(props) => props.theme.colors.white};
     }
     p {
-      color: var(--clr-primary-6);
-    }
-    .underline {
-      width: 10rem;
-      height: 1px;
-      background: var(--clr-primary-8);
-      margin-bottom: 1rem;
+      color: ${(props) => props.theme.colors.primary1};
     }
   }
 
   /* post contents */
   .post-contents {
-    background-color: var(--clr-primary-8);
+    background-color: ${(props) => props.theme.colors.white};
     padding: 2rem 2.3rem;
     border-radius: 1rem;
 
@@ -115,13 +119,13 @@ const Wrapper = styled.section`
       border-collapse: collapse;
     }
     th {
-      background-color: var(--clr-primary-6);
+      background-color: ${(props) => props.theme.colors.primary5};
       padding: 0.5rem 1rem;
-      border: 0.5px solid var(--clr-primary-2);
+      border: 0.5px solid ${(props) => props.theme.colors.primary2};
     }
     td {
       padding: 0.3rem 1.2rem;
-      border: 0.5px solid var(--clr-primary-2);
+      border: 0.5px solid ${(props) => props.theme.colors.primary2};
     }
     td:first-child {
       text-align: center;
@@ -140,58 +144,22 @@ const Wrapper = styled.section`
     ul,
     ol {
       padding: 0 2rem;
-      color: var(--clr-primary-2);
+      color: ${(props) => props.theme.colors.primary2};
     }
 
     p {
-      color: var(--clr-primary-2);
+      line-height: 1.7rem;
+      color: ${(props) => props.theme.colors.primary2};
       a {
         color: rgb(32, 168, 234);
       }
     }
 
     em {
-      background-color: var(--clr-orange-light);
+      background-color: ${(props) => props.theme.colors.lightOrange};
       padding: 0.1rem 0.3rem;
       border-radius: 2px;
       color: rgb(125, 107, 113);
-    }
-  }
-  @media (min-width: 1300px) {
-    & {
-      width: 50vw;
-    }
-    .main-img {
-      width: 75%;
-      display: block;
-      margin: 0 auto;
-    }
-  }
-  @media (max-width: 580px) {
-    & {
-      width: 100vw;
-      margin: 14rem 0 4rem 0;
-    }
-    .post-info {
-      margin: 2rem 0 2rem 1rem;
-    }
-    .post-contents {
-      padding: 0.2rem 0.6rem;
-      border-radius: 0;
-      table {
-        font-size: 0.6rem;
-      }
-      p {
-        font-size: 0.9rem;
-        margin: 0.4rem 0;
-      }
-
-      ul,
-      ol {
-        font-size: 0.8rem;
-        padding: 0 1rem;
-        margin: 1rem 0;
-      }
     }
   }
 `;

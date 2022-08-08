@@ -2,17 +2,21 @@ import React from "react";
 import PostPreview from "../PostPreview";
 import { Wrapper } from "./style";
 
-const Posts = ({ posts, title }) => {
+const Posts = ({ category, posts }) => {
+  console.log(category);
+  const filteredPosts = posts.filter(
+    (post) => category === "all" || post.frontmatter.category === category
+  );
+
   return (
     <Wrapper>
-      <h3 className="posts-title">{title}</h3>
       <article>
-        {posts.map((post) => {
-          return <PostPreview key={post.id} {...post} />;
+        {filteredPosts.map((post) => {
+          return <PostPreview key={post.id} post={post} />;
         })}
       </article>
     </Wrapper>
   );
 };
 
-export default Posts;
+export default React.memo(Posts);

@@ -6,13 +6,13 @@ import { Link } from "gatsby";
 import { Wrapper } from "./style";
 import { FaRegClock } from "react-icons/fa";
 
-const PostPreview = ({ frontmatter }) => {
-  const { title, thumbnail, slug, date, category, author } = frontmatter;
+const PostPreview = ({ post }) => {
+  const { title, date, category } = post.frontmatter;
 
   return (
     <Wrapper>
-      <Link to={`/posts/${slug}`} className="post-container">
-        <GatsbyImage image={getImage(thumbnail)} alt={title} className="img" />
+      <Link to={`/${post.slug}`} className="post-container">
+        <GatsbyImage alt={title} className="img" />
         <div className="info">
           <header>
             <span className="category">{category}</span>

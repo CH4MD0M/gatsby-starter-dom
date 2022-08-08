@@ -7,7 +7,7 @@ export const Wrapper = styled.article`
     display: flex;
     align-items: center;
     padding: 2rem 0;
-    border-radius: 4px;
+
     transition: 0.2s linear;
     &:hover {
       background-color: ${(props) => props.theme.colors.primary2};
