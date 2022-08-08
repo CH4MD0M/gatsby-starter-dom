@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const globalStyle = createGlobalStyle`
+export default createGlobalStyle`
 *,
 ::after,
 ::before {
@@ -9,16 +9,16 @@ const globalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 html {
-    font-family: sans-serif; /* 1 */
-    -ms-text-size-adjust: 100%; /* 2 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-    font-size: 62.5%;
-  }
-  body {
-    background: ${(props) => props.theme.colors.background};
-    font-family: "Noto Sans KR";
-    color: ${(props) => props.theme.colors.white};
-    margin: 0;
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  font-size: 62.5%;
+}
+body {
+  background: ${(props) => props.theme.colors.background};
+  font-family: "Noto Sans KR";
+  color: ${(props) => props.theme.colors.white};
+  margin: 0;
   }
   article,
   aside,
@@ -177,5 +177,3 @@ html {
     list-style:none;
   }
 `;
-
-export default globalStyle;

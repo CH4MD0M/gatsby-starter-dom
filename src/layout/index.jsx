@@ -10,6 +10,7 @@ import Footer from "../components/footer";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../style/theme";
 import GlobalStyle from "../style/globalStyle";
+import GlobalFonts from "../font/font";
 
 const Layout = ({ children }) => {
   const breakpoints = useBreakpoint();
@@ -32,12 +33,13 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Header title={data.site.siteMetadata.title} toggle={toggle} />
       <Wrapper>
-        {breakpoints.sm && <Sidebar isOpen={isOpen} toggle={toggle} />}
+        {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggle} />}
         <main>{children}</main>
       </Wrapper>
       <Footer />
 
       <GlobalStyle />
+      <GlobalFonts />
     </ThemeProvider>
   );
 };
