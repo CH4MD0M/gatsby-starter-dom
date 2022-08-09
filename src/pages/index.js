@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import useCategory from "../hooks/useCategory";
 import Layout from "../layout";
-import SEO from "../components/Seo";
+import Seo from "../components/Seo";
 import Categories from "../components/categories";
 import Posts from "../components/Posts";
 
@@ -18,7 +18,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <Helmet>
         <link rel="canonical" href={siteMetadata.siteUrl} />
       </Helmet>

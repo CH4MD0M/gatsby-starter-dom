@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SEO from "../components/Seo";
+import Seo from "../components/Seo";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -12,7 +12,7 @@ import {
   Codeblock,
   Headings,
   PrismSetup,
-} from "../components/element";
+} from "../components/Element";
 
 const components = {
   h1: Headings.myH1,
@@ -35,7 +35,7 @@ const PostTemplate = ({ data, location }) => {
   } = data;
   return (
     <Layout>
-      <SEO title={title} description={description || excerpt} />
+      <Seo title={title} description={description || excerpt} />
       <Helmet>
         <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
       </Helmet>
