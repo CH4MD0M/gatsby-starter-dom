@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     display: block;
     width: auto;
     margin: 6rem 0;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     top: 0;
     background: ${(props) => props.theme.colors.background};
     border: solid ${(props) => props.theme.colors.primary4};
@@ -71,11 +71,12 @@ export const Active = styled.li`
   box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3;
     margin: 0.8rem;
+    font-size: 1.5rem;
+    box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3;
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -94,10 +95,11 @@ export const Disabled = styled.li`
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     margin: 0.8rem;
+    font-size: 1.5rem;
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   &:hover {

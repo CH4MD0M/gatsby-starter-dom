@@ -7,26 +7,26 @@ module.exports = [
   {
     name: "JavaScript",
     slug: "javascript",
-    color: "rgb(255, 204, 76)",
+    color: "#F7DF1E",
   },
   {
     name: "Algorithm",
     slug: "algorithm",
-    color: "#F5FDB0",
+    color: "#C4D600",
   },
   {
     name: "Web",
     slug: "web",
-    color: "#FFF5EB",
+    color: "#E95420",
   },
   {
     name: "React",
     slug: "react",
-    color: "rgb(96, 218, 251)",
+    color: "#61DAFB",
   },
   {
-    name: "Database",
-    slug: "db",
-    color: "#C2B8A3",
+    name: "Network",
+    slug: "network",
+    color: "#009639",
   },
 ];

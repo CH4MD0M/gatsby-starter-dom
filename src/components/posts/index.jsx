@@ -3,7 +3,6 @@ import PostPreview from "../PostPreview";
 import { Wrapper } from "./style";
 
 const Posts = ({ category, posts }) => {
-  console.log(category);
   const filteredPosts = posts.filter(
     (post) => category === "all" || post.frontmatter.category === category
   );

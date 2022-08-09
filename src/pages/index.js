@@ -51,8 +51,9 @@ const Wrapper = styled.div`
   }
 `;
 const MainContet = styled.div`
-  width: calc(100% - 230px - 10rem);
-  margin-right: 10rem;
+  width: calc(100% - 230px - 7rem);
+  margin-right: 7rem;
+
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     width: 100%;
     margin-top: 2em;

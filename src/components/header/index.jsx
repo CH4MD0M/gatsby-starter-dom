@@ -10,6 +10,7 @@ import { FaBars } from "react-icons/fa";
 
 const Header = ({ title, toggle }) => {
   const breakpoints = useBreakpoint();
+
   return (
     <Wrapper>
       <NavTitle>
@@ -29,4 +30,4 @@ const Header = ({ title, toggle }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

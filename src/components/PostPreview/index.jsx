@@ -1,9 +1,11 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
+import CategoryLabel from "../CategoryLabel";
+import PostThumbnail from "../PostThumbnail";
+
 // CSS
-import { Wrapper } from "./style";
+import { Wrapper, PostInfo } from "./style";
 import { FaRegClock } from "react-icons/fa";
 
 const PostPreview = ({ post }) => {
@@ -12,19 +14,16 @@ const PostPreview = ({ post }) => {
   return (
     <Wrapper>
       <Link to={`/${post.slug}`} className="post-container">
-        <GatsbyImage alt={title} className="img" />
-        <div className="info">
+        <PostThumbnail category={category} />
+        <PostInfo>
           <header>
-            <span className="category">{category}</span>
-            <h3>{title}</h3>
+            <h2 className="post-title">{title}</h2>
           </header>
           <footer>
-            <span className="date">
-              <FaRegClock className="icon" />
-              {date}
-            </span>
+            <CategoryLabel category={category} />
+            <span className="date">{date}</span>
           </footer>
-        </div>
+        </PostInfo>
       </Link>
     </Wrapper>
   );
