@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  a {
+  .category-text {
     display: inline-block;
     background: ${(props) => props.color};
     padding: 0.4rem 1rem;

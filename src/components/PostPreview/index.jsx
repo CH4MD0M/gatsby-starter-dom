@@ -6,7 +6,6 @@ import PostThumbnail from "../PostThumbnail";
 
 // CSS
 import { Wrapper, PostInfo } from "./style";
-import { FaRegClock } from "react-icons/fa";
 
 const PostPreview = ({ post }) => {
   const { title, date, category } = post.frontmatter;

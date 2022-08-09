@@ -2,7 +2,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import { Wrapper } from "./style";
 
-const CategoryLabel = ({ category }) => {
+const CategoryLabel = ({ category, isLink }) => {
   const data = useStaticQuery(categoryQuery);
   const { categories } = data.site.siteMetadata;
 
@@ -12,9 +12,13 @@ const CategoryLabel = ({ category }) => {
 
   return (
     <Wrapper color={categoryColor}>
-      <Link to={`/?category=${category}`} className="category-text">
-        {category}
-      </Link>
+      {isLink ? (
+        <Link to={`/?category=${category}`} className="category-text">
+          {category}
+        </Link>
+      ) : (
+        <span className="category-text">{category}</span>
+      )}
     </Wrapper>
   );
 };
