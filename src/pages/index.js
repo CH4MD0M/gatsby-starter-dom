@@ -6,7 +6,7 @@ import styled from "styled-components";
 import useCategory from "../hooks/useCategory";
 import Layout from "../layout";
 import Seo from "../components/Seo";
-import Categories from "../components/categories";
+import Categories from "../components/Categories";
 import Posts from "../components/Posts";
 
 const IndexPage = () => {

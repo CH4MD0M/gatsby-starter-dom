@@ -30,4 +30,4 @@ const Header = ({ title, toggle }) => {
   );
 };
 
-export default React.memo(Header);
+export default Header;

@@ -1,20 +1,20 @@
 import React from "react";
-import styled from "styled-components";
-import Seo from "../components/Seo";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Helmet } from "react-helmet";
-import CategoryLabel from "../components/CategoryLabel";
+import styled from "styled-components";
 
-import Layout from "../layout";
 import {
-  Blockquote,
-  Codeblock,
   Headings,
+  Codeblock,
+  Blockquote,
   PrismSetup,
 } from "../components/Element";
+import Layout from "../layout";
 import Bio from "../components/Bio";
+import CategoryLabel from "../components/CategoryLabel";
+import Seo from "../components/Seo";
 
 const components = {
   h1: Headings.myH1,

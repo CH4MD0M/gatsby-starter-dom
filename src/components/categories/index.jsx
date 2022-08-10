@@ -41,4 +41,4 @@ const Categories = ({ categories, category, selectCategory }) => {
   );
 };
 
-export default React.memo(Categories);
+export default Categories;

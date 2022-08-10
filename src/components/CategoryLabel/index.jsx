@@ -1,5 +1,5 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { Wrapper } from "./style";
 
 const CategoryLabel = ({ category, isLink }) => {

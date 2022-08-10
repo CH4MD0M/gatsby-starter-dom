@@ -1,6 +1,6 @@
 import React from "react";
-import Seo from "../components/Seo";
 import Layout from "../layout";
+import Seo from "../components/Seo";
 
 const AboutPage = () => {
   return (

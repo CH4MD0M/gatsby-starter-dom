@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { graphql, useStaticQuery } from "gatsby";
 
-import Header from "../components/header";
+import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 // CSS
 import styled, { ThemeProvider } from "styled-components";

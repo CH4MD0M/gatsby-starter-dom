@@ -1,5 +1,5 @@
-import qs from "query-string";
 import { useCallback, useEffect, useState } from "react";
+import qs from "query-string";
 
 export default function useCategory() {
   const [category, setCategory] = useState("all");
