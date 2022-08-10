@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { graphql, StaticQuery } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 const Seo = ({ description, lang, meta, title }) => {
   return (
@@ -55,6 +55,10 @@ const Seo = ({ description, lang, meta, title }) => {
                 name: `google-site-verification`,
                 content: "Td2FVAr2l6Zwnul0s2sHek3QuYryO1uejM59c8zFcNk",
               },
+              {
+                name: `naver-site-verification`,
+                content: "e40969b9a336da7fc9db0f3faade27cc5209cd78",
+              },
             ].concat(meta)}
           ></Helmet>
         );
@@ -78,7 +82,7 @@ Seo.propTypes = {
 export default Seo;
 
 const seoQuery = graphql`
-  query DefaultSEOQuery {
+  query {
     site {
       siteMetadata {
         title

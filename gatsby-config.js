@@ -20,6 +20,19 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-2QPXMQNDX9", // Google Analytics / GA
+        ],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+          exclude: ["/preview/**", "/do-not-track/me/too/"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
@@ -73,19 +86,6 @@ module.exports = {
         host: "https://ch4md0m.blog",
         sitemap: "https://ch4md0m.blog/sitemap/sitemap-index.xml",
         policy: [{ userAgent: "*", allow: "/" }],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          "G-2QPXMQNDX9", // Google Analytics / GA
-        ],
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-          exclude: ["/preview/**", "/do-not-track/me/too/"],
-        },
       },
     },
   ],
