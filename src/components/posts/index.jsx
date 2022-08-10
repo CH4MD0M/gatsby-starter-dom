@@ -18,4 +18,4 @@ const Posts = ({ category, posts }) => {
   );
 };
 
-export default React.memo(Posts);
+export default Posts;

@@ -1,9 +1,9 @@
 const categoriesConfig = require("./categories-config");
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://ch4md0m.github.io`,
+    siteUrl: `https://ch4md0m.blog`,
     title: `Today ch4md0m swam`,
-    description: `기술 블로그`,
+    description: `ch4md0m.blog`,
     author: `Kihoon`,
     social: {
       email: "d0m__@naver.com",
@@ -30,8 +30,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://ch4md0m.github.io",
-        sitemap: "https://ch4md0m.github.io/sitemap.xml",
+        host: "https://ch4md0m.blog",
+        sitemap: "https://ch4md0m.blog/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
