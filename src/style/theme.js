@@ -36,6 +36,8 @@ const variables = {
     primary3: "hsl(209, 28%, 39%)",
     primary4: "hsl(210, 22%, 49%)",
     primary5: "hsl(210, 31%, 80%)",
+    primary6: "hsl(210, 27%, 90%)",
+
     black: "	hsl(0, 0%, 19%)",
     white: "hsl(206, 33%, 96%)",
     darkWhite: "hsl(212, 33%, 89%)",
@@ -49,10 +51,10 @@ const variables = {
     maxWidth: "1100px",
   },
   sideSpace: {
-    small: "2rem",
-    large: "4rem",
-    contentSmall: "2rem",
+    large: "2rem",
+    small: "1rem",
     contentLarge: "2.5rem",
+    contentSmall: "2rem",
   },
   responsive: {
     small: "500px",
@@ -61,7 +63,7 @@ const variables = {
   },
   effect: {
     radius: "10px",
-    shadow: "0 0 5px #333, 0 0 10px #111;",
+    shadow: "6px 7px 13px 0px rgba(0,0,0,0.57)",
   },
   text: {
     spacing: "0.2rem",

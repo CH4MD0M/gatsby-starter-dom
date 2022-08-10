@@ -10,15 +10,23 @@ const myH1 = ({ children }) => {
   );
 };
 const HeadingOne = styled.div`
-  margin: 4rem 0 2rem 0;
+  margin: 7rem 0 2rem;
   color: ${(props) => props.theme.colors.primary2};
-
+  h1 {
+    font-size: 4rem;
+  }
   .underline {
     width: 40%;
     height: 2px;
     border-radius: 4px;
     background: ${(props) => props.theme.colors.primary4};
     margin-top: -5px;
+  }
+  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+    margin: 4rem 0 2rem;
+    h1 {
+      font-size: 3rem;
+    }
   }
 `;
 
@@ -31,26 +39,36 @@ const myH2 = ({ children }) => {
   );
 };
 const HeadingTwo = styled.div`
-  margin-top: 4rem;
+  margin: 5rem 0 2rem;
+  padding-left: 1rem;
   color: ${(props) => props.theme.colors.primary2};
+  border-left: 4px solid ${(props) => props.theme.colors.primary4};
   h2 {
-    border-left: 4px solid ${(props) => props.theme.colors.primary4};
-    padding-left: 1rem;
+    font-size: 2.7rem;
+  }
+  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+    margin: 4rem 0 2rem;
+    h2 {
+      font-size: 2.2rem;
+    }
   }
 `;
 
 const myH3 = ({ children }) => {
   return (
-    <h3
-      style={{
-        margin: "2rem 0",
-        color: "var(--clr-primary-2)",
-        fontSize: "1.2rem",
-      }}
-    >
-      {children}
-    </h3>
+    <HeadingThree>
+      <h3>{children}</h3>
+    </HeadingThree>
   );
 };
+const HeadingThree = styled.div`
+  margin: 5rem 0 2rem;
+  padding-left: 1rem;
+  color: ${(props) => props.theme.colors.primary2};
+
+  h3 {
+    font-size: 2.3rem;
+  }
+`;
 
 export { myH1, myH2, myH3 };

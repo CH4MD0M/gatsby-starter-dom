@@ -1,6 +1,6 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/dracula";
+import theme from "prism-react-renderer/themes/okaidia";
 import styled from "styled-components";
 
 const PrismWrapper = (props) => {
@@ -34,34 +34,43 @@ const PrismWrapper = (props) => {
   );
 };
 
-const Pre = styled.pre`
-  padding: 1rem 1.5rem;
-  box-shadow: var(--dark-shadow);
-  border-radius: 7px;
-  margin: 3rem 0;
-  font-size: 1.3rem;
-  font-family: "Fira Code", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono",
-    monospace;
-  overflow-x: auto;
-  .token-line {
-    line-height: 1.5;
-  }
-  .code-tab {
-    position: absolute;
-    top: 0;
-    left: 2%;
-    color: ${(props) => props.theme.colors.lightGreen};
-    font-size: 1.2rem;
-    font-weight: 700;
-    transform: translateY(-100%);
-    text-transform: uppercase;
-    padding: 0.05rem 0.85rem 0;
-    border-radius: 6px 6px 0 0;
-    background: ${(props) => props.theme.colors.primary5};
-  }
-`;
 const Container = styled.article`
   position: relative;
+  margin: 1.5rem 0 5rem;
+`;
+
+const Pre = styled.pre`
+  padding: 1rem 1.5rem;
+  font-family: "Fira Code", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono",
+    monospace;
+  border-radius: 5px;
+  overflow-x: auto;
+  box-shadow: ${(props) => props.theme.effect.shadow};
+
+  .code-tab {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 0.05rem 0.85rem 0;
+    background: ${(props) => props.theme.colors.primary5};
+    color: ${(props) => props.theme.colors.primary2};
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px;
+  }
+
+  .token-line {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+    .token-line {
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
+  }
 `;
 
 export default PrismWrapper;

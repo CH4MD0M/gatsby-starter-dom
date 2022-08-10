@@ -13,7 +13,7 @@ export const Wrapper = styled.nav`
     max-width: 76rem;
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    padding: 10px ${(props) => props.theme.sideSpace.small} 0;
+    padding: 1rem 1.5rem 0 1rem;
   }
 `;
 

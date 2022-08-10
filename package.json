@@ -6,7 +6,7 @@
   "author": "ch4md0m[KiHoonRoh]<d0m__@naver.com>",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",

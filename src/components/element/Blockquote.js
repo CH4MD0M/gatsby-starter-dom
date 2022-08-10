@@ -14,16 +14,19 @@ const Wrapper = styled.blockquote`
   margin: 4rem 2rem;
 
   .container {
-    padding: 1px 1.5rem;
+    padding: 2rem 1.5rem;
     color: ${(props) => props.theme.colors.primary1};
-    background: rgba(188, 204, 220, 0.1);
+    background: ${(props) => props.theme.colors.primary6};
     border-radius: 0 4px 4px 0;
-    border-left: 4px solid ${(props) => props.theme.colors.primary5};
-    box-shadow: ${(props) => props.theme.effect.shadow};
+    border-left: 5px solid ${(props) => props.theme.colors.lightRed};
 
     p {
       color: ${(props) => props.theme.colors.primary2};
     }
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+    margin: 3rem 0.3rem;
   }
 `;
 
