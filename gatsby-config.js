@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: `https://ch4md0m.blog`,
     title: `Today ch4md0m swam`,
-    description: `ch4md0m.blog`,
+    description: `ch4md0m의 기술 블로그`,
     author: `Kihoon`,
     social: {
       email: "d0m__@naver.com",
@@ -13,6 +13,12 @@ module.exports = {
     categories: categoriesConfig,
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-image",
+    "gatsby-plugin-styled-components",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,14 +31,6 @@ module.exports = {
       options: {
         name: `posts`,
         path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        host: "https://ch4md0m.blog",
-        sitemap: "https://ch4md0m.blog/sitemap.xml",
-        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     {
@@ -69,11 +67,13 @@ module.exports = {
         },
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-image",
-    "gatsby-plugin-styled-components",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://ch4md0m.blog",
+        sitemap: "https://ch4md0m.blog/sitemap/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
   ],
 };

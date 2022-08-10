@@ -11,6 +11,7 @@ const Seo = ({ description, lang, meta, title }) => {
         const metaDescription =
           description || data.site.siteMetadata.description;
         const defaultTitle = "참돔 블로그";
+
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -50,10 +51,10 @@ const Seo = ({ description, lang, meta, title }) => {
                 name: `twitter:description`,
                 content: metaDescription,
               },
-              //   {
-              //     name: `google-site-verification`,
-              //     content: "",
-              //   },
+              {
+                name: `google-site-verification`,
+                content: "Td2FVAr2l6Zwnul0s2sHek3QuYryO1uejM59c8zFcNk",
+              },
             ].concat(meta)}
           ></Helmet>
         );

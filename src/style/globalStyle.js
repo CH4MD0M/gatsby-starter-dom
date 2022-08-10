@@ -9,7 +9,6 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 html {
-  
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
