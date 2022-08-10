@@ -75,5 +75,12 @@ module.exports = {
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: "G-2QPXMQNDX9",
+        head: true,
+      },
+    },
   ],
 };
