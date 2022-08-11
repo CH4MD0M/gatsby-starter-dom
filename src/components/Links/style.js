@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  font-family: "Cactron";
   /* 사이드바 */
   .sidebar-links {
     .page-link {

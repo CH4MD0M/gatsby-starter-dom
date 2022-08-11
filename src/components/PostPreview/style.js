@@ -33,6 +33,7 @@ export const PostInfo = styled.div`
     .date {
       margin-right: 1rem;
       font-size: 1.5rem;
+      font-weight: 300;
     }
   }
 

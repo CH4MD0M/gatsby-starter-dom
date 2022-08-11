@@ -18,9 +18,9 @@ export const Wrapper = styled.nav`
 `;
 
 export const NavTitle = styled.div`
-  font-size: 4rem;
+  font-family: "Damion", cursive;
+  font-size: 4.5rem;
   letter-spacing: ${(props) => props.theme.text.spacing};
-
   color: #fff;
   animation: ${(props) => props.theme.animation.logoAnimation} 1.5s infinite;
 

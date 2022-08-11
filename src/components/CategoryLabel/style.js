@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     padding: 0.4rem 1rem;
     line-height: 1.7rem;
     font-size: 1.7rem;
-    font-weight: 600;
+    font-weight: 400;
     color: ${(props) => props.theme.colors.background};
     border-radius: 4px;
 

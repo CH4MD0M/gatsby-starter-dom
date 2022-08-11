@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+export default createGlobalStyle` 
 *,
 ::after,
 ::before {
@@ -51,7 +51,7 @@ body {
 
   b,
   strong {
-    font-weight: bold;
+    font-weight: 600;
   }
 
   h1 {
@@ -99,7 +99,8 @@ body {
   kbd,
   pre,
   samp {
-    font-family: "Roboto Mono", monospace;
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
     font-size: 1rem;
   }
   pre {

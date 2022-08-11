@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 import styled, { ThemeProvider } from "styled-components";
 import theme from "../style/theme";
 import GlobalStyle from "../style/globalStyle";
-import GlobalFonts from "../font/font";
 
 const Layout = ({ children }) => {
   const breakpoints = useBreakpoint();
@@ -39,7 +38,6 @@ const Layout = ({ children }) => {
       <Footer />
 
       <GlobalStyle />
-      <GlobalFonts />
     </ThemeProvider>
   );
 };

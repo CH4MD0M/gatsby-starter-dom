@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  position: sticky;
   display: flex;
   flex-direction: column;
+  top: 15px;
   width: 23rem;
   padding: 3rem;
-  position: sticky;
-  top: 15px;
   background: ${(props) => props.theme.colors.primary2};
   border-radius: 5px;
   box-shadow: ${(props) => props.theme.effect.shadow};
@@ -16,8 +16,9 @@ export const Wrapper = styled.div`
     margin: 0 0 2.5rem;
     font-size: 2rem;
     text-align: center;
-    text-transform: uppercase;
-    text-shadow: ${(props) => props.theme.effect.shadow};
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3;
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
@@ -41,6 +42,7 @@ export const Wrapper = styled.div`
     }
   }
 `;
+
 export const CategoriesWrapper = styled.ul`
   display: block;
 
@@ -61,7 +63,7 @@ export const CategoriesWrapper = styled.ul`
 export const Active = styled.li`
   width: fit-content;
   font-size: 1.7rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 1.2rem 0;
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -87,7 +89,7 @@ export const Disabled = styled.li`
   padding: 0.5rem 1rem;
   color: #fff;
   font-size: 1.7rem;
-  font-weight: 600;
+  font-weight: 400;
   border-radius: 10px;
   padding-left: 1rem;
   cursor: pointer;
@@ -105,7 +107,7 @@ export const Disabled = styled.li`
   &:hover {
     color: #fff;
     background: #2196f3;
-    font-weight: 600;
+    font-weight: 400;
     color: ${(props) => props.theme.colors.primary2};
     box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
 

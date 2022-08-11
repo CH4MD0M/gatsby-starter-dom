@@ -41,8 +41,6 @@ const Container = styled.article`
 
 const Pre = styled.pre`
   padding: 1rem 1.5rem;
-  font-family: "Fira Code", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono",
-    monospace;
   border-radius: 5px;
   overflow-x: auto;
   box-shadow: ${(props) => props.theme.effect.shadow};
@@ -55,7 +53,7 @@ const Pre = styled.pre`
     background: ${(props) => props.theme.colors.primary5};
     color: ${(props) => props.theme.colors.primary2};
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     border-radius: 5px;
   }
