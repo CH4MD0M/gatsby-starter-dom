@@ -12,11 +12,20 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 5rem;
+    height: 5rem;
+    border: 3px solid ${(props) => props.theme.colors.primary3};
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -webkit-transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+    overflow: hidden;
   }
   .author-image {
     width: 5rem;
-    outline: 3px solid ${(props) => props.theme.colors.primary3};
-    border-radius: 50%;
+    height: 5rem;
+
     @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
       width: 4.2rem;
       outline: 2px solid ${(props) => props.theme.colors.primary3};
