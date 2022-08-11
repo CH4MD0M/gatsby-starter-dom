@@ -15,6 +15,7 @@ import Layout from "../layout";
 import Bio from "../components/Bio";
 import CategoryLabel from "../components/CategoryLabel";
 import Seo from "../components/Seo";
+import "katex/dist/katex.min.css";
 
 const components = {
   h1: Headings.myH1,
