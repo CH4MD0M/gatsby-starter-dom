@@ -5,10 +5,10 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Links from "../Links";
 
 // CSS
-import { Wrapper, NavTitle, ToggleContainer } from "./style";
+import { Wrapper, NavTitle, ToggleContainer, ThemeToggleButton } from "./style";
 import { FaBars } from "react-icons/fa";
 
-const Header = ({ title, toggle }) => {
+const Header = ({ title, toggle, toggleTheme }) => {
   const breakpoints = useBreakpoint();
 
   return (
@@ -26,6 +26,7 @@ const Header = ({ title, toggle }) => {
       ) : (
         <Links styleClass="nav-links" />
       )}
+      <ThemeToggleButton onClick={toggleTheme} />
     </Wrapper>
   );
 };

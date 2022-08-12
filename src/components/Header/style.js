@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.nav`
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
   margin: 2rem auto 4rem;
   padding: 20px ${(props) => props.theme.sideSpace.large} 0;
@@ -55,4 +55,11 @@ export const ToggleContainer = styled.div`
       font-size: 2rem;
     }
   }
+`;
+
+export const ThemeToggleButton = styled.button`
+  width: 3rem;
+  height: 3rem;
+  color: ${({ theme }) => theme.colors.primary1};
+  background-color: ${({ theme }) => theme.colors.background};
 `;

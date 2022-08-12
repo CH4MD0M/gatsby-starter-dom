@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { graphql, useStaticQuery } from "gatsby";
+import useTheme from "../hooks/useTheme";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -8,20 +9,15 @@ import Footer from "../components/Footer";
 
 // CSS
 import styled, { ThemeProvider } from "styled-components";
-import theme from "../style/theme";
+import { lightTheme, darkTheme } from "../style/theme";
 import GlobalStyle from "../style/globalStyle";
 
 const Layout = ({ children }) => {
+  const [themeMode, themeToggleHandler] = useTheme();
+  const theme = themeMode === "light" ? lightTheme : darkTheme;
+
   const breakpoints = useBreakpoint();
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  const data = useStaticQuery(query);
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
@@ -30,7 +26,12 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header title={data.site.siteMetadata.title} toggle={toggle} />
+      <Header
+        title={data.site.siteMetadata.title}
+        toggle={toggle}
+        toggleTheme={themeToggleHandler}
+      />
+
       <Wrapper>
         {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggle} />}
         <main>{children}</main>
@@ -54,6 +55,16 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: ${({ theme }) => theme.responsive.small}) {
     padding: 0 ${({ theme }) => theme.sideSpace.small};
+  }
+`;
+
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
   }
 `;
 
