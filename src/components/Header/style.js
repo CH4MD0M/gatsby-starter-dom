@@ -21,8 +21,8 @@ export const NavTitle = styled.div`
   font-family: "Damion", cursive;
   font-size: 4.5rem;
   letter-spacing: ${(props) => props.theme.text.spacing};
-  color: #fff;
-  animation: ${(props) => props.theme.animation.logoAnimation} 1.5s infinite;
+  color: ${(props) => props.theme.colors.textColor};
+  animation: ${(props) => props.theme.animation?.logoAnimation} 1.5s infinite;
 
   a {
     color: inherit;

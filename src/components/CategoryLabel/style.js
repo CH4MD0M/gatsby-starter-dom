@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   .category-text {
     display: inline-block;
-    background: ${(props) => props.color};
     padding: 0.4rem 1rem;
-    line-height: 1.7rem;
-    font-size: 1.7rem;
+    background: ${(props) => props.color};
+    font-size: 1.5rem;
     font-weight: 400;
     color: ${(props) => props.theme.colors.background};
     border-radius: 4px;

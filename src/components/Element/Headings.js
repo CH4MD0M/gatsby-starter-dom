@@ -11,7 +11,7 @@ const myH1 = ({ children }) => {
 };
 const HeadingOne = styled.div`
   margin: 7rem 0 2rem;
-  color: ${(props) => props.theme.colors.primary2};
+  color: ${(props) => props.theme.colors.headingColor};
   h1 {
     font-size: 4rem;
   }
@@ -41,7 +41,7 @@ const myH2 = ({ children }) => {
 const HeadingTwo = styled.div`
   margin: 5rem 0 2rem;
   padding-left: 1rem;
-  color: ${(props) => props.theme.colors.primary2};
+  color: ${(props) => props.theme.colors.headingColor};
   border-left: 4px solid ${(props) => props.theme.colors.primary4};
   h2 {
     font-size: 2.7rem;
@@ -64,7 +64,7 @@ const myH3 = ({ children }) => {
 const HeadingThree = styled.div`
   margin: 5rem 0 2rem;
   padding-left: 1rem;
-  color: ${(props) => props.theme.colors.primary2};
+  color: ${(props) => props.theme.colors.headingColor};
 
   h3 {
     font-size: 2.3rem;

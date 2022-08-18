@@ -1,6 +1,6 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/okaidia";
+import theme from "prism-react-renderer/themes/dracula";
 import styled from "styled-components";
 
 const PrismWrapper = (props) => {

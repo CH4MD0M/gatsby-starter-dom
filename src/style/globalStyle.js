@@ -17,7 +17,7 @@ html {
 body {
   background: ${(props) => props.theme.colors.background};
   font-family: "Noto Sans KR";
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.textColor};
   margin: 0;
   }
   article,
@@ -51,16 +51,12 @@ body {
 
   b,
   strong {
-    font-weight: 600;
+    font-weight: ${(props) => props.theme.text.boldFontWeight};
   }
 
   h1 {
     font-size: 2rem;
     margin: 0.67rem 0;
-  }
-  mark {
-    background: #ff0;
-    color: #000;
   }
   small {
     font-size: 80%;

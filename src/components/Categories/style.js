@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   top: 15px;
   width: 23rem;
   padding: 3rem;
-  background: ${(props) => props.theme.colors.primary2};
+  background: ${(props) => props.theme.colors.contentBgColor};
   border-radius: 5px;
   box-shadow: ${(props) => props.theme.effect.shadow};
   letter-spacing: ${(props) => props.theme.text.spacing};
@@ -17,8 +17,7 @@ export const Wrapper = styled.div`
     font-size: 2rem;
     text-align: center;
     font-weight: 700;
-    color: #fff;
-    text-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3;
+    text-shadow: ${(props) => props.theme.colors.textShadow};
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
@@ -27,8 +26,7 @@ export const Wrapper = styled.div`
     margin: 6rem 0;
     padding: 0.5rem 1.5rem;
     top: 0;
-    background: ${(props) => props.theme.colors.background};
-    border: solid ${(props) => props.theme.colors.primary4};
+    border: solid ${(props) => props.theme.colors.categoryBorderColor};
     border-width: 1px 6px;
     border-radius: 2px;
     z-index: 200;
@@ -68,14 +66,13 @@ export const Active = styled.li`
   padding: 0.5rem 1rem;
   border-radius: 10px;
   color: #fff;
-  background: #2196f3;
-  color: ${(props) => props.theme.colors.primary2};
-  box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+  background: ${(props) => props.theme.colors.linkColor};
+  box-shadow: ${(props) => props.theme.colors.boxShadow};
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     margin: 0.8rem;
     font-size: 1.5rem;
-    box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3;
+    box-shadow: ${(props) => props.theme.colors.smallBoxShadow};
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
     font-size: 1.2rem;
@@ -87,7 +84,7 @@ export const Disabled = styled.li`
   width: fit-content;
   margin: 1.2rem 0;
   padding: 0.5rem 1rem;
-  color: #fff;
+
   font-size: 1.7rem;
   font-weight: 400;
   border-radius: 10px;
@@ -106,13 +103,13 @@ export const Disabled = styled.li`
 
   &:hover {
     color: #fff;
-    background: #2196f3;
+    background: ${(props) => props.theme.colors.linkColor};
     font-weight: 400;
     color: ${(props) => props.theme.colors.primary2};
-    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    box-shadow: ${(props) => props.theme.colors.boxShadow};
 
     @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-      box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3;
+      box-shadow: ${(props) => props.theme.colors.smallBoxShadow};
     }
   }
 `;

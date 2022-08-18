@@ -1,36 +1,21 @@
-import { keyframes } from "styled-components";
+import { FaWeight } from "react-icons/fa";
+import { logoAnimation, commonColor, commonVariables } from "./variables";
 
-// Animation
-const logoAnimation = keyframes`
-  0%,
-  10%,
-  18%,
-  20%,
-  50.1%,
-  60%,
-  65.1%,
-  80%,
-  90.1%,
-  92% {
-    color: #0e3742;
-    box-shadow: none;
-  }
-  18.1%,
-  20.1%,
-  50%,
-  60.1%,
-  65%,
-  80.1%,
-  90%,
-  100% {
-    color: hsl(206, 33%, 96%);
-    text-shadow: 0 0 15px #2196f3, 0 0 25px #2196f3, 0 0 40px #2196f3,
-      0 0 80px #2196f3, 0 0 160px #2196f3;
-  }`;
-
-const variables = {
+export const darkTheme = {
   colors: {
-    background: "hsl(209, 28%, 20%)",
+    background: "	hsl(218, 27%, 14%)",
+    textColor: "hsl(206, 33%, 96%)",
+    contentBgColor: "	hsl(219, 22%, 23%)",
+    contentTextColor: "hsl(0, 20%, 100%)",
+    headingColor: "hsl(210, 27%, 90%)",
+    linkColor: "#2196f3",
+    categoryBorderColor: "hsl(210, 22%, 49%)",
+    postsBorderColor: "hsl(219, 22%, 23%)",
+
+    textShadow: "0 0 10px #2196f3, 0 0 40px #2196f3;",
+    boxShadow: "0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3",
+    smallBoxShadow: "0 0 5px #2196f3, 0 0 10px #2196f3",
+
     primary1: "hsl(209, 28%, 20%)",
     primary2: "hsl(209, 30%, 30%)",
     primary3: "hsl(209, 28%, 39%)",
@@ -38,39 +23,44 @@ const variables = {
     primary5: "hsl(210, 31%, 80%)",
     primary6: "hsl(210, 27%, 90%)",
 
-    black: "	hsl(0, 0%, 19%)",
-    white: "hsl(206, 33%, 96%)",
-    darkWhite: "hsl(212, 33%, 89%)",
-    darkGreen: "hsl(125, 67%, 35%)",
-    lightGreen: "hsl(134, 41%, 88%)",
-    darkRed: "hsl(360, 67%, 44%)",
-    lightRed: "hsl(360, 71%, 66%)",
-    lightOrange: "hsl(29, 74%, 92%)",
-  },
-  sizes: {
-    maxWidth: "1100px",
-  },
-  sideSpace: {
-    large: "2rem",
-    small: "1rem",
-    contentLarge: "2.5rem",
-    contentSmall: "2rem",
-  },
-  responsive: {
-    small: "500px",
-    medium: "768px",
-    large: "950px",
-  },
-  effect: {
-    radius: "10px",
-    shadow: "6px 7px 13px 0px rgba(0,0,0,0.57)",
+    ...commonColor,
   },
   text: {
     spacing: "0.2rem",
+    regularFontWeight: "300",
+    boldFontWeight: "500",
   },
   animation: {
     logoAnimation,
     transition: "all 0.2s linear",
   },
+  ...commonVariables,
 };
-export default variables;
+
+export const lightTheme = {
+  colors: {
+    background: "hsl(0, 0%, 95%)",
+    textColor: "hsl(219, 22%, 23%)",
+    contentBgColor: "hsl(0, 0%, 100%)",
+    contentTextColor: "hsl(218, 17%, 35%)",
+    headingColor: "hsl(219, 22%, 23%)",
+    linkColor: "hsl(210, 31%, 80%)",
+    categoryBorderColor: "hsl(210, 31%, 80%)",
+    postsBorderColor: "hsl(210, 31%, 87%)",
+
+    primary1: "hsl(209, 28%, 20%)",
+    primary2: "hsl(209, 30%, 30%)",
+    primary3: "hsl(209, 28%, 39%)",
+    primary4: "hsl(210, 22%, 49%)",
+    primary5: "hsl(210, 31%, 80%)",
+    primary6: "hsl(210, 27%, 90%)",
+
+    ...commonColor,
+  },
+  text: {
+    spacing: "0.2rem",
+    regularFontWeight: "400",
+    boldFontWeight: "600",
+  },
+  ...commonVariables,
+};
