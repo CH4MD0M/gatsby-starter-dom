@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const useTheme = () => {
-  const prefersColorScheme = window.matchMedia("(prefers-color-scheme: dark)")
-    .matches
-    ? "dark"
-    : "light";
+  let websiteTheme;
+  if (typeof window !== "undefined") {
+    websiteTheme = window.__theme;
+  }
 
-  const localStorageTheme = localStorage.getItem("theme");
-  const initialTheme = localStorageTheme || prefersColorScheme;
+  const [theme, setTheme] = useState(websiteTheme);
 
-  const [theme, setTheme] = useState(initialTheme);
-
-  const setThemeMode = (mode) => {
-    localStorage.setItem("theme", mode);
-    setTheme(mode);
-  };
+  useEffect(() => {
+    setTheme(window.__theme);
+    window.__onThemeChange = () => {
+      setTheme(window.__theme);
+    };
+  }, []);
 
   const themeToggleHandler = () => {
-    theme === "light" ? setThemeMode("dark") : setThemeMode("light");
+    window.__setPreferredTheme(websiteTheme === "dark" ? "light" : "dark");
   };
 
   return [theme, themeToggleHandler];

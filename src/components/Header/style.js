@@ -56,10 +56,3 @@ export const ToggleContainer = styled.div`
     }
   }
 `;
-
-export const ThemeToggleButton = styled.button`
-  width: 3rem;
-  height: 3rem;
-  color: ${({ theme }) => theme.colors.primary1};
-  background-color: ${({ theme }) => theme.colors.background};
-`;
