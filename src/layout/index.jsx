@@ -14,7 +14,7 @@ import GlobalStyle from "../style/globalStyle";
 
 const Layout = ({ children }) => {
   const [themeMode, themeToggleHandler] = useTheme();
-  const theme = themeMode === "light" ? lightTheme : darkTheme;
+  const theme = themeMode === "dark" ? darkTheme : lightTheme;
 
   const breakpoints = useBreakpoint();
   const data = useStaticQuery(query);
@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
       <Header
         title={data.site.siteMetadata.title}
         toggle={toggle}
+        themeMode={themeMode}
         toggleTheme={themeToggleHandler}
       />
 
