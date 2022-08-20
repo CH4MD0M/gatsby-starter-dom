@@ -26,7 +26,7 @@ const components = {
   pre: PrismSetup,
 };
 
-const PostTemplate = ({ data, location }) => {
+const PostTemplate = ({ data, pageContext, location }) => {
   const { siteUrl, description, author } = data.site.siteMetadata;
   const {
     mdx: {
@@ -136,6 +136,7 @@ const Wrapper = styled.section`
 
       a {
         color: rgb(32, 168, 234);
+        font-weight: ${(props) => props.theme.text.boldFontWeight};
       }
     }
 
@@ -166,7 +167,7 @@ const Wrapper = styled.section`
 `;
 
 export const query = graphql`
-  query ($slug: String) {
+  query GetSinglePost($slug: String!) {
     site {
       siteMetadata {
         siteUrl
@@ -174,13 +175,13 @@ export const query = graphql`
         author
       }
     }
-    mdx(slug: { eq: $slug }) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
         category
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM Do, YYYY")
+        slug
       }
-      excerpt(pruneLength: 150)
       body
     }
   }

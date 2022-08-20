@@ -10,7 +10,6 @@ export const darkTheme = {
     headingColor: "hsl(210, 27%, 90%)",
     linkColor: "#2196f3",
     categoryBorderColor: "hsl(210, 22%, 49%)",
-    postsBorderColor: "hsl(219, 22%, 23%)",
 
     textShadow: "0 0 10px #2196f3, 0 0 40px #2196f3;",
     boxShadow: "0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3",
@@ -46,7 +45,6 @@ export const lightTheme = {
     headingColor: "hsl(219, 22%, 23%)",
     linkColor: "hsl(210, 31%, 80%)",
     categoryBorderColor: "hsl(210, 31%, 80%)",
-    postsBorderColor: "hsl(210, 31%, 87%)",
 
     primary1: "hsl(209, 28%, 20%)",
     primary2: "hsl(209, 30%, 30%)",

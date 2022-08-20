@@ -4,15 +4,32 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-        nodes {
-          id
-          slug
-          frontmatter {
-            date(formatString: "YYYY.MM.DD")
-            title
+      allMdx(
+        filter: { frontmatter: { category: { ne: null } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
             slug
-            category
+            frontmatter {
+              date(formatString: "YYYY.MM.DD")
+              title
+              slug
+              category
+            }
+          }
+          next {
+            frontmatter {
+              slug
+              title
+            }
+          }
+          previous {
+            frontmatter {
+              slug
+              title
+            }
           }
         }
       }
@@ -23,13 +40,16 @@ exports.createPages = async ({ graphql, actions }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
+  const posts = result.data.allMdx.edges;
 
-  result.data.allMdx.nodes.forEach((node, index) => {
+  posts.forEach((post) => {
     createPage({
-      path: `${node.slug}`,
+      path: `/content/${post.node.frontmatter.slug}`,
       component: path.resolve(`src/templates/post-template.js`),
       context: {
-        slug: node.slug,
+        slug: post.node.frontmatter.slug,
+        previous: post.previous,
+        next: post.next,
       },
     });
   });

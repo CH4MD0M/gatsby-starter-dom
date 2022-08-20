@@ -81,7 +81,6 @@ const query = graphql`
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         id
-        slug
         frontmatter {
           title
           category
