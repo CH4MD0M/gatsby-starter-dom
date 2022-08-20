@@ -8,11 +8,11 @@ import PostThumbnail from "../PostThumbnail";
 import { Wrapper, PostInfo } from "./style";
 
 const PostPreview = ({ post }) => {
-  const { title, date, category } = post.frontmatter;
+  const { title, date, category, slug } = post.frontmatter;
 
   return (
     <Wrapper>
-      <Link to={`/${post.slug}`} className="post-container">
+      <Link to={`/content/${slug}`} className="post-container">
         <PostThumbnail category={category} />
         <PostInfo>
           <header>

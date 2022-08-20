@@ -70,7 +70,7 @@ export const Active = styled.li`
   box-shadow: ${(props) => props.theme.colors.boxShadow};
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    margin: 0.8rem;
+    margin: 0.6rem 0.3rem;
     font-size: 1.5rem;
     box-shadow: ${(props) => props.theme.colors.smallBoxShadow};
   }
@@ -93,7 +93,7 @@ export const Disabled = styled.li`
   transition: 0.25s;
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    margin: 0.8rem;
+    margin: 0.6rem 0.3rem;
     font-size: 1.5rem;
   }
 

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 9rem;
   height: 9rem;
-  background: ${(props) => props.theme.colors.postsBorderColor};
+  background: ${(props) => props.theme.colors.contentBgColor};
 
   svg {
     width: 6rem;

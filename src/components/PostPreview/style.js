@@ -4,7 +4,7 @@ export const Wrapper = styled.article`
   .post-container {
     display: flex;
     padding: 1.3rem 0;
-    border-bottom: 1px solid ${(props) => props.theme.colors.postsBorderColor};
+    border-bottom: 1px solid ${(props) => props.theme.colors.contentBgColor};
     transition: 0.2s linear;
     &:hover {
       background-color: ${(props) => props.theme.colors.contentBgColor};
@@ -22,7 +22,7 @@ export const PostInfo = styled.div`
   header {
     margin-top: 1rem;
     .post-title {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       line-height: 2.8rem;
       font-weight: 500;
     }
