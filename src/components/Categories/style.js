@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     display: block;
     width: auto;
-    margin: 6rem 0;
+    margin: 6rem 0 2rem;
     padding: 0.5rem 1.5rem;
     top: 0;
     border: solid ${(props) => props.theme.colors.categoryBorderColor};

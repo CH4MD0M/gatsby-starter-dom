@@ -18,21 +18,14 @@ const Header = ({ title, toggle, themeMode, toggleTheme }) => {
         <Link to="/">{title}</Link>
       </NavTitle>
 
-      {breakpoints.md ? (
-        <>
-          <ToggleButton themeMode={themeMode} toggleTheme={toggleTheme} />
-          <ToggleContainer>
-            <button className="toggle-btn" onClick={toggle}>
-              <FaBars />
-            </button>
-          </ToggleContainer>
-        </>
-      ) : (
-        <>
-          <Links styleClass="nav-links" />
-
-          <ToggleButton themeMode={themeMode} toggleTheme={toggleTheme} />
-        </>
+      {breakpoints.mdMin && <Links styleClass="nav-links" />}
+      <ToggleButton themeMode={themeMode} toggleTheme={toggleTheme} />
+      {breakpoints.md && (
+        <ToggleContainer>
+          <button className="toggle-btn" onClick={toggle}>
+            <FaBars />
+          </button>
+        </ToggleContainer>
       )}
     </Wrapper>
   );

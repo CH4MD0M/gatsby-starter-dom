@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Switch from "react-switch";
+import styled from "styled-components";
 
 const MoonIcon = () => {
   return (
@@ -39,34 +40,40 @@ const ToggleButton = ({ themeMode, toggleTheme }) => {
   };
 
   return (
-    <div className="switch-container">
-      <label htmlFor="normal-switch">
-        <Switch
-          onChange={handleChange}
-          checked={checked}
-          id="normal-switch"
-          height={24}
-          width={48}
-          checkedIcon={
-            <div className="icon checkedIcon">
-              <MoonIcon />
-            </div>
-          }
-          uncheckedIcon={
-            <div className="icon uncheckedIcon">
-              <SunIcon />
-            </div>
-          }
-          offColor={"#d9dfe2"}
-          offHandleColor={"#fff"}
-          onColor={"#bcccdc"}
-          onHandleColor={"#4a5568"}
+    <Wrapper>
+      <div className="switch-container">
+        <label htmlFor="normal-switch">
+          <Switch
+            onChange={handleChange}
+            checked={checked}
+            id="normal-switch"
+            height={24}
+            width={48}
+            checkedIcon={
+              <div className="icon checkedIcon">
+                <MoonIcon />
+              </div>
+            }
+            uncheckedIcon={
+              <div className="icon uncheckedIcon">
+                <SunIcon />
+              </div>
+            }
+            offColor={"#d9dfe2"}
+            offHandleColor={"#fff"}
+            onColor={"#bcccdc"}
+            onHandleColor={"#4a5568"}
 
-          //   #364d63
-        />
-      </label>
-    </div>
+            //   #364d63
+          />
+        </label>
+      </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  margin: 0 1rem;
+`;
 
 export default ToggleButton;

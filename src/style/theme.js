@@ -27,8 +27,8 @@ export const darkTheme = {
   },
   text: {
     spacing: "0.2rem",
-    regularFontWeight: "300",
-    boldFontWeight: "500",
+    regularFontWeight: "100",
+    boldFontWeight: "400",
   },
   animation: {
     logoAnimation,
@@ -60,7 +60,7 @@ export const lightTheme = {
   text: {
     spacing: "0.2rem",
     regularFontWeight: "400",
-    boldFontWeight: "600",
+    boldFontWeight: "500",
   },
   ...commonVariables,
 };

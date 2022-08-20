@@ -75,6 +75,7 @@ module.exports = {
       options: {
         queries: {
           l: "(max-width: 950px)",
+          mdMin: "(min-width: 768px)",
           md: "(max-width: 768px)",
           sm: "(max-width: 500px)",
 

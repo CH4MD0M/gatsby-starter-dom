@@ -17,7 +17,7 @@ const Wrapper = styled.blockquote`
     color: ${(props) => props.theme.colors.primary1};
     background: ${(props) => props.theme.colors.primary6};
     border-radius: 0 4px 4px 0;
-    border-left: 5px solid ${(props) => props.theme.colors.lightRed};
+    border-left: 5px solid ${(props) => props.theme.colors.primary3};
 
     p {
       color: ${(props) => props.theme.colors.primary2};
