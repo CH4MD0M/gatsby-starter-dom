@@ -1,0 +1,31 @@
+---
+title: "[프로그래머스] 3진법 뒤집기 (JavaScript)"
+slug: js-프로그래머스-level1-3진법-뒤집기
+category: algorithm
+date: 2022-07-04
+author: ch4md0m
+---
+
+## 문제
+
+[코딩테스트 연습 - 3진법 뒤집기](https://school.programmers.co.kr/learn/courses/30/lessons/68935)
+
+<br />
+
+## 코드
+
+```jsx
+function solution(n) {
+  return parseInt([...n.toString(3)].reverse().join(""), 3);
+}
+```
+
+## 문제 풀이 방법
+
+3진법으로 변환하기 위해 `Object.prototype.toString()`메서드를 사용하여 변환하고, 이를 뒤집은 뒤에 `parseInt()` 메서드를 사용하여 다시 10진수로 변환하였다.
+
+<br />
+
+## 새로 알게된 것
+
+-

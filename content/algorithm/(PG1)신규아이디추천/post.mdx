@@ -1,0 +1,66 @@
+---
+title: "[프로그래머스] 신규 아이디 추천 (JavaScript)"
+slug: js-프로그래머스-level1-신규-아이디-추천
+category: algorithm
+date: 2022-07-05
+author: ch4md0m
+---
+
+## 문제
+
+[코딩테스트 연습 - 신규 아이디 추천](https://school.programmers.co.kr/learn/courses/30/lessons/72410)
+
+<br />
+
+## 코드
+
+```jsx
+function solution(new_id) {
+  let answer = new_id
+    .toLowerCase()
+    .replace(/[^\w\d-_.]/g, "")
+    .replace(/\.{2,}/g, ".")
+    .replace(/^\.|\.$/g, "");
+
+  if (!answer.length) answer = "a";
+  answer = answer.slice(0, 15).replace(/\.$/g, "");
+
+  const len = answer.length;
+
+  return len > 2 ? answer : answer + answer[len - 1].repeat(3 - len);
+}
+```
+
+<br />
+
+## 다른 사람 코드
+
+```jsx
+function solution(new_id) {
+  const answer = new_id
+    .toLowerCase()
+    .replace(/[^\w\d-_.]/g, "")
+    .replace(/\.{2,}/g, ".")
+    .replace(/^\.|\.$/g, "")
+    .padEnd(1, "a")
+    .slice(0, 15)
+    .replace(/^\.|\.$/g, "");
+
+  return answer.padEnd(3, answer[answer.length - 1]);
+}
+```
+
+<br />
+
+## 문제 풀이 방법
+
+문제의 지시 사항대로 구현하는 문제였다.
+
+정규 표현식의 중요성을 알았고 정규표현식에 대해서 정리를 해야겠다고 느꼈다.
+
+<br />
+
+## 새로 알게된 것
+
+- 정규 표현식 사용 방법.
+- padEnd

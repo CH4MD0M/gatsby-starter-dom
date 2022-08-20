@@ -1,0 +1,42 @@
+---
+title: "[프로그래머스] 완주하지 못한 선수 (JavaScript)"
+slug: js-프로그래머스-level1-완주하지-못한-선수
+category: algorithm
+date: 2022-07-04
+author: ch4md0m
+---
+
+## 문제
+
+[코딩테스트 연습 - 완주하지 못한 선수](https://school.programmers.co.kr/learn/courses/30/lessons/42576)
+
+<br />
+
+## 코드
+
+```jsx
+function solution(participant, completion) {
+  participant.sort();
+  completion.sort();
+
+  for (let i = 0; i < participant.length; i++) {
+    if (participant[i] !== completion[i]) {
+      return participant[i];
+    }
+  }
+}
+```
+
+<br />
+
+## 문제 풀이 방법
+
+participant(참가자) 배열과 completion(완주자) 배열을 정렬하고, participant에는 존재하지만 completion에는 없는 값을 찾는 문제이다.
+
+두 배열을 정렬하여 **index**로 값에 접근해서 값이 같지 않다면 **return**한다.
+
+<br />
+
+## 새로 알게된 것
+
+-
