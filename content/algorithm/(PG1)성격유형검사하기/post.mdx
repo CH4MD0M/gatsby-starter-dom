@@ -1,0 +1,49 @@
+---
+title: "[프로그래머스] 성격 유형 검사하기 (JavaScript)"
+slug: js-프로그래머스-level1-성격-유형-검사하기
+category: algorithm
+date: 2022-08-24
+author: ch4md0m
+---
+
+## 문제
+
+[코딩테스트 연습 - 성격 유형 검사하기](https://school.programmers.co.kr/learn/courses/30/lessons/118666)
+
+<br />
+
+## 코드
+
+```jsx
+function solution(survey, choices) {
+  let answer = "";
+  const table = { R: 0, T: 0, C: 0, F: 0, J: 0, M: 0, A: 0, N: 0 };
+
+  for (let i = 0; i < survey.length; i++) {
+    if (choices[i] < 4) {
+      table[survey[i][0]] += 4 - choices[i];
+    } else {
+      table[survey[i][1]] += choices[i] - 4;
+    }
+  }
+
+  answer += table["R"] >= table["T"] ? "R" : "T";
+  answer += table["C"] >= table["F"] ? "C" : "F";
+  answer += table["J"] >= table["M"] ? "J" : "M";
+  answer += table["A"] >= table["N"] ? "A" : "N";
+
+  return answer;
+}
+```
+
+<br />
+
+## 문제 풀이 방법
+
+-
+
+<br />
+
+## 새로 알게된 것
+
+-
