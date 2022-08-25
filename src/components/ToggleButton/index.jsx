@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import Switch from "react-switch";
 import styled from "styled-components";

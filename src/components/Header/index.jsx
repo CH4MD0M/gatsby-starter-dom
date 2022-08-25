@@ -6,7 +6,7 @@ import Links from "../Links";
 import ToggleButton from "../ToggleButton";
 
 // CSS
-import { Wrapper, NavTitle, ToggleContainer, ThemeToggleButton } from "./style";
+import { Wrapper, NavTitle, ToggleContainer } from "./style";
 import { FaBars } from "react-icons/fa";
 
 const Header = ({ title, toggle, themeMode, toggleTheme }) => {

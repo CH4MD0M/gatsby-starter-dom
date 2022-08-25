@@ -1,4 +1,3 @@
-import { FaWeight } from "react-icons/fa";
 import { logoAnimation, commonColor, commonVariables } from "./variables";
 
 export const darkTheme = {
