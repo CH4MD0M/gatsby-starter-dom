@@ -1,20 +1,19 @@
 import React from "react";
 import PostPreview from "../PostPreview";
-import { Wrapper } from "./style";
 
-const Posts = ({ category, posts }) => {
-  const filteredPosts = posts.filter(
-    (post) => category === "all" || post.frontmatter.category === category
-  );
+const Posts = ({ category, posts, count }) => {
+  const filteredPosts = posts
+    .filter(
+      (post) => category === "all" || post.frontmatter.category === category
+    )
+    .slice(0, count);
 
   return (
-    <Wrapper>
-      <article>
-        {filteredPosts.map((post) => {
-          return <PostPreview key={post.id} post={post} />;
-        })}
-      </article>
-    </Wrapper>
+    <div>
+      {filteredPosts.map((post) => {
+        return <PostPreview key={post.id} post={post} />;
+      })}
+    </div>
   );
 };
 

@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
 import useCategory from "../hooks/useCategory";
+import useInfiniteScroll from "../hooks/useInfiniteScroll";
+
 import Layout from "../layout";
 import Seo from "../components/Seo";
 import Categories from "../components/Categories";
 import Posts from "../components/Posts";
 
 const IndexPage = () => {
-  const [category, selectCategory] = useCategory();
   const {
     site: { siteMetadata },
     allMdx: { nodes: posts },
   } = useStaticQuery(query);
+
+  const [category, selectCategory] = useCategory();
+  const [count, setCount] = useState(10);
+  const [setTarget] = useInfiniteScroll(loadPosts);
+
+  function loadPosts() {
+    setCount((prev) => {
+      if (prev + 4 <= posts.length) return prev + 4;
+      else return posts.length;
+    });
+  }
 
   return (
     <Layout>
@@ -29,7 +41,8 @@ const IndexPage = () => {
           selectCategory={selectCategory}
         />
         <MainContet>
-          <Posts category={category} posts={posts} />
+          <Posts category={category} posts={posts} count={count} />
+          <div ref={setTarget} />
         </MainContet>
       </Wrapper>
     </Layout>
