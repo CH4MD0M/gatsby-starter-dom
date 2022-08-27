@@ -1,5 +1,22 @@
 import { useState, useEffect } from "react";
 
+const getCurrentTheme = () => {
+  let initTheme = "light";
+
+  if (typeof window !== "undefined") {
+    const isBrowserDarkMode =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    const localSettingTheme = window.localStorage.getItem("theme");
+
+    if (isBrowserDarkMode && !localSettingTheme) initTheme = "dark";
+    else if (localSettingTheme) initTheme = localSettingTheme;
+  }
+
+  return initTheme;
+};
+
 const useTheme = () => {
   let websiteTheme;
   if (typeof window !== "undefined") {
