@@ -1,7 +1,48 @@
 import React from "react";
-import { useState } from "react";
 import Switch from "react-switch";
 import styled from "styled-components";
+
+import useTheme from "../../hooks/useTheme";
+
+const ToggleButton = () => {
+  const { theme, themeToggleHandler } = useTheme();
+
+  const handleChange = () => {
+    themeToggleHandler();
+  };
+
+  return (
+    <Wrapper>
+      <div className="switch-container">
+        <label htmlFor="normal-switch">
+          <Switch
+            onChange={handleChange}
+            checked={theme === "dark" ? true : false}
+            id="normal-switch"
+            height={24}
+            width={48}
+            checkedIcon={
+              <div className="icon checkedIcon">
+                <MoonIcon />
+              </div>
+            }
+            uncheckedIcon={
+              <div className="icon uncheckedIcon">
+                <SunIcon />
+              </div>
+            }
+            offColor={"#d9dfe2"}
+            offHandleColor={"#fff"}
+            onColor={"#bcccdc"}
+            onHandleColor={"#4a5568"}
+
+            //   #364d63
+          />
+        </label>
+      </div>
+    </Wrapper>
+  );
+};
 
 const MoonIcon = () => {
   return (
@@ -29,50 +70,12 @@ const SunIcon = () => {
   );
 };
 
-const ToggleButton = ({ themeMode, toggleTheme }) => {
-  const theme = themeMode === "dark";
-  const [checked, setChecked] = useState(theme);
-
-  const handleChange = (checked) => {
-    setChecked(checked);
-    toggleTheme();
-  };
-
-  return (
-    <Wrapper>
-      <div className="switch-container">
-        <label htmlFor="normal-switch">
-          <Switch
-            onChange={handleChange}
-            checked={checked}
-            id="normal-switch"
-            height={24}
-            width={48}
-            checkedIcon={
-              <div className="icon checkedIcon">
-                <MoonIcon />
-              </div>
-            }
-            uncheckedIcon={
-              <div className="icon uncheckedIcon">
-                <SunIcon />
-              </div>
-            }
-            offColor={"#d9dfe2"}
-            offHandleColor={"#fff"}
-            onColor={"#bcccdc"}
-            onHandleColor={"#4a5568"}
-
-            //   #364d63
-          />
-        </label>
-      </div>
-    </Wrapper>
-  );
-};
-
 const Wrapper = styled.div`
-  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  cursor: pointer;
 `;
 
 export default ToggleButton;
