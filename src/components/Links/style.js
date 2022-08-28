@@ -1,18 +1,27 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  /* 사이드바 */
+  /* Sidebar */
   .sidebar-links {
+    padding-top: 10rem;
     .page-link {
       font-size: 3rem;
       margin: 3rem 0;
+      display: block;
+      font-weight: 700;
+      transition: 0.2s linear;
+      &:hover {
+        transform: translateY(-5px);
+        background: none;
+        box-shadow: none;
+      }
     }
     ul {
       padding: 1.5rem 0.5rem 5rem;
     }
   }
 
-  /* 네비게이션바 */
+  /* Navbar */
   .nav-links {
     display: flex;
     align-items: center;
@@ -37,50 +46,34 @@ export const Wrapper = styled.div`
           left: -100%;
           width: 100%;
           height: 2.2px;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            ${(props) => props.theme.colors.linkColor}
-          );
+          background: linear-gradient(90deg, transparent, var(--linkColor));
         }
         &:nth-child(2) {
           top: -100%;
           right: 0;
           width: 2.2px;
           height: 100%;
-          background: linear-gradient(
-            180deg,
-            transparent,
-            ${(props) => props.theme.colors.linkColor}
-          );
+          background: linear-gradient(180deg, transparent, var(--linkColor));
         }
         &:nth-child(3) {
           bottom: 0;
           right: -100%;
           width: 100%;
           height: 2.2px;
-          background: linear-gradient(
-            270deg,
-            transparent,
-            ${(props) => props.theme.colors.linkColor}
-          );
+          background: linear-gradient(270deg, transparent, var(--linkColor));
         }
         &:nth-child(4) {
           bottom: -100%;
           left: 0;
           width: 2.2px;
           height: 100%;
-          background: linear-gradient(
-            270deg,
-            transparent,
-            ${(props) => props.theme.colors.linkColor}
-          );
+          background: linear-gradient(270deg, transparent, var(--linkColor));
         }
       }
       &:hover {
-        background: ${(props) => props.theme.colors.linkColor};
-        color: ${(props) => props.theme.colors.textColor};
-        box-shadow: ${(props) => props.theme.colors.boxShadow};
+        color: var(--textColor);
+        background: var(--linkColor);
+        box-shadow: var(--boxShadow);
         transition-delay: 0.55s;
         span:nth-child(1) {
           left: 100%;

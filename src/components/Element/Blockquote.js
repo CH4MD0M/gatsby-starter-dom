@@ -15,9 +15,10 @@ const Wrapper = styled.blockquote`
   .container {
     padding: 2rem 1.5rem;
     color: ${(props) => props.theme.colors.primary1};
-    background: ${(props) => props.theme.colors.primary6};
-    border-radius: 0 4px 4px 0;
-    border-left: 5px solid ${(props) => props.theme.colors.primary3};
+    background: ${(props) => props.theme.colors.primary7};
+    border-radius: 0 10px 10px 0;
+    border-left: 8px solid ${(props) => props.theme.colors.neonBlue};
+    box-shadow: ${(props) => props.theme.effect.shadow};
 
     p {
       color: ${(props) => props.theme.colors.primary2};

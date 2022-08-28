@@ -21,8 +21,8 @@ export const NavTitle = styled.div`
   font-family: "Damion", cursive;
   font-size: 4.5rem;
   letter-spacing: ${(props) => props.theme.text.spacing};
-  color: ${(props) => props.theme.colors.textColor};
-  animation: ${(props) => props.theme.animation?.logoAnimation} 1.5s infinite;
+  color: var(--textColor);
+  animation: var(--animation) 1.5s infinite;
 
   a {
     color: inherit;
@@ -46,7 +46,7 @@ export const ToggleContainer = styled.div`
     transition: 0.3s;
 
     &:hover {
-      color: ${(props) => props.theme.colors.primary5};
+      color: var(--linkColor);
     }
   }
 

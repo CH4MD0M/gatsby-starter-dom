@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     background: ${(props) => props.color};
     font-size: 1.5rem;
     font-weight: 400;
-    color: ${(props) => props.theme.colors.background};
+    color: var(--bgColor);
     border-radius: 4px;
 
     @media screen and (max-width: ${(props) => props.theme.responsive.large}) {

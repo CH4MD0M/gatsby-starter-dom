@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { graphql, useStaticQuery } from "gatsby";
-import useTheme from "../hooks/useTheme";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -9,13 +8,10 @@ import Footer from "../components/Footer";
 
 // CSS
 import styled, { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "../style/theme";
 import GlobalStyle from "../style/globalStyle";
+import theme from "../style/theme";
 
 const Layout = ({ children }) => {
-  const [themeMode, themeToggleHandler] = useTheme();
-  const theme = themeMode === "dark" ? darkTheme : lightTheme;
-
   const breakpoints = useBreakpoint();
   const data = useStaticQuery(query);
 
@@ -26,12 +22,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header
-        title={data.site.siteMetadata.title}
-        toggle={toggle}
-        themeMode={themeMode}
-        toggleTheme={themeToggleHandler}
-      />
+      <Header title={data.site.siteMetadata.title} toggle={toggle} />
 
       <Wrapper>
         {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggle} />}

@@ -4,10 +4,10 @@ export const Wrapper = styled.article`
   .post-container {
     display: flex;
     padding: 1.3rem 0;
-    border-bottom: 1px solid ${(props) => props.theme.colors.contentBgColor};
+    border-bottom: 1px solid var(--contentBgColor);
     transition: 0.2s linear;
     &:hover {
-      background-color: ${(props) => props.theme.colors.contentBgColor};
+      background-color: var(--contentBgColor);
     }
   }
 `;

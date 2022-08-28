@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 6rem 1fr;
   align-items: center;
-  margin: 1rem 0 4rem;
+  margin: 2rem 0 6rem;
   padding: 1.2rem;
 
   .bio-image {
@@ -45,10 +45,10 @@ export const Wrapper = styled.div`
     }
   }
   .author-name {
-    color: ${(props) => props.theme.colors.primary5};
+    color: ${(props) => props.theme.colors.primary4};
   }
   .date {
-    color: ${(props) => props.theme.colors.primary4};
+    color: ${(props) => props.theme.colors.primary3};
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {

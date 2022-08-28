@@ -62,7 +62,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
 const Wrapper = styled.section`
   max-width: 1000px;
   margin: 6rem auto 4rem auto;
-  color: ${(props) => props.theme.colors.contentTextColor};
+  color: var(--contentTextColor);
   /* info */
   .post-info {
     padding: 4rem 0 1rem;
@@ -70,7 +70,7 @@ const Wrapper = styled.section`
       margin: 1.5rem 0;
       font-weight: 700;
       font-size: 5.5rem;
-      color: ${(props) => props.theme.colors.textColor};
+      color: var(--textColor);
     }
     @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
       margin-left: 1rem;
@@ -82,7 +82,7 @@ const Wrapper = styled.section`
 
   /* post contents */
   .post-contents {
-    background-color: ${(props) => props.theme.colors.contentBgColor};
+    background-color: var(--contentBgColor);
     padding: 2rem ${(props) => props.theme.sideSpace.contentLarge};
     border-radius: 1rem;
 
@@ -90,17 +90,17 @@ const Wrapper = styled.section`
     table {
       margin: 5rem auto;
       font-size: 1.7rem;
-      font-weight: ${(props) => props.theme.text.regularFontWeight};
+      font-weight: var(--regularFontWeight)
       border-collapse: collapse;
     }
     th {
       padding: 1rem;
       background-color: ${(props) => props.theme.colors.primary5};
-      border: 0.5px solid ${(props) => props.theme.colors.textColor};
+      border: 0.5px solid var(--textColor);
     }
     td {
       padding: 1rem 1.8rem;
-      border: 0.5px solid ${(props) => props.theme.colors.textColor};
+      border: 0.5px solid var(--textColor);
     }
     td:first-child {
       text-align: center;
@@ -131,12 +131,12 @@ const Wrapper = styled.section`
     p {
       font-size: 1.7rem;
       line-height: 1.7;
-      font-weight: ${(props) => props.theme.text.regularFontWeight};
+      font-weight: var(--regularFontWeight)
       margin: 1.2rem 0;
 
       a {
         color: rgb(32, 168, 234);
-        font-weight: ${(props) => props.theme.text.boldFontWeight};
+        font-weight: var(--boldFontWeight)
       }
     }
 

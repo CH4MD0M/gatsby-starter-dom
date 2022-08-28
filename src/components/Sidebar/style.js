@@ -7,7 +7,8 @@ export const SidebarContainer = styled.div`
   width: 50%;
   height: 100%;
   padding-left: 4rem;
-  background: ${(props) => props.theme.colors.background};
+  background: var(--bgColor);
+  transition: all ease-in 0.3s 0.2s;
 
   .close-btn {
     position: absolute;
@@ -19,7 +20,7 @@ export const SidebarContainer = styled.div`
     cursor: pointer;
 
     svg {
-      fill: ${(props) => props.theme.colors.textColor};
+      fill: var(--textColor);
     }
 
     transition: 0.2s linear;
@@ -28,21 +29,6 @@ export const SidebarContainer = styled.div`
       transform: scale(1.05);
       -webkit-transform: scale(1.05);
     }
-  }
-
-  // Post, About
-  .page-link {
-    font-size: 2.3rem;
-    display: block;
-    color: ${(props) => props.theme.colors.white};
-    font-weight: 700;
-    transition: 0.2s linear;
-    &:hover {
-      color: ${(props) => props.theme.colors.primary5};
-    }
-  }
-  .category {
-    padding-left: 0.5rem;
   }
 `;
 
