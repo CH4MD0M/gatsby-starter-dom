@@ -15,6 +15,9 @@ import Layout from "../layout";
 import Bio from "../components/Bio";
 import CategoryLabel from "../components/CategoryLabel";
 import Seo from "../components/Seo";
+import Comments from "../components/Comments";
+
+// CSS
 import "katex/dist/katex.min.css";
 
 const components = {
@@ -54,6 +57,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </div>
+        <Comments />
       </Wrapper>
     </Layout>
   );
