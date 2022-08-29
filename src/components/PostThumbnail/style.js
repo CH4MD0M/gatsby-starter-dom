@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 9rem;
   height: 9rem;
+  border-radius: 10px;
   background: var(--contentBgColor);
-
   svg {
     width: 6rem;
     height: 6rem;
@@ -16,11 +16,11 @@ export const Wrapper = styled.div`
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    width: 7rem;
-    height: 7rem;
+    width: 7.3rem;
+    height: 7.3rem;
     svg {
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 4.8rem;
+      height: 4.8rem;
     }
   }
 `;

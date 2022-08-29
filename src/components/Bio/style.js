@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  border-left: 4px solid;
   display: grid;
   grid-template-columns: 6rem 1fr;
   align-items: center;
   margin: 2rem 0 6rem;
   padding: 1.2rem;
+  border-left: 4px solid;
 
   .bio-image {
     display: flex;
@@ -33,15 +33,15 @@ export const Wrapper = styled.div`
   }
 
   .bio-content {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-left: 1.5rem;
+    height: 100%;
     font-size: 1.8rem;
     @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-      font-size: 1.3rem;
       justify-content: space-around;
+      font-size: 1.3rem;
     }
   }
   .author-name {

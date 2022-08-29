@@ -14,13 +14,12 @@ export const Wrapper = styled.article`
 
 export const PostInfo = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  flex-direction: column;
   width: calc(100% - 9rem);
-  padding-left: 2rem;
-
+  margin-left: 2rem;
+  padding: 0.4rem 0 0.2rem;
   header {
-    margin-top: 1rem;
     .post-title {
       font-size: 2.5rem;
       line-height: 2.8rem;
@@ -39,17 +38,25 @@ export const PostInfo = styled.div`
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     width: calc(100% - 7rem);
-    padding-left: 1.3rem;
-
+    margin-left: 1.3rem;
     header {
       .post-title {
-        font-size: 2.2rem;
-        line-height: 2.2rem;
+        font-size: 2rem;
+        line-height: 2rem;
       }
     }
     footer {
       .date {
         font-size: 1.2rem;
+      }
+    }
+  }
+  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+    padding: 0.6rem 0;
+    header {
+      .post-title {
+        font-size: 1.5rem;
+        line-height: 1.7rem;
       }
     }
   }

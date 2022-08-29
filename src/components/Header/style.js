@@ -18,10 +18,10 @@ export const Wrapper = styled.nav`
 `;
 
 export const NavTitle = styled.div`
+  color: var(--textColor);
   font-family: "Damion", cursive;
   font-size: 4.5rem;
   letter-spacing: ${(props) => props.theme.text.spacing};
-  color: var(--textColor);
   animation: var(--animation) 1.5s infinite;
 
   a {
@@ -29,8 +29,8 @@ export const NavTitle = styled.div`
   }
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
-    font-size: 3rem;
     margin-left: 0;
+    font-size: 3rem;
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
     font-size: 2.5rem;

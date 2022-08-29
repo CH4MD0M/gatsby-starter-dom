@@ -5,15 +5,15 @@ export const Wrapper = styled.div`
   .sidebar-links {
     padding-top: 10rem;
     .page-link {
-      font-size: 3rem;
-      margin: 3rem 0;
       display: block;
+      margin: 3rem 0;
+      font-size: 3rem;
       font-weight: 700;
       transition: 0.2s linear;
       &:hover {
-        transform: translateY(-5px);
         background: none;
         box-shadow: none;
+        transform: translateY(-5px);
       }
     }
     ul {
@@ -39,8 +39,8 @@ export const Wrapper = styled.div`
       transition: 0.2s;
 
       span {
-        position: absolute;
         display: block;
+        position: absolute;
         &:nth-child(1) {
           top: 0;
           left: -100%;
