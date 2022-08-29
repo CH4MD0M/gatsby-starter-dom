@@ -8,7 +8,7 @@ import { Wrapper, SidebarContainer } from "./style";
 const Sidebar = ({ isOpen, toggle }) => {
   return (
     <Wrapper isOpen={isOpen}>
-      <SidebarContainer>
+      <SidebarContainer isOpen={isOpen}>
         <button
           className="close-btn"
           onClick={() => {
