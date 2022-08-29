@@ -29,6 +29,7 @@ body {
   font-family: "Noto Sans KR";
   color: var(--textColor);
   margin: 0;
+  transition: all 0.2s ease-in;
 }
 
   body.dark {
@@ -44,11 +45,13 @@ body {
     --animation: ${(props) => props.theme.animation.logoAnimation};
     --regularFontWeight: ${(props) => props.theme.text.fontWeight1};
     --boldFontWeight: ${(props) => props.theme.text.fontWeight3};
+
     
     background: var(--bgColor);
     font-family: "Noto Sans KR";
     color: var(--textColor);
     margin: 0;
+    
   }
   article,
   aside,
