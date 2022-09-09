@@ -1,0 +1,47 @@
+---
+title: "[프로그래머스] 파일명 정렬 (JavaScript)"
+slug: js-프로그래머스-level2-파일명-정렬
+category: algorithm
+date: 2022-07-07
+author: ch4md0m
+---
+
+## 문제
+
+[코딩테스트 연습 - 파일명 정렬](https://school.programmers.co.kr/learn/courses/30/lessons/17686)
+
+<br />
+
+## 코드
+
+```jsx
+function solution(files) {
+  const answer = [];
+
+  for (let f of files) {
+    let [fileName, head, number] = f.match(/^(\D+)([0-9]+)(.*)$/);
+    answer.push([fileName, head.toLowerCase(), +number]);
+  }
+
+  answer.sort((a, b) => {
+    if (a[1] > b[1]) return 1;
+    if (a[1] < b[1]) return -1;
+    if (a[2] > b[2]) return 1;
+    if (a[2] < b[2]) return -1;
+  });
+
+  return answer.map((v) => v[0]);
+}
+```
+
+<br />
+
+## 문제 풀이 방법
+
+-
+
+<br />
+
+## 새로 알게된 것
+
+-
