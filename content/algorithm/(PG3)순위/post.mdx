@@ -1,0 +1,56 @@
+---
+title: "[프로그래머스] 순위 (JavaScript)"
+slug: js-프로그래머스-level3-순위
+category: algorithm
+date: 2022-07-08
+author: ch4md0m
+---
+
+## 문제
+
+[코딩테스트 연습 - 메뉴 리뉴얼](https://school.programmers.co.kr/learn/courses/30/lessons/49191)
+
+<br />
+
+## 코드
+
+```jsx
+function solution(n, results) {
+  const INF = Infinity;
+  let matrix = [...Array(n + 1)].map(() => [...Array(n + 1)].fill(INF));
+
+  for (let [win, lose] of results) {
+    matrix[win][lose] = true;
+    matrix[lose][win] = false;
+  }
+
+  for (let k = 0; k <= n; k++) {
+    for (let i = 0; i <= n; i++) {
+      for (let j = 0; j <= n; j++) {
+        if (matrix[i][k] === INF) continue;
+
+        if (matrix[i][k] === matrix[k][j]) {
+          matrix[i][j] = matrix[i][k];
+          matrix[j][i] = !matrix[i][k];
+        }
+      }
+    }
+  }
+
+  return [...matrix.map((m) => m.filter((v) => v === INF).length)].filter(
+    (v) => v === 2
+  ).length;
+}
+```
+
+<br />
+
+## 문제 풀이 방법
+
+-
+
+<br />
+
+## 새로 알게된 것
+
+-
