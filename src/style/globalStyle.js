@@ -206,4 +206,10 @@ body {
   ul{
     list-style:none;
   }
+  .gatsby-resp-image-wrapper{
+    margin:5rem 0;
+  }
+  .gatsby-resp-image-image{
+    padding: 0 3rem;
+  }
 `;

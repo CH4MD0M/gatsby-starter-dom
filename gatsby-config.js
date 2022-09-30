@@ -16,9 +16,9 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -54,7 +54,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 1000,
               linkImagesToOriginal: false,
             },
           },
