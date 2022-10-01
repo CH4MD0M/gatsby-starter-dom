@@ -207,7 +207,7 @@ body {
     list-style:none;
   }
   .gatsby-resp-image-wrapper{
-    margin:5rem 0;
+    margin:5rem 0 1rem;
   }
   .gatsby-resp-image-image{
     padding: 0 3rem;
