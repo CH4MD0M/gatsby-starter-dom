@@ -1,58 +1,76 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 6rem 1fr;
+  display: flex;
   align-items: center;
-  margin: 2rem 0 6rem;
+  margin: 2rem 0 0;
   padding: 1.2rem;
-  border-left: 4px solid;
 
-  .bio-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5rem;
-    height: 5rem;
-    border: 3px solid ${(props) => props.theme.colors.primary3};
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -webkit-transform: translateZ(0);
-    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-    overflow: hidden;
+  .main {
+    width: 256px;
+    height: 256px;
+    background-image: url(${(props) => props.profileImageRoot}/profile.gif);
   }
-  .author-image {
-    width: 5rem;
-    height: 5rem;
-
-    @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-      width: 4.2rem;
-      outline: 2px solid ${(props) => props.theme.colors.primary3};
-    }
-  }
-
-  .bio-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 1.5rem;
-    height: 100%;
-    font-size: 1.8rem;
-    @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-      justify-content: space-around;
-      font-size: 1.3rem;
-    }
-  }
-  .author-name {
-    color: ${(props) => props.theme.colors.primary4};
-  }
-  .date {
-    color: ${(props) => props.theme.colors.primary3};
+  .post {
+    background-image: url(${(props) => props.profileImageRoot}/profile.png);
+    width: 128px;
+    height: 128px;
+    border-radius: 999px;
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
     margin: 0 1rem 2rem;
     padding: 0.8rem;
+  }
+`;
+
+export const Profile = styled.div`
+  margin-right: 3.4rem;
+  background-size: cover;
+  background-position: center;
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+    width: 99px;
+    height: 99px;
+  }
+`;
+
+export const Author = styled.div`
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--textColor);
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+    font-size: 2rem;
+  }
+`;
+
+export const Description = styled.div`
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.6rem;
+  color: var(--textColor);
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+    font-size: 1.4rem;
+  }
+`;
+
+export const LinksWrapper = styled.div`
+  & a {
+    margin-right: 1rem;
+  }
+  & svg {
+    width: 25.6px;
+    height: 25.6px;
+    cursor: pointer;
+  }
+  & svg path {
+    fill: var(--icon);
+    transition: fill 0.2s;
+  }
+  a:hover svg path {
+    fill: var(--textColor);
   }
 `;

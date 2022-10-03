@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
+import { siteUrl } from "../../blogConfig";
 
 import useCategory from "../hooks/useCategory";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
@@ -10,6 +11,8 @@ import Layout from "../layout";
 import Seo from "../components/Seo";
 import Categories from "../components/Categories";
 import Posts from "../components/Posts";
+import Bio from "../components/Bio";
+import Divider from "../components/Divider";
 
 const IndexPage = () => {
   const {
@@ -32,8 +35,9 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
       <Helmet>
-        <link rel="canonical" href={siteMetadata.siteUrl} />
+        <link rel="canonical" href={siteUrl} />
       </Helmet>
+
       <Wrapper>
         <Categories
           category={category}
@@ -41,6 +45,8 @@ const IndexPage = () => {
           selectCategory={selectCategory}
         />
         <MainContet>
+          <Bio path="main" />
+          <Divider mt="0" mb="5rem" />
           <Posts category={category} posts={posts} count={count} />
           <div ref={setTarget} />
         </MainContet>
@@ -78,13 +84,6 @@ const query = graphql`
     site {
       siteMetadata {
         title
-        siteUrl
-        author
-        social {
-          email
-          github
-          instagram
-        }
         categories {
           name
           slug

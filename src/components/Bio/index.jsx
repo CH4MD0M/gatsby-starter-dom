@@ -1,22 +1,48 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
-import { Wrapper } from "./style";
+import { siteUrl, description, author, socials } from "../../../blogConfig";
 
-const Bio = ({ author, date }) => {
+// CSS
+import * as S from "./style";
+import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
+const profileImageRoot =
+  typeof window !== "undefined" && window.location.host === "localhost:8000"
+    ? "http://localhost:8000"
+    : siteUrl;
+
+const Link = ({ link, children }) => {
+  if (!link) return null;
   return (
-    <Wrapper>
-      <div className="bio-image">
-        <StaticImage
-          src="../../assets/banner-about.jpg"
-          alt="author"
-          class="author-image"
-        />
+    <a href={link} target="_blank" rel="noreferrer">
+      {children}
+    </a>
+  );
+};
+
+const Bio = ({ path }) => {
+  const { email, github, instagram, linkedIn } = socials;
+  return (
+    <S.Wrapper>
+      <S.Profile className={path} profileImageRoot={profileImageRoot} />
+      <div>
+        <S.Author>@{author}</S.Author>
+        <S.Description>{description}</S.Description>
+        <S.LinksWrapper>
+          <Link link={github}>
+            <FaGithub />
+          </Link>
+          <Link link={instagram}>
+            <FaInstagram />
+          </Link>
+          <Link link={linkedIn}>
+            <FaLinkedin />
+          </Link>
+          <Link link={email}>
+            <FaEnvelope />
+          </Link>
+        </S.LinksWrapper>
       </div>
-      <div className="bio-content">
-        <span className="author-name">{author}</span>
-        <span className="date">{date}</span>
-      </div>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

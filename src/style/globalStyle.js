@@ -15,6 +15,8 @@ html {
   font-size: 62.5%;
 }
 body {
+  --divider: ${(props) => props.theme.colors.gray4};
+  --icon: ${(props) => props.theme.colors.gray3};
   --bgColor: ${(props) => props.theme.colors.primary8};
   --textColor: ${(props) => props.theme.colors.primary2};
   --contentBgColor: ${(props) => props.theme.colors.primary9};
@@ -33,6 +35,8 @@ body {
 }
 
   body.dark {
+    --divider: ${(props) => props.theme.colors.gray1};
+    --icon: ${(props) => props.theme.colors.gray2};
     --bgColor: ${(props) => props.theme.colors.primary1};
     --textColor: ${(props) => props.theme.colors.primary7};
     --contentBgColor: ${(props) => props.theme.colors.primary2};
@@ -70,7 +74,6 @@ body {
   }
 
   a {
-    color: inherit;
     text-decoration: none;
     transition: .2s;
     :focus{
@@ -109,12 +112,6 @@ body {
   }
   img {
     border: 0;
-  }
-  /**
-  * Correct overflow not hidden in IE 9/10/11.
-  */
-  svg:not(:root) {
-    overflow: hidden;
   }
   figure {
     margin: 1rem 40px;

@@ -13,6 +13,7 @@ import {
 } from "../components/Element";
 import Layout from "../layout";
 import Bio from "../components/Bio";
+import Divider from "../components/Divider";
 import CategoryLabel from "../components/CategoryLabel";
 import Seo from "../components/Seo";
 import Comments from "../components/Comments";
@@ -30,10 +31,10 @@ const components = {
 };
 
 const PostTemplate = ({ data, pageContext, location }) => {
-  const { siteUrl, description, author } = data.site.siteMetadata;
+  const { siteUrl, description } = data.site.siteMetadata;
   const {
     mdx: {
-      frontmatter: { title, category, date },
+      frontmatter: { author, title, category, date },
       body,
       excerpt,
     },
@@ -49,14 +50,19 @@ const PostTemplate = ({ data, pageContext, location }) => {
         <div className="post-info">
           <CategoryLabel category={category} isLink="true" />
           <h2>{title}</h2>
+          <Information>
+            <Author> @{author} </Author>
+            <Date>· {date} </Date>
+          </Information>
+          <Divider />
         </div>
-        <Bio date={date} author={author} />
 
         <div className="post-contents">
           <MDXProvider components={components}>
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </div>
+        <Bio path="post" />
         <Comments />
       </Wrapper>
     </Layout>
@@ -89,12 +95,15 @@ const Wrapper = styled.section`
     background-color: var(--contentBgColor);
     padding: 2rem ${(props) => props.theme.sideSpace.contentLarge};
     border-radius: 1rem;
-
+    a {
+      color: var(--textColor);
+      text-decoration: underline;
+    }
     /* table */
     table {
       margin: 5rem auto;
       font-size: 1.7rem;
-      font-weight: var(--regularFontWeight)
+      font-weight: var(--regularFontWeight);
       border-collapse: collapse;
     }
     th {
@@ -135,12 +144,12 @@ const Wrapper = styled.section`
     p {
       font-size: 1.7rem;
       line-height: 1.7;
-      font-weight: var(--regularFontWeight)
+      font-weight: var(--regularFontWeight);
       margin: 1.2rem 0;
 
       a {
         color: rgb(32, 168, 234);
-        font-weight: var(--boldFontWeight)
+        font-weight: var(--boldFontWeight);
       }
     }
 
@@ -170,17 +179,32 @@ const Wrapper = styled.section`
   }
 `;
 
+const Information = styled.div`
+  margin-bottom: 32px;
+  font-size: 16px;
+`;
+
+const Author = styled.span`
+  font-weight: 700;
+  color: var(--textColor);
+`;
+
+const Date = styled.span`
+  font-weight: 300;
+  color: var(--textColor);
+`;
+
 export const query = graphql`
   query GetSinglePost($slug: String!) {
     site {
       siteMetadata {
         siteUrl
         description
-        author
       }
     }
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
+        author
         title
         category
         date(formatString: "MMMM Do, YYYY")
