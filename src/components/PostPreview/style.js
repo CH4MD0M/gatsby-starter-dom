@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.article`
   .post-container {
     display: flex;
-    padding: 1.3rem 0;
-    border-bottom: 1px solid var(--contentBgColor);
+    padding: 2.3rem 0;
+    color: var(--textColor);
+    border-bottom: 1px solid var(--divider);
     transition: 0.2s linear;
     &:hover {
       background-color: var(--contentBgColor);

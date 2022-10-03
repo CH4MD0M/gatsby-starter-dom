@@ -10,7 +10,7 @@ export const Wrapper = styled.aside`
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
   opacity: ${(props) => (props.isOpen ? "1" : "0")};
   z-index: 300;
-  transition: 0.3s linear 0.4s;
+  transition: 0.3s linear;
 `;
 
 export const SidebarContainer = styled.div`
@@ -23,7 +23,7 @@ export const SidebarContainer = styled.div`
   background: var(--bgColor);
   transform: ${(props) =>
     props.isOpen ? "translateX(0)" : "translateX(100%)"};
-  transition: transform 0.45s ease-in 0.2s;
+  transition: transform 0.45s ease-in;
 
   .close-btn {
     position: absolute;

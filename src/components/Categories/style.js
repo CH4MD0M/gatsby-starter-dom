@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   position: sticky;
   top: 15px;
+  margin-top: 5rem;
   width: 23rem;
   padding: 3rem;
   background: var(--contentBgColor);
@@ -23,11 +24,10 @@ export const Wrapper = styled.div`
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     display: block;
     width: auto;
-    margin: 7rem 0 2rem;
+    margin: 7rem 0 4rem;
     padding: 0.5rem 0;
-    top: 0;
-    border: solid var(--categoryBorderColor);
-    border-width: 1px 6px;
+    top: 10px;
+    border: 1px solid var(--categoryBorderColor);
     border-radius: 2px;
     z-index: 200;
 
@@ -35,8 +35,9 @@ export const Wrapper = styled.div`
       display: none;
     }
   }
+
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    margin: 4rem 0 2rem;
+    margin: 4rem 0 3rem;
   }
 `;
 

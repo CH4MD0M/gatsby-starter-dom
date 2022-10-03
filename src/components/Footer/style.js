@@ -7,7 +7,13 @@ export const Wrapper = styled.footer`
   width: 100%;
   height: 10rem;
   text-align: center;
+
   p {
     font-size: 1.5rem;
+    font-weight: 300;
+
+    @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+      font-size: 1.3rem;
+    }
   }
 `;

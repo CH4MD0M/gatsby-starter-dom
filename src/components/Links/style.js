@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  a {
+    color: var(--textColor);
+  }
+
   /* Sidebar */
   .sidebar-links {
     padding-top: 10rem;
@@ -32,6 +36,7 @@ export const Wrapper = styled.div`
       margin-right: 1rem;
       font-size: 2.4rem;
       font-weight: 500;
+
       letter-spacing: ${(props) => props.theme.text.spacing};
       cursor: pointer;
       border-radius: 3px;

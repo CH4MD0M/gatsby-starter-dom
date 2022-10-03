@@ -18,15 +18,13 @@ export const Wrapper = styled.nav`
 `;
 
 export const NavTitle = styled.div`
-  color: var(--textColor);
+  a {
+    color: var(--textColor);
+  }
   font-family: "Damion", cursive;
   font-size: 4.5rem;
   letter-spacing: ${(props) => props.theme.text.spacing};
   animation: var(--animation) 1.5s infinite;
-
-  a {
-    color: inherit;
-  }
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
     margin-left: 0;
