@@ -1,15 +1,13 @@
 const categoriesConfig = require("./categories-config");
+const blogConfig = require("./blogConfig");
+const { siteUrl, title, description, author } = blogConfig;
+
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://ch4md0m.blog`,
-    title: `Today ch4md0m swam`,
-    description: `ch4md0m의 기술 블로그`,
-    author: `Kihoon`,
-    social: {
-      email: "d0m__@naver.com",
-      github: "https://github.com/CH4MD0M/",
-      instagram: `k1h00n_`,
-    },
+    siteUrl,
+    title,
+    description,
+    author,
     categories: categoriesConfig,
   },
   plugins: [
@@ -30,13 +28,6 @@ module.exports = {
           respectDNT: true,
           exclude: ["/preview/**", "/do-not-track/me/too/"],
         },
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `assets`,
-        path: `${__dirname}/src/assets`,
       },
     },
     {
