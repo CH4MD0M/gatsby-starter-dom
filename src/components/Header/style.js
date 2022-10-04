@@ -1,16 +1,24 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.nav`
+  position: fixed;
+  top: ${(props) => (props.isHidden ? -60 : 0)}px;
+  left: 0;
+  right: 0;
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  margin: 2rem auto 4rem;
-  padding: 20px ${(props) => props.theme.sideSpace.large} 0;
-  max-width: ${(props) => props.theme.sizes.maxWidth};
-  max-height: 70px;
+  margin: 0 auto 4rem;
+  padding: 1.5rem 12rem;
+  box-shadow: 0 0 8px var(--headerShadow);
+  backdrop-filter: blur(5px);
+  opacity: ${(props) => (props.isHidden ? 0 : 1)};
+  transition: top 0.5s, opacity 0.5s;
+  z-index: 200;
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
     max-width: 76rem;
+    padding: 1.5rem;
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
     padding: 1rem 1.5rem 0 1rem;
@@ -22,16 +30,17 @@ export const NavTitle = styled.div`
     color: var(--textColor);
   }
   font-family: "Damion", cursive;
-  font-size: 4.5rem;
+  font-size: 3.2rem;
+  font-weight: 600;
   letter-spacing: ${(props) => props.theme.text.spacing};
   animation: var(--animation) 1.5s infinite;
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
+    font-size: 2.5rem;
     margin-left: 0;
-    font-size: 3rem;
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 `;
 

@@ -23,9 +23,10 @@ body {
   --contentTextColor: ${(props) => props.theme.colors.primary3};
   --headingColor: ${(props) => props.theme.colors.primary2};
   --linkColor: ${(props) => props.theme.colors.primary5};
-  --categoryBorderColor: ${(props) => props.theme.colors.primary5};
+  --categoryBorderColor: ${(props) => props.theme.colors.primary6};
   --regularFontWeight: ${(props) => props.theme.text.fontWeight3};
   --boldFontWeight: ${(props) => props.theme.text.fontWeight4};
+  --headerShadow: hsla(0, 0%, 0%, 0.08);
 
   background: var(--bgColor);
   font-family: "Noto Sans KR";
@@ -43,12 +44,13 @@ body {
     --contentTextColor: ${(props) => props.theme.colors.primary9};
     --headingColor: ${(props) => props.theme.colors.primary6};
     --linkColor: ${(props) => props.theme.colors.neonBlue};
-    --categoryBorderColor: ${(props) => props.theme.colors.primary4};
+    --categoryBorderColor: ${(props) => props.theme.colors.primary3};
     --boxShadow: ${(props) => props.theme.colors.boxShadow};
     --smallBoxShadow: ${(props) => props.theme.colors.smallBoxShadow};
     --animation: ${(props) => props.theme.animation.logoAnimation};
     --regularFontWeight: ${(props) => props.theme.text.fontWeight1};
     --boldFontWeight: ${(props) => props.theme.text.fontWeight3};
+    --headerShadow: hsla(0, 0%, 100%, 0.08);
 
     
     background: var(--bgColor);

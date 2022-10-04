@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
@@ -11,9 +11,35 @@ import { FaBars } from "react-icons/fa";
 
 const Header = ({ title, toggle, themeMode, toggleTheme }) => {
   const breakpoints = useBreakpoint();
+  const [scrollY, setScrollY] = useState();
+  const [hidden, setHidden] = useState(false);
+
+  const detectScrollDirection = () => {
+    if (scrollY >= window.scrollY) {
+      // scroll up
+      setHidden(false);
+    } else if (scrollY < window.scrollY && 100 <= window.scrollY) {
+      // scroll down
+      setHidden(true);
+    }
+
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", detectScrollDirection);
+
+    return () => {
+      window.removeEventListener("scroll", detectScrollDirection);
+    };
+  }, [scrollY]);
+
+  useEffect(() => {
+    setScrollY(window.scrollY);
+  }, []);
 
   return (
-    <Wrapper>
+    <Wrapper isHidden={hidden}>
       <NavTitle>
         <Link to="/">{title}</Link>
       </NavTitle>
