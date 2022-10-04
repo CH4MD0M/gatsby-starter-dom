@@ -24,7 +24,7 @@ const Bio = ({ path }) => {
   return (
     <S.Wrapper>
       <S.Profile className={path} profileImageRoot={profileImageRoot} />
-      <div>
+      <div className={path + "-info"}>
         <S.Author>@{author}</S.Author>
         <S.Description>{description}</S.Description>
         <S.LinksWrapper>

@@ -23,8 +23,7 @@ const logoAnimation = keyframes`
   90%,
   100% {
     color: hsl(206, 33%, 96%);
-    text-shadow: 0 0 15px #2196f3, 0 0 25px #2196f3, 0 0 40px #2196f3,
-      0 0 80px #2196f3, 0 0 160px #2196f3;
+    text-shadow: 0 0 15px #2196f3, 0 0 25px #2196f3, 0 0 40px #2196f3;
   }`;
 
 const variables = {
@@ -49,7 +48,7 @@ const variables = {
     lightRed: "hsl(360, 71%, 66%)",
     lightOrange: "hsl(29, 74%, 92%)",
     neonBlue: "#2196f3",
-    boxShadow: "0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3",
+    boxShadow: "0 0 10px #2196f3, 0 0 15px #2196f3, 0 0 30px #2196f3",
     smallBoxShadow: "0 0 3px #2196f3, 0 0 7px #2196f3",
   },
 
@@ -76,7 +75,7 @@ const variables = {
   },
   effect: {
     radius: "10px",
-    shadow: "6px 7px 13px 0px rgba(0,0,0,0.57)",
+    shadow: "2px 2px 8px 0 rgba(0,0,0,0.37)",
   },
   animation: {
     logoAnimation,

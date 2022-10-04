@@ -43,7 +43,6 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.responsive.large}) {
     max-width: 760px;
-    margin-top: 2rem;
   }
   @media screen and (max-width: ${({ theme }) => theme.responsive.small}) {
     padding: 0 ${({ theme }) => theme.sideSpace.small};

@@ -65,9 +65,6 @@ const Wrapper = styled.div`
     display: block;
     margin-top: 0;
   }
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    margin-top: 0;
-  }
 `;
 const MainContet = styled.div`
   width: calc(100% - 230px - 7rem);
@@ -75,7 +72,7 @@ const MainContet = styled.div`
 
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     width: 100%;
-    margin-top: 2em;
+    margin-top: 0;
   }
 `;
 

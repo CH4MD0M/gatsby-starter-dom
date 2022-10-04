@@ -32,14 +32,13 @@ export const Wrapper = styled.div`
 
     .page-link {
       position: relative;
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       margin-right: 1rem;
-      font-size: 2.4rem;
-      font-weight: 500;
-
+      font-size: 2rem;
+      font-weight: 400;
+      border-radius: 3px;
       letter-spacing: ${(props) => props.theme.text.spacing};
       cursor: pointer;
-      border-radius: 3px;
       overflow: hidden;
       transition: 0.2s;
 

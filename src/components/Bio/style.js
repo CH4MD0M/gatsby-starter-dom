@@ -3,24 +3,43 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: 2rem 0 0;
+  margin: 5rem 0 0;
   padding: 1.2rem;
 
   .main {
     width: 256px;
     height: 256px;
     background-image: url(${(props) => props.profileImageRoot}/profile.gif);
+    margin-right: 5rem;
   }
+
+  .main-info {
+    justify-self: end;
+    padding-top: 4.5rem;
+    div {
+      margin: 1.2rem 0;
+    }
+  }
+
   .post {
     background-image: url(${(props) => props.profileImageRoot}/profile.png);
     width: 128px;
     height: 128px;
     border-radius: 999px;
   }
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    margin: 0 1rem 2rem;
-    padding: 0.8rem;
+  @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
+    margin: 0;
+    .main {
+      width: 192px;
+      height: 192px;
+    }
+    .main-info {
+      justify-self: center;
+      padding-top: 0;
+      div {
+        margin: 1rem 0;
+      }
+    }
   }
 `;
 

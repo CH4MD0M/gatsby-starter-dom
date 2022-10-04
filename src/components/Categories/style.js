@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: sticky;
-  top: 15px;
-  margin-top: 5rem;
+  top: 100px;
+  margin-top: 33rem;
   width: 23rem;
   padding: 3rem;
   background: var(--contentBgColor);
@@ -24,12 +24,12 @@ export const Wrapper = styled.div`
   @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
     display: block;
     width: auto;
-    margin: 7rem 0 4rem;
+    margin-top: 9rem;
     padding: 0.5rem 0;
     top: 10px;
     border: 1px solid var(--categoryBorderColor);
     border-radius: 2px;
-    z-index: 200;
+    z-index: 100;
 
     h2 {
       display: none;
@@ -37,7 +37,7 @@ export const Wrapper = styled.div`
   }
 
   @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    margin: 4rem 0 3rem;
+    margin: 6rem 0 0;
   }
 `;
 
