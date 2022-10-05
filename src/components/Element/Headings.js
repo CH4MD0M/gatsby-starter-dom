@@ -62,8 +62,7 @@ const myH3 = ({ children }) => {
   );
 };
 const HeadingThree = styled.div`
-  margin: 5rem 0 2rem;
-  padding-left: 1rem;
+  margin: 5rem 0 1rem;
   color: ${(props) => props.theme.colors.headingColor};
 
   h3 {
