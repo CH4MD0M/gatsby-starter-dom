@@ -61,18 +61,24 @@ const Wrapper = styled.div`
   align-items: flex-start;
   flex-direction: row-reverse;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: 1300px) {
     display: block;
-    margin-top: 0;
+    margin: 0 6rem;
+  }
+  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
+    margin: 0;
   }
 `;
 const MainContet = styled.div`
   width: calc(100% - 230px - 7rem);
   margin-right: 7rem;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: 1300px) {
     width: 100%;
-    margin-top: 0;
+    margin: 0;
+  }
+  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
+    padding-top: 5rem;
   }
 `;
 

@@ -12,10 +12,11 @@ import {
   PrismSetup,
 } from "../components/Element";
 import Layout from "../layout";
-import Bio from "../components/Bio";
+import Seo from "../components/Seo";
 import Divider from "../components/Divider";
 import CategoryLabel from "../components/CategoryLabel";
-import Seo from "../components/Seo";
+import PostNavigator from "../components/PostNavigator";
+import Bio from "../components/Bio";
 import Comments from "../components/Comments";
 
 // CSS
@@ -62,6 +63,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
             <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </div>
+        <PostNavigator pageContext={pageContext} />
         <Bio path="post" />
         <Comments />
       </Wrapper>
@@ -71,8 +73,10 @@ const PostTemplate = ({ data, pageContext, location }) => {
 
 const Wrapper = styled.section`
   max-width: 1000px;
-  margin: 6rem auto 4rem auto;
-  color: var(--contentTextColor);
+  margin: 10rem auto 4rem auto;
+  color: var(--textColor);
+  font-size: 17.6px;
+  line-height: 1.7;
   /* info */
   .post-info {
     padding: 4rem 0 1rem;
@@ -81,12 +85,6 @@ const Wrapper = styled.section`
       font-weight: 700;
       font-size: 5.5rem;
       color: var(--textColor);
-    }
-    @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-      margin-left: 1rem;
-      h2 {
-        font-size: 3.5rem;
-      }
     }
   }
 
@@ -99,10 +97,15 @@ const Wrapper = styled.section`
       color: var(--textColor);
       text-decoration: underline;
     }
+    b,
+    strong {
+      font-weight: var(--boldFontWeight);
+    }
+
     /* table */
     table {
       margin: 5rem auto;
-      font-size: 1.7rem;
+
       font-weight: var(--regularFontWeight);
       border-collapse: collapse;
     }
@@ -134,47 +137,41 @@ const Wrapper = styled.section`
     ul,
     ol {
       margin: 1.2rem 0 2rem;
-      padding: 0 4rem;
-      font-size: 1.7rem;
-      line-height: 1.7;
+      padding-left: 3rem;
       font-weight: 300;
+      & ul {
+        list-style: circle;
+      }
+      ul ul {
+        list-style: square;
+      }
     }
 
     /* paragraph */
     p {
-      font-size: 1.7rem;
-      line-height: 1.7;
       font-weight: var(--regularFontWeight);
-      margin: 1.2rem 0;
+      word-break: break-all;
+      margin: 1.3rem 0;
 
       a {
         color: rgb(32, 168, 234);
         font-weight: var(--boldFontWeight);
+      }
+      code {
+        word-break: break-all;
       }
     }
 
     em {
       background-color: ${(props) => props.theme.colors.lightOrange};
       padding: 0.1rem 0.3rem;
-      border-radius: 2px;
+      border-radius: 4px;
       color: rgb(125, 107, 113);
     }
 
     /* 반응형 */
     @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
       padding: 2rem ${(props) => props.theme.sideSpace.contentSmall};
-
-      p {
-        font-size: 1.4rem;
-        line-height: 1.4;
-      }
-      ul,
-      ol {
-        margin: 1rem 0 2rem;
-        padding: 0 2rem;
-        font-size: 1.4rem;
-        line-height: 1.4;
-      }
     }
   }
 `;

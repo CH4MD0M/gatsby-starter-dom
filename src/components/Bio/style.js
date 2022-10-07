@@ -10,12 +10,12 @@ export const Wrapper = styled.div`
     width: 256px;
     height: 256px;
     background-image: url(${(props) => props.profileImageRoot}/profile.gif);
-    margin-right: 5rem;
+    margin-right: 8rem;
   }
 
   .main-info {
     justify-self: end;
-    padding-top: 4.5rem;
+    padding-top: 5rem;
     div {
       margin: 1.2rem 0;
     }

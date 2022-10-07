@@ -10,23 +10,17 @@ const Blockquote = ({ children }) => {
 };
 
 const Wrapper = styled.blockquote`
-  margin: 4rem 2rem;
+  margin: 4rem 0;
 
   .container {
-    padding: 2rem 1.5rem;
+    padding: 1.8rem 2.4rem;
     color: ${(props) => props.theme.colors.primary1};
-    background: ${(props) => props.theme.colors.primary7};
-    border-radius: 0 10px 10px 0;
-    border-left: 8px solid ${(props) => props.theme.colors.neonBlue};
-    box-shadow: ${(props) => props.theme.effect.shadow};
+    background: var(--blockQuoteBackground);
+    border-left: 4px solid var(--blockQuoteBorder);
 
     p {
-      color: ${(props) => props.theme.colors.primary2};
+      color: var(--textColor);
     }
-  }
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    margin: 3rem 0.3rem;
   }
 `;
 

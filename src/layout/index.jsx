@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header title={data.site.siteMetadata.title} toggle={toggle} />
+      <Header title={data.site.siteMetadata.title} menuToggle={toggle} />
 
       <Wrapper>
         {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggle} />}
