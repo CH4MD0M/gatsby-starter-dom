@@ -21,41 +21,13 @@ export const Wrapper = styled.div`
     text-shadow: ${(props) => props.theme.colors.textShadow};
   }
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    display: block;
-    width: auto;
-    margin-top: 9rem;
-    padding: 0.5rem 0;
-    top: 10px;
-    border: 1px solid var(--categoryBorderColor);
-    border-radius: 2px;
-    z-index: 100;
-
-    h2 {
-      display: none;
-    }
-  }
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    margin: 6rem 0 0;
+  @media (max-width: 1300px) {
+    display: none;
   }
 `;
 
 export const CategoriesWrapper = styled.ul`
   display: block;
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    display: flex;
-    align-items: center;
-    margin: 0 1rem;
-    overflow-x: auto;
-    white-space: nowrap;
-    &::-webkit-scrollbar {
-      display: none !important;
-    }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
 `;
 
 export const Active = styled.li`
@@ -68,14 +40,6 @@ export const Active = styled.li`
   font-weight: 400;
   border-radius: 10px;
   box-shadow: var(--boxShadow);
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    margin: 0.6rem 0.3rem;
-    font-size: 1.5rem;
-    box-shadow: var(--smallBoxShadow);
-  }
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    font-size: 1.2rem;
-  }
 `;
 
 export const Disabled = styled.li`
@@ -90,24 +54,11 @@ export const Disabled = styled.li`
   cursor: pointer;
   transition: 0.25s;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-    margin: 0.6rem 0.3rem;
-    font-size: 1.5rem;
-  }
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    font-size: 1.2rem;
-  }
-
   &:hover {
     color: #fff;
     background: var(--linkColor);
     font-weight: 400;
     color: var(--contentBgColor);
     box-shadow: var(--boxShadow);
-
-    @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
-      box-shadow: var(--smallBoxShadow);
-    }
   }
 `;
