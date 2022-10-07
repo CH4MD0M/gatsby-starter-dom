@@ -35,13 +35,14 @@ const variables = {
     primary5: "hsl(210, 31%, 80%)",
     primary6: "hsl(210, 27%, 90%)",
     primary7: "hsl(206,33%, 96%)",
-    primary8: "hsl(0, 0%, 95%)",
+    primary8: "hsl(0, 0%, 98%)",
     primary9: "hsl(0, 0%, 100%)",
     gray1: "hsl(210, 10%, 23%)",
     gray2: "hsl(210, 7%, 56%)",
     gray3: "hsl(210, 11%, 71%)",
     gray4: "hsl(210, 14%, 83%)",
     gray5: "	hsl(210, 16%, 93%)",
+    gray6: "hsl(0, 0%, 93%)",
     darkGreen: "hsl(125, 67%, 35%)",
     lightGreen: "hsl(134, 41%, 88%)",
     darkRed: "hsl(360, 67%, 44%)",
@@ -53,7 +54,7 @@ const variables = {
   },
 
   sizes: {
-    maxWidth: "1100px",
+    maxWidth: "1000px",
   },
   sideSpace: {
     large: "2rem",
