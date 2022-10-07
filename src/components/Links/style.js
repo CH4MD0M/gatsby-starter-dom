@@ -32,10 +32,10 @@ export const Wrapper = styled.div`
 
     .page-link {
       position: relative;
-      padding: 1rem 1.5rem;
+      padding: 0.8rem 1.2rem;
       margin-right: 1rem;
-      font-size: 2rem;
-      font-weight: 400;
+      font-size: 1.7rem;
+      font-weight: 600;
       border-radius: 3px;
       letter-spacing: ${(props) => props.theme.text.spacing};
       cursor: pointer;
@@ -75,7 +75,6 @@ export const Wrapper = styled.div`
         }
       }
       &:hover {
-        color: var(--textColor);
         background: var(--linkColor);
         box-shadow: var(--boxShadow);
         transition-delay: 0.55s;

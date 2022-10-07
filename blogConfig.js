@@ -1,6 +1,6 @@
 module.exports = {
   siteUrl: `https://ch4md0m.blog`,
-  title: `Today ch4md0m swam`,
+  title: `ch4md0m.blog`,
   description: `기록하는 프론트엔드 개발자`,
   author: `Kihoon`,
   socials: {

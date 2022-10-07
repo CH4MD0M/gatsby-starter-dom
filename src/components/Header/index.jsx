@@ -3,16 +3,26 @@ import { Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import Links from "../Links";
-import ToggleButton from "../ToggleButton";
+import useTheme from "../../hooks/useTheme";
+import { title } from "../../../blogConfig";
 
 // CSS
-import { Wrapper, NavTitle, ToggleContainer } from "./style";
-import { FaBars } from "react-icons/fa";
+import {
+  Wrapper,
+  Inner,
+  Menu,
+  NavTitle,
+  ToggleWrapper,
+  IconContainer,
+  MenuContainer,
+} from "./style";
+import { FaBars, FaSun, FaMoon } from "react-icons/fa";
 
-const Header = ({ title, toggle, themeMode, toggleTheme }) => {
+const Header = ({ menuToggle }) => {
   const breakpoints = useBreakpoint();
   const [scrollY, setScrollY] = useState();
   const [hidden, setHidden] = useState(false);
+  const { theme, themeToggleHandler: toggleTheme } = useTheme();
 
   const detectScrollDirection = () => {
     if (scrollY >= window.scrollY) {
@@ -40,19 +50,29 @@ const Header = ({ title, toggle, themeMode, toggleTheme }) => {
 
   return (
     <Wrapper isHidden={hidden}>
-      <NavTitle>
-        <Link to="/">{title}</Link>
-      </NavTitle>
+      <Inner>
+        <NavTitle>
+          <Link to="/">{title}</Link>
+        </NavTitle>
 
-      {breakpoints.mdMin && <Links styleClass="nav-links" />}
-      <ToggleButton themeMode={themeMode} toggleTheme={toggleTheme} />
-      {breakpoints.md && (
-        <ToggleContainer>
-          <button className="toggle-btn" onClick={toggle}>
-            <FaBars />
-          </button>
-        </ToggleContainer>
-      )}
+        <Menu>
+          {breakpoints.mdMin && <Links styleClass="nav-links" />}
+          <ToggleWrapper>
+            <IconContainer theme={theme}>
+              <FaSun onClick={toggleTheme} />
+              <FaMoon onClick={toggleTheme} />
+            </IconContainer>
+          </ToggleWrapper>
+
+          {breakpoints.md && (
+            <MenuContainer>
+              <button className="toggle-btn" onClick={menuToggle}>
+                <FaBars />
+              </button>
+            </MenuContainer>
+          )}
+        </Menu>
+      </Inner>
     </Wrapper>
   );
 };
