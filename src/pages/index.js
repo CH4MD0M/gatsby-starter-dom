@@ -20,8 +20,8 @@ const IndexPage = () => {
     allMdx: { nodes: posts },
   } = useStaticQuery(query);
 
-  const [category, selectCategory] = useCategory();
   const [count, setCount] = useState(10);
+  const [category, selectCategory] = useCategory();
   const [setTarget] = useInfiniteScroll(loadPosts);
 
   function loadPosts() {
@@ -39,27 +39,25 @@ const IndexPage = () => {
       </Helmet>
 
       <Wrapper>
+        <Bio path="main" />
+        <Divider mt="0" mb="1rem" />
         <Categories
           category={category}
           categories={siteMetadata.categories}
           selectCategory={selectCategory}
         />
-        <MainContet>
-          <Bio path="main" />
-          <Divider mt="0" mb="5rem" />
-          <Posts category={category} posts={posts} count={count} />
-          <div ref={setTarget} />
-        </MainContet>
+        <Posts category={category} posts={posts} count={count} />
+        <div ref={setTarget} />
       </Wrapper>
     </Layout>
   );
 };
 
 const Wrapper = styled.div`
-  display: flex;
   min-height: 85vh;
-  align-items: flex-start;
-  flex-direction: row-reverse;
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
 
   @media screen and (max-width: 1300px) {
     display: block;
@@ -67,18 +65,6 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
     margin: 0;
-  }
-`;
-const MainContet = styled.div`
-  width: calc(100% - 230px - 7rem);
-  margin-right: 7rem;
-
-  @media screen and (max-width: 1300px) {
-    width: 100%;
-    margin: 0;
-  }
-  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
-    padding-top: 5rem;
   }
 `;
 

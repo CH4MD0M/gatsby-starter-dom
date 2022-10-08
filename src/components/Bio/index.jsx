@@ -1,4 +1,5 @@
 import React from "react";
+
 import { siteUrl, description, author, socials } from "../../../blogConfig";
 
 // CSS
