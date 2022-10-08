@@ -9,7 +9,7 @@ export const Wrapper = styled.aside`
   background: rgba(0, 0, 0, 0.7);
   visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
   opacity: ${(props) => (props.isOpen ? "1" : "0")};
-  z-index: 300;
+  z-index: 400;
   transition: 0.3s linear;
 `;
 

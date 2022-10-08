@@ -1,35 +1,31 @@
 import React, { useState } from "react";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import { graphql, useStaticQuery } from "gatsby";
+import styled, { ThemeProvider } from "styled-components";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
 // CSS
-import styled, { ThemeProvider } from "styled-components";
 import GlobalStyle from "../style/globalStyle";
 import theme from "../style/theme";
 
 const Layout = ({ children }) => {
   const breakpoints = useBreakpoint();
-  const data = useStaticQuery(query);
 
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => {
+  const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Header title={data.site.siteMetadata.title} menuToggle={toggle} />
-
+      <Header menuToggle={toggleSidebar} />
       <Wrapper>
-        {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggle} />}
+        {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggleSidebar} />}
         <main>{children}</main>
       </Wrapper>
       <Footer />
-
       <GlobalStyle />
     </ThemeProvider>
   );
@@ -46,16 +42,6 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: ${({ theme }) => theme.responsive.small}) {
     padding: 0 ${({ theme }) => theme.sideSpace.small};
-  }
-`;
-
-const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
   }
 `;
 
