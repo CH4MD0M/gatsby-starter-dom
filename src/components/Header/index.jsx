@@ -4,76 +4,42 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 
 import Links from "../Links";
 import useTheme from "../../hooks/useTheme";
+import useScroll from "../../hooks/useScroll";
 import { title } from "../../../blogConfig";
 
 // CSS
-import {
-  Wrapper,
-  Inner,
-  Menu,
-  NavTitle,
-  ToggleWrapper,
-  IconContainer,
-  MenuContainer,
-} from "./style";
-import { FaBars, FaSun, FaMoon } from "react-icons/fa";
+import * as S from "./style";
+import { FaSun, FaMoon, FaBars } from "react-icons/fa";
 
 const Header = ({ menuToggle }) => {
   const breakpoints = useBreakpoint();
-  const [scrollY, setScrollY] = useState();
-  const [hidden, setHidden] = useState(false);
   const { theme, themeToggleHandler: toggleTheme } = useTheme();
-
-  const detectScrollDirection = () => {
-    if (scrollY >= window.scrollY) {
-      // scroll up
-      setHidden(false);
-    } else if (scrollY < window.scrollY && 100 <= window.scrollY) {
-      // scroll down
-      setHidden(true);
-    }
-
-    setScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", detectScrollDirection);
-
-    return () => {
-      window.removeEventListener("scroll", detectScrollDirection);
-    };
-  }, [scrollY]);
-
-  useEffect(() => {
-    setScrollY(window.scrollY);
-  }, []);
+  const hidden = useScroll();
 
   return (
-    <Wrapper isHidden={hidden}>
-      <Inner>
-        <NavTitle>
+    <S.Wrapper isHidden={hidden}>
+      <S.Inner>
+        <S.NavTitle>
           <Link to="/">{title}</Link>
-        </NavTitle>
+        </S.NavTitle>
 
-        <Menu>
+        <S.LinksWrapper>
           {breakpoints.mdMin && <Links styleClass="nav-links" />}
-          <ToggleWrapper>
-            <IconContainer theme={theme}>
+          <S.ToggleWrapper>
+            <S.IconContainer theme={theme}>
               <FaSun onClick={toggleTheme} />
               <FaMoon onClick={toggleTheme} />
-            </IconContainer>
-          </ToggleWrapper>
+            </S.IconContainer>
+          </S.ToggleWrapper>
 
           {breakpoints.md && (
-            <MenuContainer>
-              <button className="toggle-btn" onClick={menuToggle}>
-                <FaBars />
-              </button>
-            </MenuContainer>
+            <S.MenuIcon onClick={menuToggle}>
+              <FaBars />
+            </S.MenuIcon>
           )}
-        </Menu>
-      </Inner>
-    </Wrapper>
+        </S.LinksWrapper>
+      </S.Inner>
+    </S.Wrapper>
   );
 };
 

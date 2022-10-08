@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
 
     .page-link {
       position: relative;
-      padding: 0.8rem 1.2rem;
+      padding: 0.4rem 1.2rem;
       margin-right: 1rem;
       font-size: 1.7rem;
       font-weight: 600;

@@ -7,6 +7,7 @@ export const Wrapper = styled.nav`
   left: 0;
   right: 0;
   padding: 1rem;
+  height: 6rem;
   box-shadow: 0 0 8px var(--headerShadow);
   background: var(--headerBackground);
   backdrop-filter: blur(5px);
@@ -26,21 +27,17 @@ export const Inner = styled.div`
 `;
 
 export const NavTitle = styled.div`
-  a {
-    color: var(--textColor);
-  }
   font-family: "Damion", cursive;
   font-size: 2.7rem;
   font-weight: 600;
   letter-spacing: ${(props) => props.theme.text.spacing};
   animation: var(--animation) 1.5s infinite;
-
-  @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
-    margin-left: 0;
+  a {
+    color: var(--textColor);
   }
 `;
 
-export const Menu = styled.div`
+export const LinksWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +57,7 @@ export const Menu = styled.div`
 
 export const ToggleWrapper = styled.div`
   width: 2rem;
-  height: 2.4rem;
+  height: 2rem;
   margin-right: 1.5rem;
   overflow: hidden;
 `;
@@ -71,8 +68,9 @@ export const IconContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 4rem;
-  top: ${(props) => (props.theme === "light" ? "-1.7rem" : ".3rem")};
+  top: ${(props) => (props.theme === "light" ? "-2rem" : "0")};
   transition: top 0.4s;
+
   & > svg {
     transition: opacity 0.25s;
   }
@@ -84,16 +82,13 @@ export const IconContainer = styled.div`
   }
 `;
 
-export const MenuContainer = styled.div`
-  .toggle-btn {
-    background: transparent;
-    border-color: transparent;
-    font-size: 2.2rem;
-    cursor: pointer;
-    transition: 0.3s;
+export const MenuIcon = styled.div`
+  cursor: pointer;
+  transition: 0.3s;
+  width: 2rem;
+  height: 2rem;
 
-    &:hover {
-      color: var(--linkColor);
-    }
+  &:hover {
+    color: var(--linkColor);
   }
 `;
