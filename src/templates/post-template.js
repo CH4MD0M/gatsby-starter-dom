@@ -72,7 +72,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
 };
 
 const Wrapper = styled.section`
-  max-width: 1000px;
+  max-width: 850px;
   margin: 10rem auto 4rem auto;
   color: var(--textColor);
   font-size: 17.6px;
