@@ -5,7 +5,7 @@ import { FaReact } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
 import { TbNetwork, TbMathSymbols } from "react-icons/tb";
-import { Wrapper } from "./style";
+import * as S from "./style";
 
 const PostThumbnail = ({ category }) => {
   const thumbnailObject = [
@@ -20,7 +20,9 @@ const PostThumbnail = ({ category }) => {
     return t.name === category;
   });
 
-  return <Wrapper color={thumbnailInfo.color}>{thumbnailInfo.icon}</Wrapper>;
+  return (
+    <S.Wrapper color={thumbnailInfo.color}>{thumbnailInfo.icon}</S.Wrapper>
+  );
 };
 
 export default PostThumbnail;

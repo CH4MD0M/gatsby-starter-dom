@@ -1,4 +1,6 @@
 import React from "react";
+import styled from "styled-components";
+
 import PostPreview from "../PostPreview";
 
 const Posts = ({ category, posts, count }) => {
@@ -9,12 +11,17 @@ const Posts = ({ category, posts, count }) => {
     .slice(0, count);
 
   return (
-    <div>
+    <Wrapper>
       {filteredPosts.map((post) => {
         return <PostPreview key={post.id} post={post} />;
       })}
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: block;
+  width: 100%;
+`;
 
 export default Posts;

@@ -5,16 +5,16 @@ import CategoryLabel from "../CategoryLabel";
 import PostThumbnail from "../PostThumbnail";
 
 // CSS
-import { Wrapper, PostInfo } from "./style";
+import * as S from "./style";
 
 const PostPreview = ({ post }) => {
   const { title, date, category, slug } = post.frontmatter;
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <Link to={`/content/${slug}`} className="post-container">
         <PostThumbnail category={category} />
-        <PostInfo>
+        <S.PostInfo>
           <header>
             <h2 className="post-title">{title}</h2>
           </header>
@@ -22,9 +22,9 @@ const PostPreview = ({ post }) => {
             <CategoryLabel category={category} />
             <span className="date">{date}</span>
           </footer>
-        </PostInfo>
+        </S.PostInfo>
       </Link>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

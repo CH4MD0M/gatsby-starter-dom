@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Wrapper } from "./style";
+
+// CSS
+import * as S from "./style";
 
 const Links = ({ styleClass, children }) => {
   return (
-    <Wrapper>
+    <S.Wrapper>
       <div className={styleClass}>
         <Link to="/" className="page-link">
           <span />
@@ -23,7 +25,7 @@ const Links = ({ styleClass, children }) => {
           About
         </Link>
       </div>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

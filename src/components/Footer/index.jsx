@@ -1,11 +1,13 @@
 import React from "react";
-import { Wrapper } from "./style";
+
+// CSS
+import * as S from "./style";
 
 const Footer = () => {
   return (
-    <Wrapper>
+    <S.Wrapper>
       <p>&copy; {new Date().getFullYear()}, ch4md0m All rights reserved.</p>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { createRef, useEffect } from "react";
 
 // CSS
-import { Wrapper } from "./style";
+import * as S from "./style";
 
 const Comments = () => {
   const commentRef = createRef();
@@ -28,9 +28,9 @@ const Comments = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <div className="utterances" ref={commentRef}></div>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 
