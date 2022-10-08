@@ -21,10 +21,9 @@ body {
   --contentTextColor: ${(props) => props.theme.colors.primary3};
   --headingColor: ${(props) => props.theme.colors.primary2};
   --linkColor: ${(props) => props.theme.colors.gray3};
-  --categoryBorderColor: ${(props) => props.theme.colors.primary6};
   --regularFontWeight: ${(props) => props.theme.text.fontWeight3};
   --boldFontWeight: ${(props) => props.theme.text.fontWeight4};
-  --headerBackground: 	hsla(0, 0%, 100%, 0.85);
+  --headerBackground: hsla(0, 0%, 100%, 0.85);
   --headerShadow: hsla(0, 0%, 0%, 0.08);
   --blockQuoteBorder: ${(props) => props.theme.colors.gray4};
   --blockQuoteBackground: ${(props) => props.theme.colors.gray5};
@@ -48,13 +47,12 @@ body {
     --contentTextColor: ${(props) => props.theme.colors.primary9};
     --headingColor: ${(props) => props.theme.colors.primary6};
     --linkColor: ${(props) => props.theme.colors.neonBlue};
-    --categoryBorderColor: ${(props) => props.theme.colors.primary3};
     --boxShadow: ${(props) => props.theme.colors.boxShadow};
     --smallBoxShadow: ${(props) => props.theme.colors.smallBoxShadow};
     --animation: ${(props) => props.theme.animation.logoAnimation};
     --regularFontWeight: ${(props) => props.theme.text.fontWeight1};
     --boldFontWeight: ${(props) => props.theme.text.fontWeight3};
-    --headerBackground: 	hsla(218, 27%, 14%, 0.85);
+    --headerBackground: 	hsla(218, 25%, 12%, 0.85);
     --headerShadow: hsla(0, 0%, 100%, 0.08);
     --blockQuoteBorder: ${(props) => props.theme.colors.gray3};
     --blockQuoteBackground: ${(props) => props.theme.colors.primary1};
@@ -69,22 +67,6 @@ body {
     margin: 0;
     
   }
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  main,
-  menu,
-  nav,
-  section,
-  summary {
-    display: block;
-  }
-
   a {
     text-decoration: none;
     transition: .2s;
@@ -96,57 +78,11 @@ body {
       outline: 0;
     }
   }
-  small {
-    font-size: 80%;
-  }
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  sup {
-    top: -0.5rem;
-  }
-  sub {
-    bottom: -0.25rem;
-  }
-  img {
-    border: 0;
-  }
-  figure {
-    margin: 1rem 40px;
-  }
   code,
-  kbd,
-  pre,
-  samp {
+  pre {
     font-family: "Fira Code", monospace;
   }
   pre {
-    overflow: auto;
-  }
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    color: inherit;
-    font: inherit;
-    margin: 0;
-  }
-  button {
-    overflow: visible;
-  }
-  button,
-  select {
-    text-transform: none;
-  }
-  input {
-    line-height: normal;
-  }
-  textarea {
     overflow: auto;
   }
   table {
@@ -157,9 +93,7 @@ body {
   th {
     padding: 0;
   }
-  ul{
-    list-style:none;
-  }
+  
 
   .gatsby-resp-image-wrapper{
     margin:5rem 0 1rem;

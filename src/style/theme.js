@@ -49,8 +49,8 @@ const variables = {
     lightRed: "hsl(360, 71%, 66%)",
     lightOrange: "hsl(29, 74%, 92%)",
     neonBlue: "#2196f3",
-    boxShadow: "0 0 10px #2196f3, 0 0 15px #2196f3, 0 0 30px #2196f3",
-    smallBoxShadow: "0 0 3px #2196f3, 0 0 7px #2196f3",
+    boxShadow:
+      "0 0 3px #2196f3, 0 0 7px #2196f3, 0 0 12px #2196f3, 0 0 18px #2196f3",
   },
 
   sizes: {
@@ -68,7 +68,7 @@ const variables = {
     large: "950px",
   },
   text: {
-    spacing: "0.2rem",
+    spacing: "0.15rem",
     fontWeight1: "100",
     fontWeight2: "200",
     fontWeight3: "400",
