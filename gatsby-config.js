@@ -43,6 +43,7 @@ module.exports = {
         extensions: [".mdx", ".md"],
         plugins: ["@bonobolabs/gatsby-remark-images-custom-widths"],
         gatsbyRemarkPlugins: [
+          `gatsby-remark-gifs`,
           {
             resolve: "@bonobolabs/gatsby-remark-images-custom-widths",
             options: {
