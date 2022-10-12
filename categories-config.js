@@ -2,7 +2,7 @@ module.exports = [
   {
     name: "All",
     slug: "all",
-    color: "#fff",
+    color: "#FFFFFF",
   },
   {
     name: "Algorithm",
@@ -23,11 +23,6 @@ module.exports = [
     name: "Web",
     slug: "web",
     color: "#E95420",
-  },
-  {
-    name: "Network",
-    slug: "network",
-    color: "#009639",
   },
   {
     name: "Book",
