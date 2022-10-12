@@ -100,18 +100,20 @@ const Wrapper = styled.section`
     b,
     strong {
       font-weight: var(--boldFontWeight);
+      .kaatex {
+        font-weight: 700;
+      }
     }
 
     /* table */
     table {
       margin: 5rem auto;
-
       font-weight: var(--regularFontWeight);
       border-collapse: collapse;
     }
     th {
       padding: 1rem;
-      background-color: ${(props) => props.theme.colors.primary5};
+      background-color: ${(props) => props.theme.colors.gray2};
       border: 0.5px solid var(--textColor);
     }
     td {
@@ -167,6 +169,9 @@ const Wrapper = styled.section`
       padding: 0.1rem 0.3rem;
       border-radius: 4px;
       color: rgb(125, 107, 113);
+    }
+    .katex {
+      font-size: inherit;
     }
 
     /* 반응형 */
