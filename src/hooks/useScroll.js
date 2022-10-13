@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { throttle } from "../utils/throttle";
 
 const useScroll = () => {
-  const [scrollY, setScrollY] = useState();
   const [hidden, setHidden] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   const detectScrollDirection = () => {
     if (scrollY >= window.scrollY) {
       // scroll up
       setHidden(false);
-    } else if (scrollY < window.scrollY && 100 <= window.scrollY) {
+    } else {
       // scroll down
       setHidden(true);
     }
@@ -17,16 +18,12 @@ const useScroll = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", detectScrollDirection);
+    window.addEventListener("scroll", throttle(detectScrollDirection));
 
     return () => {
-      window.removeEventListener("scroll", detectScrollDirection);
+      window.removeEventListener("scroll", throttle(detectScrollDirection));
     };
   }, [scrollY]);
-
-  useEffect(() => {
-    setScrollY(window.scrollY);
-  }, []);
 
   return hidden;
 };
