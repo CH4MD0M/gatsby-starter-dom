@@ -2,8 +2,8 @@ import React from "react";
 import Links from "../Links";
 
 // CSS
-import { IoMdClose } from "react-icons/io";
 import * as S from "./style";
+import { IoMdClose } from "react-icons/io";
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (

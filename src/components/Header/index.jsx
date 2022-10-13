@@ -5,7 +5,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Links from "../Links";
 import useTheme from "../../hooks/useTheme";
 import useScroll from "../../hooks/useScroll";
-import { title } from "../../../blogConfig";
+import { title } from "../../../blog-config";
 
 // CSS
 import * as S from "./style";

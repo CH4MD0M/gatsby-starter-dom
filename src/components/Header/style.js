@@ -12,7 +12,7 @@ export const Wrapper = styled.nav`
   background: var(--headerBackground);
   backdrop-filter: blur(5px);
   opacity: ${(props) => (props.isHidden ? 0 : 1)};
-  transition: top 0.5s, opacity 0.5s;
+  transition: top 0.35s, opacity 0.35s;
   z-index: 200;
 `;
 

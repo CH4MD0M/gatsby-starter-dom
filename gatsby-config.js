@@ -1,5 +1,5 @@
 const categoriesConfig = require("./categories-config");
-const blogConfig = require("./blogConfig");
+const blogConfig = require("./blog-config");
 const { siteUrl, title, description, author } = blogConfig;
 
 module.exports = {

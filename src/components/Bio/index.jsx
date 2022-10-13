@@ -1,6 +1,6 @@
 import React from "react";
 
-import { siteUrl, description, author, socials } from "../../../blogConfig";
+import { siteUrl, description, author, socials } from "../../../blog-config";
 
 // CSS
 import * as S from "./style";
