@@ -31,10 +31,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        name: `posts`,
-        path: `${__dirname}/content`,
+        host: "https://ch4md0m.blog",
+        sitemap: "https://ch4md0m.blog/sitemap/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     {
@@ -65,6 +66,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-breakpoints",
       options: {
         queries: {
@@ -75,14 +83,6 @@ module.exports = {
 
           portrait: "(orientation: portrait)",
         },
-      },
-    },
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        host: "https://ch4md0m.blog",
-        sitemap: "https://ch4md0m.blog/sitemap/sitemap-index.xml",
-        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     {

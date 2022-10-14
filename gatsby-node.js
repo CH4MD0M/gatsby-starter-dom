@@ -37,9 +37,9 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
-    return;
+    throw result.errors;
   }
+
   const posts = result.data.allMdx.edges;
 
   posts.forEach((post) => {
