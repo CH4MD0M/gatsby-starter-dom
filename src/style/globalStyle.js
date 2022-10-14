@@ -23,13 +23,18 @@ body {
   --linkColor: ${(props) => props.theme.colors.gray3};
   --regularFontWeight: ${(props) => props.theme.text.fontWeight3};
   --boldFontWeight: ${(props) => props.theme.text.fontWeight4};
-  --headerBackground: hsla(0, 0%, 100%, 0.85);
+  --headerBackground: ${(props) => props.theme.colors.primary9};
   --headerShadow: hsla(0, 0%, 0%, 0.08);
   --blockQuoteBorder: ${(props) => props.theme.colors.gray4};
   --blockQuoteBackground: ${(props) => props.theme.colors.gray5};
   --inlineCodeBackground: ${(props) => props.theme.colors.gray4};
   --postNavButtonBackground: ${(props) => props.theme.colors.gray6};
   --hoveredPostNavButtonBackground: ${(props) => props.theme.colors.primary9};
+  --tocTextColor: ${(props) => props.theme.colors.gray3};
+  --hoveredTocTextColor: ${(props) => props.theme.colors.gray1};
+  --scrollBdColor: ${(props) => props.theme.colors.gray5};
+  --scrollThumb: ${(props) => props.theme.colors.gray1};
+  --scrollTrack: ${(props) => props.theme.colors.gray5};
 
   background: var(--bgColor);
   font-family: "Noto Sans KR";
@@ -52,13 +57,18 @@ body {
     --animation: ${(props) => props.theme.animation.logoAnimation};
     --regularFontWeight: ${(props) => props.theme.text.fontWeight1};
     --boldFontWeight: ${(props) => props.theme.text.fontWeight3};
-    --headerBackground: 	hsla(218, 25%, 12%, 0.85);
-    --headerShadow: hsla(0, 0%, 100%, 0.08);
+    --headerBackground: ${(props) => props.theme.colors.primary0};
+    --headerShadow: hsla(218, 25%, 12%, 0.08)
     --blockQuoteBorder: ${(props) => props.theme.colors.gray3};
     --blockQuoteBackground: ${(props) => props.theme.colors.primary1};
     --inlineCodeBackground: ${(props) => props.theme.colors.gray2};
     --postNavButtonBackground: ${(props) => props.theme.colors.primary2};
     --hoveredPostNavButtonBackground: ${(props) => props.theme.colors.primary3};
+    --tocTextColor: ${(props) => props.theme.colors.gray4};
+    --hoveredTocTextColor: ${(props) => props.theme.colors.gray6};
+    --scrollBdColor: ${(props) => props.theme.colors.primary2};
+    --scrollThumb: ${(props) => props.theme.colors.primary0};
+    --scrollTrack: ${(props) => props.theme.colors.gray1};
     
 
     background: var(--bgColor);

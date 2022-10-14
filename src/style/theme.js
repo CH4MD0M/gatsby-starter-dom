@@ -28,6 +28,7 @@ const logoAnimation = keyframes`
 
 const variables = {
   colors: {
+    primary0: "hsl(218, 25%, 12%)",
     primary1: "hsl(218, 27%, 14%)",
     primary2: "hsl(219, 22%, 23%)",
     primary3: "hsl(218, 17%, 35%)",
@@ -37,6 +38,7 @@ const variables = {
     primary7: "hsl(206,33%, 96%)",
     primary8: "hsl(0, 0%, 98%)",
     primary9: "hsl(0, 0%, 100%)",
+    gray0: "hsl(0, 0%, 12%)",
     gray1: "hsl(210, 10%, 23%)",
     gray2: "hsl(210, 7%, 56%)",
     gray3: "hsl(210, 11%, 71%)",
