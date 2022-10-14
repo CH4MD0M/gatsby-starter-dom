@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import styled, { ThemeProvider } from "styled-components";
 
 import Header from "../components/Header";
@@ -11,8 +10,6 @@ import GlobalStyle from "../style/globalStyle";
 import theme from "../style/theme";
 
 const Layout = ({ children }) => {
-  const breakpoints = useBreakpoint();
-
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -22,7 +19,7 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Header menuToggle={toggleSidebar} />
       <Wrapper>
-        {breakpoints.md && <Sidebar isOpen={isOpen} toggle={toggleSidebar} />}
+        <Sidebar isOpen={isOpen} toggle={toggleSidebar} />
         <main>{children}</main>
       </Wrapper>
       <Footer />
