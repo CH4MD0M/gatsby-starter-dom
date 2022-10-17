@@ -5,11 +5,12 @@ import { Link } from "gatsby";
 import * as S from "./style";
 
 const PostCard = ({ right, node }) => {
-  const { slug, title } = node?.frontmatter;
+  const { slug } = node;
+  const { title } = node?.frontmatter;
 
   return (
     <S.PostCardWrapper>
-      <Link to={`/content/${slug}`}>{title}</Link>
+      <Link to={`/${slug}`}>{title}</Link>
     </S.PostCardWrapper>
   );
 };
