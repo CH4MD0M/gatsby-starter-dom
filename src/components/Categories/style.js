@@ -6,19 +6,18 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 2rem;
   padding: 2rem 1.5rem;
+  list-style: none;
   font-size: 1.5rem;
   font-weight: 500;
-  letter-spacing: ${(props) => props.theme.text.spacing};
+  letter-spacing: 0.1rem;
   overflow-x: auto;
-  white-space: nowrap;
-  &::-webkit-scrollbar {
-    display: none !important;
-  }
   -ms-overflow-style: none;
   scrollbar-width: none;
   z-index: 300;
-  list-style: none;
   transition: top 0.5s;
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
 `;
 
 export const Active = styled.li`

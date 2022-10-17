@@ -11,23 +11,10 @@ import * as S from "./style";
 import { FaSun, FaMoon, FaBars } from "react-icons/fa";
 
 const Header = ({ menuToggle }) => {
-  const [hidden, setHidden] = useState(false);
   const { theme, themeToggleHandler: toggleTheme } = useTheme();
-  const { scrollY, setScrollY } = useScroll(throttle(detectScroll, 500));
-
-  function detectScroll() {
-    if (scrollY >= window.scrollY) {
-      // scroll up
-      setHidden(false);
-    } else {
-      // scroll down
-      setHidden(true);
-    }
-    setScrollY(window.scrollY);
-  }
 
   return (
-    <S.Wrapper isHidden={hidden}>
+    <S.Wrapper>
       <S.Inner>
         <S.NavTitle>
           <Link to="/">{title}</Link>

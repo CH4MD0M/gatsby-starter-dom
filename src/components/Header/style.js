@@ -3,25 +3,25 @@ import styled from "styled-components";
 export const Wrapper = styled.nav`
   display: block;
   position: fixed;
-  top: ${(props) => (props.isHidden ? -60 : 0)}px;
+  top: 0;
   left: 0;
   right: 0;
   padding: 1rem;
   height: 6rem;
-  box-shadow: 0 0 8px var(--headerShadow);
   background: var(--headerBackground);
-  backdrop-filter: blur(5px);
-  opacity: ${(props) => (props.isHidden ? 0 : 1)};
-  transition: top 0.35s, opacity 0.35s;
+  backdrop-filter: blur(10px);
+  transition: opacity 0.35s;
   z-index: 200;
 `;
 
 export const Inner = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 6rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: ${(props) => props.theme.sizes.maxWidth};
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive.medium}) {
+  @media screen and (max-width: ${({ theme }) => theme.responsive.md}) {
     margin: 0 1.5rem;
   }
 `;

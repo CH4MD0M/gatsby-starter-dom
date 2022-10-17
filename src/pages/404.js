@@ -13,7 +13,11 @@ const NotFoundPage = () => (
 );
 
 const Wrapper = styled.div`
-  text-align: center;
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h1 {
     font-size: 6rem;
     margin-bottom: 3rem;
