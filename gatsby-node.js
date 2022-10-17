@@ -20,12 +20,14 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
           next {
+            slug
             frontmatter {
               slug
               title
             }
           }
           previous {
+            slug
             frontmatter {
               slug
               title
@@ -44,7 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   posts.forEach((post) => {
     createPage({
-      path: `/content/${post.node.frontmatter.slug}`,
+      path: post.node.slug,
       component: path.resolve(`src/templates/post-template.js`),
       context: {
         slug: post.node.frontmatter.slug,
