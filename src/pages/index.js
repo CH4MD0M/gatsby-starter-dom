@@ -63,7 +63,7 @@ const Wrapper = styled.div`
     display: block;
     margin: 0 6rem;
   }
-  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.md}) {
     margin: 0;
   }
 `;
@@ -82,11 +82,11 @@ const query = graphql`
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         id
+        slug
         frontmatter {
           title
           category
-          slug
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "YYYY년 M월 D일")
         }
       }
     }

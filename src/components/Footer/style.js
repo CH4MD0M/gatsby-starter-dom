@@ -12,7 +12,7 @@ export const Wrapper = styled.footer`
     font-size: 1.5rem;
     font-weight: 300;
 
-    @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+    @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
       font-size: 1.3rem;
     }
   }

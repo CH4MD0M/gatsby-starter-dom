@@ -5,7 +5,7 @@ export const NavigatorWrapper = styled.div`
   justify-content: space-between;
   margin: 5rem 0;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.md}) {
     margin-bottom: 80px;
     padding: 0 12.8px;
     flex-direction: column;

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
 // CSS
@@ -18,10 +17,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Header menuToggle={toggleSidebar} />
-      <Wrapper>
-        <Sidebar isOpen={isOpen} toggle={toggleSidebar} />
-        <main>{children}</main>
-      </Wrapper>
+      <Wrapper>{children}</Wrapper>
       <Footer />
       <GlobalStyle />
     </ThemeProvider>
@@ -30,15 +26,12 @@ const Layout = ({ children }) => {
 
 const Wrapper = styled.div`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
-  min-height: calc(100vh - 10rem - 250px);
+  min-height: calc(100vh - 6rem - 10rem);
   margin: 3rem auto 0;
-  padding: 0 ${({ theme }) => theme.sideSpace.large};
+  padding: 0 ${({ theme }) => theme.sideSpace.sm};
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive.large}) {
-    max-width: 760px;
-  }
-  @media screen and (max-width: ${({ theme }) => theme.responsive.small}) {
-    padding: 0 ${({ theme }) => theme.sideSpace.small};
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    padding: 0 1.5rem;
   }
 `;
 

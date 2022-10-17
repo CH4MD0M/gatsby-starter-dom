@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
     color: ${(props) => props.color};
   }
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
     width: 7.3rem;
     height: 7.3rem;
     svg {

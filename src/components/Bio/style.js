@@ -48,7 +48,7 @@ export const Profile = styled.div`
   background-size: cover;
   background-position: center;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
     width: 99px;
     height: 99px;
   }
@@ -60,7 +60,7 @@ export const Author = styled.div`
   font-weight: 700;
   color: var(--textColor);
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
     font-size: 2rem;
   }
 `;
@@ -71,7 +71,7 @@ export const Description = styled.div`
   font-size: 1.6rem;
   color: var(--textColor);
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
     font-size: 1.4rem;
   }
 `;

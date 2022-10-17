@@ -37,7 +37,7 @@ export const PostInfo = styled.div`
     }
   }
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.large}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
     width: calc(100% - 7rem);
     margin-left: 1.3rem;
     header {
@@ -52,7 +52,7 @@ export const PostInfo = styled.div`
       }
     }
   }
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
     padding: 0.6rem 0;
     header {
       .post-title {

@@ -54,9 +54,8 @@ const variables = {
     boxShadow:
       "0 0 3px #2196f3, 0 0 7px #2196f3, 0 0 12px #2196f3, 0 0 18px #2196f3",
   },
-
   sizes: {
-    maxWidth: "1000px",
+    maxWidth: "768px",
   },
   sideSpace: {
     large: "2rem",
@@ -65,16 +64,13 @@ const variables = {
     contentSmall: "2rem",
   },
   responsive: {
-    small: "500px",
-    medium: "768px",
-    large: "950px",
+    xs: "500px",
+    sm: "780px",
+    md: "960px",
+    lg: "1400px",
   },
   text: {
     spacing: "0.15rem",
-    fontWeight1: "100",
-    fontWeight2: "200",
-    fontWeight3: "400",
-    fontWeight4: "500",
   },
   effect: {
     radius: "10px",
