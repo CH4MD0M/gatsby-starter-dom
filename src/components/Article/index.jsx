@@ -2,8 +2,9 @@ import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Article = styled.article`
+const Article = styled(motion.article)`
   margin: 10rem auto 0 auto;
   color: var(--textColor);
   font-size: 17.6px;

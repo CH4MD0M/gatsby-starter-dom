@@ -5,8 +5,9 @@ import { Helmet } from "react-helmet";
 import Layout from "../layout";
 import Seo from "../components/Seo";
 import Article from "../components/Article";
+import { variants } from "../utils/framer";
 
-const PostTemplate = ({ data, pageContext, location }) => {
+const PostTemplate = ({ data, location, pageContext }) => {
   const { siteUrl, description } = data.site.siteMetadata;
   const { author, title, category, date } = data.mdx.frontmatter;
   const { body, excerpt } = data.mdx;
@@ -18,7 +19,14 @@ const PostTemplate = ({ data, pageContext, location }) => {
         <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
       </Helmet>
 
-      <Article>
+      <Article
+        key={window.location.href}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.5 }}
+      >
         <Article.Header
           category={category}
           title={title}

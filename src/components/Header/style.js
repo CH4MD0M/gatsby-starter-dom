@@ -15,14 +15,14 @@ export const Wrapper = styled.nav`
 `;
 
 export const Inner = styled.div`
+  max-width: ${(props) => props.theme.sizes.maxWidth};
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 100%;
-  max-width: ${(props) => props.theme.sizes.maxWidth};
+  padding: 0 ${({ theme }) => theme.sideSpace.sm};
 
-  @media screen and (max-width: ${({ theme }) => theme.responsive.md}) {
-    margin: 0 1.5rem;
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    padding: 0 1.5rem;
   }
 `;
 
@@ -41,54 +41,24 @@ export const LinksWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  & svg {
+  div {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  svg {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
   }
-  & svg path {
+  svg path {
     fill: var(--icon);
     transition: fill 0.3s;
   }
-  & svg:hover path {
+  svg:hover path {
     fill: var(--textColor);
   }
 `;
 
-export const ToggleWrapper = styled.div`
-  width: 2rem;
-  height: 2rem;
-  margin-right: 1.5rem;
-  overflow: hidden;
-`;
-
-export const IconContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 4rem;
-  top: ${(props) => (props.theme === "light" ? "-2rem" : "0")};
-  transition: top 0.4s;
-
-  & > svg {
-    transition: opacity 0.25s;
-  }
-  & > svg:first-child {
-    opacity: ${(props) => (props.theme === "light" ? 0 : 1)};
-  }
-  & > svg:last-child {
-    opacity: ${(props) => (props.theme === "dark" ? 0 : 1)};
-  }
-`;
-
-export const MenuIcon = styled.div`
-  cursor: pointer;
-  transition: 0.3s;
-  width: 2rem;
-  height: 2rem;
-
-  &:hover {
-    color: var(--linkColor);
-  }
-`;
+export const MenuIcon = styled.div``;
