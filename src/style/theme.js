@@ -59,7 +59,7 @@ const variables = {
   },
   sideSpace: {
     large: "2rem",
-    small: "1rem",
+    small: "1.5rem",
     contentLarge: "4rem",
     contentSmall: "2rem",
   },

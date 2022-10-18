@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { throttle } from "../utils/throttle";
 
 const useScroll = (callbackFn) => {
   const [scrollY, setScrollY] = useState(0);

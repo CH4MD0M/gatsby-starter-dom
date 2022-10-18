@@ -22,7 +22,7 @@ export const PostInfo = styled.div`
   padding: 0.4rem 0 0.2rem;
   header {
     .post-title {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       line-height: 2.8rem;
       font-weight: 500;
     }
@@ -37,27 +37,17 @@ export const PostInfo = styled.div`
     }
   }
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.md}) {
     width: calc(100% - 7rem);
     margin-left: 1.3rem;
     header {
       .post-title {
-        font-size: 2rem;
-        line-height: 2rem;
+        font-size: 2.2rem;
       }
     }
     footer {
       .date {
         font-size: 1.2rem;
-      }
-    }
-  }
-  @media screen and (max-width: ${(props) => props.theme.responsive.lg}) {
-    padding: 0.6rem 0;
-    header {
-      .post-title {
-        font-size: 1.5rem;
-        line-height: 1.7rem;
       }
     }
   }
