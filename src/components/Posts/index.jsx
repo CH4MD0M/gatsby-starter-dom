@@ -14,7 +14,7 @@ const Posts = ({ category, posts, count }) => {
 
   return (
     <Wrapper
-      key={window.location.href}
+      key={category}
       initial="hidden"
       animate="enter"
       exit="exit"

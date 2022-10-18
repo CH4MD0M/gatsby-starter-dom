@@ -20,7 +20,6 @@ const PostTemplate = ({ data, location, pageContext }) => {
       </Helmet>
 
       <Article
-        key={window.location.href}
         initial="hidden"
         animate="enter"
         exit="exit"

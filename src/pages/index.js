@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
-import { siteUrl } from "../../blog-config";
 
+import { siteUrl } from "../../blog-config";
 import useCategory from "../hooks/useCategory";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
 
