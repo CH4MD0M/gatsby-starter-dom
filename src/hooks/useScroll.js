@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
+import _ from "lodash";
 
-const useScroll = (callbackFn) => {
+const useScroll = () => {
   const [scrollY, setScrollY] = useState(0);
 
-  useEffect(() => {
-    window.addEventListener("scroll", callbackFn);
-    return () => {
-      window.removeEventListener("scroll", callbackFn);
-    };
-  }, [scrollY]);
+  const onScroll = () => {
+    setScrollY(window.scrollY);
+  };
 
-  return { scrollY, setScrollY };
+  useEffect(() => {
+    const throttledScroll = _.throttle(onScroll, 100);
+
+    window.addEventListener("scroll", throttledScroll);
+    return () => {
+      window.removeEventListener("scroll", throttledScroll);
+    };
+  }, []);
+
+  return scrollY;
 };
 
 export default useScroll;
