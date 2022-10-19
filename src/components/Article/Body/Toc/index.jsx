@@ -8,19 +8,23 @@ import useScroll from "../../../../hooks/useScroll";
 import * as S from "./style";
 
 const Toc = ({ lists }) => {
-  const [topHeadings, setTopHeadings] = useState([]);
-  const [topToc, setTopToc] = useState();
+  const scrollY = useScroll();
+  const [tocWrapperTop, setTocWrapperTop] = useState();
+  const [headingsTop, setHeadingsTop] = useState([]);
   const [isActive, setIsActive] = useState(0);
   const ref = useRef();
-  const { scrollY, setScrollY } = useScroll(onScroll);
   const len = lists.length;
 
-  function onScroll() {
-    setScrollY(window.scrollY);
-  }
-
+  // store 'top' of toc wrapper
   useEffect(() => {
-    setTopHeadings(
+    if (ref.current) {
+      setTocWrapperTop(getElementOffsetY(ref.current));
+    }
+  }, []);
+
+  // store 'top' of Each toc item
+  useEffect(() => {
+    setHeadingsTop(
       [
         ...document.querySelectorAll(
           "#post-contents > h1, #post-contents > h2, #post-contents > h3"
@@ -29,26 +33,22 @@ const Toc = ({ lists }) => {
     );
   }, []);
 
+  // active toc item
   useEffect(() => {
-    if (ref.current) {
-      setTopToc(getElementOffsetY(ref.current));
-    }
-  }, []);
-
-  useEffect(() => {
-    topHeadings.forEach((heading, idx) => {
+    headingsTop.forEach((heading, idx) => {
       if (scrollY > heading - 100) setIsActive(idx);
       return;
     });
   }, [scrollY]);
 
+  // toc click handler
   const clickTitleHandler = (idx) => {
-    animateScroll.scrollTo(topHeadings[idx] - 60);
+    animateScroll.scrollTo(headingsTop[idx] - 60);
   };
 
   return (
-    <S.TocWrapper ref={ref} isSticky={scrollY > topToc - 100}>
-      {len !== 0 ? (
+    <S.TocWrapper ref={ref} isSticky={scrollY > tocWrapperTop - 120}>
+      {len ? (
         <div>
           {lists.map((item, idx) => (
             <S.TocItem
