@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import PostPreview from "../PostPreview";
 import { variants } from "../../utils/framer";
@@ -13,18 +13,20 @@ const Posts = ({ category, posts, count }) => {
     .slice(0, count);
 
   return (
-    <Wrapper
-      key={category}
-      initial="hidden"
-      animate="enter"
-      exit="exit"
-      variants={variants}
-      transition={{ duration: 0.5 }}
-    >
-      {filteredPosts.map((post) => {
-        return <PostPreview key={post.id} post={post} />;
-      })}
-    </Wrapper>
+    <AnimatePresence exitBeforeEnter initial={false}>
+      <Wrapper
+        key={category}
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.3 }}
+      >
+        {filteredPosts.map((post) => {
+          return <PostPreview key={post.id} post={post} />;
+        })}
+      </Wrapper>
+    </AnimatePresence>
   );
 };
 

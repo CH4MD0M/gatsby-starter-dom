@@ -23,7 +23,7 @@ body {
   --linkColor: ${(props) => props.theme.colors.gray3};
   --regularFontWeight: ${(props) => props.theme.text.fontWeight3};
   --boldFontWeight: ${(props) => props.theme.text.fontWeight4};
-  --headerBackground: hsla(0, 0%, 100%, 0.08);
+  --headerBackground: ${(props) => props.theme.colors.primary9};
   --blockQuoteBorder: ${(props) => props.theme.colors.gray4};
   --blockQuoteBgColor: ${(props) => props.theme.colors.gray5};
   --inlineCodeBackground: ${(props) => props.theme.colors.gray4};
@@ -54,7 +54,7 @@ body {
     --animation: ${(props) => props.theme.animation.logoAnimation};
     --regularFontWeight: ${(props) => props.theme.text.fontWeight1};
     --boldFontWeight: ${(props) => props.theme.text.fontWeight3};
-    --headerBackground: hsla(218, 25%, 12%, 0.08);
+    --headerBackground: ${(props) => props.theme.colors.primary1};
     --blockQuoteBorder: ${(props) => props.theme.colors.gray3};
     --blockQuoteBgColor: ${(props) => props.theme.colors.primary2};
     --inlineCodeBackground: ${(props) => props.theme.colors.gray2};

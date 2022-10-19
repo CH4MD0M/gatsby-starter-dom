@@ -15,10 +15,10 @@ const ThemeToggleButton = () => {
       <AnimatePresence exitBeforeEnter initial={false}>
         <motion.div
           key={theme}
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 30, opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          initial={{ rotate: -180 }}
+          animate={{ rotate: 0 }}
+          exit={{ rotate: 180 }}
+          transition={{ type: "spring", duration: 0.1 }}
           onClick={toggleTheme}
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
