@@ -3,16 +3,16 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
-import { siteUrl } from "../../blog-config";
 import useCategory from "../hooks/useCategory";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
 
 import Layout from "../layout";
 import Seo from "../components/Seo";
 import Categories from "../components/Categories";
-import Posts from "../components/Posts";
-import Bio from "../components/Bio";
+import PostList from "../components/PostList";
+
 import Divider from "../components/Divider";
+import Hero from "../components/Hero";
 
 const IndexPage = () => {
   const {
@@ -35,18 +35,18 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
       <Helmet>
-        <link rel="canonical" href={siteUrl} />
+        <link rel="canonical" href={siteMetadata.siteUrl} />
       </Helmet>
 
       <Wrapper>
-        <Bio path="main" />
-        <Divider mt="0" mb="1rem" />
+        <Hero />
+        <Divider mt="1rem" mb="1rem" />
         <Categories
           category={category}
           categories={siteMetadata.categories}
           selectCategory={selectCategory}
         />
-        <Posts category={category} posts={posts} count={count} />
+        <PostList category={category} posts={posts} count={count} />
         <div ref={setTarget} />
       </Wrapper>
     </Layout>
@@ -59,19 +59,16 @@ const Wrapper = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media screen and (max-width: 1300px) {
-    display: block;
-    margin: 0 6rem;
-  }
-  @media screen and (max-width: ${(props) => props.theme.responsive.md}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
     margin: 0;
   }
 `;
 
 const query = graphql`
-  {
+  query {
     site {
       siteMetadata {
+        siteUrl
         title
         categories {
           name
@@ -88,6 +85,7 @@ const query = graphql`
           category
           date(formatString: "YYYY년 M월 D일")
         }
+        excerpt(pruneLength: 300, truncate: true)
       }
     }
   }

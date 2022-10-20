@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Divider from "../Divider";
 import PostPreview from "../PostPreview";
 import { variants } from "../../utils/framer";
 
-const Posts = ({ category, posts, count }) => {
+const PostList = ({ category, posts, count }) => {
   const filteredPosts = posts
     .filter(
       (post) => category === "all" || post.frontmatter.category === category
@@ -23,7 +24,12 @@ const Posts = ({ category, posts, count }) => {
         transition={{ duration: 0.3 }}
       >
         {filteredPosts.map((post) => {
-          return <PostPreview key={post.id} post={post} />;
+          return (
+            <>
+              <PostPreview key={post.id} post={post} />
+              <Divider mt="0" mb="4rem" />
+            </>
+          );
         })}
       </Wrapper>
     </AnimatePresence>
@@ -35,4 +41,4 @@ const Wrapper = styled(motion.div)`
   width: 100%;
 `;
 
-export default Posts;
+export default PostList;

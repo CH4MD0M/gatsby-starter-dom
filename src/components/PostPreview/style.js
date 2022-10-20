@@ -1,54 +1,33 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.article`
-  .post-container {
-    display: flex;
-    padding: 2.3rem 0;
-    color: var(--textColor);
-    border-bottom: 1px solid var(--divider);
-    transition: 0.2s linear;
-    &:hover {
-      background-color: var(--contentBgColor);
-    }
+  display: block;
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+  line-height: 1.5;
+`;
+
+export const PostTitle = styled.h2`
+  color: var(--textColor);
+  font-size: 2.5rem;
+  font-weight: 500;
+  word-break: keep-all;
+
+  &:hover {
+    text-decoration: underline;
   }
 `;
 
-export const PostInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  width: calc(100% - 9rem);
-  margin-left: 2rem;
-  padding: 0.4rem 0 0.2rem;
-  header {
-    .post-title {
-      font-size: 2.8rem;
-      line-height: 2.8rem;
-      font-weight: 500;
-    }
-  }
-  footer {
-    display: flex;
-    justify-content: space-between;
-    .date {
-      margin-right: 1rem;
-      font-size: 1.5rem;
-      font-weight: 300;
-    }
-  }
+export const PostDescription = styled.p`
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+`;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.md}) {
-    width: calc(100% - 7rem);
-    margin-left: 1.3rem;
-    header {
-      .post-title {
-        font-size: 2.2rem;
-      }
-    }
-    footer {
-      .date {
-        font-size: 1.2rem;
-      }
-    }
-  }
+export const Date = styled.span`
+  font-size: 1.4rem;
 `;

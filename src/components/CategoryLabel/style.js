@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  .category-text {
-    display: inline-block;
-    padding: 0.4rem 1rem;
+  font-size: 1.4rem;
+
+  .category-bg {
     background: ${(props) => props.color};
-    color: var(--bgColor);
-    font-size: 1.5rem;
-    font-weight: 400;
+    padding: 0.6rem 1rem;
     border-radius: 4px;
+  }
+
+  .category-text {
+    color: var(--textColor);
+
+    @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+      font-size: 1.2rem;
+    }
   }
 `;

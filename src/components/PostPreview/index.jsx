@@ -2,28 +2,21 @@ import React from "react";
 import { Link } from "gatsby";
 
 import CategoryLabel from "../CategoryLabel";
-import PostThumbnail from "../PostThumbnail";
 
 // CSS
 import * as S from "./style";
 
 const PostPreview = ({ post }) => {
+  const { excerpt } = post;
   const { title, date, category } = post.frontmatter;
 
   return (
     <S.Wrapper>
-      <Link to={`/${post.slug}`} className="post-container">
-        <PostThumbnail category={category} />
-        <S.PostInfo>
-          <header>
-            <h2 className="post-title">{title}</h2>
-          </header>
-          <footer>
-            <CategoryLabel category={category} />
-            <span className="date">{date}</span>
-          </footer>
-        </S.PostInfo>
+      <Link to={`/${post.slug}`}>
+        <S.PostTitle>{title}</S.PostTitle>
       </Link>
+      <S.Date>{date}</S.Date>
+      <S.PostDescription>{excerpt}</S.PostDescription>
     </S.Wrapper>
   );
 };

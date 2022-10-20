@@ -14,13 +14,9 @@ const CategoryLabel = ({ category, isLink }) => {
 
   return (
     <S.Wrapper color={categoryColor}>
-      {isLink ? (
-        <Link to={`/?category=${category}`} className="category-text">
-          {category}
-        </Link>
-      ) : (
+      <Link to={`/?category=${category}`} className="category-bg">
         <span className="category-text">{category}</span>
-      )}
+      </Link>
     </S.Wrapper>
   );
 };

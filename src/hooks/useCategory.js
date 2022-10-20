@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import qs from "query-string";
 
-export default function useCategory() {
+const useCategory = () => {
   const [category, setCategory] = useState("all");
 
   const selectCategory = useCallback((category) => {
@@ -31,4 +31,6 @@ export default function useCategory() {
   }, []);
 
   return [category, selectCategory];
-}
+};
+
+export default useCategory;
