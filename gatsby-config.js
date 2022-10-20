@@ -1,13 +1,9 @@
 const categoriesConfig = require("./categories-config");
 const blogConfig = require("./blog-config");
-const { siteUrl, title, description, author } = blogConfig;
 
 module.exports = {
   siteMetadata: {
-    siteUrl,
-    title,
-    description,
-    author,
+    ...blogConfig,
     categories: categoriesConfig,
   },
   plugins: [

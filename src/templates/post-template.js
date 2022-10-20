@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 import Layout from "../layout";
 import Seo from "../components/Seo";
 import Article from "../components/Article";
-import { variants } from "../utils/framer";
 
 const PostTemplate = ({ data, location, pageContext }) => {
   const { siteUrl, description } = data.site.siteMetadata;
@@ -18,14 +17,7 @@ const PostTemplate = ({ data, location, pageContext }) => {
       <Helmet>
         <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
       </Helmet>
-
-      <Article
-        initial="hidden"
-        animate="enter"
-        exit="exit"
-        variants={variants}
-        transition={{ duration: 0.5 }}
-      >
+      <Article>
         <Article.Header
           category={category}
           title={title}
@@ -44,7 +36,14 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+        author
         description
+        socials {
+          email
+          github
+          instagram
+          linkedIn
+        }
       }
     }
     mdx(frontmatter: { slug: { eq: $slug } }) {

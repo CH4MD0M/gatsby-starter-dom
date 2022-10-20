@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 import Toc from "./Toc";
-
-// CSS
-import * as S from "./style";
 import PostMarkdown from "./PostMarkdown";
 
 const Body = ({ body }) => {
@@ -18,11 +16,16 @@ const Body = ({ body }) => {
   }, []);
 
   return (
-    <S.BodyWrapper>
+    <BodyWrapper>
       <Toc lists={toc} />
       <PostMarkdown body={body} />
-    </S.BodyWrapper>
+    </BodyWrapper>
   );
 };
+
+const BodyWrapper = styled.div`
+  position: relative;
+  border-radius: 1rem;
+`;
 
 export default Body;

@@ -10,11 +10,19 @@ export const Title = styled.h2`
   font-weight: 700;
   line-height: 1.3;
   color: var(--textColor);
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    font-size: 3rem;
+  }
 `;
 
 export const Information = styled.div`
   margin-bottom: 3rem;
   font-size: 1.7rem;
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Author = styled.span`

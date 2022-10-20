@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { variants } from "../utils/framer";
 
 // CSS
 import GlobalStyle from "../style/globalStyle";
@@ -17,14 +19,25 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Header menuToggle={toggleSidebar} />
-      <Wrapper>{children}</Wrapper>
+      <AnimatePresence exitBeforeEnter>
+        <Wrapper
+          key={children}
+          initial="hidden"
+          animate="enter"
+          exit="exit"
+          variants={variants}
+          transition={{ duration: 0.5 }}
+        >
+          {children}
+        </Wrapper>
+      </AnimatePresence>
       <Footer />
       <GlobalStyle />
     </ThemeProvider>
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
   min-height: calc(100vh - 6rem - 10rem);
   margin: 3rem auto 0;

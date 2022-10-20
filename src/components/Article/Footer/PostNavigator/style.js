@@ -36,14 +36,14 @@ export const Icon = styled.div`
   align-items: center;
   width: 32px;
   height: 32px;
-  font-size: 3.5rem;
+  font-size: 3rem;
   transition: transform 0.3s;
 `;
 
 export const PostCardWrapper = styled.div`
   display: flex;
   align-items: ${(props) => (props.right ? "flex-end" : "flex-start")};
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   max-width: 30rem;
   flex-basis: 30rem;
   background: var(--postNavButtonBackground);
@@ -77,11 +77,15 @@ export const PostCardWrapper = styled.div`
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
     max-width: inherit;
     flex-basis: inherit;
+    padding: 1rem;
   }
 `;
 
 export const ButtonLabel = styled.div`
   font-size: 1.2rem;
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    font-size: 1rem;
+  }
 `;
 
 export const ButtonTitle = styled.div`
@@ -89,4 +93,8 @@ export const ButtonTitle = styled.div`
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    font-size: 1.4rem;
+  }
 `;
