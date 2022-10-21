@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.nav`
+export const FixedWrapper = styled.nav`
   display: block;
   position: fixed;
   top: 0;
@@ -14,7 +14,7 @@ export const Wrapper = styled.nav`
   z-index: 200;
 `;
 
-export const Inner = styled.div`
+export const HeaderWrapper = styled.div`
   max-width: ${(props) => props.theme.sizes.maxWidth};
   display: flex;
   justify-content: space-between;
@@ -37,28 +37,45 @@ export const NavTitle = styled.div`
   }
 `;
 
-export const LinksWrapper = styled.div`
+export const Menu = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  div {
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    transition: 0.3s;
+  gap: 1.2rem;
+`;
+
+export const LinksWrapper = styled.div`
+  font-size: 1.6rem;
+
+  a {
+    color: var(--textColor);
+    text-transform: uppercase;
+    margin: 0 1rem;
   }
+  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+    display: none;
+  }
+`;
+
+export const MenuIcon = styled.div`
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: fill 0.3s;
+
   svg {
     width: 2rem;
     height: 2rem;
     cursor: pointer;
   }
   svg path {
-    fill: var(--icon);
+    fill: var(--iconColor);
     transition: fill 0.3s;
   }
   svg:hover path {
     fill: var(--textColor);
   }
+  @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
+    display: none;
+  }
 `;
-
-export const MenuIcon = styled.div``;

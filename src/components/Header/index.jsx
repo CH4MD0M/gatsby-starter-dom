@@ -10,19 +10,24 @@ import { FaBars } from "react-icons/fa";
 
 const Header = ({ menuToggle }) => {
   return (
-    <S.Wrapper>
-      <S.Inner>
+    <S.FixedWrapper>
+      <S.HeaderWrapper>
         <S.NavTitle>
           <Link to="/">{title}</Link>
         </S.NavTitle>
-        <S.LinksWrapper>
+
+        <S.Menu>
+          <S.LinksWrapper>
+            <Link to="/categories">categories</Link>
+            <Link to="/about">about</Link>
+          </S.LinksWrapper>
           <ThemeToggleButton />
           <S.MenuIcon onClick={menuToggle}>
             <FaBars />
           </S.MenuIcon>
-        </S.LinksWrapper>
-      </S.Inner>
-    </S.Wrapper>
+        </S.Menu>
+      </S.HeaderWrapper>
+    </S.FixedWrapper>
   );
 };
 
