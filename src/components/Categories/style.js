@@ -1,11 +1,16 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+
+export const FlexWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  padding: 2rem 1.5rem;
+  gap: 0.3rem;
+  padding: 2rem 0;
   list-style: none;
   font-size: 1.5rem;
   font-weight: 500;
@@ -13,72 +18,26 @@ export const Wrapper = styled.div`
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  z-index: 300;
+  z-index: 200;
   transition: top 0.5s;
+
   &::-webkit-scrollbar {
     display: none !important;
   }
 `;
 
 export const Active = styled.li`
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  background: var(--linkColor);
-  color: #fff;
-  border-radius: 10px;
-  box-shadow: var(--boxShadow);
+  padding: 1rem 1.5rem;
+  background: transparent;
+  color: var(--categoryTextColor);
+  border: 1px solid var(--categoryTextColor);
+  border-radius: 6px;
 `;
 
 export const Disabled = styled.li`
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  padding-left: 1rem;
-  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
   cursor: pointer;
-  transition: 0.25s;
-
-  &:hover {
-    background: var(--linkColor);
-    color: var(--contentBgColor);
-    box-shadow: var(--boxShadow);
-  }
-`;
-
-export const SideWrapper = styled.div`
-  position: absolute;
-  left: 100%;
-  & > div {
-    width: 24rem;
-    padding: 0.3rem 1rem;
-    max-height: 70rem;
-    margin-left: 8rem;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    border-left: 1.5px solid var(--scrollBdColor);
-    overflow: hidden auto;
-    opacity: 1;
-
-    ::-webkit-scrollbar {
-      width: 3px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--scrollThumb);
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--scrollTrack);
-    }
-
-    ${(props) =>
-      props.isSticky &&
-      css`
-        position: fixed;
-        top: 12rem;
-      `}
-  }
-
-  ${Wrapper} {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
 `;
