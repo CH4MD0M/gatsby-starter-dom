@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
 const Wrapper = styled(motion.div)`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
   min-height: calc(100vh - 6rem - 10rem);
-  margin: 3rem auto 0;
+  margin: 10rem auto 0;
   padding: 0 ${({ theme }) => theme.sideSpace.sm};
 
   @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {

@@ -46,7 +46,7 @@ export const PostCardWrapper = styled.div`
   padding: 1rem 2rem;
   max-width: 30rem;
   flex-basis: 30rem;
-  background: var(--postNavButtonBackground);
+  background: var(--postNavBtnBgColor);
   border-radius: 8px;
   font-weight: 500;
   color: var(--textColor);
@@ -54,7 +54,7 @@ export const PostCardWrapper = styled.div`
   transition: background 0.3s;
 
   &:hover {
-    background: var(--hoveredPostNavButtonBackground);
+    background: var(--hoveredPostNavBtnBgColor);
   }
 
   ${FlexWrapper} {

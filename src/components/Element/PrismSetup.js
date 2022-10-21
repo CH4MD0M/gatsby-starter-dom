@@ -50,8 +50,8 @@ const Pre = styled.pre`
     top: 6px;
     right: 6px;
     padding: 0.05rem 0.85rem 0;
-    background: ${(props) => props.theme.colors.primary5};
-    color: ${(props) => props.theme.colors.primary2};
+    background: ${(props) => props.theme.colors.primary6};
+    color: ${(props) => props.theme.colors.primary0};
     font-size: 1.6rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -59,15 +59,8 @@ const Pre = styled.pre`
   }
 
   .token-line {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.6;
-  }
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.small}) {
-    .token-line {
-      font-size: 1.4rem;
-      line-height: 1.4;
-    }
   }
 `;
 

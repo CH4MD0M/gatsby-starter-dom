@@ -8,10 +8,10 @@ import useScroll from "../../../../hooks/useScroll";
 import * as S from "./style";
 
 const Toc = ({ lists }) => {
-  const scrollY = useScroll();
   const [tocWrapperTop, setTocWrapperTop] = useState();
   const [headingsTop, setHeadingsTop] = useState([]);
   const [isActive, setIsActive] = useState(0);
+  const scrollY = useScroll();
   const ref = useRef();
   const len = lists.length;
 
@@ -43,7 +43,7 @@ const Toc = ({ lists }) => {
 
   // toc click handler
   const clickTitleHandler = (idx) => {
-    animateScroll.scrollTo(headingsTop[idx] - 60);
+    animateScroll.scrollTo(headingsTop[idx] - 70);
   };
 
   return (

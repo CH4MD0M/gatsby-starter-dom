@@ -5,7 +5,7 @@ export const HeroWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 14rem 0 8rem;
+  margin-bottom: 8rem;
 
   .Typewriter {
     min-height: 16rem;

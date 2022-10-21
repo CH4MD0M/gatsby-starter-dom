@@ -12,6 +12,10 @@ export const FixedWrapper = styled.nav`
   backdrop-filter: blur(10px);
   transition: opacity 0.35s;
   z-index: 200;
+
+  a {
+    color: var(--textColor);
+  }
 `;
 
 export const HeaderWrapper = styled.div`
@@ -32,9 +36,6 @@ export const NavTitle = styled.div`
   font-weight: 600;
   letter-spacing: ${(props) => props.theme.text.spacing};
   animation: var(--animation) 1.5s infinite;
-  a {
-    color: var(--textColor);
-  }
 `;
 
 export const Menu = styled.div`
@@ -48,7 +49,6 @@ export const LinksWrapper = styled.div`
   font-size: 1.6rem;
 
   a {
-    color: var(--textColor);
     text-transform: uppercase;
     margin: 0 1rem;
   }
@@ -75,6 +75,7 @@ export const MenuIcon = styled.div`
   svg:hover path {
     fill: var(--textColor);
   }
+
   @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
     display: none;
   }

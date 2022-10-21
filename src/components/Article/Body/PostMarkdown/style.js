@@ -7,33 +7,56 @@ export const MDWrapper = styled.div`
     line-height: 1.7;
   }
 
+  & > p,
+  & > ul,
+  & > ol,
+  & table,
+  & blockquote,
+  & pre {
+    margin-top: 0;
+    margin-bottom: 1.8rem;
+  }
+
+  & p {
+    overflow-x: scroll;
+    word-break: break-all;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   /* headings */
   & h1,
   & h2,
   & h3,
   & h4 {
-    margin: 6rem 0 2.5rem 0;
+    margin: 1.1rem 0 2rem 0;
     font-weight: 700;
-    word-break: break-all;
   }
+
   & h1 {
-    font-size: 3.5rem;
+    margin-top: 8rem;
+    font-size: 3.2rem;
     &::before {
       content: "";
-      border-left: 4px solid ${(props) => props.theme.colors.primary4};
+      border-left: 4px solid var(--headingBdColor);
       margin-right: 1rem;
     }
   }
   & h2 {
+    margin-top: 6.4rem;
+    margin-bottom: 2.4rem;
     font-size: 2.8rem;
   }
   & h3 {
-    margin-top: 48px;
+    margin-top: 4.8rem;
+    margin-bottom: 2.4rem;
     font-size: 2.2rem;
   }
   & h4 {
-    margin-top: 32px;
-    font-size: 1.7rem;
+    margin-top: 3.2rem;
+    margin-bottom: 2.4rem;
+    font-size: 1.76rem;
   }
 
   & a {
@@ -43,9 +66,9 @@ export const MDWrapper = styled.div`
 
   & b,
   strong {
-    font-weight: 600;
+    font-weight: 500;
     .kaatex {
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 
@@ -58,11 +81,11 @@ export const MDWrapper = styled.div`
   & th {
     padding: 1rem;
     background-color: var(--tableBgColor);
-    border: 0.5px solid var(--textColor);
+    border: 0.5px solid var(--tableBdColor);
   }
   & td {
     padding: 1rem 1.8rem;
-    border: 0.5px solid var(--textColor);
+    border: 0.5px solid var(--tableBdColor);
   }
   & td:first-child {
     text-align: center;
@@ -79,24 +102,29 @@ export const MDWrapper = styled.div`
   /* list */
   & ul,
   & ol {
-    margin: 1.2rem 0 2rem;
     padding-left: 3rem;
     & ul {
       padding-left: 2rem;
+      list-style: circle;
+
+      ul {
+        list-style: square;
+      }
     }
-    & ul ul {
-      list-style: square;
+  }
+  & li {
+    margin-bottom: 1.2rem;
+    p {
+      margin-top: 0.8rem;
     }
   }
 
   /* paragraph */
   & p {
     word-break: break-all;
-    margin: 1.3rem 0;
-    font-weight: 400;
 
     a {
-      color: rgb(32, 168, 234);
+      color: var(--linkColor);
     }
   }
 
@@ -106,12 +134,23 @@ export const MDWrapper = styled.div`
     font-family: "Fira Code", monospace;
   }
 
-  & code {
+  & pre {
+    ::-webkit-scrollbar {
+      height: 0.4rem;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--scrollTrack);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--scrollThumb);
+    }
+  }
+
+  code {
     margin: 0 0.1rem;
-    padding: 0.1rem 0.3rem;
-    background-color: var(--inlineCodeBackground);
-    font-size: 1.7rem;
-    line-height: 1.7;
+    padding: 0.16rem 0.48rem;
+    background-color: var(--inlineCodeBgColor);
+    font-size: 1.5rem;
     border-radius: 4px;
   }
 
@@ -127,9 +166,11 @@ export const MDWrapper = styled.div`
   /* em */
   & em {
     background-color: ${(props) => props.theme.colors.lightOrange};
-    padding: 0.1rem 0.3rem;
+    padding: 0.16rem 0.48rem;
     border-radius: 4px;
-    color: rgb(125, 107, 113);
+    font-size: 1.6rem;
+    font-style: italic;
+    color: ${(props) => props.theme.colors.darkOrange};
   }
 
   /* image */
@@ -141,5 +182,9 @@ export const MDWrapper = styled.div`
 
   .katex {
     font-size: inherit;
+  }
+
+  .gatsby-resp-image-wrapper {
+    margin-top: 0;
   }
 `;

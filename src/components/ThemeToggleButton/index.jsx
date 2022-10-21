@@ -18,7 +18,7 @@ const ThemeToggleButton = () => {
           initial={{ rotate: -180 }}
           animate={{ rotate: 0 }}
           exit={{ rotate: 180 }}
-          transition={{ type: "spring", duration: 0.1 }}
+          transition={{ duration: 0.2 }}
           onClick={toggleTheme}
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}

@@ -53,10 +53,10 @@ export const LinksWrapper = styled.div`
     cursor: pointer;
   }
   & svg path {
-    fill: var(--icon);
+    fill: var(--iconColor);
     transition: fill 0.2s;
   }
   a:hover svg path {
-    fill: var(--textColor);
+    fill: var(--hoveredIconColor);
   }
 `;
