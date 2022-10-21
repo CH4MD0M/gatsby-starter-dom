@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Wrapper = styled.article`
   display: block;
-  margin-top: 4rem;
-  padding-bottom: 4rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0 3rem;
   line-height: 1.5;
+  border-radius: 6px;
 `;
 
 export const PostTitle = styled.h2`
-  color: var(--textColor);
+  color: var(--postTitleColor);
   font-size: 2.5rem;
   font-weight: 500;
   word-break: keep-all;
@@ -30,4 +31,5 @@ export const PostDescription = styled.p`
 
 export const Date = styled.span`
   font-size: 1.4rem;
+  color: var(--postDateColor);
 `;

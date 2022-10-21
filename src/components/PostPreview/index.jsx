@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import CategoryLabel from "../CategoryLabel";
-
 // CSS
 import * as S from "./style";
 
 const PostPreview = ({ post }) => {
   const { excerpt } = post;
-  const { title, date, category } = post.frontmatter;
+  const { title, date } = post.frontmatter;
 
   return (
     <S.Wrapper>
