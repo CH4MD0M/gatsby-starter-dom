@@ -7,9 +7,10 @@ import Seo from "../components/Seo";
 import Article from "../components/Article";
 
 const PostTemplate = ({ data, location, pageContext }) => {
-  const { siteUrl, description } = data.site.siteMetadata;
+  const { siteUrl, description, comments } = data.site.siteMetadata;
   const { author, title, category, date } = data.mdx.frontmatter;
   const { body, excerpt } = data.mdx;
+  const utterancesRepo = comments?.utterances?.repo;
 
   return (
     <Layout>
@@ -25,7 +26,10 @@ const PostTemplate = ({ data, location, pageContext }) => {
           date={date}
         />
         <Article.Body body={body} />
-        <Article.Footer pageContext={pageContext} />
+        <Article.Footer
+          utterancesRepo={utterancesRepo}
+          pageContext={pageContext}
+        />
       </Article>
     </Layout>
   );
@@ -38,11 +42,15 @@ export const query = graphql`
         siteUrl
         author
         description
+        comments {
+          utterances {
+            repo
+          }
+        }
         socials {
           email
           github
           instagram
-          linkedIn
         }
       }
     }

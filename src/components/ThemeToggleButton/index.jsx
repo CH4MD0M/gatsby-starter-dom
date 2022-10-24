@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
 
-import useTheme from "../../hooks/useTheme";
+import { toggleMode } from "../../state/modules/uiSlice";
 
 // CSS
 import * as S from "./style";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeToggleButton = () => {
-  const { theme, themeToggleHandler: toggleTheme } = useTheme();
+  const { darkMode } = useSelector((state) => state.ui);
+  const theme = darkMode ? "dark" : "light";
+  const dispatch = useDispatch();
+
+  const toggleTheme = () => {
+    dispatch(toggleMode());
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <S.ToggleWrapper>
@@ -21,7 +32,7 @@ const ThemeToggleButton = () => {
           transition={{ duration: 0.2 }}
           onClick={toggleTheme}
         >
-          {theme === "light" ? <FaMoon /> : <FaSun />}
+          {darkMode ? <FaSun /> : <FaMoon />}
         </motion.div>
       </AnimatePresence>
     </S.ToggleWrapper>

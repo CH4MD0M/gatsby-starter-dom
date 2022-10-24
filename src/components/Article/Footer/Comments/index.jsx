@@ -1,37 +1,51 @@
-import React, { createRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
-// CSS
-import * as S from "./style";
+const src = "https://utteranc.es/client.js";
+const LIGHT_THEME = "github-light";
+const DARK_THEME = "dark-blue";
 
-const Comments = () => {
-  const commentRef = createRef();
+const Comments = ({ repo }) => {
+  const { darkMode } = useSelector((state) => state.ui);
+  const themeMode = darkMode ? DARK_THEME : LIGHT_THEME;
+
+  const rootElm = useRef(null);
 
   useEffect(() => {
-    const utterances = document.createElement("script");
-    const utteracesConfig = {
-      src: "https://utteranc.es/client.js",
-      repo: "CH4MD0M/ch4md0m.blog",
-      theme: "github-light",
-      "issue-term": "pathname",
-      crossorigin: "anonymous",
-      async: true,
+    const createUtterances = () => {
+      const utterances = document.createElement("script");
+      const utterancesConfig = {
+        src,
+        repo,
+        branch: "main",
+        label: "comment",
+        theme: themeMode,
+        "issue-term": "pathname",
+        crossorigin: "anonymous",
+        async: true,
+      };
+
+      Object.entries(utterancesConfig).forEach(([key, value]) => {
+        utterances.setAttribute(key, value);
+      });
+      rootElm.current.appendChild(utterances);
     };
 
-    Object.entries(utteracesConfig).forEach(([key, value]) => {
-      utterances.setAttribute(key, value);
-    });
+    const postMessage = () => {
+      const message = {
+        type: "set-theme",
+        theme: themeMode,
+      };
+      utterancesEl.contentWindow.postMessage(message, src);
+    };
 
-    const isComment = commentRef.current.firstChild;
-    if (isComment) commentRef.current.removeChild(isComment);
+    const utterancesEl = rootElm.current.querySelector(
+      "iframe.utterances-frame"
+    );
+    utterancesEl ? postMessage() : createUtterances();
+  }, [repo, themeMode]);
 
-    commentRef.current.appendChild(utterances);
-  }, []);
-
-  return (
-    <S.Wrapper>
-      <div className="utterances" ref={commentRef}></div>
-    </S.Wrapper>
-  );
+  return <div ref={rootElm} />;
 };
 
 export default Comments;

@@ -12,7 +12,7 @@ html {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 62.5%;
 }
-body {
+html {
   --bgColor: ${(props) => props.theme.colors.primary0};
   --textColor: ${(props) => props.theme.colors.primary9};
   --divider: ${(props) => props.theme.colors.primary3};
@@ -43,7 +43,7 @@ body {
   
 }
 
-  body.dark {
+html[data-theme='dark'] {
     --bgColor: ${(props) => props.theme.colors.primary9};
     --textColor: ${(props) => props.theme.colors.primary0};
     --divider: ${(props) => props.theme.colors.primary8};
