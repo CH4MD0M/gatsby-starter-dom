@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { AnimatePresence } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { variants } from "../utils/framer";
 
 // CSS
+import * as S from "./style";
 import GlobalStyle from "../style/globalStyle";
-import theme from "../style/theme";
+import theme from "../style/variables";
 
 const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const data = useStaticQuery(pageQuery);
+  const { title, author } = data.site.siteMetadata;
 
   return (
     <ThemeProvider theme={theme}>
-      <Header menuToggle={toggleSidebar} />
+      <Header title={title || `Title`} />
       <AnimatePresence exitBeforeEnter>
-        <Wrapper
+        <S.Wrapper
           key={children}
           initial="hidden"
           animate="enter"
@@ -29,22 +29,22 @@ const Layout = ({ children }) => {
           transition={{ duration: 0.5 }}
         >
           {children}
-        </Wrapper>
+        </S.Wrapper>
       </AnimatePresence>
-      <Footer />
+      <Footer author={author || `Author`} />
       <GlobalStyle />
     </ThemeProvider>
   );
 };
 
-const Wrapper = styled(motion.div)`
-  max-width: ${({ theme }) => theme.sizes.maxWidth};
-  min-height: calc(100vh - 6rem - 10rem);
-  margin: 10rem auto 0;
-  padding: 0 ${({ theme }) => theme.sideSpace.sm};
-
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
-    padding: 0 1.5rem;
+const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
   }
 `;
 

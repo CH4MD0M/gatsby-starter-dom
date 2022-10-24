@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 
 import ThemeToggleButton from "../ThemeToggleButton";
-import { title } from "../../../blog-config";
 
 // CSS
 import * as S from "./style";
 import { FaBars } from "react-icons/fa";
 
-const Header = ({ menuToggle }) => {
+const Header = ({ title }) => {
   return (
     <S.FixedWrapper>
       <S.HeaderWrapper>
@@ -22,7 +21,7 @@ const Header = ({ menuToggle }) => {
             <Link to="/about">about</Link>
           </S.LinksWrapper>
           <ThemeToggleButton />
-          <S.MenuIcon onClick={menuToggle}>
+          <S.MenuIcon>
             <FaBars />
           </S.MenuIcon>
         </S.Menu>

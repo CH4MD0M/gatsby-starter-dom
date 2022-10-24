@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 // CSS
 import * as S from "./style";
@@ -15,45 +15,37 @@ const Link = ({ link, children }) => {
 };
 
 const Bio = () => {
+  const data = useStaticQuery(bioQuery);
+  const { siteUrl, description, author, socials } = data.site.siteMetadata;
+  const { email, github, instagram, linkedIn } = socials;
+
+  const profileImageRoot =
+    typeof window !== "undefined" && window.location.host === "localhost:8000"
+      ? "http://localhost:8000"
+      : siteUrl;
+
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={(data) => {
-        const { siteUrl, description, author, socials } =
-          data.site.siteMetadata;
-        const { email, github, instagram, linkedIn } = socials;
-
-        const profileImageRoot =
-          typeof window !== "undefined" &&
-          window.location.host === "localhost:8000"
-            ? "http://localhost:8000"
-            : siteUrl;
-
-        return (
-          <S.Wrapper>
-            <S.Profile profileImageRoot={profileImageRoot} />
-            <div>
-              <S.Author>{author}</S.Author>
-              <S.Description>{description}</S.Description>
-              <S.LinksWrapper>
-                <Link link={github}>
-                  <FaGithub />
-                </Link>
-                <Link link={instagram}>
-                  <FaInstagram />
-                </Link>
-                <Link link={linkedIn}>
-                  <FaLinkedin />
-                </Link>
-                <Link link={email}>
-                  <FaEnvelope />
-                </Link>
-              </S.LinksWrapper>
-            </div>
-          </S.Wrapper>
-        );
-      }}
-    />
+    <S.Wrapper>
+      <S.Profile profileImageRoot={profileImageRoot} />
+      <div>
+        <S.Author>{author}</S.Author>
+        <S.Description>{description}</S.Description>
+        <S.LinksWrapper>
+          <Link link={github}>
+            <FaGithub />
+          </Link>
+          <Link link={instagram}>
+            <FaInstagram />
+          </Link>
+          <Link link={linkedIn}>
+            <FaLinkedin />
+          </Link>
+          <Link link={email}>
+            <FaEnvelope />
+          </Link>
+        </S.LinksWrapper>
+      </div>
+    </S.Wrapper>
   );
 };
 
@@ -68,7 +60,6 @@ export const bioQuery = graphql`
           email
           github
           instagram
-          linkedIn
         }
       }
     }

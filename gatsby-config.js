@@ -7,23 +7,34 @@ module.exports = {
     categories: categoriesConfig,
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-styled-components",
-    "gatsby-transformer-sharp",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/content`,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [
-          "G-2QPXMQNDX9", // Google Analytics / GA
-        ],
+        trackingIds: blogConfig.ga, // Google Analytics / GA
+
         pluginConfig: {
           head: true,
           respectDNT: true,
           exclude: ["/preview/**", "/do-not-track/me/too/"],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: blogConfig.title,
+        short_name: blogConfig.title,
+        description: blogConfig.description,
+        start_url: `/`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
       },
     },
     {
@@ -61,26 +72,7 @@ module.exports = {
         rehypePlugins: [require("rehype-katex")],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-breakpoints",
-      options: {
-        queries: {
-          l: "(max-width: 950px)",
-          mdMin: "(min-width: 768px)",
-          md: "(max-width: 768px)",
-          sm: "(max-width: 500px)",
 
-          portrait: "(orientation: portrait)",
-        },
-      },
-    },
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
@@ -92,5 +84,11 @@ module.exports = {
         display: "swap",
       },
     },
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-styled-components",
+    "gatsby-transformer-sharp",
   ],
 };
