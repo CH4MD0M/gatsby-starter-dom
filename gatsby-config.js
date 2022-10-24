@@ -17,7 +17,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: blogConfig.ga, // Google Analytics / GA
+        trackingIds: [
+          blogConfig.ga, // Google Analytics / GA
+          // Google Ads / Adwords / AW
+          // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
 
         pluginConfig: {
           head: true,
