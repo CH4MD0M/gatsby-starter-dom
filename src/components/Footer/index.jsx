@@ -3,10 +3,14 @@ import React from "react";
 // CSS
 import * as S from "./style";
 
-const Footer = () => {
+const Footer = ({ author }) => {
   return (
     <S.Wrapper>
-      <p>&copy; {new Date().getFullYear()}, ch4md0m All rights reserved.</p>
+      &copy; {new Date().getFullYear()}, {author} Built with Gatsby and &nbsp;
+      <a href="https://github.com/ch4md0m/gatsby-starter-dom" target="blank">
+        gatsby-starter-d0m
+      </a>
+      &nbsp; theme.
     </S.Wrapper>
   );
 };
