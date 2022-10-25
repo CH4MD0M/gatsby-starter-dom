@@ -1,7 +1,7 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import Divider from "../../Divider";
-import CategoryLabel from "../../CategoryLabel";
 
 // CSS
 import * as S from "./style";
@@ -9,7 +9,9 @@ import * as S from "./style";
 const Header = ({ category, title, author, date }) => {
   return (
     <S.HeaderWrapper>
-      <CategoryLabel category={category} isLink="true" />
+      <S.CategoryLabel>
+        <Link to={`/categories/?category=${category}`}>{category}</Link>
+      </S.CategoryLabel>
       <S.Title>{title}</S.Title>
       <S.Information>
         <S.Author> {author} </S.Author>

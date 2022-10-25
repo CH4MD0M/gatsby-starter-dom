@@ -3,21 +3,12 @@ import React from "react";
 // CSS
 import * as S from "./style";
 
-const SelectedCategory = ({ category }) => {
-  const { name } = category;
-  return <S.Active>#{name}</S.Active>;
-};
-
-const Category = ({ category, selectCategory }) => {
-  const { name, slug } = category;
-
-  return (
-    <S.Disabled
-      onClick={() => {
-        selectCategory(slug);
-      }}
-    >
-      #{name}
+const Category = ({ title, selectedCategory, handleSelectCategory }) => {
+  return selectedCategory === title ? (
+    <S.Active onClick={() => handleSelectCategory(title)}>#{title}</S.Active>
+  ) : (
+    <S.Disabled onClick={() => handleSelectCategory(title)}>
+      #{title}
     </S.Disabled>
   );
 };
@@ -26,17 +17,19 @@ const Categories = ({ categories, category, selectCategory }) => {
   return (
     <S.FlexWrapper>
       <S.Wrapper>
-        {categories.map((item, index) => {
-          if (category === item.slug)
-            return <SelectedCategory key={index} category={item} />;
-          return (
-            <Category
-              category={item}
-              key={index}
-              selectCategory={selectCategory}
-            />
-          );
-        })}
+        <Category
+          title="all"
+          selectedCategory={category}
+          handleSelectCategory={selectCategory}
+        />
+        {categories.map((title, idx) => (
+          <Category
+            key={idx}
+            title={title}
+            selectedCategory={category}
+            handleSelectCategory={selectCategory}
+          />
+        ))}
       </S.Wrapper>
     </S.FlexWrapper>
   );

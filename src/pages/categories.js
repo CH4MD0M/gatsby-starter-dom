@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
+import _ from "lodash";
 
 import useCategory from "../hooks/useCategory";
 import Layout from "../layout";
@@ -11,16 +11,16 @@ import Divider from "../components/Divider";
 import PostList from "../components/PostList";
 
 const CategoryPage = ({ data }) => {
-  const { siteUrl, categories } = data.site.siteMetadata;
   const { nodes } = data.allMdx;
+  const categories = useMemo(
+    () => _.uniq(nodes.map((node) => node.frontmatter.category)),
+    []
+  );
   const [category, selectCategory] = useCategory();
 
   return (
     <Layout>
-      <Seo title="Home" />
-      <Helmet>
-        <link rel="canonical" href={siteUrl} />
-      </Helmet>
+      <Seo title="Categories" />
       <PageTitle>Categories.</PageTitle>
       <Categories
         category={category}
@@ -37,15 +37,6 @@ export default CategoryPage;
 
 export const query = graphql`
   query {
-    site {
-      siteMetadata {
-        siteUrl
-        categories {
-          name
-          slug
-        }
-      }
-    }
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         id

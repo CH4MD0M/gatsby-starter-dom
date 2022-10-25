@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
   scrollbar-width: none;
   z-index: 200;
   transition: top 0.5s;
+  text-transform: capitalize;
 
   &::-webkit-scrollbar {
     display: none !important;
