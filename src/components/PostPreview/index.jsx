@@ -5,12 +5,12 @@ import { Link } from "gatsby";
 import * as S from "./style";
 
 const PostPreview = ({ post }) => {
-  const { excerpt } = post;
+  const { excerpt, slug } = post;
   const { title, date } = post.frontmatter;
 
   return (
     <S.Wrapper>
-      <Link to={`/${post.slug}`}>
+      <Link to={`/${slug}`}>
         <S.PostTitle>{title}</S.PostTitle>
       </Link>
       <S.Date>{date}</S.Date>

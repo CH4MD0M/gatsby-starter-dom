@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { variants } from "../../utils/framer";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
-import Divider from "../Divider";
 import PostPreview from "../PostPreview";
+import Divider from "../Divider";
 
 const PostList = ({ category = "all", postList }) => {
   const [count, setCount] = useState(10);
@@ -30,7 +29,7 @@ const PostList = ({ category = "all", postList }) => {
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
-      <Wrapper
+      <motion.div
         key={category}
         initial="hidden"
         animate="enter"
@@ -47,14 +46,9 @@ const PostList = ({ category = "all", postList }) => {
           );
         })}
         <div ref={setTarget} />
-      </Wrapper>
+      </motion.div>
     </AnimatePresence>
   );
 };
-
-const Wrapper = styled(motion.div)`
-  display: block;
-  width: 100%;
-`;
 
 export default PostList;

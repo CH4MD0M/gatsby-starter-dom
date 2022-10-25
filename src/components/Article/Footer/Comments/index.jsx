@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
+import * as S from "./style";
+
 const src = "https://utteranc.es/client.js";
 const LIGHT_THEME = "github-light";
 const DARK_THEME = "dark-blue";
@@ -45,7 +47,11 @@ const Comments = ({ repo }) => {
     utterancesEl ? postMessage() : createUtterances();
   }, [repo, themeMode]);
 
-  return <div ref={rootElm} />;
+  return (
+    <S.CommentWrapper>
+      <div ref={rootElm} />
+    </S.CommentWrapper>
+  );
 };
 
 export default Comments;

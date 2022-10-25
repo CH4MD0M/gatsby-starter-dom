@@ -43,7 +43,7 @@ const Toc = ({ lists }) => {
 
   // toc click handler
   const clickTitleHandler = (idx) => {
-    animateScroll.scrollTo(headingsTop[idx] - 70);
+    animateScroll.scrollTo(headingsTop[idx] - 100);
   };
 
   return (
