@@ -11,7 +11,7 @@ export const FixedWrapper = styled.nav`
   background: var(--headerBackground);
   backdrop-filter: blur(10px);
   transition: opacity 0.35s;
-  z-index: 200;
+  z-index: 400;
 
   a {
     color: var(--textColor);
@@ -75,6 +75,20 @@ export const MenuIcon = styled.div`
   svg:hover path {
     fill: var(--textColor);
   }
+
+  @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
+    display: none;
+  }
+`;
+
+export const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 300;
 
   @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
     display: none;
