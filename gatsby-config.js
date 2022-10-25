@@ -1,11 +1,8 @@
-const categoriesConfig = require("./categories-config");
 const blogConfig = require("./blog-config");
 
 module.exports = {
-  siteMetadata: {
-    ...blogConfig,
-    categories: categoriesConfig,
-  },
+  siteMetadata: blogConfig,
+
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+
 import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../layout";
@@ -11,17 +11,13 @@ import PageTitle from "../components/PageTitle";
 
 const IndexPage = () => {
   const data = useStaticQuery(query);
-  const { siteUrl } = data.site.siteMetadata;
+  const { name } = data.site.siteMetadata;
   const { nodes } = data.allMdx;
 
   return (
     <Layout>
       <Seo title="Home" />
-      <Helmet>
-        <link rel="canonical" href={siteUrl} />
-      </Helmet>
-
-      <Hero />
+      <Hero name={name} />
       <PageTitle>latest.</PageTitle>
       <PostList postList={nodes} />
     </Layout>
@@ -32,8 +28,7 @@ const query = graphql`
   query {
     site {
       siteMetadata {
-        siteUrl
-        title
+        name
       }
     }
     allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 3) {
