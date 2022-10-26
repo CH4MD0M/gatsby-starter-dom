@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
+// CSS
 import * as S from "./style";
 
 const src = "https://utteranc.es/client.js";

@@ -16,7 +16,7 @@ const Category = ({ title, selectedCategory, handleSelectCategory }) => {
 const Categories = ({ categories, category, selectCategory }) => {
   return (
     <S.FlexWrapper>
-      <S.Wrapper>
+      <S.CategoriesWrapper>
         <Category
           title="all"
           selectedCategory={category}
@@ -30,7 +30,7 @@ const Categories = ({ categories, category, selectCategory }) => {
             handleSelectCategory={selectCategory}
           />
         ))}
-      </S.Wrapper>
+      </S.CategoriesWrapper>
     </S.FlexWrapper>
   );
 };

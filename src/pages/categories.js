@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import _ from "lodash";
 
 import useCategory from "../hooks/useCategory";
@@ -10,7 +10,8 @@ import Categories from "../components/Categories";
 import Divider from "../components/Divider";
 import PostList from "../components/PostList";
 
-const CategoryPage = ({ data }) => {
+const CategoryPage = () => {
+  const data = useStaticQuery(pageQuery);
   const { nodes } = data.allMdx;
   const categories = useMemo(
     () => _.uniq(nodes.map((node) => node.frontmatter.category)),
@@ -33,9 +34,7 @@ const CategoryPage = ({ data }) => {
   );
 };
 
-export default CategoryPage;
-
-export const query = graphql`
+const pageQuery = graphql`
   query {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
@@ -51,3 +50,5 @@ export const query = graphql`
     }
   }
 `;
+
+export default CategoryPage;

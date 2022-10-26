@@ -25,7 +25,7 @@ const Bio = () => {
       : siteUrl;
 
   return (
-    <S.Wrapper>
+    <S.BioWrapper>
       <S.Profile profileImageRoot={profileImageRoot} />
       <div>
         <S.Author>{author}</S.Author>
@@ -45,11 +45,11 @@ const Bio = () => {
           </Link>
         </S.LinksWrapper>
       </div>
-    </S.Wrapper>
+    </S.BioWrapper>
   );
 };
 
-export const bioQuery = graphql`
+const bioQuery = graphql`
   query BioQuery {
     site {
       siteMetadata {

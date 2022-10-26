@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.footer`
+export const FooterWrapper = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;

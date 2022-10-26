@@ -1,13 +1,22 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+
+import PrismSetup from "../../../Element/PrismSetup";
 
 // CSS
 import * as S from "./style";
 
+const components = {
+  pre: PrismSetup,
+};
+
 const PostMarkdown = ({ body }) => {
   return (
     <S.MDWrapper id="post-contents">
-      <MDXRenderer>{body}</MDXRenderer>
+      <MDXProvider components={components}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </MDXProvider>
     </S.MDWrapper>
   );
 };

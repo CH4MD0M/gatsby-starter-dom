@@ -6,7 +6,7 @@ import Seo from "../components/Seo";
 
 const NotFoundPage = () => (
   <Layout>
-    <Seo title="404: Not found" />
+    <Seo title="Not found" />
     <Wrapper>
       <h1>Not Found</h1>
       <span>요청하신 페이지를 찾을 수 없습니다.</span>
@@ -15,11 +15,11 @@ const NotFoundPage = () => (
 );
 
 const Wrapper = styled.div`
-  height: 70rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   h1 {
     font-size: 6rem;
     margin-bottom: 3rem;

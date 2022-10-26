@@ -13,7 +13,6 @@ const Toc = ({ lists }) => {
   const [isActive, setIsActive] = useState(0);
   const scrollY = useScroll();
   const ref = useRef();
-  const len = lists.length;
 
   // store 'top' of toc wrapper
   useEffect(() => {
@@ -47,28 +46,30 @@ const Toc = ({ lists }) => {
   };
 
   return (
-    <S.TocWrapper ref={ref} isSticky={scrollY > tocWrapperTop - 120}>
-      {len ? (
-        <div>
-          {lists.map((item, idx) => (
-            <S.TocItem
-              key={idx}
-              active={idx === isActive}
-              ml={
-                item.tagName === "H1"
-                  ? "0"
-                  : item.tagName === "H2"
-                  ? "1.2rem"
-                  : "2.2rem"
-              }
-              onClick={() => clickTitleHandler(idx)}
-            >
-              {item.innerText}
-            </S.TocItem>
-          ))}
-        </div>
+    <>
+      {lists.length ? (
+        <S.TocWrapper ref={ref} isSticky={scrollY > tocWrapperTop - 120}>
+          <div>
+            {lists.map((item, idx) => (
+              <S.TocItem
+                key={idx}
+                active={idx === isActive}
+                ml={
+                  item.tagName === "H1"
+                    ? "0"
+                    : item.tagName === "H2"
+                    ? "1.2rem"
+                    : "2.2rem"
+                }
+                onClick={() => clickTitleHandler(idx)}
+              >
+                {item.innerText}
+              </S.TocItem>
+            ))}
+          </div>
+        </S.TocWrapper>
       ) : null}
-    </S.TocWrapper>
+    </>
   );
 };
 

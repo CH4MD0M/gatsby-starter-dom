@@ -1,7 +1,7 @@
+import styled from "styled-components";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
-import styled from "styled-components";
 
 const Article = styled.article`
   color: var(--textColor);

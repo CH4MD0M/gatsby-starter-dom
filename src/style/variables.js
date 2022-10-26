@@ -10,7 +10,6 @@ const variables = {
     primary7: "hsl(210, 16%, 31%)",
     primary8: "hsl(210, 19%, 23%)",
     primary9: "hsl(210, 20%, 15%)",
-    pink: "hsl(339, 68%, 56%)",
     gray: "hsl(210, 9%, 31%)",
     blue0: "hsl(187, 92%, 34%)",
     blue1: "hsl(187, 56%, 72%)",

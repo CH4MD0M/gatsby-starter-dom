@@ -39,9 +39,6 @@ html {
   --blockQuoteBorder: ${(props) => props.theme.colors.primary5};
   --blockQuoteBgColor: ${(props) => props.theme.colors.primary3};
   --inlineCodeBgColor: ${(props) => props.theme.colors.primary4};
-  background: var(--bgColor);
-  color: var(--textColor);
-  
 }
 
 html[data-theme='dark'] {
@@ -70,8 +67,11 @@ html[data-theme='dark'] {
     --tableBdColor: ${(props) => props.theme.colors.primary6};
     --blockQuoteBorder: ${(props) => props.theme.colors.primary6};
     --blockQuoteBgColor: ${(props) => props.theme.colors.primary8};
-    --inlineCodeBgColor: ${(props) => props.theme.colors.gray};
-    background: var(--bgColor);
+    --inlineCodeBgColor: ${(props) => props.theme.colors.gray};    
+  }
+  
+  body {
+    background: var(--bgColor) !important;
     color: var(--textColor);
   }
   

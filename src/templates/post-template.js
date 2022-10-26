@@ -1,23 +1,22 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
 
 import Layout from "../layout";
 import Seo from "../components/Seo";
 import Article from "../components/Article";
 
-const PostTemplate = ({ data, location, pageContext }) => {
-  const { siteUrl, description, comments } = data.site.siteMetadata;
-  const { author, title, category, date } = data.mdx.frontmatter;
+// CSS
+import "katex/dist/katex.min.css";
+
+const PostTemplate = ({ data, pageContext }) => {
   const { body, excerpt } = data.mdx;
+  const { author, title, category, date } = data.mdx.frontmatter;
+  const { comments } = data.site.siteMetadata;
   const utterancesRepo = comments?.utterances?.repo;
 
   return (
     <Layout>
-      <Seo title={title} description={excerpt || description} />
-      <Helmet>
-        <link rel="canonical" href={`${siteUrl}${location.pathname}`} />
-      </Helmet>
+      <Seo title={title} description={excerpt} />
       <Article>
         <Article.Header
           category={category}
@@ -41,7 +40,6 @@ export const query = graphql`
       siteMetadata {
         siteUrl
         author
-        description
         comments {
           utterances {
             repo

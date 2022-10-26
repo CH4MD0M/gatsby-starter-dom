@@ -5,7 +5,7 @@ export const FlexWrapper = styled.div`
   justify-content: center;
 `;
 
-export const Wrapper = styled.div`
+export const CategoriesWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

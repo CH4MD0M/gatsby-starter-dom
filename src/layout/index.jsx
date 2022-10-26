@@ -9,8 +9,8 @@ import { variants } from "../utils/framer";
 
 // CSS
 import * as S from "./style";
-import GlobalStyle from "../style/globalStyle";
 import theme from "../style/variables";
+import GlobalStyle from "../style/globalStyle";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(pageQuery);
@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Header title={title || `Title`} />
       <AnimatePresence exitBeforeEnter>
         <S.Wrapper
@@ -32,7 +33,6 @@ const Layout = ({ children }) => {
         </S.Wrapper>
       </AnimatePresence>
       <Footer author={author || `Author`} />
-      <GlobalStyle />
     </ThemeProvider>
   );
 };

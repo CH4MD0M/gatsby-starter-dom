@@ -9,7 +9,7 @@ export const ToggleMenuWrapper = styled(motion.div)`
   top: 6rem;
   right: 2.5rem;
   padding: 0.5rem 0;
-  min-width: 20rem;
+  width: fit-content;
   background: var(--bgColor);
   font-size: 1.6rem;
   text-transform: capitalize;
@@ -19,6 +19,7 @@ export const ToggleMenuWrapper = styled(motion.div)`
 
   a {
     display: block;
+    margin-right: 2rem;
     padding: 0.8rem 1.2rem;
     color: var(--textColor);
     width: 100%;

@@ -59,11 +59,13 @@ export const MDWrapper = styled.div`
     font-size: 1.76rem;
   }
 
+  /* link */
   & a {
     color: var(--textColor);
     text-decoration: underline;
   }
 
+  /* bold */
   & b,
   strong {
     font-weight: 500;
@@ -163,7 +165,7 @@ export const MDWrapper = styled.div`
     border-left: 4px solid var(--blockQuoteBorder);
   }
 
-  /* em */
+  /* italic */
   & em {
     background-color: ${(props) => props.theme.colors.lightOrange};
     padding: 0.16rem 0.48rem;
@@ -179,12 +181,12 @@ export const MDWrapper = styled.div`
     margin: 0 auto;
     max-width: 100%;
   }
-
-  .katex {
-    font-size: inherit;
-  }
-
   .gatsby-resp-image-wrapper {
     margin-top: 0;
+  }
+
+  /* etc */
+  .katex {
+    font-size: inherit;
   }
 `;
