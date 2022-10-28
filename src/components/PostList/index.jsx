@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { variants } from "../../utils/framer";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import PostPreview from "../PostPreview";
+import { variants } from "../../utils/framer";
 
 const PostList = ({ category = "all", postList }) => {
   const [count, setCount] = useState(10);

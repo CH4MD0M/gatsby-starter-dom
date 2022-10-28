@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
+
 import Divider from "../Divider";
+
 // CSS
 import * as S from "./style";
 

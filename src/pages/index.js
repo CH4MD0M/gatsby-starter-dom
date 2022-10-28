@@ -10,7 +10,7 @@ import Hero from "../components/Hero";
 import PageTitle from "../components/PageTitle";
 
 const IndexPage = () => {
-  const data = useStaticQuery(query);
+  const data = useStaticQuery(pageQquery);
   const { name } = data.site.siteMetadata;
   const { nodes } = data.allMdx;
 
@@ -24,7 +24,7 @@ const IndexPage = () => {
   );
 };
 
-const query = graphql`
+const pageQquery = graphql`
   query {
     site {
       siteMetadata {

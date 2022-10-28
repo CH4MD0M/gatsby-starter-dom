@@ -4,7 +4,7 @@ import Typewriter from "typewriter-effect";
 // CSS
 import * as S from "./style";
 
-const Hero = ({ name }) => {
+const Hero = ({ name = "name" }) => {
   return (
     <S.HeroWrapper>
       <Typewriter
