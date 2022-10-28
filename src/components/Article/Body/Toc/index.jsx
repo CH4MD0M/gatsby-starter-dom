@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { animateScroll } from "react-scroll";
 
 import getElementOffsetY from "../../../../utils/getOffset";
@@ -12,14 +12,13 @@ const Toc = ({ lists }) => {
   const [headingsTop, setHeadingsTop] = useState([]);
   const [isActive, setIsActive] = useState(0);
   const scrollY = useScroll();
-  const ref = useRef();
 
   // store 'top' of toc wrapper
-  useEffect(() => {
-    if (ref.current) {
-      setTocWrapperTop(getElementOffsetY(ref.current));
+  const measuredRef = useCallback((node) => {
+    if (node !== null) {
+      setTocWrapperTop(getElementOffsetY(node));
     }
-  }, []);
+  });
 
   // store 'top' of Each toc item
   useEffect(() => {
@@ -48,7 +47,10 @@ const Toc = ({ lists }) => {
   return (
     <>
       {lists.length ? (
-        <S.TocWrapper ref={ref} isSticky={scrollY > tocWrapperTop - 120}>
+        <S.TocWrapper
+          ref={measuredRef}
+          isSticky={scrollY > tocWrapperTop - 120}
+        >
           <div>
             {lists.map((item, idx) => (
               <S.TocItem
