@@ -6,11 +6,11 @@ import * as S from "./style";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 
 const PostCard = ({ right, node }) => {
-  const { slug } = node;
-  const { title } = node?.frontmatter;
+  const { slug } = node.fields;
+  const { title } = node.frontmatter;
 
   return (
-    <S.PostCardWrapper right={right} onClick={() => navigate(`/${slug}`)}>
+    <S.PostCardWrapper right={right} onClick={() => navigate(slug)}>
       <S.FlexWrapper>
         <S.Icon>
           {right ? <BsArrowRightCircle /> : <BsArrowLeftCircle />}

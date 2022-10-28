@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { variants } from "../../utils/framer";
 import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 import PostPreview from "../PostPreview";
-import Divider from "../Divider";
 
 const PostList = ({ category = "all", postList }) => {
   const [count, setCount] = useState(10);
@@ -38,12 +37,7 @@ const PostList = ({ category = "all", postList }) => {
         transition={{ duration: 0.3 }}
       >
         {filteredPosts.map((post) => {
-          return (
-            <div key={post.id}>
-              <PostPreview post={post} />
-              <Divider mt="0" mb="2rem" />
-            </div>
-          );
+          return <PostPreview key={post.id} post={post} />;
         })}
         <div ref={setTarget} />
       </motion.div>

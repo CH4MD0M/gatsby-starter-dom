@@ -38,8 +38,10 @@ const pageQuery = graphql`
   query {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
+        fields {
+          slug
+        }
         id
-        slug
         frontmatter {
           title
           category

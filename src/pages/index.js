@@ -34,13 +34,15 @@ const query = graphql`
     allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 3) {
       nodes {
         id
-        slug
+        excerpt(pruneLength: 300, truncate: true)
+        fields {
+          slug
+        }
         frontmatter {
           title
           category
           date(formatString: "YYYY년 M월 D일")
         }
-        excerpt(pruneLength: 300, truncate: true)
       }
     }
   }
