@@ -42,12 +42,10 @@ export const TocItem = styled.div`
   margin-top: 0.4rem;
   margin-left: ${(props) => props.ml};
   font-weight: 300;
-
-  cursor: pointer;
-
-  transition: all 0.125s ease-in;
   color: var(--tocTextColor);
   word-break: break-all;
+  transition: all 0.125s ease-in;
+  cursor: pointer;
 
   ${(props) =>
     props.active &&

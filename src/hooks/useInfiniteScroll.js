@@ -6,10 +6,7 @@ const defaultOptions = {
   threshold: "0.1",
 };
 
-export default function useInfiniteScroll(
-  onIntersect,
-  options = defaultOptions
-) {
+const useInfiniteScroll = (onIntersect, options = defaultOptions) => {
   const [target, setTarget] = useState(null);
 
   const handleIntersect = useCallback(
@@ -20,13 +17,15 @@ export default function useInfiniteScroll(
   );
 
   useEffect(() => {
-    let observer;
-    if (target) {
-      observer = new IntersectionObserver(handleIntersect, options);
-      observer.observe(target);
-    }
-    return () => observer?.disconnect();
+    if (!target) return;
+
+    const observer = new IntersectionObserver(handleIntersect, options);
+    observer.observe(target);
+
+    return () => observer.unobserve(target);
   }, [handleIntersect, target, options]);
 
   return [setTarget];
-}
+};
+
+export default useInfiniteScroll;

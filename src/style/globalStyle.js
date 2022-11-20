@@ -6,7 +6,6 @@ export default createGlobalStyle`
 ::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 html {
   font-family: 'Noto Sans KR', sans-serif;
@@ -39,6 +38,8 @@ html {
   --blockQuoteBorder: ${(props) => props.theme.colors.primary5};
   --blockQuoteBgColor: ${(props) => props.theme.colors.primary3};
   --inlineCodeBgColor: ${(props) => props.theme.colors.primary4};
+  --hrColor: ${(props) => props.theme.colors.primary5};
+  --imgBgColor: 'transparent';
 }
 
 html[data-theme='dark'] {
@@ -67,7 +68,9 @@ html[data-theme='dark'] {
     --tableBdColor: ${(props) => props.theme.colors.primary6};
     --blockQuoteBorder: ${(props) => props.theme.colors.primary6};
     --blockQuoteBgColor: ${(props) => props.theme.colors.primary8};
-    --inlineCodeBgColor: ${(props) => props.theme.colors.gray};    
+    --inlineCodeBgColor: ${(props) => props.theme.colors.gray};
+    --hrColor: ${(props) => props.theme.colors.primary6};
+    --imgBgColor: ${(props) => props.theme.colors.primary1};
   }
   
   body {
@@ -85,12 +88,5 @@ html[data-theme='dark'] {
     &:hover {
       outline: 0;
     }
-  }
-  
-  .gatsby-resp-image-wrapper{
-    margin:5rem 0 1rem;
-  }
-  .gatsby-resp-image-image{
-    padding: 0 3rem;
   }
 `;

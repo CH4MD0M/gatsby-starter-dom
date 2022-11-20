@@ -68,29 +68,35 @@ export const MDWrapper = styled.div`
   /* bold */
   & b,
   strong {
-    font-weight: 500;
+    font-weight: bold;
     .kaatex {
-      font-weight: 500;
+      font-weight: bold;
     }
+  }
+
+  /* hr */
+  hr {
+    border: 0;
+    background: var(--hrColor);
+    height: 1px;
+    width: 50%;
+    margin: 2rem auto;
   }
 
   /* table */
   & table {
-    margin: 5rem auto;
     font-weight: 400;
     border-collapse: collapse;
+    text-align: left;
   }
   & th {
-    padding: 1rem;
+    padding: 1rem 2rem;
     background-color: var(--tableBgColor);
     border: 0.5px solid var(--tableBdColor);
   }
   & td {
-    padding: 1rem 1.8rem;
+    padding: 1rem 2rem;
     border: 0.5px solid var(--tableBdColor);
-  }
-  & td:first-child {
-    text-align: center;
   }
   & th:first-child,
   td:first-child {
@@ -106,12 +112,16 @@ export const MDWrapper = styled.div`
   & ol {
     padding-left: 3rem;
     & ul {
+      margin: 1rem 0;
       padding-left: 2rem;
       list-style: circle;
 
       ul {
         list-style: square;
       }
+    }
+    & li:last-child {
+      margin-bottom: 0;
     }
   }
   & li {
@@ -182,7 +192,9 @@ export const MDWrapper = styled.div`
     max-width: 100%;
   }
   .gatsby-resp-image-wrapper {
-    margin-top: 0;
+    background: var(--imgBgColor);
+    border-radius: 6px;
+    overflow: hidden;
   }
 
   /* etc */

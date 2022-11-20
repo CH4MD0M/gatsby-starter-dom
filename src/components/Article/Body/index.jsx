@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import Toc from "./Toc";
 import PostMarkdown from "./PostMarkdown";
 
 const Body = ({ body }) => {
-  const [toc, setToc] = useState([]);
-
-  useEffect(() => {
-    setToc([
-      ...document.querySelectorAll(
-        "#post-contents > h1, #post-contents > h2, #post-contents > h3"
-      ),
-    ]);
-  }, []);
-
   return (
     <BodyWrapper>
-      <Toc lists={toc} />
+      <Toc />
       <PostMarkdown body={body} />
     </BodyWrapper>
   );

@@ -9,14 +9,18 @@ import Article from "../components/Article";
 import "katex/dist/katex.min.css";
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { body, excerpt } = data.mdx;
+  const { body, excerpt, fields } = data.mdx;
   const { author, category, date, title } = data.mdx.frontmatter;
-  const { comments } = data.site.siteMetadata;
+  const { siteUrl, comments } = data.site.siteMetadata;
   const utterancesRepo = comments?.utterances?.repo;
 
   return (
     <Layout>
-      <Seo title={title} description={excerpt} />
+      <Seo
+        title={title}
+        description={excerpt}
+        url={`${siteUrl}${fields.slug}`}
+      />
       <Article>
         <Article.Header
           category={category}
@@ -38,6 +42,7 @@ export const query = graphql`
   query GetSinglePost($slug: String) {
     site {
       siteMetadata {
+        siteUrl
         comments {
           utterances {
             repo

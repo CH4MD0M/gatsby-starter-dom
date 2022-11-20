@@ -11,13 +11,14 @@ import Divider from "../components/Divider";
 import PostList from "../components/PostList";
 
 const CategoryPage = () => {
+  const [category, selectCategory] = useCategory();
   const data = useStaticQuery(pageQuery);
   const { nodes } = data.allMdx;
+
   const categories = useMemo(
     () => _.uniq(nodes.map((node) => node.frontmatter.category)),
     []
   );
-  const [category, selectCategory] = useCategory();
 
   return (
     <Layout>

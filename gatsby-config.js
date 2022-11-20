@@ -1,5 +1,14 @@
 const blogConfig = require("./blog-config");
 
+const wrapESMPlugin = (name) =>
+  function wrapESM(opts) {
+    return async (...args) => {
+      const mod = await import(name);
+      const plugin = mod.default(opts);
+      return plugin(...args);
+    };
+  };
+
 module.exports = {
   siteMetadata: blogConfig,
 
@@ -50,15 +59,13 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".mdx", ".md"],
-        plugins: ["@bonobolabs/gatsby-remark-images-custom-widths"],
         gatsbyRemarkPlugins: [
-          `gatsby-remark-gifs`,
           {
-            resolve: "@bonobolabs/gatsby-remark-images-custom-widths",
+            resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1100,
+              maxWidth: 680,
+              backgroundColor: "transparent",
               linkImagesToOriginal: false,
-              quality: 80,
             },
           },
           {
@@ -68,12 +75,13 @@ module.exports = {
               scrollOffset: 0,
             },
           },
+          `gatsby-remark-static-images`,
         ],
-        remarkPlugins: [require("remark-math")],
-        rehypePlugins: [require("rehype-katex")],
+
+        remarkPlugins: [wrapESMPlugin(`remark-slug`), require(`remark-math`)],
+        rehypePlugins: [require(`rehype-katex`)],
       },
     },
-
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
@@ -87,7 +95,6 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-transformer-sharp",
