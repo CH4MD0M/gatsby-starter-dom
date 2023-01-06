@@ -8,7 +8,7 @@ import PrismSetup from "../../../Element/PrismSetup";
 import * as S from "./style";
 
 const components = {
-  pre: PrismSetup,
+  code: PrismSetup,
 };
 
 const PostMarkdown = ({ body }) => {

@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import { lightTheme } from "../assets/prism-light-theme";
+import { darkTheme } from "../assets/prism-dark-theme";
 
 export default createGlobalStyle` 
 *,
@@ -8,10 +10,10 @@ export default createGlobalStyle`
   padding: 0;
 }
 html {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 62.5%;
 }
 html {
+  
   --bgColor: ${(props) => props.theme.colors.primary0};
   --textColor: ${(props) => props.theme.colors.primary9};
   --divider: ${(props) => props.theme.colors.primary3};
@@ -22,7 +24,6 @@ html {
   --hoveredIconColor: ${(props) => props.theme.colors.primary9};
   --pageTitleBgColor: ${(props) => props.theme.colors.blue0};
   --categoryTextColor: ${(props) => props.theme.colors.blue0};
-  --postTitleColor: ${(props) => props.theme.colors.blue0};
   --postDateColor: ${(props) => props.theme.colors.primary6};
   --linkColor: ${(props) => props.theme.colors.blue0};
   --postNavBtnBgColor: ${(props) => props.theme.colors.primary2};
@@ -36,10 +37,16 @@ html {
   --tableBgColor: ${(props) => props.theme.colors.primary2};
   --tableBdColor: ${(props) => props.theme.colors.primary4};
   --blockQuoteBorder: ${(props) => props.theme.colors.primary5};
-  --blockQuoteBgColor: ${(props) => props.theme.colors.primary3};
-  --inlineCodeBgColor: ${(props) => props.theme.colors.primary4};
+  --blockQuoteBgColor: ${(props) => props.theme.colors.primary2};
+  --italicBgColor: hsl(187, 40%, 88%);
+  --inlineCodeBgColor: ${(props) => props.theme.colors.primary3};
   --hrColor: ${(props) => props.theme.colors.primary5};
-  --imgBgColor: 'transparent';
+  --imgBgColor: transparent;
+  --tagBgColor: ${(props) => props.theme.colors.primary3};
+  --hoveredTagBgColor: ${(props) => props.theme.colors.primary4};
+  --activeTagBgColor: ${(props) => props.theme.colors.blue0};
+  --hoveredActiveTagBgColor: hsl(187, 92%, 30%);
+  ${lightTheme}
 }
 
 html[data-theme='dark'] {
@@ -53,7 +60,6 @@ html[data-theme='dark'] {
     --hoveredIconColor: ${(props) => props.theme.colors.primary0};
     --pageTitleBgColor: ${(props) => props.theme.colors.blue1};
     --categoryTextColor: ${(props) => props.theme.colors.blue1};
-    --postTitleColor: ${(props) => props.theme.colors.blue1};
     --postDateColor: ${(props) => props.theme.colors.primary5};
     --linkColor: ${(props) => props.theme.colors.blue1};
     --postNavBtnBgColor: ${(props) => props.theme.colors.primary7};
@@ -68,19 +74,27 @@ html[data-theme='dark'] {
     --tableBdColor: ${(props) => props.theme.colors.primary6};
     --blockQuoteBorder: ${(props) => props.theme.colors.primary6};
     --blockQuoteBgColor: ${(props) => props.theme.colors.primary8};
+    --italicBgColor: hsl(187, 45%, 25%);
     --inlineCodeBgColor: ${(props) => props.theme.colors.gray};
     --hrColor: ${(props) => props.theme.colors.primary6};
     --imgBgColor: ${(props) => props.theme.colors.primary1};
+    --tagBgColor: ${(props) => props.theme.colors.primary8};
+    --hoveredTagBgColor: ${(props) => props.theme.colors.primary7};
+    --activeTagBgColor: ${(props) => props.theme.colors.blue1};
+    --hoveredActiveTagBgColor: hsl(187, 56%, 77%);
+    ${darkTheme}
   }
   
   body {
     background: var(--bgColor) !important;
     color: var(--textColor);
+    font-family: 'Nanum Gothic', sans-serif;
   }
   
   a {
     text-decoration: none;
-    transition: .2s;
+    transition: .2s; 
+  
     &:focus{
       outline: none;
     }
