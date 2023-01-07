@@ -1,54 +1,55 @@
-import React, { useMemo } from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import _ from "lodash";
+import React from "react";
+import { graphql } from "gatsby";
+import orderBy from "lodash/orderBy";
 
-import useCategory from "../hooks/useCategory";
+import useQuery from "../hooks/useQuery";
 import Layout from "../layout";
 import Seo from "../components/Seo";
 import PageTitle from "../components/PageTitle";
-import Categories from "../components/Categories";
+import CategoryList from "../components/CategoryList";
 import Divider from "../components/Divider";
 import PostList from "../components/PostList";
 
-const CategoryPage = () => {
-  const [category, selectCategory] = useCategory();
-  const data = useStaticQuery(pageQuery);
-  const { nodes } = data.allMdx;
+const CategoryPage = ({ data }) => {
+  const { nodes, group } = data.allMdx;
+  const [selectedQuery] = useQuery();
 
-  const categories = useMemo(
-    () => _.uniq(nodes.map((node) => node.frontmatter.category)),
-    []
+  const categories = orderBy(group, ["fieldValue"], ["asc"]);
+  const filteredPosts = nodes.filter(
+    (post) =>
+      selectedQuery === "all" || post.frontmatter.category === selectedQuery
   );
 
   return (
     <Layout>
       <Seo title="Categories" />
       <PageTitle>Categories.</PageTitle>
-      <Categories
-        category={category}
-        categories={categories}
-        selectCategory={selectCategory}
-      />
+      <CategoryList selectedCategory={selectedQuery} categories={categories} />
       <Divider mt="0" />
-      <PostList category={category} postList={nodes} />
+      <PostList postList={filteredPosts} />
     </Layout>
   );
 };
 
-const pageQuery = graphql`
-  query {
+export const pageQuery = graphql`
+  {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      group(field: frontmatter___category) {
+        fieldValue
+        totalCount
+      }
       nodes {
+        id
+        excerpt(pruneLength: 200, truncate: true)
         fields {
           slug
         }
-        id
         frontmatter {
           title
           category
           date(formatString: "YYYY년 M월 D일")
+          tags
         }
-        excerpt(pruneLength: 300, truncate: true)
       }
     }
   }
