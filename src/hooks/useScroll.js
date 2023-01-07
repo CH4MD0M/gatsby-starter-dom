@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import _ from "lodash";
 
 const useScroll = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -9,11 +8,9 @@ const useScroll = () => {
   };
 
   useEffect(() => {
-    const throttledScroll = _.throttle(onScroll, 100);
-
-    window.addEventListener("scroll", throttledScroll);
+    window.addEventListener("scroll", onScroll);
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
