@@ -15,11 +15,11 @@ export const ToggleMenuWrapper = styled(motion.div)`
   text-transform: capitalize;
   border: 1px solid var(--toggleBdColor);
   border-radius: 6px;
+  overflow: hidden;
   z-index: 400;
 
   a {
     display: block;
-    margin-right: 2rem;
     padding: 0.8rem 1.2rem;
     color: var(--textColor);
     width: 100%;

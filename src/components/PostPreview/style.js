@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const Wrapper = styled.article`
   display: block;
   margin-bottom: 1.5rem;
-  padding: 1rem 0 3rem;
+  padding: 3rem 0;
   line-height: 1.5;
   border-radius: 6px;
 `;
 
 export const PostTitle = styled.h2`
-  color: var(--postTitleColor);
-  font-size: 2.5rem;
-  font-weight: 500;
+  color: var(--textColor);
+  font-size: 3rem;
+  font-weight: 600;
   word-break: keep-all;
 
   &:hover {
@@ -20,7 +20,7 @@ export const PostTitle = styled.h2`
 `;
 
 export const PostDescription = styled.p`
-  margin-top: 2rem;
+  margin: 2rem 0;
   font-size: 1.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -29,7 +29,8 @@ export const PostDescription = styled.p`
   -webkit-box-orient: vertical;
 `;
 
-export const Date = styled.span`
+export const Date = styled.p`
+  margin-top: 2rem;
   font-size: 1.4rem;
   color: var(--postDateColor);
 `;

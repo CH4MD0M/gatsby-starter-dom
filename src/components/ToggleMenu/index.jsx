@@ -1,8 +1,10 @@
 import React from "react";
+
 import { motion } from "framer-motion";
 
 // CSS
 import * as S from "./style";
+import { Link } from "gatsby";
 
 const menuVariants = {
   closed: {
@@ -28,13 +30,15 @@ const ToggleMenu = () => {
       exit="closed"
       variants={menuVariants}
     >
-      <motion.a href="/categories" variants={itemVariants}>
-        categories
-      </motion.a>
-
-      <motion.a href="/about" variants={itemVariants}>
-        about
-      </motion.a>
+      <Link to="/categories">
+        <motion.div variants={itemVariants}>categories</motion.div>
+      </Link>
+      <Link to="/tags">
+        <motion.div variants={itemVariants}>tags</motion.div>
+      </Link>
+      <Link to="/about">
+        <motion.div variants={itemVariants}>about</motion.div>
+      </Link>
     </S.ToggleMenuWrapper>
   );
 };

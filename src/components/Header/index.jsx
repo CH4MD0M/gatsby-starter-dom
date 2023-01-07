@@ -23,6 +23,7 @@ const Header = ({ title }) => {
           <S.Menu>
             <S.LinksWrapper>
               <Link to="/categories">categories</Link>
+              <Link to="/tags">tags</Link>
               <Link to="/about">about</Link>
             </S.LinksWrapper>
             <ThemeToggleButton />

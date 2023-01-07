@@ -10,10 +10,9 @@ import "katex/dist/katex.min.css";
 
 const PostTemplate = ({ data, pageContext }) => {
   const { body, excerpt, fields } = data.mdx;
-  const { author, category, date, title } = data.mdx.frontmatter;
+  const { author, category, date, title, tags } = data.mdx.frontmatter;
   const { siteUrl, comments } = data.site.siteMetadata;
   const utterancesRepo = comments?.utterances?.repo;
-
   return (
     <Layout>
       <Seo
@@ -27,6 +26,7 @@ const PostTemplate = ({ data, pageContext }) => {
           title={title}
           author={author}
           date={date}
+          tags={tags}
         />
         <Article.Body body={body} />
         <Article.Footer
@@ -61,6 +61,7 @@ export const query = graphql`
         title
         category
         date(formatString: "YYYY년 M월 D일")
+        tags
       }
     }
   }
