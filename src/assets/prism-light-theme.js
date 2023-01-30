@@ -1,10 +1,10 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 export const lightTheme = css`
-  code[class*="language-"],
-  pre[class*="language-"] {
+  code[class*='language-'],
+  pre[class*='language-'] {
     background: hsl(230, 1%, 98%);
     color: hsl(230, 8%, 24%);
-    font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
+    font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
       monospace;
     direction: ltr;
     text-align: left;
@@ -22,22 +22,22 @@ export const lightTheme = css`
   }
 
   /* Selection */
-  code[class*="language-"]::-moz-selection,
-  code[class*="language-"] *::-moz-selection,
-  pre[class*="language-"] *::-moz-selection {
+  code[class*='language-']::-moz-selection,
+  code[class*='language-'] *::-moz-selection,
+  pre[class*='language-'] *::-moz-selection {
     background: hsl(230, 1%, 90%);
     color: inherit;
   }
 
-  code[class*="language-"]::selection,
-  code[class*="language-"] *::selection,
-  pre[class*="language-"] *::selection {
+  code[class*='language-']::selection,
+  code[class*='language-'] *::selection,
+  pre[class*='language-'] *::selection {
     background: hsl(230, 1%, 90%);
     color: inherit;
   }
 
   /* Code blocks */
-  pre[class*="language-"] {
+  pre[class*='language-'] {
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
@@ -45,7 +45,7 @@ export const lightTheme = css`
   }
 
   /* Inline code */
-  :not(pre) > code[class*="language-"] {
+  :not(pre) > code[class*='language-'] {
     padding: 0.2em 0.3em;
     border-radius: 0.3em;
     white-space: normal;

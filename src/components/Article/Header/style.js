@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
   margin: 2rem 0;
@@ -24,7 +24,7 @@ export const Title = styled.h2`
   line-height: 1.3;
   color: var(--textColor);
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     font-size: 3rem;
   }
 `;
@@ -33,7 +33,7 @@ export const Information = styled.div`
   margin-bottom: 3rem;
   font-size: 1.7rem;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     font-size: 1.4rem;
   }
 `;

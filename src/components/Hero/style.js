@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HeroWrapper = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const HeroWrapper = styled.div`
     flex-basis: 50rem;
   }
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     margin: 14rem 0 6rem;
     .Typewriter {
       font-size: 2.8rem;
@@ -27,13 +27,13 @@ export const Profile = styled.div`
   display: block;
   width: 256px;
   height: 256px;
-  background-image: url(${(props) => props.profileImageRoot}/profile.gif);
+  background-image: url(${props => props.profileImageRoot}/profile.gif);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 999px;
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     display: none;
   }
 `;

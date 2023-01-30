@@ -1,9 +1,9 @@
-import React from "react";
-import { navigate } from "gatsby";
+import React from 'react';
+import { navigate } from 'gatsby';
 
 // CSS
-import * as S from "./style";
-import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
+import * as S from './style';
+import { BsArrowRightCircle, BsArrowLeftCircle } from 'react-icons/bs';
 
 const PostCard = ({ right, node }) => {
   const { slug } = node.fields;
@@ -12,11 +12,9 @@ const PostCard = ({ right, node }) => {
   return (
     <S.PostCardWrapper right={right} onClick={() => navigate(slug)}>
       <S.FlexWrapper>
-        <S.Icon>
-          {right ? <BsArrowRightCircle /> : <BsArrowLeftCircle />}
-        </S.Icon>
+        <S.Icon>{right ? <BsArrowRightCircle /> : <BsArrowLeftCircle />}</S.Icon>
         <S.ButtonTextWrapper>
-          <S.ButtonLabel>{right ? "다음 포스트" : "이전 포스트"}</S.ButtonLabel>
+          <S.ButtonLabel>{right ? '다음 포스트' : '이전 포스트'}</S.ButtonLabel>
           <S.ButtonTitle>{title}</S.ButtonTitle>
         </S.ButtonTextWrapper>
       </S.FlexWrapper>

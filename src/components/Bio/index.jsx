@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 // CSS
-import * as S from "./style";
-import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import * as S from './style';
+import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Link = ({ link, children }) => {
   if (!link) return null;
@@ -20,8 +20,8 @@ const Bio = () => {
   const { email, github, instagram, linkedIn } = socials;
 
   const profileImageRoot =
-    typeof window !== "undefined" && window.location.host === "localhost:8000"
-      ? "http://localhost:8000"
+    typeof window !== 'undefined' && window.location.host === 'localhost:8000'
+      ? 'http://localhost:8000'
       : siteUrl;
 
   return (

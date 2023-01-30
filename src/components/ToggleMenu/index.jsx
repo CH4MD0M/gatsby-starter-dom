@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 // CSS
-import * as S from "./style";
-import { Link } from "gatsby";
+import * as S from './style';
+import { Link } from 'gatsby';
 
 const menuVariants = {
   closed: {

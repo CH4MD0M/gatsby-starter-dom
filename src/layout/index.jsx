@@ -1,16 +1,16 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { AnimatePresence } from "framer-motion";
-import { graphql, useStaticQuery } from "gatsby";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { variants } from "../utils/framer";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { variants } from '../utils/framer';
 
 // CSS
-import * as S from "./style";
-import theme from "../style/variables";
-import GlobalStyle from "../style/globalStyle";
+import * as S from './style';
+import theme from '../style/variables';
+import GlobalStyle from '../style/globalStyle';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(pageQuery);

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FixedWrapper = styled.nav`
   display: block;
@@ -19,22 +19,22 @@ export const FixedWrapper = styled.nav`
 `;
 
 export const HeaderWrapper = styled.div`
-  max-width: ${(props) => props.theme.sizes.maxWidth};
+  max-width: ${props => props.theme.sizes.maxWidth};
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.sideSpace.sm};
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     padding: 0 1.5rem;
   }
 `;
 
 export const NavTitle = styled.div`
-  font-family: "Damion", cursive;
+  font-family: 'Damion', cursive;
   font-size: 2.7rem;
   font-weight: 600;
-  letter-spacing: ${(props) => props.theme.text.spacing};
+  letter-spacing: ${props => props.theme.text.spacing};
   animation: var(--animation) 1.5s infinite;
 `;
 
@@ -52,7 +52,7 @@ export const LinksWrapper = styled.div`
     text-transform: uppercase;
     margin: 0 1rem;
   }
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     display: none;
   }
 `;
@@ -76,7 +76,7 @@ export const MenuIcon = styled.div`
     fill: var(--textColor);
   }
 
-  @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (min-width: ${props => props.theme.responsive.sm}) {
     display: none;
   }
 `;
@@ -90,7 +90,7 @@ export const Background = styled.div`
   background: transparent;
   z-index: 300;
 
-  @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (min-width: ${props => props.theme.responsive.sm}) {
     display: none;
   }
 `;

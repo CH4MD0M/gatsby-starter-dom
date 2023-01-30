@@ -1,21 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 import {
   getValueFromLocalStorage,
   setValueToLocalStorage,
-} from "../../utils/localStorage";
+} from '../../utils/localStorage';
 
 const initialState = {
-  darkMode: getValueFromLocalStorage("darkMode") || false,
+  darkMode: getValueFromLocalStorage('darkMode') || false,
 };
 
 const uiSlice = createSlice({
-  name: "ui",
+  name: 'ui',
   initialState,
   reducers: {
     toggleMode(state) {
       state.darkMode = !state.darkMode;
-      setValueToLocalStorage("darkMode", state.darkMode);
+      setValueToLocalStorage('darkMode', state.darkMode);
     },
   },
 });

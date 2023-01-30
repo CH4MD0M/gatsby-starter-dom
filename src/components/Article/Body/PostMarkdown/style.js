@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MDWrapper = styled.div`
   & {
@@ -38,7 +38,7 @@ export const MDWrapper = styled.div`
     margin-top: 8rem;
     font-size: 3.2rem;
     &::before {
-      content: "";
+      content: '';
       border-left: 4px solid var(--headingBdColor);
       margin-right: 1rem;
     }
@@ -143,7 +143,7 @@ export const MDWrapper = styled.div`
   /* code */
   & code,
   & pre {
-    font-family: "Fira Code", monospace;
+    font-family: 'Fira Code', monospace;
   }
 
   & pre {
@@ -177,12 +177,12 @@ export const MDWrapper = styled.div`
 
   /* italic */
   & em {
-    background-color: ${(props) => props.theme.colors.lightOrange};
+    background-color: ${props => props.theme.colors.lightOrange};
     padding: 0.16rem 0.48rem;
     border-radius: 4px;
     font-size: 1.6rem;
     font-style: italic;
-    color: ${(props) => props.theme.colors.darkOrange};
+    color: ${props => props.theme.colors.darkOrange};
   }
 
   /* image */

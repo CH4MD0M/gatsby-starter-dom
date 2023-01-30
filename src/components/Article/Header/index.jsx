@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
-import Divider from "../../Divider";
+import Divider from '../../Divider';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
 const Header = ({ category, title, author, date }) => {
   return (

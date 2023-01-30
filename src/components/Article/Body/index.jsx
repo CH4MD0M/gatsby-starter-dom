@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import Toc from "./Toc";
-import PostMarkdown from "./PostMarkdown";
+import Toc from './Toc';
+import PostMarkdown from './PostMarkdown';
 
 const Body = ({ body }) => {
   return (

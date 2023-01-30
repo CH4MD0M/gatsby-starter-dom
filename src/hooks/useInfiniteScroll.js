@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 
 const defaultOptions = {
   root: null,
-  rootMargin: "1px",
-  threshold: "0.1",
+  rootMargin: '1px',
+  threshold: '0.1',
 };
 
 const useInfiniteScroll = (onIntersect, options = defaultOptions) => {
@@ -13,7 +13,7 @@ const useInfiniteScroll = (onIntersect, options = defaultOptions) => {
     ([entry], observer) => {
       if (entry.isIntersecting) onIntersect(entry, observer);
     },
-    [onIntersect]
+    [onIntersect],
   );
 
   useEffect(() => {

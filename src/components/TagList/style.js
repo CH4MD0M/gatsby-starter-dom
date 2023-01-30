@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const TagItem = styled.div`
   display: inline-block;
@@ -15,7 +15,7 @@ export const TagItem = styled.div`
     background: var(--hoveredTagBgColor);
   }
 
-  ${(props) =>
+  ${props =>
     props.active &&
     css`
       color: var(--bgColor);

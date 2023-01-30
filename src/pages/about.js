@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Layout from "../layout";
-import Seo from "../components/Seo";
-import PageTitle from "../components/PageTitle";
-import Bio from "../components/Bio";
+import Layout from '../layout';
+import Seo from '../components/Seo';
+import PageTitle from '../components/PageTitle';
+import Bio from '../components/Bio';
 
 const AboutPage = () => {
   return (
