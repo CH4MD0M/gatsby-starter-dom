@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
 const Category = ({ title, selectedCategory }) => {
   return selectedCategory === title ? (

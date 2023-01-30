@@ -1,23 +1,23 @@
-import React from "react";
-import { graphql } from "gatsby";
-import orderBy from "lodash/orderBy";
+import React from 'react';
+import { graphql } from 'gatsby';
+import orderBy from 'lodash/orderBy';
 
-import useQuery from "../hooks/useQuery";
-import Layout from "../layout";
-import Seo from "../components/Seo";
-import PageTitle from "../components/PageTitle";
-import CategoryList from "../components/CategoryList";
-import Divider from "../components/Divider";
-import PostList from "../components/PostList";
+import useQuery from '../hooks/useQuery';
+import Layout from '../layout';
+import Seo from '../components/Seo';
+import PageTitle from '../components/PageTitle';
+import CategoryList from '../components/CategoryList';
+import Divider from '../components/Divider';
+import PostList from '../components/PostList';
 
 const CategoryPage = ({ data }) => {
   const { nodes, group } = data.allMdx;
   const [selectedQuery] = useQuery();
 
-  const categories = orderBy(group, ["fieldValue"], ["asc"]);
+  const categories = orderBy(group, ['fieldValue'], ['asc']);
   const filteredPosts = nodes.filter(
-    (post) =>
-      selectedQuery === "all" || post.frontmatter.category === selectedQuery
+    post =>
+      selectedQuery === 'all' || post.frontmatter.category === selectedQuery,
   );
 
   return (

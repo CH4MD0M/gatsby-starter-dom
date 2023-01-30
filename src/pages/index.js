@@ -1,16 +1,13 @@
-import React from "react";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import { graphql, useStaticQuery } from "gatsby";
+import Layout from '../layout';
+import Seo from '../components/Seo';
+import PostList from '../components/PostList';
+import Hero from '../components/Hero';
+import PageTitle from '../components/PageTitle';
 
-import Layout from "../layout";
-import Seo from "../components/Seo";
-import PostList from "../components/PostList";
-
-import Hero from "../components/Hero";
-import PageTitle from "../components/PageTitle";
-
-const IndexPage = () => {
-  const data = useStaticQuery(pageQquery);
+const IndexPage = ({ data }) => {
   const { name } = data.site.siteMetadata;
   const { nodes } = data.allMdx;
 
@@ -24,7 +21,7 @@ const IndexPage = () => {
   );
 };
 
-const pageQquery = graphql`
+export const pageQquery = graphql`
   query {
     site {
       siteMetadata {
@@ -34,7 +31,7 @@ const pageQquery = graphql`
     allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 3) {
       nodes {
         id
-        excerpt(pruneLength: 300, truncate: true)
+        excerpt(pruneLength: 200, truncate: true)
         fields {
           slug
         }
@@ -42,6 +39,7 @@ const pageQquery = graphql`
           title
           category
           date(formatString: "YYYY년 M월 D일")
+          tags
         }
       }
     }

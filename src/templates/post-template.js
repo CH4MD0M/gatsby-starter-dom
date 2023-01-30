@@ -1,12 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../layout";
-import Seo from "../components/Seo";
-import Article from "../components/Article";
+import Layout from '../layout';
+import Seo from '../components/Seo';
+import Article from '../components/Article';
 
 // CSS
-import "katex/dist/katex.min.css";
+import 'katex/dist/katex.min.css';
 
 const PostTemplate = ({ data, pageContext }) => {
   const { body, excerpt, fields } = data.mdx;

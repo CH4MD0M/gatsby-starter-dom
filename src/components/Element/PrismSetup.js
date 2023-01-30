@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import React from 'react';
+import styled from 'styled-components';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 
 export const PrismWrapper = ({ children, className }) => {
-  const language = className.replace(/language-/, "") || "";
+  const language = className.replace(/language-/, '') || '';
 
   return (
     <Container>
@@ -36,7 +36,7 @@ const Container = styled.article`
   pre {
     padding: 1rem 1.5rem;
     overflow-x: auto;
-    box-shadow: ${(props) => props.theme.effect.shadow};
+    box-shadow: ${props => props.theme.effect.shadow};
   }
   .token-line {
     font-size: 1.4rem;

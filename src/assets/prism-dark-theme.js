@@ -1,12 +1,12 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 export const darkTheme = css`
-  code[class*="language-"],
-  pre[class*="language-"] {
+  code[class*='language-'],
+  pre[class*='language-'] {
     background: hsl(220, 13%, 18%);
     color: hsl(220, 14%, 71%);
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
+    font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
       monospace;
     direction: ltr;
     text-align: left;
@@ -24,24 +24,24 @@ export const darkTheme = css`
   }
 
   /* Selection */
-  code[class*="language-"]::-moz-selection,
-  code[class*="language-"] *::-moz-selection,
-  pre[class*="language-"] *::-moz-selection {
+  code[class*='language-']::-moz-selection,
+  code[class*='language-'] *::-moz-selection,
+  pre[class*='language-'] *::-moz-selection {
     background: hsl(220, 13%, 28%);
     color: inherit;
     text-shadow: none;
   }
 
-  code[class*="language-"]::selection,
-  code[class*="language-"] *::selection,
-  pre[class*="language-"] *::selection {
+  code[class*='language-']::selection,
+  code[class*='language-'] *::selection,
+  pre[class*='language-'] *::selection {
     background: hsl(220, 13%, 28%);
     color: inherit;
     text-shadow: none;
   }
 
   /* Code blocks */
-  pre[class*="language-"] {
+  pre[class*='language-'] {
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
@@ -49,7 +49,7 @@ export const darkTheme = css`
   }
 
   /* Inline code */
-  :not(pre) > code[class*="language-"] {
+  :not(pre) > code[class*='language-'] {
     padding: 0.2em 0.3em;
     border-radius: 0.3em;
     white-space: normal;
@@ -57,8 +57,8 @@ export const darkTheme = css`
 
   /* Print */
   @media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
+    code[class*='language-'],
+    pre[class*='language-'] {
       text-shadow: none;
     }
   }

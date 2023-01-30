@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const ToggleMenuWrapper = styled(motion.div)`
   position: fixed;
@@ -29,7 +29,7 @@ export const ToggleMenuWrapper = styled(motion.div)`
     }
   }
 
-  @media screen and (min-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (min-width: ${props => props.theme.responsive.sm}) {
     display: none;
   }
 `;

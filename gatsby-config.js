@@ -1,6 +1,6 @@
-const blogConfig = require("./blog-config");
+const blogConfig = require('./blog-config');
 
-const wrapESMPlugin = (name) =>
+const wrapESMPlugin = name =>
   function wrapESM(opts) {
     return async (...args) => {
       const mod = await import(name);
@@ -32,7 +32,7 @@ module.exports = {
         pluginConfig: {
           head: true,
           respectDNT: true,
-          exclude: ["/preview/**", "/do-not-track/me/too/"],
+          exclude: ['/preview/**', '/do-not-track/me/too/'],
         },
       },
     },
@@ -52,7 +52,7 @@ module.exports = {
       options: {
         host: blogConfig.siteUrl,
         sitemap: `${blogConfig.siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: "*", allow: "/" }],
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
@@ -73,13 +73,13 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map((edge) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });
             },
@@ -118,13 +118,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
+        extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 680,
-              backgroundColor: "transparent",
+              backgroundColor: 'transparent',
               linkImagesToOriginal: false,
             },
           },
@@ -143,20 +143,20 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-fonts",
+      resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
           `Damion`,
           `Fira+Code\:300,400,500,600,700`,
           `Noto+Sans+KR\:100,300,400,500,700,900`,
         ],
-        display: "swap",
+        display: 'swap',
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-advanced-sitemap",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-styled-components",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-advanced-sitemap',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-styled-components',
+    'gatsby-transformer-sharp',
   ],
 };

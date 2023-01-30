@@ -1,10 +1,10 @@
-import React from "react";
-import Typewriter from "typewriter-effect";
+import React from 'react';
+import Typewriter from 'typewriter-effect';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
-const Hero = ({ name = "name" }) => {
+const Hero = ({ name = 'name' }) => {
   return (
     <S.HeroWrapper>
       <Typewriter
@@ -12,14 +12,14 @@ const Hero = ({ name = "name" }) => {
           autoStart: true,
           loop: true,
         }}
-        onInit={(typewriter) => {
+        onInit={typewriter => {
           typewriter
-            .typeString("안녕하세요! <br />")
+            .typeString('안녕하세요! <br />')
             .pauseFor(1000)
-            .typeString("프론트")
+            .typeString('프론트')
             .pauseFor(1000)
             .deleteChars(3)
-            .typeString("<strong>기록하는</strong> 프론트엔드 개발자 <br />")
+            .typeString('<strong>기록하는</strong> 프론트엔드 개발자 <br />')
             .typeString(`${name} 입니다.`)
             .pauseFor(2500)
             .start();

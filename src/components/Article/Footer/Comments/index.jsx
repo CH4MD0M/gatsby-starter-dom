@@ -1,30 +1,30 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
-const src = "https://utteranc.es/client.js";
-const LIGHT_THEME = "github-light";
-const DARK_THEME = "dark-blue";
+const src = 'https://utteranc.es/client.js';
+const LIGHT_THEME = 'github-light';
+const DARK_THEME = 'dark-blue';
 
 const Comments = ({ repo }) => {
-  const { darkMode } = useSelector((state) => state.ui);
+  const { darkMode } = useSelector(state => state.ui);
   const themeMode = darkMode ? DARK_THEME : LIGHT_THEME;
 
   const rootElm = useRef(null);
 
   useEffect(() => {
     const createUtterances = () => {
-      const utterances = document.createElement("script");
+      const utterances = document.createElement('script');
       const utterancesConfig = {
         src,
         repo,
-        branch: "main",
-        label: "comment",
+        branch: 'main',
+        label: 'comment',
         theme: themeMode,
-        "issue-term": "pathname",
-        crossorigin: "anonymous",
+        'issue-term': 'pathname',
+        crossorigin: 'anonymous',
         async: true,
       };
 
@@ -36,14 +36,14 @@ const Comments = ({ repo }) => {
 
     const postMessage = () => {
       const message = {
-        type: "set-theme",
+        type: 'set-theme',
         theme: themeMode,
       };
       utterancesEl.contentWindow.postMessage(message, src);
     };
 
     const utterancesEl = rootElm.current.querySelector(
-      "iframe.utterances-frame"
+      'iframe.utterances-frame',
     );
     utterancesEl ? postMessage() : createUtterances();
   }, [repo, themeMode]);

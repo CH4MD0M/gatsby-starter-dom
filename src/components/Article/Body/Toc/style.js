@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const TocWrapper = styled.div`
   position: absolute;
@@ -24,7 +24,7 @@ export const TocWrapper = styled.div`
       background: var(--scrollTrack);
     }
 
-    ${(props) =>
+    ${props =>
       props.isSticky &&
       css`
         position: fixed;
@@ -40,14 +40,14 @@ export const TocWrapper = styled.div`
 export const TocItem = styled.div`
   display: block;
   margin-top: 0.4rem;
-  margin-left: ${(props) => props.ml};
+  margin-left: ${props => props.ml};
   font-weight: 300;
   color: var(--tocTextColor);
   word-break: break-all;
   transition: all 0.125s ease-in;
   cursor: pointer;
 
-  ${(props) =>
+  ${props =>
     props.active &&
     css`
       color: var(--hoveredTocTextColor);

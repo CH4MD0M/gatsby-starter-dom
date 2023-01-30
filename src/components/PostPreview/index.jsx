@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
-import TagLabel from "../TagLabel";
-import Divider from "../Divider";
+import TagLabel from '../TagLabel';
+import Divider from '../Divider';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
 const PostPreview = ({ post }) => {
   const { id, excerpt } = post;

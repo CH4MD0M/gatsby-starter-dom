@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const Wrapper = styled(motion.div)`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
@@ -7,7 +7,7 @@ export const Wrapper = styled(motion.div)`
   margin: 10rem auto 0;
   padding: 0 ${({ theme }) => theme.sideSpace.sm};
 
-  @media screen and (max-width: ${(props) => props.theme.responsive.sm}) {
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     padding: 0 1.5rem;
   }
 `;

@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import { AnimatePresence, useCycle } from "framer-motion";
+import React from 'react';
+import { Link } from 'gatsby';
+import { AnimatePresence, useCycle } from 'framer-motion';
 
-import ThemeToggleButton from "../ThemeToggleButton";
-import ToggleMenu from "../ToggleMenu";
+import ThemeToggleButton from '../ThemeToggleButton';
+import ToggleMenu from '../ToggleMenu';
 
 // CSS
-import * as S from "./style";
-import { FaBars } from "react-icons/fa";
+import * as S from './style';
+import { FaBars } from 'react-icons/fa';
 
 const Header = ({ title }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);

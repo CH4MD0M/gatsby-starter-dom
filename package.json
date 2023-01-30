@@ -54,13 +54,15 @@
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.6.0",
     "prettier": "^2.7.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/CH4MD0M/gatsby-starter-dom"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/CH4MD0M/gatsby-starter-dom"
   }
 }

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
 const Footer = ({ author }) => {
   return (

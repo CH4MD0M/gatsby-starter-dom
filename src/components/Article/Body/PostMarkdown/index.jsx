@@ -1,11 +1,11 @@
-import React from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MDXProvider } from "@mdx-js/react";
+import React from 'react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
 
-import PrismSetup from "../../../Element/PrismSetup";
+import PrismSetup from '../../../Element/PrismSetup';
 
 // CSS
-import * as S from "./style";
+import * as S from './style';
 
 const components = {
   code: PrismSetup,

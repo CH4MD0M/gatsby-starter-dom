@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import Header from "./Header";
-import Body from "./Body";
-import Footer from "./Footer";
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
 
 const Article = styled.article`
   color: var(--textColor);
