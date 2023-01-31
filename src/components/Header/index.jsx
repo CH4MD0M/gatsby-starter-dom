@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { AnimatePresence, useCycle } from 'framer-motion';
 
-import ThemeToggleButton from '../ThemeToggleButton';
 import ToggleMenu from '../ToggleMenu';
 
 // CSS
@@ -26,7 +25,6 @@ const Header = ({ title }) => {
               <Link to="/tags">tags</Link>
               <Link to="/about">about</Link>
             </S.LinksWrapper>
-            <ThemeToggleButton />
             <S.MenuIcon onClick={toggleOpen}>
               <FaBars />
             </S.MenuIcon>
