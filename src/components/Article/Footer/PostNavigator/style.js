@@ -70,7 +70,8 @@ export const PostCardWrapper = styled.div`
   }
 
   &:hover ${Icon} {
-    transform: ${props => (props.right ? 'translateX(3px)' : 'translateX(-3px)')};
+    transform: ${props =>
+      props.right ? 'translateX(3px)' : 'translateX(-3px)'};
   }
 
   @media screen and (max-width: ${props => props.theme.responsive.sm}) {

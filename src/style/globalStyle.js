@@ -17,6 +17,7 @@ html {
   --textColor: ${props => props.theme.colors.primary9};
   --divider: ${props => props.theme.colors.primary3};
   --headerBgColor: hsla(0, 0%, 100%, 0.8);
+  --headerShadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
   --toggleBdColor: ${props => props.theme.colors.blue0};
   --iconBgColor: ${props => props.theme.colors.primary3};
   --iconColor: ${props => props.theme.colors.primary4};
@@ -42,7 +43,7 @@ html {
   --inlineCodeBgColor: ${props => props.theme.colors.primary3};
   --hrColor: ${props => props.theme.colors.primary5};
   --imgBgColor: transparent;
-  --tagBgColor: ${props => props.theme.colors.primary3};
+  --tagBgColor: ${props => props.theme.colors.primary2};
   --hoveredTagBgColor: ${props => props.theme.colors.primary4};
   --activeTagBgColor: ${props => props.theme.colors.blue0};
   --hoveredActiveTagBgColor: hsl(187, 92%, 30%);
@@ -58,6 +59,7 @@ html[data-theme='dark'] {
     --textColor: ${props => props.theme.colors.primary0};
     --divider: ${props => props.theme.colors.primary8};
     --headerBgColor: hsla(210, 20%, 15%, 0.8);
+    --headerShadow: 0px 5px 5px 0px rgba(100, 100, 100, 0.15);
     --toggleBdColor: ${props => props.theme.colors.blue1};
     --iconBgColor: ${props => props.theme.colors.primary7};
     --iconColor: ${props => props.theme.colors.primary5};
@@ -90,7 +92,7 @@ html[data-theme='dark'] {
     --themeToggleIconColor: hsl(0, 95%, 74%);
     --themeToggleBtnBgColor: ${props => props.theme.colors.primary7};
     --themeToggleBtnShadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.45);
-    --hoveredThemeToggleBtnBgColor: ${props => props.theme.colors.primary0};\
+    --hoveredThemeToggleBtnBgColor: ${props => props.theme.colors.primary0};
     ${darkTheme}
   }
   

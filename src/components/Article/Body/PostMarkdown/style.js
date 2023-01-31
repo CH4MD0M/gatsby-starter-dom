@@ -14,28 +14,18 @@ export const MDWrapper = styled.div`
   & blockquote,
   & pre {
     margin-top: 0;
-    margin-bottom: 1.8rem;
-  }
-
-  & p {
-    overflow-x: scroll;
-    word-break: break-all;
-    ::-webkit-scrollbar {
-      display: none;
-    }
+    margin-bottom: 2.3rem;
   }
 
   /* headings */
-  & h1,
-  & h2,
-  & h3,
-  & h4 {
-    margin: 1.1rem 0 2rem 0;
-    font-weight: 700;
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 2.4rem;
   }
 
-  & h1 {
-    margin-top: 8rem;
+  h1 {
+    margin-top: 7rem;
     font-size: 3.2rem;
     &::before {
       content: '';
@@ -43,30 +33,24 @@ export const MDWrapper = styled.div`
       margin-right: 1rem;
     }
   }
-  & h2 {
-    margin-top: 6.4rem;
-    margin-bottom: 2.4rem;
-    font-size: 2.8rem;
+  h2 {
+    margin-top: 5.2rem;
+    font-size: 2.7rem;
   }
-  & h3 {
-    margin-top: 4.8rem;
-    margin-bottom: 2.4rem;
+  h3 {
+    margin-top: 4rem;
     font-size: 2.2rem;
-  }
-  & h4 {
-    margin-top: 3.2rem;
-    margin-bottom: 2.4rem;
-    font-size: 1.76rem;
   }
 
   /* link */
-  & a {
+  a {
     color: var(--textColor);
     text-decoration: underline;
+    word-break: break-all;
   }
 
   /* bold */
-  & b,
+  b,
   strong {
     font-weight: bold;
     .kaatex {
@@ -84,26 +68,30 @@ export const MDWrapper = styled.div`
   }
 
   /* table */
-  & table {
-    font-weight: 400;
+  table {
+    max-width: ${({ theme }) => theme.sizes.maxWidth};
     border-collapse: collapse;
     text-align: left;
+    table-layout: fixed;
+    word-break: break-all;
+    height: auto;
   }
-  & th {
+  th {
     padding: 1rem 2rem;
     background-color: var(--tableBgColor);
     border: 0.5px solid var(--tableBdColor);
+    word-break: keep-all;
   }
-  & td {
+  td {
     padding: 1rem 2rem;
     border: 0.5px solid var(--tableBdColor);
   }
-  & th:first-child,
+  th:first-child,
   td:first-child {
     border-left: none;
   }
-  & th:last-child,
-  & td:last-child {
+  th:last-child,
+  td:last-child {
     border-right: none;
   }
 
@@ -112,7 +100,7 @@ export const MDWrapper = styled.div`
   & ol {
     padding-left: 3rem;
     & ul {
-      margin: 1rem 0;
+      margin: 0.4rem 0 1rem;
       padding-left: 2rem;
       list-style: circle;
 
@@ -124,29 +112,26 @@ export const MDWrapper = styled.div`
       margin-bottom: 0;
     }
   }
-  & li {
-    margin-bottom: 1.2rem;
-    p {
-      margin-top: 0.8rem;
-    }
-  }
 
   /* paragraph */
-  & p {
+  p {
+    overflow-x: scroll;
     word-break: break-all;
-
+    ::-webkit-scrollbar {
+      display: none;
+    }
     a {
       color: var(--linkColor);
     }
   }
 
   /* code */
-  & code,
-  & pre {
+  code,
+  pre {
     font-family: 'Fira Code', monospace;
   }
 
-  & pre {
+  pre {
     ::-webkit-scrollbar {
       height: 0.4rem;
     }
@@ -162,31 +147,36 @@ export const MDWrapper = styled.div`
     margin: 0 0.1rem;
     padding: 0.16rem 0.48rem;
     background-color: var(--inlineCodeBgColor);
+    color: #ff7777;
     font-size: 1.5rem;
     border-radius: 4px;
   }
 
   /* blockquote */
-  & blockquote {
+  blockquote {
     margin: 4rem 0;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
     color: var(--textColor);
     background: var(--blockQuoteBgColor);
     border-left: 4px solid var(--blockQuoteBorder);
+    p {
+      margin-bottom: 2rem;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   /* italic */
-  & em {
-    background-color: ${props => props.theme.colors.lightOrange};
+  em {
+    background-color: var(--italicBgColor);
     padding: 0.16rem 0.48rem;
     border-radius: 4px;
-    font-size: 1.6rem;
     font-style: italic;
-    color: ${props => props.theme.colors.darkOrange};
   }
 
   /* image */
-  & img {
+  img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
@@ -200,5 +190,43 @@ export const MDWrapper = styled.div`
   /* etc */
   .katex {
     font-size: inherit;
+  }
+
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
+    font-size: 1.4rem;
+
+    /* headings */
+    h1,
+    h2,
+    h3 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin-top: 6rem;
+
+      font-size: 2.8rem;
+    }
+    h2 {
+      font-size: 2.4rem;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+    /* table */
+    table {
+      width: 100%;
+      margin: 0 auto 2rem;
+    }
+    th {
+      padding: 0.4rem 1.2rem;
+    }
+    td {
+      padding: 0.4rem 1.2rem;
+    }
+
+    blockquote {
+      margin: 3rem 0;
+    }
   }
 `;

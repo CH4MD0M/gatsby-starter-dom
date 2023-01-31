@@ -25,7 +25,6 @@ const Hero = ({ name = 'name' }) => {
             .start();
         }}
       />
-      <S.Profile />
     </S.HeroWrapper>
   );
 };
