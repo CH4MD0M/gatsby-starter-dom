@@ -6,9 +6,9 @@ export const HeroWrapper = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 8rem;
+  min-height: 46rem;
 
   .Typewriter {
-    min-height: 16rem;
     font-size: 3.5rem;
     font-weight: 200;
     width: 50rem;
@@ -20,20 +20,5 @@ export const HeroWrapper = styled.div`
     .Typewriter {
       font-size: 2.8rem;
     }
-  }
-`;
-
-export const Profile = styled.div`
-  display: block;
-  width: 256px;
-  height: 256px;
-  background-image: url(${props => props.profileImageRoot}/profile.gif);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 999px;
-
-  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
-    display: none;
   }
 `;

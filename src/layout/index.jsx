@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ThemeToggleButton from '../components/ThemeToggleButton';
 import { variants } from '../utils/framer';
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header title={title || `Title`} />
+      <Navbar title={title || `Title`} />
       <AnimatePresence exitBeforeEnter>
         <S.Wrapper
           key={children}
