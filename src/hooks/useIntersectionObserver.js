@@ -1,10 +1,14 @@
 import { useEffect, useRef } from 'react';
 
-const useIntersectionObserver = setActiveId => {
+const defaultOptions = {
+  rootMargin: '-60px 0px -80% 0px',
+};
+
+const useIntersectionObserver = (setActiveId, options = defaultOptions) => {
   const headingElementsRef = useRef({});
 
   useEffect(() => {
-    const callback = headings => {
+    const handleIntersect = headings => {
       headingElementsRef.current = headings.reduce((map, headingElement) => {
         map[headingElement.target.id] = headingElement;
         return map;
@@ -29,10 +33,7 @@ const useIntersectionObserver = setActiveId => {
       }
     };
 
-    const observer = new IntersectionObserver(callback, {
-      rootMargin: '0px',
-      threshold: [1],
-    });
+    const observer = new IntersectionObserver(handleIntersect, options);
 
     const headingElements = [
       ...document.querySelectorAll(

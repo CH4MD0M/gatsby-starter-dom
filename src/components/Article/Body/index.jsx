@@ -7,15 +7,16 @@ import PostMarkdown from './PostMarkdown';
 const Body = ({ body }) => {
   return (
     <BodyWrapper>
-      <Toc />
       <PostMarkdown body={body} />
+      <Toc />
     </BodyWrapper>
   );
 };
 
 const BodyWrapper = styled.div`
-  position: relative;
-  border-radius: 1rem;
+  @media screen and (min-width: ${({ theme }) => theme.responsive.lg}) {
+    display: flex;
+  }
 `;
 
 export default Body;
