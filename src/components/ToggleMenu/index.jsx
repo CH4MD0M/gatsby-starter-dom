@@ -36,9 +36,6 @@ const ToggleMenu = () => {
       <Link to="/tags">
         <motion.div variants={itemVariants}>tags</motion.div>
       </Link>
-      <Link to="/about">
-        <motion.div variants={itemVariants}>about</motion.div>
-      </Link>
     </S.ToggleMenuWrapper>
   );
 };
