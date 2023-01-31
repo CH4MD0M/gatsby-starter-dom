@@ -3,23 +3,23 @@ import styled from 'styled-components';
 export const FixedWrapper = styled.nav`
   display: block;
   position: fixed;
-  top: 0;
+  top: ${props => (props.isHidden ? '-100px' : '0px')};
   left: 0;
   right: 0;
   padding: 1rem;
-  height: 6rem;
-  background: var(--headerBackground);
+  background: var(--headerBgColor);
   backdrop-filter: blur(10px);
-  transition: opacity 0.35s;
+  transition: top 0.5s ease-in-out;
   z-index: 400;
+  box-shadow: var(--headerShadow);
 
   a {
     color: var(--textColor);
   }
 `;
 
-export const HeaderWrapper = styled.div`
-  max-width: ${props => props.theme.sizes.maxWidth};
+export const NavWrapper = styled.div`
+  max-width: 1300px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -77,7 +77,9 @@ export const MenuIcon = styled.div`
   }
 
   @media screen and (min-width: ${props => props.theme.responsive.sm}) {
-    display: none;
+    &:last-child {
+      display: none;
+    }
   }
 `;
 
