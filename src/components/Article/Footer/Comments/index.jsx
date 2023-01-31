@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { utterances } from '../../../../../blog-config';
 
 // CSS
 import * as S from './style';
@@ -8,9 +9,10 @@ const src = 'https://utteranc.es/client.js';
 const LIGHT_THEME = 'github-light';
 const DARK_THEME = 'dark-blue';
 
-const Comments = ({ repo }) => {
-  const { darkMode } = useSelector(state => state.ui);
-  const themeMode = darkMode ? DARK_THEME : LIGHT_THEME;
+const Comments = () => {
+  const { themeMode } = useSelector(state => state.ui);
+  const { repo } = utterances;
+  const theme = themeMode === 'dark' ? DARK_THEME : LIGHT_THEME;
 
   const rootElm = useRef(null);
 
@@ -22,7 +24,7 @@ const Comments = ({ repo }) => {
         repo,
         branch: 'main',
         label: 'comment',
-        theme: themeMode,
+        theme,
         'issue-term': 'pathname',
         crossorigin: 'anonymous',
         async: true,
@@ -37,7 +39,7 @@ const Comments = ({ repo }) => {
     const postMessage = () => {
       const message = {
         type: 'set-theme',
-        theme: themeMode,
+        theme,
       };
       utterancesEl.contentWindow.postMessage(message, src);
     };

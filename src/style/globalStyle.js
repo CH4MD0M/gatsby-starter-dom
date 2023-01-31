@@ -13,7 +13,6 @@ html {
   font-size: 62.5%;
 }
 html {
-  
   --bgColor: ${props => props.theme.colors.primary0};
   --textColor: ${props => props.theme.colors.primary9};
   --divider: ${props => props.theme.colors.primary3};
@@ -47,6 +46,10 @@ html {
   --hoveredTagBgColor: ${props => props.theme.colors.primary4};
   --activeTagBgColor: ${props => props.theme.colors.blue0};
   --hoveredActiveTagBgColor: hsl(187, 92%, 30%);
+  --themeToggleIconColor: hsl(51, 89%, 66%);
+  --themeToggleBtnBgColor: ${props => props.theme.colors.primary0};
+  --themeToggleBtnShadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  --hoveredThemeToggleBtnBgColor: ${props => props.theme.colors.primary7};
   ${lightTheme}
 }
 
@@ -84,6 +87,10 @@ html[data-theme='dark'] {
     --hoveredTagBgColor: ${props => props.theme.colors.primary7};
     --activeTagBgColor: ${props => props.theme.colors.blue1};
     --hoveredActiveTagBgColor: hsl(187, 56%, 77%);
+    --themeToggleIconColor: hsl(0, 95%, 74%);
+    --themeToggleBtnBgColor: ${props => props.theme.colors.primary7};
+    --themeToggleBtnShadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.45);
+    --hoveredThemeToggleBtnBgColor: ${props => props.theme.colors.primary0};\
     ${darkTheme}
   }
   

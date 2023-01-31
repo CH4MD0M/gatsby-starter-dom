@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ThemeToggleButton from '../components/ThemeToggleButton';
 import { variants } from '../utils/framer';
 
 // CSS
@@ -32,6 +33,7 @@ const Layout = ({ children }) => {
           {children}
         </S.Wrapper>
       </AnimatePresence>
+      <ThemeToggleButton />
       <Footer author={author || `Author`} />
     </ThemeProvider>
   );

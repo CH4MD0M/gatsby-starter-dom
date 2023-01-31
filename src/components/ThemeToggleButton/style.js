@@ -2,22 +2,36 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const ToggleWrapper = styled(motion.div)`
+  position: fixed;
+  padding: 1rem;
+  right: 35px;
+  bottom: 30px;
+  background: var(--themeToggleBtnBgColor);
+  box-shadow: var(--themeToggleBtnShadow);
+  border-radius: 999px;
+  transition: background 0.35s;
+  cursor: pointer;
+
   & > div {
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    transition: fill 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
   }
+
   svg {
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--themeToggleIconColor);
   }
-  svg path {
-    fill: var(--iconColor);
-    transition: fill 0.3s;
+
+  &:hover {
+    background: var(--hoveredThemeToggleBtnBgColor);
   }
-  svg:hover path {
-    fill: var(--textColor);
+
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
+    right: 20px;
+    bottom: 20px;
   }
 `;
