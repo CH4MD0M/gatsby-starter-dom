@@ -57,8 +57,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`src/templates/post-template.js`),
       context: {
         slug: node.fields.slug,
-        next: next ?? null,
-        previous: previous ?? null,
+        next,
+        previous,
       },
     });
   });

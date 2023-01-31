@@ -147,8 +147,8 @@ module.exports = {
       options: {
         fonts: [
           `Damion`,
-          `Fira+Code\:300,400,500,600,700`,
-          `Noto+Sans+KR\:100,300,400,500,700,900`,
+          `Fira+Code:300,400,500,600,700`,
+          `Noto+Sans+KR:100,300,400,500,700,900`,
         ],
         display: 'swap',
       },
