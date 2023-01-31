@@ -11,8 +11,8 @@ import 'katex/dist/katex.min.css';
 const PostTemplate = ({ data, pageContext }) => {
   const { body, excerpt, fields } = data.mdx;
   const { author, category, date, title, tags } = data.mdx.frontmatter;
-  const { siteUrl, comments } = data.site.siteMetadata;
-  const utterancesRepo = comments?.utterances?.repo;
+  const { siteUrl } = data.site.siteMetadata;
+
   return (
     <Layout>
       <Seo
@@ -29,10 +29,7 @@ const PostTemplate = ({ data, pageContext }) => {
           tags={tags}
         />
         <Article.Body body={body} />
-        <Article.Footer
-          utterancesRepo={utterancesRepo}
-          pageContext={pageContext}
-        />
+        <Article.Footer pageContext={pageContext} />
       </Article>
     </Layout>
   );
@@ -43,11 +40,6 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
-        comments {
-          utterances {
-            repo
-          }
-        }
       }
     }
     mdx(fields: { slug: { eq: $slug } }) {
