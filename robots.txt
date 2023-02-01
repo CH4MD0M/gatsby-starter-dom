@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://chamdom.blog/sitemap.xml
+Host: https://chamdom.blog
