@@ -111,7 +111,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://ch4md0m.blog/`,
+        siteUrl: `${blogConfig.siteUrl}`,
         stripQueryString: true,
       },
     },
@@ -135,11 +135,17 @@ module.exports = {
               scrollOffset: 0,
             },
           },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+            },
+          },
           `gatsby-remark-static-images`,
         ],
 
-        remarkPlugins: [wrapESMPlugin(`remark-slug`), require(`remark-math`)],
-        rehypePlugins: [require(`rehype-katex`)],
+        remarkPlugins: [require(`remark-math`)],
+        rehypePlugins: [wrapESMPlugin(`rehype-slug`), require(`rehype-katex`)],
       },
     },
     {
