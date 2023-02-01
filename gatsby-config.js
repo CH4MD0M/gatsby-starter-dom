@@ -10,6 +10,7 @@ const wrapESMPlugin = name =>
   };
 
 module.exports = {
+  pathPrefix: '/gatsby-starter-dom',
   siteMetadata: blogConfig,
 
   plugins: [
