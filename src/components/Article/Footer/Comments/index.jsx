@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { utterances } from '../../../../../blog-config';
+
+import { useSiteMetaData } from '../../../../hooks/useSiteMetaData';
 
 // CSS
 import * as S from './style';
@@ -11,8 +12,9 @@ const DARK_THEME = 'dark-blue';
 
 const Comments = () => {
   const { themeMode } = useSelector(state => state.ui);
-  const { repo } = utterances;
   const theme = themeMode === 'dark' ? DARK_THEME : LIGHT_THEME;
+  const data = useSiteMetaData();
+  const { repo } = data.site.siteMetadata.utterances;
 
   const rootElm = useRef(null);
 

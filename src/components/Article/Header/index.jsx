@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import { useSiteMetaData } from '../../../hooks/useSiteMetaData';
 import TagLabel from '../../TagLabel';
 import Divider from '../../Divider';
 
 // CSS
 import * as S from './style';
 
-const Header = ({ category, title, author, date, tags }) => {
+const Header = ({ category, title, date, tags }) => {
+  const data = useSiteMetaData();
+  const { author } = data.site.siteMetadata;
+
   return (
     <S.HeaderWrapper>
       {category && (
