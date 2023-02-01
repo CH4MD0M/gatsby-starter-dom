@@ -42,6 +42,7 @@ const Nav = ({ title }) => {
             <S.LinksWrapper>
               <Link to="/categories">categories</Link>
               <Link to="/tags">tags</Link>
+              <Link to="/search">search</Link>
             </S.LinksWrapper>
             <S.MenuIcon onClick={toggleOpen}>
               <FaBars />

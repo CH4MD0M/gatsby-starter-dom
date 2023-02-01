@@ -1,7 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
-import { graphql, useStaticQuery } from 'gatsby';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,15 +11,16 @@ import { variants } from '../utils/framer';
 import * as S from './style';
 import theme from '../style/variables';
 import GlobalStyle from '../style/globalStyle';
+import { useSiteMetaData } from '../hooks/useSiteMetaData';
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(pageQuery);
+  const data = useSiteMetaData();
   const { title, author } = data.site.siteMetadata;
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Navbar title={title || `Title`} />
+      <Navbar title={title} />
       <AnimatePresence exitBeforeEnter>
         <S.Wrapper
           key={children}
@@ -34,20 +34,9 @@ const Layout = ({ children }) => {
         </S.Wrapper>
       </AnimatePresence>
       <ThemeToggleButton />
-      <Footer author={author || `Author`} />
+      <Footer author={author} />
     </ThemeProvider>
   );
 };
-
-const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-  }
-`;
 
 export default Layout;

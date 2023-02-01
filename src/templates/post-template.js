@@ -10,7 +10,7 @@ import 'katex/dist/katex.min.css';
 
 const PostTemplate = ({ data, pageContext }) => {
   const { body, excerpt, fields } = data.mdx;
-  const { author, category, date, title, tags } = data.mdx.frontmatter;
+  const { category, date, title, tags } = data.mdx.frontmatter;
   const { siteUrl } = data.site.siteMetadata;
 
   return (
@@ -24,7 +24,6 @@ const PostTemplate = ({ data, pageContext }) => {
         <Article.Header
           category={category}
           title={title}
-          author={author}
           date={date}
           tags={tags}
         />
@@ -49,7 +48,6 @@ export const query = graphql`
         slug
       }
       frontmatter {
-        author
         title
         category
         date(formatString: "YYYY년 M월 D일")

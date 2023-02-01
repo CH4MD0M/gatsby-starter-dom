@@ -1,5 +1,6 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+
+import { useSiteMetaData } from '../../hooks/useSiteMetaData';
 
 // CSS
 import * as S from './style';
@@ -15,7 +16,7 @@ const Link = ({ link, children }) => {
 };
 
 const Bio = () => {
-  const data = useStaticQuery(bioQuery);
+  const data = useSiteMetaData();
   const { siteUrl, description, author, socials } = data.site.siteMetadata;
   const { email, github, instagram, linkedIn } = socials;
 
@@ -48,22 +49,5 @@ const Bio = () => {
     </S.BioWrapper>
   );
 };
-
-const bioQuery = graphql`
-  query BioQuery {
-    site {
-      siteMetadata {
-        siteUrl
-        author
-        description
-        socials {
-          email
-          github
-          instagram
-        }
-      }
-    }
-  }
-`;
 
 export default Bio;
