@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../layout';
 import Seo from '../components/Seo';
-import Article from '../components/Article';
+import Post from '../components/Post';
 
 // CSS
 import 'katex/dist/katex.min.css';
@@ -20,16 +20,16 @@ const PostTemplate = ({ data, pageContext }) => {
         description={excerpt}
         url={`${siteUrl}${fields.slug}`}
       />
-      <Article>
-        <Article.Header
+      <Post>
+        <Post.Header
           category={category}
           title={title}
           date={date}
           tags={tags}
         />
-        <Article.Body body={body} />
-        <Article.Footer pageContext={pageContext} />
-      </Article>
+        <Post.Body body={body} />
+        <Post.Footer pageContext={pageContext} />
+      </Post>
     </Layout>
   );
 };
