@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const BioWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: 5rem 0;
+  margin: 5rem 0 2rem;
   padding: 1.2rem;
   color: var(--textColor);
 `;
