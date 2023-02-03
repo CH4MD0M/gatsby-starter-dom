@@ -1,0 +1,70 @@
+---
+title: 글 작성 가이드
+category: blog
+date: 2022-10-29
+tags:
+  - guide
+  - write
+---
+
+# 글쓰기 시작하기
+
+## 폴더 구조
+
+전체 포스트는 `content` 폴더에 위치합니다. `content`폴더 아래에 위치한 폴더들은 블로그에서 카테고리로 사용됩니다. 먼저 카테고리 폴더를 생성하고 게시글 폴더를 생성합니다. 그 다음 게시글 폴더안에 index.mdx(또는 `index.md`) 파일을 생성합니다.
+
+## frontmatter 작성
+
+`index.mdx` (또는 `index.md`) 파일의 상단에 아래와 같은 형태로 **frontmatter**을 작성해야 합니다.
+
+> 아래 4개의 정보는 꼭 입력해주세요!
+
+```md
+---
+title: 글 작성 가이드
+category: blog
+date: 2022-10-29
+tags:
+  - guide
+  - write
+---
+```
+
+## 이미지 파일
+
+글에 이미지를 첨부하고 싶다면 `index.mdx`(또는 `index.md`) 파일과 같은 디렉토리에 이미지를 추가하고 아래와 같이 사용할 수 있습니다.
+
+```md
+![이미지](./[이미지 파일명])
+```
+
+## Katex
+
+Katex 문법을 지원하여 수식을 입력할 수 있습니다. 자세한 Katex 문법 사용법은 [여기](https://katex.org/docs/supported.html)에서 확인하실 수 있습니다.
+`$` 문자 하나 사이에 식을 입력하면 inline, `$` 문자 두개 사이에 식을 입력하면 block 방식으로 사용할 수 있습니다.
+
+### inline 방식
+
+```md
+$a^2 +b ^2 = c^2$
+```
+
+$a^2 +b ^2 = c^2$
+
+### block 방식
+
+```md
+$$
+\begin{Bmatrix}
+   a & b \\
+   c & d
+\end{Bmatrix}
+$$
+```
+
+$$
+\begin{Bmatrix}
+   a & b \\
+   c & d
+\end{Bmatrix}
+$$
