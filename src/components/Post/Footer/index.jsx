@@ -8,8 +8,8 @@ import Comments from './Comments';
 const Footer = ({ pageContext }) => {
   return (
     <>
-      <Divider mt="10rem" />
       <Bio />
+      <Divider mt="0" />
       <PostNavigator pageContext={pageContext} />
       <Comments />
     </>

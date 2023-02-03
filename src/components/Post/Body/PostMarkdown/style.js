@@ -7,25 +7,22 @@ export const MDWrapper = styled.div`
   line-height: 1.7;
   color: var(--textColor);
 
-  & > p,
-  & > ul,
-  & > ol,
-  & table,
-  & blockquote,
-  & pre {
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  ol,
+  table,
+  blockquote,
+  pre {
     margin-top: 0;
-    margin-bottom: 2.3rem;
+    margin-bottom: 2.5rem;
   }
 
   /* headings */
-  h1,
-  h2,
-  h3 {
-    margin-bottom: 2.4rem;
-  }
-
   h1 {
-    margin-top: 7rem;
+    margin-top: 8rem;
     font-size: 3.2rem;
     &::before {
       content: '';
@@ -34,7 +31,7 @@ export const MDWrapper = styled.div`
     }
   }
   h2 {
-    margin-top: 5.2rem;
+    margin-top: 6rem;
     font-size: 2.7rem;
   }
   h3 {
@@ -145,10 +142,9 @@ export const MDWrapper = styled.div`
 
   code {
     margin: 0 0.1rem;
-    padding: 0.16rem 0.48rem;
+    padding: 0.2rem 0.5rem;
     background-color: var(--inlineCodeBgColor);
-    color: #ff7777;
-    font-size: 1.5rem;
+    line-height: 2;
     border-radius: 4px;
   }
 
@@ -169,7 +165,6 @@ export const MDWrapper = styled.div`
 
   /* italic */
   em {
-    background-color: var(--italicBgColor);
     padding: 0.16rem 0.48rem;
     border-radius: 4px;
     font-style: italic;
@@ -187,7 +182,7 @@ export const MDWrapper = styled.div`
     overflow: hidden;
   }
 
-  /* etc */
+  /* katex */
   .katex {
     font-size: inherit;
   }
@@ -199,20 +194,21 @@ export const MDWrapper = styled.div`
     h1,
     h2,
     h3 {
-      margin-top: 2rem;
       margin-bottom: 1rem;
     }
     h1 {
       margin-top: 6rem;
-
       font-size: 2.8rem;
     }
     h2 {
+      margin-top: 4.5rem;
       font-size: 2.4rem;
     }
     h3 {
+      margin-top: 2.5rem;
       font-size: 2rem;
     }
+
     /* table */
     table {
       width: 100%;
@@ -225,6 +221,7 @@ export const MDWrapper = styled.div`
       padding: 0.4rem 1.2rem;
     }
 
+    /* blockquote */
     blockquote {
       margin: 3rem 0;
     }

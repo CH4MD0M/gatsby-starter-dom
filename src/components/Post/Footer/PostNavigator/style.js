@@ -27,6 +27,7 @@ export const ButtonTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  font-size: inherit;
 `;
 
 export const Icon = styled.div`
@@ -93,6 +94,7 @@ export const ButtonTitle = styled.div`
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-size: 1.7rem;
 
   @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     font-size: 1.4rem;
