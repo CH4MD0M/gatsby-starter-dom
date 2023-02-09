@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 
 import { useSiteMetaData } from '../../../../hooks/useSiteMetaData';
+import { useTheme } from '../../../../hooks/useTheme';
 
 // CSS
 import * as S from './style';
@@ -11,7 +11,7 @@ const LIGHT_THEME = 'github-light';
 const DARK_THEME = 'dark-blue';
 
 const Comments = () => {
-  const { themeMode } = useSelector(state => state.ui);
+  const themeMode = useTheme();
   const theme = themeMode === 'dark' ? DARK_THEME : LIGHT_THEME;
   const data = useSiteMetaData();
   const { repo } = data.site.siteMetadata.utterances;
@@ -50,7 +50,7 @@ const Comments = () => {
       'iframe.utterances-frame',
     );
     utterancesEl ? postMessage() : createUtterances();
-  }, [repo, themeMode]);
+  }, [repo, theme]);
 
   return (
     <S.CommentWrapper>
