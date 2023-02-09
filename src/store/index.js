@@ -1,8 +1,21 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import uiSlice from './modules/uiSlice';
+import { persistReducer } from 'redux-persist';
+import storage from '../utils/storage';
 
-const rootReducer = combineReducers({ ui: uiSlice });
+import darkModeSlice from './modules/darkMode';
+
+const rootReducer = combineReducers({ darkMode: darkModeSlice });
+
+const persistConfig = {
+  key: 'darkmode',
+  storage,
+  whitelist: ['darkMode'],
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });

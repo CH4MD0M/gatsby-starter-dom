@@ -2,6 +2,8 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 
+import { useSiteMetaData } from '../hooks/useSiteMetaData';
+import { useThemeEffect } from '../hooks/useThemeEffect';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ThemeToggleButton from '../components/ThemeToggleButton';
@@ -11,11 +13,12 @@ import { variants } from '../utils/framer';
 import * as S from './style';
 import theme from '../style/variables';
 import GlobalStyle from '../style/globalStyle';
-import { useSiteMetaData } from '../hooks/useSiteMetaData';
 
 const Layout = ({ children }) => {
   const data = useSiteMetaData();
   const { title, author } = data.site.siteMetadata;
+
+  useThemeEffect();
 
   return (
     <ThemeProvider theme={theme}>
