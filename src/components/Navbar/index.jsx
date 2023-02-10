@@ -8,7 +8,7 @@ import ToggleMenu from '../ToggleMenu';
 import * as S from './style';
 import { FaBars } from 'react-icons/fa';
 
-const Nav = ({ title }) => {
+const Navbar = ({ title }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [hidden, setHidden] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -56,4 +56,4 @@ const Nav = ({ title }) => {
   );
 };
 
-export default Nav;
+export default Navbar;
