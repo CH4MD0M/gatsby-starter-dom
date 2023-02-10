@@ -1,0 +1,54 @@
+---
+title: 블로그 시작하기
+category: blog
+date: 2022-10-29
+tags:
+  - guide
+  - intro
+---
+
+# 실행하기
+
+## 1. gatsby 프로젝트 생성
+
+> **node**는 v16 이상, **gatby-cli**는 꼭 v4를 설치해주세요.
+
+```sh
+npm i -g gatsby-cli@4.7.0
+npm gatsby new my-blog https://github.com/CH4MD0M/gatsby-starter-dom
+```
+
+## 2. 템플릿 실행하기
+
+```sh
+cd my-blog
+npm start
+# localhost:8000에서 확인할 수 있습니다.
+```
+
+# 블로그 설정
+
+## blog-config.js 작성
+
+```jsx
+module.exports = {
+  siteUrl: `https://my-blog.com`,
+  title: ``, //gatsby-starter-dom
+  description: ``, // 기록하는 프론트엔드 개발자
+  utterances: {
+    repo: ``, // CH4MD0M/gatsby-starter-dom
+  },
+  ga: '', // Google Analytics Tracking ID
+  author: ``, // 게시글 author에 보여질 이름
+  name: ``, // Hero 컴포넌트에 보여질 이름
+  socials: {
+    email: '', // mailto:{YOUR_EMAIL}
+    github: '', // https://github.com/
+    instagram: ``, // https://www.instagram.com/
+  },
+};
+```
+
+`author`에 입력하신 정보는 글쓴이를 소개하는 Bio에 사용됩니다. `name`에 입력하신 정보는 기본페이지에서 Hero 컴포넌트의 이름에 사용됩니다.
+
+# 블로그 배포
