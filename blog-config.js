@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: `https://chamdom.blog`,
+  siteUrl: `https://ch4md0m.github.io/gatsby-starter-dom/`,
   title: `gatsby-starter-dom`,
   description: `기록하는 프론트엔드 개발자`,
   utterances: {
