@@ -14,6 +14,7 @@ const Body = ({ body }) => {
 };
 
 const BodyWrapper = styled.div`
+  margin-bottom: 20rem;
   @media screen and (min-width: ${({ theme }) => theme.responsive.lg}) {
     display: flex;
   }
