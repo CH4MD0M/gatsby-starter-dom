@@ -5,7 +5,7 @@ const initialState = {
   themeMode: 'default',
 };
 
-const uiSlice = createSlice({
+const darkModeSlice = createSlice({
   name: 'darkMode',
   initialState,
   reducers: {
@@ -19,5 +19,5 @@ const uiSlice = createSlice({
   },
 });
 
-export const { setTheme, setSystemTheme } = uiSlice.actions;
-export default uiSlice.reducer;
+export const { setTheme, setSystemTheme } = darkModeSlice.actions;
+export default darkModeSlice.reducer;
