@@ -36,7 +36,7 @@ const Container = styled.article`
   pre {
     padding: 1rem 1.5rem;
     overflow-x: auto;
-    box-shadow: ${props => props.theme.effect.shadow};
+    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.37);
   }
   .token-line {
     font-size: 1.4rem;

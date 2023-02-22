@@ -20,24 +20,11 @@ const variables = {
   sizes: {
     maxWidth: '720px',
   },
-  sideSpace: {
-    large: '2rem',
-    small: '1.5rem',
-    contentLarge: '4rem',
-    contentSmall: '2rem',
-  },
   responsive: {
     xs: '500px',
     sm: '780px',
     md: '960px',
     lg: '1400px',
-  },
-  text: {
-    spacing: '0.15rem',
-  },
-  effect: {
-    radius: '10px',
-    shadow: '2px 2px 8px 0 rgba(0,0,0,0.37)',
   },
 };
 

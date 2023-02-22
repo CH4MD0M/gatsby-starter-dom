@@ -23,7 +23,6 @@ export const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.sideSpace.sm};
 
   @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     padding: 0 1.5rem;
@@ -34,7 +33,7 @@ export const NavTitle = styled.div`
   font-family: 'Damion', cursive;
   font-size: 2.7rem;
   font-weight: 600;
-  letter-spacing: ${props => props.theme.text.spacing};
+  letter-spacing: 0.15rem;
   animation: var(--animation) 1.5s infinite;
 `;
 
