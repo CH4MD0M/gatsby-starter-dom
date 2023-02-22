@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
-import storage from '../utils/storage';
 
+import storage from '../utils/storage';
 import darkModeSlice from './modules/darkMode';
 
 const rootReducer = combineReducers({ darkMode: darkModeSlice });

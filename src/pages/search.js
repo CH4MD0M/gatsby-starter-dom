@@ -1,12 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { graphql } from 'gatsby';
 
-import Seo from '../components/Seo';
-import Divider from '../components/Divider';
-import PostList from '../components/PostList';
 import Layout from '../layout';
+import Seo from '../components/Seo';
 import PageTitle from '../components/PageTitle';
 import SearchBar from '../components/SearchBar';
+import Divider from '../components/Divider';
+import PostList from '../components/PostList';
 
 const SearchPage = ({ data }) => {
   const posts = data.allMdx.nodes;

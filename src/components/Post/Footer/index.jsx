@@ -1,8 +1,8 @@
 import React from 'react';
 
+import Bio from '../../Bio';
 import Divider from '../../Divider';
 import PostNavigator from './PostNavigator';
-import Bio from '../../Bio';
 import Comments from './Comments';
 
 const Footer = ({ pageContext }) => {

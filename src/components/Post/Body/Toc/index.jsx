@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { animateScroll } from 'react-scroll';
 
-import getElementOffsetY from '../../../../utils/getOffset';
 import useIntersectionObserver from '../../../../hooks/useIntersectionObserver';
+import getElementOffsetY from '../../../../utils/getOffset';
 
 // CSS
 import * as S from './style';

@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SearchContainer = styled.div``;
 
-export const Input = styled.input.attrs({ type: "text" })`
+export const Input = styled.input.attrs({ type: 'text' })`
   width: 100%;
   padding: 1rem 1.6rem;
   font-size: 16px;

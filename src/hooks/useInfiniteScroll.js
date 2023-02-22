@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 const defaultOptions = {
   root: null,

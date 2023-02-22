@@ -3,9 +3,9 @@ import { graphql } from 'gatsby';
 
 import Layout from '../layout';
 import Seo from '../components/Seo';
-import PostList from '../components/PostList';
 import Hero from '../components/Hero';
 import PageTitle from '../components/PageTitle';
+import PostList from '../components/PostList';
 
 const IndexPage = ({ data }) => {
   const { name } = data.site.siteMetadata;

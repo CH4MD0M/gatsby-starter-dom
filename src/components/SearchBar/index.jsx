@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 
 // CSS
 import * as S from './style';

@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { setTheme } from '../../store/modules/darkMode';
+import { useTheme } from '../../hooks/useTheme';
 
 // CSS
 import * as S from './style';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from '../../hooks/useTheme';
 
 const ThemeToggleButton = () => {
   const dispatch = useDispatch();

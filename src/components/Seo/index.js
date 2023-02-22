@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+
 import { useSiteMetaData } from '../../hooks/useSiteMetaData';
 
 const Seo = ({ title, description, url }) => {

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 const defaultOptions = {
   rootMargin: '-60px 0px -80% 0px',

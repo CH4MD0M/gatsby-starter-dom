@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 export const lightTheme = css`
   code[class*='language-'],
   pre[class*='language-'] {
