@@ -1,26 +1,11 @@
 import React from 'react';
-
 import { motion } from 'framer-motion';
+
+import { menuVariants, menuItemVariants } from '../../utils/framer';
 
 // CSS
 import * as S from './style';
 import { Link } from 'gatsby';
-
-const menuVariants = {
-  closed: {
-    opacity: 0,
-    transition: { staggerChildren: 0.2, staggerDirection: -1, delay: 0.6 },
-  },
-  open: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, staggerDirection: 1 },
-  },
-};
-
-const itemVariants = {
-  closed: { opacity: 0, x: -10, transition: { duration: 0.2 } },
-  open: { opacity: 1, x: 0, transition: { duration: 0.2 } },
-};
 
 const ToggleMenu = () => {
   return (
@@ -31,13 +16,13 @@ const ToggleMenu = () => {
       variants={menuVariants}
     >
       <Link to="/categories">
-        <motion.div variants={itemVariants}>categories</motion.div>
+        <motion.div variants={menuItemVariants}>categories</motion.div>
       </Link>
       <Link to="/tags">
-        <motion.div variants={itemVariants}>tags</motion.div>
+        <motion.div variants={menuItemVariants}>tags</motion.div>
       </Link>
       <Link to="/search">
-        <motion.div variants={itemVariants}>search</motion.div>
+        <motion.div variants={menuItemVariants}>search</motion.div>
       </Link>
     </S.ToggleMenuWrapper>
   );

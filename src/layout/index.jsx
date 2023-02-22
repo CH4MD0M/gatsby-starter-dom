@@ -4,10 +4,10 @@ import { AnimatePresence } from 'framer-motion';
 
 import { useSiteMetaData } from '../hooks/useSiteMetaData';
 import { useThemeEffect } from '../hooks/useThemeEffect';
+import { pageVariants } from '../utils/framer';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ThemeToggleButton from '../components/ThemeToggleButton';
-import { variants } from '../utils/framer';
 
 // CSS
 import * as S from './style';
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
           initial="hidden"
           animate="enter"
           exit="exit"
-          variants={variants}
+          variants={pageVariants}
           transition={{ duration: 0.5 }}
         >
           {children}
