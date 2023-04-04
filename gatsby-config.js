@@ -12,17 +12,25 @@ const wrapESMPlugin = name =>
 module.exports = {
   pathPrefix: '/gatsby-starter-dom',
   siteMetadata: blogConfig,
+  graphqlTypegen: true,
 
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `content`,
+        name: 'content',
         path: `${__dirname}/content`,
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: 'gatsby-plugin-typescript',
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: [
           blogConfig.ga, // Google Analytics / GA
@@ -38,18 +46,18 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: blogConfig.title,
         short_name: blogConfig.title,
         description: blogConfig.description,
-        start_url: `/`,
-        display: `standalone`,
-        icon: `static/favicon.png`,
+        start_url: '/',
+        display: 'standalone',
+        icon: 'static/favicon.png',
       },
     },
     {
-      resolve: `gatsby-plugin-robots-txt`,
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: blogConfig.siteUrl,
         sitemap: `${blogConfig.siteUrl}/sitemap.xml`,
@@ -57,7 +65,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-plugin-feed',
       options: {
         query: `
         {
@@ -103,26 +111,26 @@ module.exports = {
                 }
               }
             `,
-            output: `/rss.xml`,
+            output: '/rss.xml',
             title: `RSS Feed of ${blogConfig.title}`,
           },
         ],
       },
     },
     {
-      resolve: `gatsby-plugin-canonical-urls`,
+      resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: `${blogConfig.siteUrl}`,
         stripQueryString: true,
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 680,
               backgroundColor: 'transparent',
@@ -130,7 +138,7 @@ module.exports = {
             },
           },
           {
-            resolve: `gatsby-remark-images-medium-zoom`,
+            resolve: 'gatsby-remark-images-medium-zoom',
             options: {
               margin: 36,
               scrollOffset: 0,
@@ -142,22 +150,31 @@ module.exports = {
               target: '_blank',
             },
           },
-          `gatsby-remark-static-images`,
+          'gatsby-remark-static-images',
         ],
 
-        remarkPlugins: [require(`remark-math`)],
-        rehypePlugins: [wrapESMPlugin(`rehype-slug`), require(`rehype-katex`)],
+        remarkPlugins: [wrapESMPlugin('remark-slug'), require('remark-math')],
+        rehypePlugins: [require('rehype-katex')],
       },
     },
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          `Damion`,
-          `Fira+Code:300,400,500,600,700`,
-          `Noto+Sans+KR:100,300,400,500,700,900`,
+          'Damion',
+          'Fira+Code:300,400,500,600,700',
+          'Nanum+Gothic:400,700,800',
         ],
         display: 'swap',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typegen',
+      options: {
+        outputPath: 'src/__generated__/gatsby-types.d.ts',
+        emitSchema: {
+          'src/__generated__/gatsby-schema.graphql': true,
+        },
       },
     },
     'gatsby-plugin-react-helmet',
