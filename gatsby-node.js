@@ -1,5 +1,31 @@
+const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const path = require(`path`);
+
+exports.onCreateWebpackConfig = ({ actions, plugins, getConfig }) => {
+  const output = getConfig().output || {};
+
+  actions.setWebpackConfig({
+    plugins: [
+      plugins.provide({
+        React: 'react',
+      }),
+    ],
+    output,
+    resolve: {
+      alias: {
+        '@assets': path.resolve(__dirname, 'src/assets'),
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@hooks': path.resolve(__dirname, 'src/hooks'),
+        '@layout': path.resolve(__dirname, 'src/layout'),
+        '@pages': path.resolve(__dirname, 'src/pages'),
+        '@store': path.resolve(__dirname, 'src/store'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@templates': path.resolve(__dirname, 'src/templates'),
+        '@utils': path.resolve(__dirname, 'src/utils'),
+      },
+    },
+  });
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
@@ -54,7 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach(({ node, next, previous }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`src/templates/post-template.js`),
+      component: path.resolve(`src/templates/post-template.tsx`),
       context: {
         slug: node.fields.slug,
         next,
