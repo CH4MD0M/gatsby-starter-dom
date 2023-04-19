@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://ch4md0m.github.io/gatsby-starter-dom//sitemap.xml
+Sitemap: https://ch4md0m.github.io/gatsby-starter-dom/sitemap.xml
 Host: https://ch4md0m.github.io
