@@ -1,23 +1,35 @@
-import { WebStorage } from 'redux-persist/lib/types';
-import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+export const StorageType = {
+  LOCAL: 'localStorage',
+  SESSION: 'sessionStorage',
+} as const;
 
-const createNoopStorage = (): WebStorage => {
-  return {
-    getItem(_key: string) {
-      return Promise.resolve(null);
-    },
-    setItem(_key: string, value: any) {
-      return Promise.resolve(value);
-    },
-    removeItem(_key: string) {
-      return Promise.resolve();
-    },
-  };
+export type StorageKeyType = (typeof StorageType)[keyof typeof StorageType];
+
+const setValue = (storageType: StorageKeyType, key: string, value: any) => {
+  const serializedValue = JSON.stringify(value);
+  if (storageType === StorageType.LOCAL) {
+    localStorage.setItem(key, serializedValue);
+  } else if (storageType === StorageType.SESSION) {
+    sessionStorage.setItem(key, serializedValue);
+  }
 };
 
-const storage =
-  typeof window !== 'undefined'
-    ? createWebStorage('local')
-    : createNoopStorage();
+const getValue = (storageType: StorageKeyType, key: string): any => {
+  let value;
+  if (storageType === StorageType.LOCAL) {
+    value = localStorage.getItem(key);
+  } else if (storageType === StorageType.SESSION) {
+    value = sessionStorage.getItem(key);
+  }
+  return value ? JSON.parse(value) : null;
+};
 
-export default storage;
+const removeValue = (storageType: StorageKeyType, key: string) => {
+  if (storageType === StorageType.LOCAL) {
+    localStorage.removeItem(key);
+  } else if (storageType === StorageType.SESSION) {
+    sessionStorage.removeItem(key);
+  }
+};
+
+export { setValue, getValue, removeValue };

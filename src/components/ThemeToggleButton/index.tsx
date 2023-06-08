@@ -1,21 +1,22 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { setTheme } from '@store/modules/darkMode';
-import { useTheme } from '@hooks/useTheme';
+import { StorageType, setValue } from '@utils/storage';
 
 // CSS
 import * as S from './style';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 const ThemeToggleButton = () => {
-  const dispatch = useDispatch();
-  const themeMode: ThemeMode = useTheme();
+  const { themeMode } = useAppSelector(state => state.darkMode);
+  const dispatch = useAppDispatch();
 
   const themeToggleHandler = () => {
-    if (!themeMode) return;
-    dispatch(themeMode === 'light' ? setTheme('dark') : setTheme('light'));
+    const nextTheme = themeMode === 'dark' ? 'light' : 'dark';
+    dispatch(nextTheme === 'light' ? setTheme('light') : setTheme('dark'));
+    setValue(StorageType.LOCAL, 'themeMode', nextTheme);
   };
 
   return (

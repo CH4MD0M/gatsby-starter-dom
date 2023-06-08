@@ -1,23 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: DarkModeState = {
   themeMode: 'default',
-  systemTheme: 'not-ready',
+  loading: true,
 };
 
 const darkModeSlice = createSlice({
   name: 'darkMode',
   initialState,
   reducers: {
-    setTheme(state, action: PayloadAction<ThemeMode>) {
+    setTheme(state, action) {
       state.themeMode = action.payload;
     },
 
-    setSystemTheme(state, action: PayloadAction<SystemTheme>) {
-      state.systemTheme = action.payload;
+    setLoading(state, action) {
+      state.loading = action.payload;
     },
   },
 });
 
-export const { setTheme, setSystemTheme } = darkModeSlice.actions;
+export const { setTheme, setLoading } = darkModeSlice.actions;
 export default darkModeSlice.reducer;
