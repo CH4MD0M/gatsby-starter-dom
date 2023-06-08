@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageProps } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 
+import { useThemeEffect } from '@hooks/useThemeEffect';
 import { useSiteMetaData } from '@hooks/useSiteMetaData';
+import { useAppSelector } from '@hooks/reduxHooks';
 import { pageVariants } from '@utils/framer';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
@@ -20,8 +22,15 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, location }: LayoutProps) => {
+  useThemeEffect();
+
+  const { themeMode } = useAppSelector(state => state.darkMode);
   const data = useSiteMetaData();
   const { title, author } = data.site.siteMetadata;
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', themeMode);
+  }, [themeMode]);
 
   return (
     <ThemeProvider theme={theme}>
