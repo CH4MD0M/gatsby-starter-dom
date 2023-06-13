@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 export function useHeadObserver() {
   const [headings, setHeadings] = useState<HTMLElement[]>([]);
   const [activeHeadingId, setActiveHeadingId] = useState<string>('');
-  const scrollPositionRef = useRef(window.scrollY);
+  const scrollPositionRef = useRef(0);
 
   useEffect(() => {
     const headingElements = Array.from(
