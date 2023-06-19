@@ -88,6 +88,7 @@ export const PostCardWrapper = styled.div<PostCardWrapperProps>`
 export const NavigatorWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 7rem;
 
   @media screen and (max-width: ${props => props.theme.responsive.sm}) {
     flex-direction: column;
