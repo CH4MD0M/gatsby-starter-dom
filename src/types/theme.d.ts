@@ -1,10 +1,5 @@
-type ThemeMode = 'default' | 'dark' | 'light';
+type ThemeMode = 'dark' | 'light';
 
 interface DarkModeState {
   themeMode: ThemeMode;
-  loading: boolean;
-}
-
-interface RootState {
-  darkMode: DarkModeState;
 }

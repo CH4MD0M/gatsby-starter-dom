@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getCurrentTheme } from '@utils/getCurrentTheme';
 
 const initialState: DarkModeState = {
-  themeMode: 'default',
-  loading: true,
+  themeMode: getCurrentTheme(),
 };
 
 const darkModeSlice = createSlice({
@@ -10,14 +10,10 @@ const darkModeSlice = createSlice({
   initialState,
   reducers: {
     setTheme(state, action) {
-      state.themeMode = action.payload;
-    },
-
-    setLoading(state, action) {
-      state.loading = action.payload;
+      state.themeMode = action.payload.themeMode;
     },
   },
 });
 
-export const { setTheme, setLoading } = darkModeSlice.actions;
+export const { setTheme } = darkModeSlice.actions;
 export default darkModeSlice.reducer;
