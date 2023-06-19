@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { AnimatePresence, useCycle } from 'framer-motion';
 
-import ToggleMenu from '../ToggleMenu';
+import ToggleMenu from '@components/ToggleMenu';
 
 // CSS
 import * as S from './style';

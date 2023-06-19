@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Bio from '../../Bio';
-import Divider from '../../Divider';
+import Bio from '@components/Bio';
+import Divider from '@components/Divider';
 import PostNavigator from './PostNavigator';
 import Comments from './Comments';
 
