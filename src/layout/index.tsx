@@ -1,20 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { PageProps } from 'gatsby';
-import { ThemeProvider } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 
-import { useThemeEffect } from '@hooks/useThemeEffect';
 import { useSiteMetaData } from '@hooks/useSiteMetaData';
-import { useAppSelector } from '@hooks/reduxHooks';
+import { useSysThemeEffect } from '@hooks/useSysThemeEffect';
 import { pageVariants } from '@utils/framer';
+
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import ThemeToggleButton from '@components/ThemeToggleButton';
 
 // CSS
 import * as S from './style';
-import theme from '../style/variables';
-import GlobalStyle from '../style/globalStyle';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -22,19 +19,13 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, location }: LayoutProps) => {
-  useThemeEffect();
+  useSysThemeEffect();
 
-  const { themeMode } = useAppSelector(state => state.darkMode);
   const data = useSiteMetaData();
   const { title, author } = data.site.siteMetadata;
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', themeMode);
-  }, [themeMode]);
-
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <>
       <Navbar title={title} />
       <AnimatePresence exitBeforeEnter>
         <S.Wrapper
@@ -50,7 +41,7 @@ const Layout = ({ children, location }: LayoutProps) => {
       </AnimatePresence>
       <ThemeToggleButton />
       <Footer author={author} />
-    </ThemeProvider>
+    </>
   );
 };
 

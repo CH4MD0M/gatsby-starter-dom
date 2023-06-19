@@ -1,35 +1,14 @@
-export const StorageType = {
-  LOCAL: 'localStorage',
-  SESSION: 'sessionStorage',
-} as const;
-
-export type StorageKeyType = (typeof StorageType)[keyof typeof StorageType];
-
-const setValue = (storageType: StorageKeyType, key: string, value: any) => {
-  const serializedValue = JSON.stringify(value);
-  if (storageType === StorageType.LOCAL) {
-    localStorage.setItem(key, serializedValue);
-  } else if (storageType === StorageType.SESSION) {
-    sessionStorage.setItem(key, serializedValue);
+const setValue = (key: string, value: any) => {
+  if (typeof window !== 'undefined') {
+    window.localStorage.setItem(key, JSON.stringify(value));
   }
 };
 
-const getValue = (storageType: StorageKeyType, key: string): any => {
-  let value;
-  if (storageType === StorageType.LOCAL) {
-    value = localStorage.getItem(key);
-  } else if (storageType === StorageType.SESSION) {
-    value = sessionStorage.getItem(key);
-  }
-  return value ? JSON.parse(value) : null;
-};
-
-const removeValue = (storageType: StorageKeyType, key: string) => {
-  if (storageType === StorageType.LOCAL) {
-    localStorage.removeItem(key);
-  } else if (storageType === StorageType.SESSION) {
-    sessionStorage.removeItem(key);
+const getValue = (key: string): any => {
+  if (typeof window !== 'undefined') {
+    const value = window.localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
   }
 };
 
-export { setValue, getValue, removeValue };
+export { setValue, getValue };
