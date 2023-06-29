@@ -4,7 +4,7 @@ import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import PostPreview from '@components/PostPreview';
 
 interface PostListProps {
-  postList: GatsbyTypes.IndexPageQuery['allMdx']['nodes'];
+  postList: Queries.IndexPageQuery['allMdx']['nodes'];
 }
 
 const PostList = ({ postList }: PostListProps) => {

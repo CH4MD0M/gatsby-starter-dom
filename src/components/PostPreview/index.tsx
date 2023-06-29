@@ -8,7 +8,7 @@ import Divider from '@components/Divider';
 import * as S from './style';
 
 interface PostPreviewProps {
-  post: GatsbyTypes.IndexPageQuery['allMdx']['nodes'][0];
+  post: Queries.IndexPageQuery['allMdx']['nodes'][0];
 }
 
 const PostPreview = ({ post }: PostPreviewProps) => {

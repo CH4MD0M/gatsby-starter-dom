@@ -8,7 +8,7 @@ import PageTitle from '@components/PageTitle';
 import PostList from '@components/PostList';
 
 interface IndexPageProps {
-  data: GatsbyTypes.IndexPageQuery;
+  data: Queries.IndexPageQuery;
 }
 
 const IndexPage = ({ data }: IndexPageProps) => {
