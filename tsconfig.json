@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": false,
     "skipLibCheck": true,
     "noEmit": true,
     "baseUrl": "./src",
