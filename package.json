@@ -10,7 +10,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy-prefix-paths": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy-prefix-paths": "gatsby build --prefix-paths && gh-pages -d public",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -30,12 +31,11 @@
     "gatsby-plugin-robots-txt": "1.7.1",
     "gatsby-plugin-sharp": "^4.17.0",
     "gatsby-plugin-styled-components": "^5.17.0",
-    "gatsby-plugin-typegen": "^3.1.0",
     "gatsby-plugin-typescript": "^4.10.0",
+    "gatsby-remark-copy-linked-files": "5.25.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^6.17.0",
     "gatsby-remark-images-medium-zoom": "^1.7.0",
-    "gatsby-remark-static-images": "^1.2.1",
     "gatsby-source-filesystem": "^4.17.0",
     "gatsby-transformer-sharp": "^4.17.0",
     "katex": "^0.16.0",
