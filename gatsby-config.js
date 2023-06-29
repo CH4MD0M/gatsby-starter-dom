@@ -34,8 +34,6 @@ module.exports = {
       options: {
         trackingIds: [
           blogConfig.ga, // Google Analytics / GA
-          // Google Ads / Adwords / AW
-          // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
 
         pluginConfig: {
@@ -129,6 +127,7 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -150,7 +149,6 @@ module.exports = {
               target: '_blank',
             },
           },
-          'gatsby-remark-static-images',
         ],
 
         remarkPlugins: [require('remark-math')],
@@ -166,15 +164,6 @@ module.exports = {
           'Nanum+Gothic:400,700,800',
         ],
         display: 'swap',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typegen',
-      options: {
-        outputPath: 'src/__generated__/gatsby-types.d.ts',
-        emitSchema: {
-          'src/__generated__/gatsby-schema.graphql': true,
-        },
       },
     },
     'gatsby-plugin-react-helmet',

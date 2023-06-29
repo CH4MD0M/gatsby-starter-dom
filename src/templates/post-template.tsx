@@ -9,7 +9,7 @@ import Post from '@components/Post';
 import 'katex/dist/katex.min.css';
 
 interface PostTemplateProps {
-  data: GatsbyTypes.GetSinglePostQuery;
+  data: Queries.GetSinglePostQuery;
   pageContext: PostContextProps;
 }
 
