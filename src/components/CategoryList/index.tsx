@@ -6,33 +6,48 @@ import * as S from './style';
 
 interface CategoryProps {
   title: string;
+  count?: number;
   selectedCategory: string;
 }
 
 interface CategoryListProps {
+  totalCount: number;
   selectedCategory: string;
-  categories: Array<{ fieldValue: string }>;
+  categories: { fieldValue: string; totalCount: number }[];
 }
 
-const Category = ({ title, selectedCategory }: CategoryProps) => {
+const Category = ({ title, count, selectedCategory }: CategoryProps) => {
   return selectedCategory === title ? (
-    <S.Active>#{title}</S.Active>
+    <S.Active>
+      #{title}({count})
+    </S.Active>
   ) : (
-    <Link to={`/categories?q=${title}`}>
-      <S.Disabled>#{title}</S.Disabled>
-    </Link>
+    <S.Disabled>
+      <Link to={`/categories?q=${title}`}>
+        #{title}({count})
+      </Link>
+    </S.Disabled>
   );
 };
 
-const CategoryList = ({ selectedCategory, categories }: CategoryListProps) => {
+const CategoryList = ({
+  totalCount,
+  selectedCategory,
+  categories,
+}: CategoryListProps) => {
   return (
     <S.FlexWrapper>
       <S.CategoryListWrapper>
-        <Category title="all" selectedCategory={selectedCategory} />
+        <Category
+          title="all"
+          count={totalCount}
+          selectedCategory={selectedCategory}
+        />
         {categories.map((item, idx) => (
           <Category
             key={idx}
             title={item.fieldValue}
+            count={item.totalCount}
             selectedCategory={selectedCategory}
           />
         ))}

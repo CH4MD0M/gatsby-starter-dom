@@ -3505,7 +3505,7 @@ type WebPOptions = {
 type CategoryPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CategoryPageQuery = { readonly allMdx: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }>, readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string, readonly category: string | null, readonly date: string | null, readonly tags: ReadonlyArray<string | null> | null } | null }> } };
+type CategoryPageQuery = { readonly allMdx: { readonly totalCount: number, readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }>, readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string, readonly category: string | null, readonly date: string | null, readonly tags: ReadonlyArray<string | null> | null } | null }> } };
 
 type GetSinglePostQueryVariables = Exact<{
   slug: InputMaybe<Scalars['String']>;

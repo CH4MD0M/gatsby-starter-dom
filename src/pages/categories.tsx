@@ -11,7 +11,8 @@ import Divider from '@components/Divider';
 import PostList from '@components/PostList';
 
 const CategoryPage = ({ data }: PageProps<Queries.CategoryPageQuery>) => {
-  const { nodes, group } = data.allMdx;
+  const { nodes, group, totalCount } = data.allMdx;
+
   const [selectedQuery] = useQuery();
 
   const categories = orderBy(group, ['fieldValue'], ['asc']);
@@ -24,7 +25,11 @@ const CategoryPage = ({ data }: PageProps<Queries.CategoryPageQuery>) => {
     <Layout>
       <Seo title="Categories" />
       <PageTitle>Categories.</PageTitle>
-      <CategoryList selectedCategory={selectedQuery} categories={categories} />
+      <CategoryList
+        totalCount={totalCount}
+        selectedCategory={selectedQuery}
+        categories={categories}
+      />
       <Divider mt="0" />
       <PostList postList={filteredPosts} />
     </Layout>
@@ -34,6 +39,7 @@ const CategoryPage = ({ data }: PageProps<Queries.CategoryPageQuery>) => {
 export const pageQuery = graphql`
   query CategoryPage {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      totalCount
       group(field: frontmatter___category) {
         fieldValue
         totalCount

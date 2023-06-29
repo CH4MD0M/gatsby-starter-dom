@@ -7,12 +7,9 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby clean && gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public",
     "deploy-prefix-paths": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
