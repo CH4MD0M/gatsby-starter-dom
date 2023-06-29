@@ -12,10 +12,11 @@ export const Active = styled.li`
 `;
 
 export const Disabled = styled.li`
-  color: var(--textColor);
   border: 1px solid transparent;
-  border-radius: 6px;
   cursor: pointer;
+  a {
+    color: var(--textColor);
+  }
 `;
 
 export const CategoryListWrapper = styled.div`
