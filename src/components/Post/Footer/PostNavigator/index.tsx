@@ -41,12 +41,12 @@ const PostCard = ({ right, node }: PostCardProps) => {
 };
 
 const PostNavigator = ({ pageContext }: PostNavigatorProps) => {
-  const { previous, next } = pageContext;
+  const { previous: newerPost, next: olderPost } = pageContext;
 
   return (
     <S.NavigatorWrapper>
-      {previous ? <PostCard node={previous} /> : <div />}
-      {next && <PostCard right node={next} />}
+      {olderPost ? <PostCard node={olderPost} /> : <div />}
+      {newerPost && <PostCard right node={newerPost} />}
     </S.NavigatorWrapper>
   );
 };
