@@ -17,6 +17,7 @@ export const HeroWrapper = styled.div`
     margin: 14rem 0 6rem;
     .Typewriter {
       font-size: 2.8rem;
+      width: 100%;
     }
   }
 `;
