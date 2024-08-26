@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useHeadObserver() {
-  const [headings, setHeadings] = useState<HTMLElement[]>([]);
+interface Heading {
+  id: string;
+  element: HTMLElement;
+}
+
+export const useHeadObserver = () => {
+  const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeHeadingId, setActiveHeadingId] = useState<string>('');
   const scrollPositionRef = useRef(0);
 
@@ -11,9 +16,15 @@ export function useHeadObserver() {
         '#post-contents > :is(h1, h2, h3)',
       ),
     );
-    const headingIds = headingElements.map(heading => heading.id);
 
-    setHeadings(headingElements);
+    const newHeadings = headingElements.map(element => ({
+      id: element.id,
+      element: element,
+    }));
+
+    setHeadings(newHeadings);
+
+    if (newHeadings.length > 0) setActiveHeadingId(newHeadings[0].id);
 
     const handleObserver = (entries: IntersectionObserverEntry[]) => {
       entries.forEach(entry => {
@@ -25,10 +36,10 @@ export function useHeadObserver() {
         } else {
           const diff = scrollPositionRef.current - window.scrollY;
           const isScrollingUp = diff > 0;
-          const currentIndex = headingIds.indexOf(id);
-          const prevEntry = headingIds[currentIndex - 1];
+          const currentIndex = newHeadings.findIndex(h => h.id === id);
+          const prevEntry = newHeadings[currentIndex - 1];
 
-          if (isScrollingUp && prevEntry) setActiveHeadingId(prevEntry);
+          if (isScrollingUp && prevEntry) setActiveHeadingId(prevEntry.id);
         }
       });
     };
@@ -37,14 +48,10 @@ export function useHeadObserver() {
       rootMargin: '-60px 0px -80% 0px',
     });
 
-    headingElements.forEach(element => observer.observe(element));
+    newHeadings.forEach(heading => observer.observe(heading.element));
 
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (headings[0]) setActiveHeadingId(headings[0].id);
-  }, [headings]);
-
   return { headings, activeHeadingId };
-}
+};
