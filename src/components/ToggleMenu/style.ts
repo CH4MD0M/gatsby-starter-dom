@@ -6,26 +6,26 @@ export const ToggleMenuWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: start;
-  top: 6rem;
-  right: 2.5rem;
-  padding: 0.5rem 0;
-  width: fit-content;
+  top: 0;
+  height: 100vh;
+  width: 50%;
+  right: 0;
+  padding: 1.4rem 0.8rem;
   background: var(--bgColor);
-  font-size: 1.6rem;
+  font-size: 3.6rem;
   text-transform: capitalize;
-  border: 1px solid var(--toggleBdColor);
-  border-radius: 6px;
   overflow: hidden;
+  box-shadow: 0px 5px 5px 0px rgba(100, 100, 100, 0.85);
   z-index: 400;
 
   a {
-    display: block;
-    padding: 0.8rem 1.2rem;
-    color: var(--textColor);
+    margin: 0.2rem 0;
+    padding: 0.8rem 1rem;
     width: 100%;
+    color: var(--textColor);
 
     &:hover {
-      background: var(--toggleBdColor);
+      color: var(--activeMenuTextColor);
     }
   }
 

@@ -12,7 +12,7 @@ export const TagItem = styled.div`
   margin: 0.5rem;
   margin-left: 0;
   padding: 0.5rem 1rem;
-  border-radius: 15px;
+  border-radius: 16px;
   color: var(--linkColor);
   background: var(--tagBgColor);
   cursor: pointer;

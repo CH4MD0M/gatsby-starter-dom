@@ -9,6 +9,7 @@ export default createGlobalStyle`${css`
   ::before {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   html {
@@ -18,9 +19,8 @@ export default createGlobalStyle`${css`
     --bgColor: ${({ theme }) => theme.colors.primary0};
     --textColor: ${({ theme }) => theme.colors.primary9};
     --divider: ${({ theme }) => theme.colors.primary3};
-    --headerBgColor: hsla(0, 0%, 100%, 0.8);
     --headerShadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
-    --toggleBdColor: ${({ theme }) => theme.colors.blue0};
+    --activeMenuTextColor: ${({ theme }) => theme.colors.blue0};
     --iconBgColor: ${({ theme }) => theme.colors.primary3};
     --iconColor: ${({ theme }) => theme.colors.primary4};
     --hoveredIconColor: ${({ theme }) => theme.colors.primary9};
@@ -46,7 +46,7 @@ export default createGlobalStyle`${css`
     --hrColor: ${({ theme }) => theme.colors.primary5};
     --imgBgColor: transparent;
     --tagBgColor: ${({ theme }) => theme.colors.primary2};
-    --hoveredTagBgColor: ${({ theme }) => theme.colors.primary4};
+    --hoveredTagBgColor: ${({ theme }) => theme.colors.primary3};
     --activeTagBgColor: ${({ theme }) => theme.colors.blue0};
     --hoveredActiveTagBgColor: hsl(187, 92%, 30%);
     --themeToggleIconColor: hsl(51, 89%, 66%);
@@ -60,11 +60,10 @@ export default createGlobalStyle`${css`
 
   [data-theme='dark'] {
     --bgColor: ${({ theme }) => theme.colors.primary9};
-    --textColor: ${({ theme }) => theme.colors.primary0};
+    --textColor: hsl(217, 7%, 79%);
     --divider: ${({ theme }) => theme.colors.primary8};
-    --headerBgColor: hsla(210, 20%, 15%, 0.8);
     --headerShadow: 0px 5px 5px 0px rgba(100, 100, 100, 0.15);
-    --toggleBdColor: ${({ theme }) => theme.colors.blue1};
+    --activeMenuTextColor: ${({ theme }) => theme.colors.blue1};
     --iconBgColor: ${({ theme }) => theme.colors.primary7};
     --iconColor: ${({ theme }) => theme.colors.primary5};
     --hoveredIconColor: ${({ theme }) => theme.colors.primary0};
@@ -90,7 +89,7 @@ export default createGlobalStyle`${css`
     --hrColor: ${({ theme }) => theme.colors.primary6};
     --imgBgColor: ${({ theme }) => theme.colors.primary1};
     --tagBgColor: ${({ theme }) => theme.colors.primary8};
-    --hoveredTagBgColor: ${({ theme }) => theme.colors.primary7};
+    --hoveredTagBgColor: ${({ theme }) => theme.colors.primary6};
     --activeTagBgColor: ${({ theme }) => theme.colors.blue1};
     --hoveredActiveTagBgColor: hsl(187, 56%, 77%);
     --themeToggleIconColor: hsl(0, 95%, 74%);

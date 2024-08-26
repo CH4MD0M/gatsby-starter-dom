@@ -11,7 +11,11 @@ export const menuVariants = {
   },
   open: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, staggerDirection: 1 },
+    transition: {
+      staggerChildren: 0.2,
+      staggerDirection: 1,
+      delayChildren: 0.4,
+    },
   },
 };
 
