@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { FaCalendarAlt } from 'react-icons/fa';
 
 import { useSiteMetaData } from '@hooks/useSiteMetaData';
 import TagLabel from '@components/TagLabel';
@@ -16,23 +17,22 @@ interface HeaderProps {
 }
 
 const Header = ({ category, title, date, tags }: HeaderProps) => {
-  const data = useSiteMetaData();
-  const { author } = data.site.siteMetadata;
-
   return (
     <S.HeaderWrapper>
-      {category && (
-        <S.CategoryLabel>
-          <Link to={`/categories?q=${category}`}>{category}</Link>
-        </S.CategoryLabel>
-      )}
       <S.Title>{title}</S.Title>
       <S.Information>
-        <S.Author> {author} </S.Author>
-        <S.Date>· {date} </S.Date>
+        <S.Date>
+          <FaCalendarAlt /> {date}
+        </S.Date>
+        {category && (
+          <S.CategoryLabel>
+            <Link to={`/categories?q=${category}`}>{category}</Link>
+          </S.CategoryLabel>
+        )}
       </S.Information>
-      {tags && <TagLabel tagList={tags} />}
-      <Divider />
+      <S.TagLabelWrapper>
+        {tags && <TagLabel tagList={tags} />}
+      </S.TagLabelWrapper>
     </S.HeaderWrapper>
   );
 };

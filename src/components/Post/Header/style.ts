@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  margin: 2rem 0;
+  margin: 2rem 0 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const CategoryLabel = styled.div`
   width: fit-content;
-  font-size: 1.4rem;
-  border: 1px solid var(--linkColor);
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
+  padding: 0 1.5rem;
 
   a {
     color: var(--linkColor);
@@ -17,7 +17,8 @@ export const CategoryLabel = styled.div`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h1`
+  text-align: center;
   margin: 1.5rem 0;
   font-size: 4.5rem;
   font-weight: 700;
@@ -25,23 +26,30 @@ export const Title = styled.h2`
   color: var(--textColor);
 
   @media screen and (max-width: ${props => props.theme.responsive.sm}) {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 `;
 
 export const Information = styled.div`
-  margin-bottom: 3rem;
   font-size: 1.7rem;
+  display: flex;
+  margin: 2rem 0;
 
   @media screen and (max-width: ${props => props.theme.responsive.sm}) {
-    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
-export const Author = styled.span`
-  font-weight: 500;
+export const Date = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
 `;
 
-export const Date = styled.span`
-  font-weight: 400;
+export const TagLabelWrapper = styled.div`
+  @media screen and (max-width: ${props => props.theme.responsive.sm}) {
+    font-size: 1.2rem;
+  }
 `;
