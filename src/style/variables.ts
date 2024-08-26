@@ -1,8 +1,6 @@
-import { DefaultTheme } from 'styled-components';
-
-const variables: DefaultTheme = {
+const variables = {
   colors: {
-    primary0: 'hsl(210, 1%, 98%)',
+    primary0: 'hsl(210, 1%, 100%)',
     primary1: 'hsl(210, 2%, 95%)',
     primary2: 'hsl(210, 3%, 93%)',
     primary3: 'hsl(210, 3%, 89%)',
@@ -13,11 +11,10 @@ const variables: DefaultTheme = {
     primary8: 'hsl(210, 19%, 20%)',
     primary9: 'hsl(210, 25%, 10%)',
     gray: 'hsl(210, 9%, 31%)',
-    blue0: 'hsl(187, 92%, 34%)',
-    blue1: 'hsl(187, 56%, 72%)',
+    blue0: 'hsl(187, 66%, 42%)',
+    blue1: 'hsl(187, 92%, 34%)',
     blue2: 'hsl(207, 90%, 54%)',
   },
-
   responsive: {
     xs: '500px',
     sm: '780px',
