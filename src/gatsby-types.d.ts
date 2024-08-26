@@ -3552,7 +3552,7 @@ type GetSinglePostQuery = { readonly site: { readonly siteMetadata: { readonly s
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexPageQuery = { readonly site: { readonly siteMetadata: { readonly name: string | null } | null } | null, readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string, readonly fields: { readonly slug: string | null } | null, readonly frontmatter: { readonly title: string, readonly category: string | null, readonly date: string | null, readonly tags: ReadonlyArray<string | null> | null } | null }> } };
+type IndexPageQuery = { readonly site: { readonly siteMetadata: { readonly name: string | null } | null } | null };
 
 type SearchPageQueryVariables = Exact<{ [key: string]: never; }>;
 
