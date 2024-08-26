@@ -16,8 +16,6 @@ const variables: DefaultTheme = {
     blue0: 'hsl(187, 92%, 34%)',
     blue1: 'hsl(187, 56%, 72%)',
     blue2: 'hsl(207, 90%, 54%)',
-    lightOrange: 'hsl(29, 74%, 92%)',
-    darkOrange: 'hsl(340, 8%, 45%)',
   },
 
   responsive: {
