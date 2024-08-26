@@ -1,51 +1,33 @@
-import {
-  useState,
-  useCallback,
-  useEffect,
-  SetStateAction,
-  Dispatch,
-} from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-interface Options {
-  root?: Element | null;
-  rootMargin?: string;
-  threshold?: number;
-}
-
-type SetTarget = Dispatch<SetStateAction<Element | null>>;
-
-const defaultOptions: Options = {
-  root: null,
+const defaultOptions = {
   rootMargin: '1px',
   threshold: 0.1,
 };
 
-const useInfiniteScroll = (
-  onIntersect: (
-    entry: IntersectionObserverEntry,
-    observer: IntersectionObserver,
-  ) => void,
-  options = defaultOptions,
-): [SetTarget] => {
-  const [target, setTarget] = useState<Element | null>(null);
+export const useInfiniteScroll = (onIntersect: () => void) => {
+  const targetRef = useRef<HTMLDivElement>(null);
 
-  const handleIntersect = useCallback(
-    ([entry]: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-      if (entry.isIntersecting) onIntersect(entry, observer);
+  const handleObserver = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        onIntersect();
+      }
     },
     [onIntersect],
   );
 
   useEffect(() => {
+    const target = targetRef.current;
     if (!target) return;
 
-    const observer = new IntersectionObserver(handleIntersect, options);
+    const observer = new IntersectionObserver(handleObserver, defaultOptions);
+
     observer.observe(target);
 
     return () => observer.unobserve(target);
-  }, [handleIntersect, target, options]);
+  }, [handleObserver]);
 
-  return [setTarget];
+  return targetRef;
 };
-
-export default useInfiniteScroll;
