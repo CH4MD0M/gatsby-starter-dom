@@ -1,44 +1,49 @@
-import React, { useState, useCallback, ChangeEvent } from 'react';
+import React, { ChangeEvent, useMemo } from 'react';
 import { graphql, PageProps } from 'gatsby';
+
+import { useSearchInput } from '@hooks/useSearchInput';
 
 import Layout from '@layout/index';
 import Seo from '@components/Seo';
 import PageTitle from '@components/PageTitle';
 import SearchBar from '@components/SearchBar';
-import Divider from '@components/Divider';
 import PostList from '@components/PostList';
 
 const SearchPage = ({ data }: PageProps<Queries.SearchPageQuery>) => {
   const posts = data.allMdx.nodes;
-  const [query, setQuery] = useState('');
+  const [searchKeyword, debouncedSearchKeyword, setSearchKeyword] =
+    useSearchInput('search-keyword', '');
 
-  const filteredPosts = useCallback(
-    () =>
-      posts.filter(post => {
-        const { excerpt, frontmatter } = post;
-        const { title, tags } = frontmatter;
-        const lowerQuery = query.toLocaleLowerCase();
+  const filteredPosts = useMemo(() => {
+    const lowerQuery = debouncedSearchKeyword.toLocaleLowerCase();
+    if (!lowerQuery) return [];
 
-        return (
-          excerpt?.toLocaleLowerCase().includes(lowerQuery) ||
-          title?.toLocaleLowerCase().includes(lowerQuery) ||
-          tags?.some(tag => tag.toLocaleLowerCase().includes(lowerQuery))
-        );
-      }),
-    [query, posts],
-  );
+    return posts.filter(post => {
+      const { excerpt, frontmatter } = post;
+      const { title, tags } = frontmatter;
+
+      return (
+        excerpt?.toLocaleLowerCase().includes(lowerQuery) ||
+        title?.toLocaleLowerCase().includes(lowerQuery) ||
+        tags?.some(tag => tag.toLocaleLowerCase().includes(lowerQuery))
+      );
+    });
+  }, [debouncedSearchKeyword, posts]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
+    setSearchKeyword(e.target.value);
   };
 
   return (
     <Layout>
       <Seo title="Search" />
       <PageTitle>Search.</PageTitle>
-      <SearchBar onChangeHandler={handleInputChange} />
-      <Divider mt="6rem" mb="3rem" />
-      <PostList postList={filteredPosts()} />
+      <SearchBar
+        onChangeHandler={handleInputChange}
+        searchKeyword={searchKeyword}
+      />
+
+      <PostList postList={filteredPosts} />
     </Layout>
   );
 };

@@ -5,9 +5,10 @@ import * as S from './style';
 
 interface SearchBarProps {
   onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+  searchKeyword: string;
 }
 
-const SearchBar = ({ onChangeHandler }: SearchBarProps) => {
+const SearchBar = ({ onChangeHandler, searchKeyword }: SearchBarProps) => {
   const searchInput = useRef<HTMLInputElement>(null);
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
@@ -35,7 +36,8 @@ const SearchBar = ({ onChangeHandler }: SearchBarProps) => {
       <S.Input
         ref={searchInput}
         onChange={onChangeHandler}
-        placeholder="Search..."
+        value={searchKeyword}
+        placeholder="검색"
       />
     </div>
   );
