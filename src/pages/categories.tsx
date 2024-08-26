@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import orderBy from 'lodash/orderBy';
 
-import useQuery from '@hooks/useQuery';
+import { useQuery } from '@hooks/useQuery';
 import Layout from '@layout/index';
 import Seo from '@components/Seo';
 import PageTitle from '@components/PageTitle';
