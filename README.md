@@ -27,7 +27,7 @@
 
 ```sh
 npm i -g gatsby-cli@4.7.0
-npm gatsby new my-blog https://github.com/CH4MD0M/gatsby-starter-dom
+npx gatsby new my-blog https://github.com/CH4MD0M/gatsby-starter-dom
 ```
 
 ### 2. 템플릿 실행하기
