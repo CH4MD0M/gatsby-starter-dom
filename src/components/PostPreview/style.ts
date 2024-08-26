@@ -22,8 +22,9 @@ export const PostDescription = styled.p`
   -webkit-box-orient: vertical;
 `;
 
-export const Date = styled.p`
-  margin-top: 2rem;
+export const Date = styled.span`
+  display: inline-block;
+  margin-top: 1.5rem;
   font-size: 1.4rem;
   color: var(--postDateColor);
 `;

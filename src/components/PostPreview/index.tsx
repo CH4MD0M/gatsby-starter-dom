@@ -8,7 +8,10 @@ import Divider from '@components/Divider';
 import * as S from './style';
 
 interface PostPreviewProps {
-  post: Queries.IndexPageQuery['allMdx']['nodes'][0];
+  post:
+    | Queries.TagsPageQuery['allMdx']['nodes'][0]
+    | Queries.CategoryPageQuery['allMdx']['nodes'][0]
+    | Queries.SearchPageQuery['allMdx']['nodes'][0];
 }
 
 const PostPreview = ({ post }: PostPreviewProps) => {

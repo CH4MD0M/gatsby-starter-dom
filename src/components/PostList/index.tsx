@@ -4,7 +4,10 @@ import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import PostPreview from '@components/PostPreview';
 
 interface PostListProps {
-  postList: Queries.IndexPageQuery['allMdx']['nodes'];
+  postList:
+    | Queries.TagsPageQuery['allMdx']['nodes']
+    | Queries.CategoryPageQuery['allMdx']['nodes']
+    | Queries.SearchPageQuery['allMdx']['nodes'];
 }
 
 const PostList = ({ postList }: PostListProps) => {
