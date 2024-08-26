@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-interface FixedWrapperProps {
-  isHidden: boolean;
-}
+export const Trgger = styled.div`
+  height: 4rem;
+`;
 
-export const NavWrapper = styled.div`
-  max-width: 1300px;
+export const NavWrapper = styled.nav<{ isScrollDown: boolean }>`
+  max-width: ${({ isScrollDown }) => (isScrollDown ? '100%' : '72rem')};
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const NavTitle = styled.div`
@@ -16,7 +17,6 @@ export const NavTitle = styled.div`
   font-size: 2.7rem;
   font-weight: 600;
   letter-spacing: 0.15rem;
-  animation: var(--animation) 1.5s infinite;
 `;
 
 export const Menu = styled.div`
@@ -27,7 +27,7 @@ export const Menu = styled.div`
 `;
 
 export const LinksWrapper = styled.div`
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 
   a {
     text-transform: uppercase;
@@ -68,28 +68,22 @@ export const Background = styled.div`
   z-index: 300;
 `;
 
-export const FixedWrapper = styled.nav<FixedWrapperProps>`
-  display: block;
-  position: fixed;
-  top: ${props => (props.isHidden ? '-100px' : '0px')};
-  left: 0;
-  right: 0;
-  padding: 1rem;
+export const StickyWrapper = styled.div<{ isScrollDown: boolean }>`
+  position: sticky;
+  top: 0;
+  padding: 1rem 4rem;
   background: var(--headerBgColor);
   backdrop-filter: blur(10px);
-  transition: top 0.5s ease-in-out;
   z-index: 400;
-  box-shadow: var(--headerShadow);
+  box-shadow: ${({ isScrollDown }) =>
+    isScrollDown ? 'var(--headerShadow);' : '0'};
 
+  transition: all 0.5s ease-in-out;
   a {
     color: var(--textColor);
   }
 
   @media screen and (min-width: ${props => props.theme.responsive.sm}) {
-    ${NavWrapper} {
-      padding: 0 1.5rem;
-    }
-
     ${MenuIcon} {
       &:last-child {
         display: none;

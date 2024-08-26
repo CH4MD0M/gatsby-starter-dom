@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import { AnimatePresence, useCycle } from 'framer-motion';
 
@@ -8,32 +8,46 @@ import ToggleMenu from '@components/ToggleMenu';
 import * as S from './style';
 import { FaBars } from 'react-icons/fa';
 
-const Navbar = ({ title }: { title: string }) => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
-  const [hidden, setHidden] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+interface NavbarProps {
+  title: string;
+}
 
-  const detectScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-    setHidden(currentScrollY > 400 && currentScrollY > scrollY);
-    setScrollY(currentScrollY);
-  }, [scrollY]);
+const Navbar = ({ title }: NavbarProps) => {
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isScrollDown, setIsScrollDown] = useState(false);
+
+  const triggerRef = useRef();
+  const navbarRef = useRef();
+
+  const handleIntersect = useCallback(
+    ([entry]: IntersectionObserverEntry[]) => {
+      if (entry.isIntersecting) {
+        setIsScrollDown(false);
+      } else {
+        setIsScrollDown(true);
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
-    window.addEventListener('scroll', detectScroll);
+    const triggerEl = triggerRef.current;
+    const observer = new IntersectionObserver(handleIntersect);
+    observer.observe(triggerEl);
+
     return () => {
-      window.removeEventListener('scroll', detectScroll);
+      triggerEl && observer.unobserve(triggerEl);
     };
-  }, [detectScroll]);
+  });
 
   return (
     <>
-      <S.FixedWrapper isHidden={hidden}>
-        <S.NavWrapper>
+      <S.Trgger ref={triggerRef} />
+      <S.StickyWrapper ref={navbarRef} isScrollDown={isScrollDown}>
+        <S.NavWrapper isScrollDown={isScrollDown}>
           <S.NavTitle>
             <Link to="/">{title}</Link>
           </S.NavTitle>
-
           <S.Menu>
             <S.LinksWrapper>
               <Link to="/categories">categories</Link>
@@ -45,7 +59,7 @@ const Navbar = ({ title }: { title: string }) => {
             </S.MenuIcon>
           </S.Menu>
         </S.NavWrapper>
-      </S.FixedWrapper>
+      </S.StickyWrapper>
       <AnimatePresence>{isOpen && <ToggleMenu />}</AnimatePresence>
       {isOpen && <S.Background onClick={() => toggleOpen()} />}
     </>
