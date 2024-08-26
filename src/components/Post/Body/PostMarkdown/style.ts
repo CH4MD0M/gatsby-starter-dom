@@ -49,7 +49,7 @@ export const MDWrapper = styled.div`
   /* bold */
   b,
   strong {
-    font-weight: bold;
+    font-weight: 400;
 
     .katex {
       font-weight: 900;
@@ -120,6 +120,7 @@ export const MDWrapper = styled.div`
 
   /* paragraph */
   p {
+    font-weight: lighter;
     overflow-x: scroll;
     word-break: break-all;
     ::-webkit-scrollbar {
@@ -179,7 +180,7 @@ export const MDWrapper = styled.div`
   /* italic */
   em {
     padding: 0.16rem 0.48rem;
-    border-radius: 4px;
+    font-weight: 400;
     font-style: italic;
   }
 

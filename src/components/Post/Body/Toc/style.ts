@@ -38,7 +38,7 @@ export const TocItem = styled.div<TocItemProps>`
   margin-top: 0.4rem;
   padding: 0.2rem 0;
   padding-left: ${props => props.ml};
-  font-weight: 300;
+  font-weight: 400;
   color: var(--tocTextColor);
   border-left: 3px solid transparent;
   white-space: nowrap;

@@ -43,5 +43,5 @@ export const Author = styled.span`
 `;
 
 export const Date = styled.span`
-  font-weight: 300;
+  font-weight: 400;
 `;

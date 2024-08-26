@@ -3,6 +3,7 @@ import { lightTheme } from '@assets/prism-light-theme';
 import { darkTheme } from '@assets/prism-dark-theme';
 
 export default createGlobalStyle`${css`
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
   *,
   ::after,
   ::before {
@@ -104,7 +105,10 @@ export default createGlobalStyle`${css`
   body {
     background: var(--bgColor) !important;
     color: var(--textColor);
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system,
+      BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
+      'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   }
 
   a {
