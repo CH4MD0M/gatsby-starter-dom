@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import qs from 'query-string';
+import { isBrowser } from '@utils/isBrowser';
 
-const useQuery = <T extends string | null>(): [T] => {
+export const useQuery = <T extends string | null>(): [T] => {
   const [selectedQuery, setSelectedQuery] = useState<T>(null as T);
 
   let query: string | null = null;
-  if (typeof window !== 'undefined') {
+  if (isBrowser) {
     query = window.location.search;
   }
 
@@ -17,5 +18,3 @@ const useQuery = <T extends string | null>(): [T] => {
 
   return [selectedQuery];
 };
-
-export default useQuery;

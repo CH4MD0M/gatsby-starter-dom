@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useSiteMetaData } from '@hooks/useSiteMetaData';
+import { isBrowser } from '@utils/isBrowser';
 
 // CSS
 import * as S from './style';
@@ -26,7 +27,7 @@ const Bio = () => {
   const { email, github, instagram } = socials;
 
   const profileImageRoot: string =
-    typeof window !== 'undefined' && window.location.host === 'localhost:8000'
+    isBrowser && window.location.host === 'localhost:8000'
       ? 'http://localhost:8000'
       : siteUrl;
 
