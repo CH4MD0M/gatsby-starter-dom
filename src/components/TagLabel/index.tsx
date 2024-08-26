@@ -15,7 +15,7 @@ const TagLabel = ({ tagList }: TagLabelProps) => {
     <S.TagListWrapper>
       {tagList.map((tag, idx) => (
         <S.TagItem key={idx}>
-          <Link to={`/tags?q=${tag}`}>{tag}</Link>
+          <Link to={`/tags?q=${tag}`}>#{tag}</Link>
         </S.TagItem>
       ))}
     </S.TagListWrapper>

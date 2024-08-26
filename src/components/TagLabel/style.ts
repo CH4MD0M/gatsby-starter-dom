@@ -7,18 +7,18 @@ export const TagListWrapper = styled.div`
 `;
 
 export const TagItem = styled.div`
-  box-sizing: border-box;
   display: inline-block;
   margin: 0.5rem;
   margin-left: 0;
   padding: 0.5rem 1rem;
-  border-radius: 16px;
-  color: var(--linkColor);
+  max-width: 150px;
+
   background: var(--tagBgColor);
-  cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
+  white-space: nowrap;
+  border-radius: 6px;
+  cursor: pointer;
   transition: background 0.25s;
 
   &:hover {

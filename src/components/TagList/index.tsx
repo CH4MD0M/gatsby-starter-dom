@@ -18,11 +18,12 @@ interface TagProps {
   selectedTag: string;
 }
 
-const Tag = ({ title, count, selectedTag }: TagProps) => {
+const Tag = ({ title: tagName, count, selectedTag }: TagProps) => {
   return (
-    <Link to={selectedTag === title ? '/tags' : `/tags?q=${title}`}>
-      <S.TagItem active={selectedTag === title}>
-        {title} ({count})
+    <Link to={selectedTag === tagName ? '/tags' : `/tags?q=${tagName}`}>
+      <S.TagItem active={selectedTag === tagName}>
+        <S.TagName>{tagName}</S.TagName>
+        <S.TagCount>({count})</S.TagCount>
       </S.TagItem>
     </Link>
   );

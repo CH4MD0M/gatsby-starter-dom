@@ -6,17 +6,18 @@ interface TagItemProps {
 
 export const TagItem = styled.div<TagItemProps>`
   box-sizing: border-box;
-  display: inline-block;
-  border-radius: 15px;
-  margin: 0 0.5rem;
-  margin-bottom: 1.2rem;
+  display: inline-flex;
+  max-width: 150px;
+  width: fit-content;
+  margin: 0 0.5rem 1.2rem;
   padding: 0.5rem 1rem;
   color: var(--textColor);
   background: var(--tagBgColor);
-  cursor: pointer;
-  overflow: hidden;
+  border-radius: 15px;
   text-overflow: ellipsis;
-  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
   transition: background 0.25s;
 
   &:hover {
@@ -33,6 +34,17 @@ export const TagItem = styled.div<TagItemProps>`
         background: var(--hoveredActiveTagBgColor);
       }
     `}
+`;
+
+export const TagName = styled.span`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  margin-right: 0.2rem;
+`;
+
+export const TagCount = styled.span`
+  flex-shrink: 0;
 `;
 
 export const TagListWrapper = styled.div`
