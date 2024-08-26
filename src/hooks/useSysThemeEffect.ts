@@ -2,14 +2,14 @@ import { useCallback, useEffect } from 'react';
 
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { setTheme } from '@store/modules/darkMode';
-import { getValue } from '@utils/storage';
+import { getLocalStorage } from '@utils/storage';
 
 export const useSysThemeEffect = () => {
   const dispatch = useAppDispatch();
 
   const checkSystemTheme = useCallback((e: MediaQueryListEvent) => {
     const newPrefersColorScheme = e.matches ? 'dark' : 'light';
-    const newTheme = getValue('themeMode') || newPrefersColorScheme;
+    const newTheme = getLocalStorage('themeMode') || newPrefersColorScheme;
     dispatch(setTheme({ themeMode: newTheme, saveToLocalStorage: false }));
   }, []);
 
