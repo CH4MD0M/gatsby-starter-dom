@@ -27,14 +27,21 @@
 
 ```sh
 npm i -g gatsby-cli@4.7.0
+# 또는
+yarn add global gatsby-cli@4.7.0
+```
+```sh
 npx gatsby new my-blog https://github.com/CH4MD0M/gatsby-starter-dom
+# 또는
+yarn create gatsby my-blog https://github.com/CH4MD0M/gatsby-starter-dom
 ```
 
 ### 2. 템플릿 실행하기
 
 ```sh
 cd my-blog
-npm start
+yarn install
+yarn start
 # localhost:8000에서 확인할 수 있습니다.
 ```
 
